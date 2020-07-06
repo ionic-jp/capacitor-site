@@ -11,10 +11,10 @@ contributors:
 
 # App
 
-The App API handles high level App state and events.
+App APIは高レベルのアプリの状態とイベントを処理します。
 
-For example, this API emits events when the app enters and leaves the foreground, handles
-deeplinks, opens other apps, and manages persisted plugin state.
+例えば、このAPIは、アプリケーションがフォアグラウンドに入ったり、フォアグラウンドから出たりするときにイベントを発生させ、
+ディープリンクを処理し、他のアプリケーションを開き、永続的なプラグインの状態を管理します。
 
 <plugin-api index="true" name="app"></plugin-api>
 

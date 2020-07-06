@@ -11,7 +11,7 @@ contributors:
 
 # Status Bar
 
-The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
+StatusBar APIは、ステータスバーのスタイルを表示または非表示に設定するメソッドを提供します。
 
 <plugin-api index="true" name="status-bar"></plugin-api>
 

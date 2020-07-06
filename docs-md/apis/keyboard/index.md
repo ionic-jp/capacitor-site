@@ -11,7 +11,7 @@ contributors:
 
 # Keyboard
 
-The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+Keyboard APIは、キーボードの表示と可視性のコントロール、およびキーボードの表示/非表示時のイベントトラッキングを提供します。
 
 <plugin-api index="true" name="keyboard"></plugin-api>
 

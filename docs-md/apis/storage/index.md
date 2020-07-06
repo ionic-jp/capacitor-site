@@ -11,13 +11,14 @@ contributors:
 
 # Storage
 
-The Storage API provides a key-value store for simple data.
+Storage APIは、単純なデータのkey-valueのストアを提供します。
 
-Mobile OS's may periodically clear data set in `window.localStorage`, so this API should be used instead of `window.localStorage`. This API will fall back to using `localStorage` when running as a Progressive Web App.
+モバイルOSは定期的に `window.localStorage` の値を消去します。そのため、`window.localStorage` に代わるAPIを利用する必要があります。このAPIは
+Mobile OS's may periodically clear data set in `window.localStorage`, so this API should be used instead of `window.localStorage`. このAPIは、Progressive Web Appとして利用すると `localStorage` を利用します。
 
-On iOS this plugin will use [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults) and on Android [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences). Stored data is cleared if the app is uninstalled.
+iOSではこのプラグインは [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults) を利用し、Androidでは  [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences) を利用します。保存したデータはアプリがアンインストールされた時削除されます。
 
-Note: this API is not meant for high-performance data storage applications. Take a look at using SQLite or a separate data engine if your application will store a lot of items, have high read/write load, or require complex querying.
+Note: このAPIは、ハイパフォーマンスのデータストレージアプリケーション向けではありません。アプリケーションに大量のアイテムを格納する場合、読み取り/書き込みの負荷が高い場合、または複雑なクエリーが必要な場合は、SQLiteまたは別のデータ・エンジンを使用する方法を検討してください。
 
 <plugin-api index="true" name="storage"></plugin-api>
 
