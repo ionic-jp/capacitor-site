@@ -2,7 +2,7 @@
 
 # Capacitor Site
 
-The official [Capacitor](https://capacitorjs.com/) documentation, built with [Stencil](https://stenciljs.com).
+The official [Capacitor](https://capacitorjs.jp/) documentation, built with [Stencil](https://stenciljs.com).
 
 
 ## Getting Started

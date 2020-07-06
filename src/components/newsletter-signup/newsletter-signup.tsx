@@ -18,7 +18,7 @@ export class NewsletterSignup {
     let cookie = document.cookie.match(/(hubspotutk=).*?(?=;)/g);
 
     const context: {pageUri: string, pageName: string, hutk?: string} = {
-      "pageUri": "https://capacitorjs.com/",
+      "pageUri": "https://capacitorjs.jp/",
       "pageName": "Capacitor Home"
     }
 

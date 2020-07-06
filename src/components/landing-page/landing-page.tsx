@@ -353,8 +353,8 @@ const MetaHead = () => (
     <meta name="twitter:creator" content="capacitorjs" />
     <meta name="twitter:title" content="Build cross-platform apps with web technologies" />
     <meta name="twitter:description" content="Build cross-platform apps with web technologies" />
-    <meta name="twitter:image" content="https://capacitorjs.com/assets/img/og.png" />
-    <meta property="og:image" content="https://capacitorjs.com/assets/img/og.png" />
-    <meta property="og:url" content="https://capacitorjs.com/" />
+    <meta name="twitter:image" content="https://capacitorjs.jp/assets/img/og.png" />
+    <meta property="og:image" content="https://capacitorjs.jp/assets/img/og.png" />
+    <meta property="og:url" content="https://capacitorjs.jp/" />
   </Helmet>
 )
