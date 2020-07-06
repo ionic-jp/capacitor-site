@@ -15,7 +15,7 @@
     "start": "stencil build --dev --watch --serve",
     "generate": "stencil generate",
     "serve": "stencil build --dev --watch",
-    "netlify": "echo '/* /index.html 200\n/docs/ /docs 200' >> www/_redirects"
+    "netlify": "echo '/* /index.html 200\n/docs/ /docs 200\n/community/ /community 200' >> www/_redirects"
   },
   "devDependencies": {
     "@capacitor/core": "^2.1.2",
