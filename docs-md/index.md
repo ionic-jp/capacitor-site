@@ -19,7 +19,7 @@ contributors:
 
 Capacitorは、Webに焦点を合わせた一貫したAPIのセットを提供します。これにより、アプリがWeb標準にできるだけ近づきながら、それらをサポートするプラットフォーム上の豊富なネイティブデバイス機能にアクセスできます。ネイティブ機能の追加は、iOSのSwift、AndroidのJava、WebのJavaScriptのシンプルなプラグインAPIで簡単に行えます。
 
-Capacitor is a spiritual successor to [Apache Cordova](https://cordova.apache.org/) and [Adobe PhoneGap](https://phonegap.com/), with inspiration from other popular cross-platform tools like [React Native](http://facebook.github.io/react-native/) and [Turbolinks](https://github.com/turbolinks/turbolinks), but focused entirely on enabling modern web apps to run on all major platforms with ease. Capacitor is backward-compatible with many existing [Cordova plugins](https://cordova.apache.org/plugins/).
+Capacitorは、 [Apache Cordova](https://cordova.apache.org/) と [Adobe PhoneGap](https://phonegap.com/) のコンセプトを継いでおり、 [React Native](http://facebook.github.io/react-native/) や [Turbolinks](https://github.com/turbolinks/turbolinks) などの他の人気のあるクロスプラットフォームツールからインスピレーションを得ていますが、最新のウェブアプリをすべての主要なプラットフォームで簡単に実行できるようにすることに完全に焦点を当てています。コンデンサーは多くの既存の [Cordovaプラグイン](https://cordova.apache.org/plugins/) と下位互換性があります。
 
 ## はじめ方
 
