@@ -21,11 +21,11 @@ export class DocsHeader implements ComponentInterface {
       <Host>
         <docs-search></docs-search>
         <div class="docs-header__links">
-          <a {...href('/docs')} class={{ 'active': this.isActive('/docs') }}>Docs</a>
+          <a {...href('/docs')} class={{ 'active': this.isActive('/docs') }}>ドキュメント</a>
           {/* TODO enable this when we move the plugins */}
           {/* <a {...href('/plugins')} class={{ 'active': this.isActive('/plugins') }}>Plugins</a> */}
-          <a {...href('/blog')}>Blog</a>
-          <a {...href('/community')}>Community</a>
+          <a {...href('/blog')}>ブログ</a>
+          <a {...href('/community')}>コミュニティ</a>
         </div>
         <div class="docs-header__link-divider"/>
         <div class="docs-header__external-links">

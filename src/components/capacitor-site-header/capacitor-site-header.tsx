@@ -87,28 +87,28 @@ export class SiteHeader {
                 hovered={(this.hovered || this.forceHovered) === 'features'}
                 onHover={this.setHovered('features')}
                 onExit={this.clearHover}>
-                Features
+                特徴
               </NavLink>
               <NavLink
                 path="/docs"
                 hovered={this.hovered === 'docs'}
                 onHover={this.setHovered('docs')}
                 onExit={this.clearHover}>
-                Docs
+                ドキュメント
               </NavLink>
               <NavLink
                 path="/community"
                 hovered={this.hovered === 'community' || this.forceHovered === 'community'}
                 onHover={this.setHovered('community')}
                 onExit={this.clearHover}>
-                Community
+                コミュニティ
               </NavLink>
               <NavLink
                 path="/blog"
                 hovered={this.hovered === 'blog'}
                 onHover={this.setHovered('blog')}
                 onExit={this.clearHover}>
-                Blog
+                ブログ
               </NavLink>
               <a
                 href="https://ionicframework.com/native"
@@ -118,7 +118,7 @@ export class SiteHeader {
                 class={{
                   'link--hovered': this.hovered === 'enterprise'
                 }}>
-                Enterprise
+                エンタープライズ
               </a>
             </nav>
           </div>
@@ -133,7 +133,7 @@ export class SiteHeader {
                 <path d="M0 12H10M8.75 5.99986L5 9.59995M5 9.59995L1.25 5.99986M5 9.59995L4.99998 0" stroke="white"/>
               </svg>
 
-              Install
+              インストール
             </AnchorButton>
           </div>
         </ResponsiveContainer>

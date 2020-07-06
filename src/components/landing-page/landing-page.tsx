@@ -22,23 +22,23 @@ export class LandingPage {
               <Col md={6} sm={6} xs={6} cols={12}>
                 <hgroup class="hero__heading">
                   <Heading level={1}>
-                    A cross-platform native runtime for web apps.
+                    Webアプリをクロスプラットフォーム化するネイティブライブラリ
                   </Heading>
                   <Heading level={3}>
-                    Capacitor turns any web app into a native app so you can run
-                    one app across iOS, Android, and the Web with the same code.
+                    Capacitorはどんなウェブアプリでもネイティブアプリにすることができるので
+                    iOS、Android、ウェブを横断して同じコードで一つのアプリを走らせることができます。
                   </Heading>
                   <div class="hero__buttons">
                     <AnchorButton href="/docs/getting-started" id="get-started">
-                      Get Started
+                      はじめ方
                     </AnchorButton>
                     <AnchorButton href="/docs" id="explore-docs" class="btn-white">
-                      Explore Docs
+                      ドキュメント
                     </AnchorButton>
                   </div>
                 </hgroup>
                 <div class="cordova-cta">
-                  <a href="/cordova">Migrating from Cordova {"->"}</a>
+                  <a href="/cordova">Cordovaからの移行 {"->"}</a>
                 </div>
                 <img class="hero__platforms" src="/assets/img/supported-icons.png" alt="Supported platforms" />
               </Col>
@@ -55,36 +55,36 @@ export class LandingPage {
           <section class="section--web-apps-to-native">
             <hgroup>
               <Heading level={3}>
-                Connect web apps to<br />
-                <FancyUnderline>native functionality.</FancyUnderline>
+                Webアプリを接続する<br />
+                <FancyUnderline>ネイティブ機能</FancyUnderline>
               </Heading>
             </hgroup>
             <Grid>
               <Col md={4} sm={4} xs={12} cols={12}>
                 <img src="/assets/img/landing/universal-apps.png" alt="Universal apps" />
                 <Heading level={4}>
-                  Universal apps
+                  ユニバーサルアプリ
                 </Heading>
                 <Paragraph>
-                  Build web-based applications that run equally well across iOS, Android, and as Progressive Web Apps.
+                  iOS、Android、およびProgressive Web Appsで同じように動作するWebベースのアプリケーションを構築します。
                 </Paragraph>
               </Col>
               <Col md={4} sm={4} xs={12} cols={12}>
                 <img src="/assets/img/landing/native-access.png" alt="Native access" />
                 <Heading level={4}>
-                  Native access
+                  ネイティブアクセス
                 </Heading>
                 <Paragraph>
-                  Access the full Native SDKs on each platform, and easily deploy to the App Stores (and the web).
+                  各プラットフォームで完全なネイティブSDKにアクセスし、アプリストア（およびWeb）に簡単にデプロイします。
                 </Paragraph>
               </Col>
               <Col md={4} sm={4} xs={12} cols={12}>
                 <img src="/assets/img/landing/native-pwas.png" alt="Native PWAs" />
                 <Heading level={4}>
-                  Native PWAs
+                  ネイティブPWA
                 </Heading>
                 <Paragraph>
-                  Add custom native functionality with a simple Plugin API, or use existing Cordova plugins with our compatibility layer.
+                  簡単に利用できるプラグインAPIでカスタムのネイティブ機能を追加するか、既存のCordovaプラグインを互換性レイヤーで使用します。
                 </Paragraph>
               </Col>
             </Grid>
@@ -92,51 +92,51 @@ export class LandingPage {
           <section class="section--native-features">
             <hgroup>
               <Heading level={3}>
-                Cross-platform core<br />
-                <FancyUnderline>native features</FancyUnderline>
+                クロスプラットフォームのコア<br />
+                <FancyUnderline>ネイティブ機能</FancyUnderline>
               </Heading>
             </hgroup>
             <Grid>
               {[
                 {
                   key: 'camera',
-                  name: 'Camera',
-                  desc: 'Capture, save photos, and configure hardware parameters like focus and white balance.'
+                  name: 'カメラ',
+                  desc: '写真をキャプチャして保存し、フォーカスやホワイトバランスなどのハードウェアパラメータを構成します。'
                 },
                 {
                   key: 'filesystem',
-                  name: 'File System',
-                  desc: 'Save and read assets, documents, and other data your users need by accessing native file systems'
+                  name: 'ファイルシステム\n',
+                  desc: 'ネイティブファイルシステムにアクセスすることで、ユーザーが必要とするアセット、ドキュメント、その他のデータを保存して読み込みます。'
                 },
                 {
                   key: 'geolocation',
-                  name: 'Geolocation',
-                  desc: 'Build location-aware apps by polling for the current device location or subscribing to location updates.'
+                  name: 'ジオロケーション',
+                  desc: '現在のデバイスの場所をポーリングしたり、位置情報の更新を監視することで、位置認識アプリを構築します。'
                 },
                 {
                   key: 'accelerometer',
-                  name: 'Accelerometer',
-                  desc: 'Access the device accelerometer sensors to respond to changes in device motion in 3d space.'
+                  name: '加速度計',
+                  desc: 'デバイスの加速度センサーにアクセスして、3D空間でのデバイスの動きの変化に対応します。'
                 },
                 {
                   key: 'notifications',
-                  name: 'Notifications',
-                  desc: 'Build applications that send and respond to local and server-pushed notifications'
+                  name: '通知',
+                  desc: 'ローカル通知とサーバープッシュ通知を送信・応答するアプリケーションを構築します'
                 },
                 {
                   key: 'haptics',
                   name: 'Haptics',
-                  desc: 'Use haptic hardware to provide physical feedback for user actions'
+                  desc: 'Hapticsハードウェアを使用して、ユーザーアクションの物理的なフィードバックを提供します'
                 },
                 {
                   key: 'accessibility',
-                  name: 'Accessibility',
-                  desc: 'Respond to changes in accessibility states and extend your app with a11y features'
+                  name: 'アクセシビリティ',
+                  desc: 'アクセシビリティの状態の変化に対応し、a11y機能でアプリを拡張します'
                 },
                 {
                   key: 'custom',
-                  name: 'Your Own Plugin',
-                  desc: 'Extend your app with custom native and web code to provide consistent APIs across platforms.'
+                  name: 'YourのPlugin',
+                  desc: 'アプリをカスタムネイティブコードとウェブコードで拡張して、プラットフォーム間で一貫したAPIを提供します。'
                 }
               ].map(f => (
               <Col md={3} sm={3} xs={6} cols={12} key={f.key}>
@@ -154,11 +154,11 @@ export class LandingPage {
           <section class="section--your-framework">
             <hgroup>
               <Heading level={3}>
-                Bring your own web<br />
-                <FancyUnderline>framework.</FancyUnderline>
+                自分で選んだ<br />
+                <FancyUnderline>Webフレームワーク</FancyUnderline>
               </Heading>
               <Paragraph>
-                Drop Capacitor into any existing web app project, framework or library. Convert an existing React, Angular, Svelte, Vue (or your preferred Web Framework) project to native mobile and use any UI library of your choosing.
+                Capacitorを既存のWebアプリプロジェクト、フレームワーク、またはライブラリに導入します。既存のReact、Angular、Svelte、Vue（またはお好みのWebフレームワーク）プロジェクトをネイティブモバイルに変換し、任意のUIライブラリを使うことができます。
               </Paragraph>
             </hgroup>
             <Grid>
@@ -195,12 +195,12 @@ const GettingStartedSection = ({ selectedCodeTab, setSelectedCodeTab}: { selecte
   <section class="section--getting-started">
     <ResponsiveContainer>
       <hgroup>
-        <Heading level={2}>Getting started is easy.</Heading>
+        <Heading level={2}>はじめるのは簡単です。</Heading>
       </hgroup>
       <Grid class="section--getting-started__step">
         <Col cols={1}>01</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Drop Capacitor into any existing web app.</Heading>
+          <Heading level={3}>Capacitorを既存アプリに導入します。</Heading>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
           <code-snippet language="shell-session" code={`
@@ -212,7 +212,7 @@ npx cap init
       <Grid class="section--getting-started__step">
         <Col cols={1}>02</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Install the native platforms you want to target.</Heading>
+          <Heading level={3}>ターゲットにするネイティブプラットフォームをインストールします。</Heading>
           <img src="/assets/img/landing/apple.png" alt="Apple" class="apple" />
           <img src="/assets/img/landing/android.png" alt="Android" class="android" />
         </Col>
@@ -226,7 +226,7 @@ npx cap add android
       <Grid class="section--getting-started__step">
         <Col cols={1}>03</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Access APIs on both native and web, or extend with your own.</Heading>
+          <Heading level={3}>ネイティブとウェブの両方でAPIにアクセスして、機能を拡張します。</Heading>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
           <Tabs>
@@ -234,22 +234,22 @@ npx cap add android
               <TabBarButton
                 selected={selectedCodeTab === 'notifications'}
                 tabSelect={() => setSelectedCodeTab('notifications')}>
-                Notifications
+                通知
               </TabBarButton>
               <TabBarButton
                 selected={selectedCodeTab === 'geolocation'}
                 tabSelect={() => setSelectedCodeTab('geolocation')}>
-                Geolocation
+                位置情報
               </TabBarButton>
               <TabBarButton
                 selected={selectedCodeTab === 'camera'}
                 tabSelect={() => setSelectedCodeTab('camera')}>
-                Camera
+                カメラ
               </TabBarButton>
               <TabBarButton
                 selected={selectedCodeTab === 'custom'}
                 tabSelect={() => setSelectedCodeTab('custom')}>
-                Custom
+                カスタム
               </TabBarButton>
             </TabBar>
             <Tab selected={selectedCodeTab === 'notifications'}>
@@ -338,7 +338,7 @@ public class MyAwesomePlugin: CAPPlugin {
 
 const MetaHead = () => (
   <Helmet>
-    <title>Capacitor: Cross-platform native runtime for web apps</title>
+    <title>Capacitor: Webアプリのためのネイティブなクロスプラットフォームライブラリ</title>
     <meta
       name="description"
       content={'Build iOS, Android, and Progressive Web Apps with HTML, CSS, and JavaScript'}

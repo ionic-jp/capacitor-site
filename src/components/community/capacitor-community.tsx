@@ -13,9 +13,9 @@ export class CapacitorCommunity {
       <Host>
         <ResponsiveContainer>
           <hgroup>
-            <Heading level={1}>Community</Heading>
+            <Heading level={1}>コミュニティ</Heading>
             <Paragraph>
-              Capacitor is a large and growing project with a passionate community. Engage with the Capacitor team and other helpful community members through the forum, Capacitor Community org, and Twitter.
+              Capacitorは、情熱的なコミュニティを持つ大規模で成長中のプロジェクトです。フォーラム、Capacitor Community org、およびTwitterを通じて、Capacitorチームやその他の助けになるコミュニティメンバーと交流してください。
             </Paragraph>
           </hgroup>
           <Grid>
@@ -25,7 +25,7 @@ export class CapacitorCommunity {
               </a>
               <Heading level={2}>GitHub Discussions</Heading>
               <Paragraph>
-                Join the community in discussing new features, asking questions, and help others get started
+                コミュニティに参加して、新機能について話し合ったり、質問をしたり、他の人が始めるのを手伝ったりしてください。
               </Paragraph>
             </Col>
             <Col md={4} sm={4} xs={4} cols={12}>
@@ -34,7 +34,7 @@ export class CapacitorCommunity {
               </a>
               <Heading level={2}>Community Organization</Heading>
               <Paragraph>
-                View a list of curated community plugins to enhance your app even more. From music controls, advanced native HTTP, and more
+                厳選されたコミュニティプラグインのリストを表示して、アプリをさらに強化します。音楽コントロール、高度なネイティブHTTPといったプラグインがあります。
               </Paragraph>
             </Col>
             <Col md={4} sm={4} xs={4} cols={12}>
@@ -43,7 +43,7 @@ export class CapacitorCommunity {
               </a>
               <Heading level={2}>Capacitor Twitter</Heading>
               <Paragraph>
-                Get the latest news and join the community by following us on Twitter
+                Twitterをフォローして、最新のニュースを入手し、コミュニティーに参加してください
               </Paragraph>
             </Col>
           </Grid>
