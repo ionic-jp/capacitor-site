@@ -7,11 +7,11 @@ contributors:
   - jcesarmobile
 ---
 
-# Troubleshooting Android Issues
+# Android の問題のトラブルシューティング
 
-<p class="intro">Creating a 100% perfect native management tool is nearly impossible, and sooner or later you'll run into various issues with some part of the Android workflow.</a>
+<p class="intro">100％完璧なネイティブ管理ツールを作成するのはほぼ不可能です。遅かれ早かれ、Androidワークフローの一部でさまざまな問題に遭遇するでしょう。</p>
 
-<p class="intro">This guide attempts to document common Android issues with possible solutions.</a>
+<p class="intro">このガイドでは、考えられる解決策とともに一般的なAndroidの問題を文書化することを試みます。</p>
 
 ## Android Toolbox
 

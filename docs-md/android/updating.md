@@ -9,7 +9,7 @@ contributors:
 
 # Updating Your Capacitor Android Project
 
-<p class="intro">Occasionally, you'll need to make Capacitor updates to your Android app, including updating the version of Capacitor used in your app, or using new ways of interfacing with Capacitor inside of your Android codebase.</a>
+<p class="intro">アプリで使用しているCapacitorのバージョンを更新したり、Androidコードベース内でCapacitorとやり取りする新しい方法を使用したりするなど、Capacitor Androidアプリを更新する必要があります。</p>
 
 ## Updating Capacitor Android Library
 

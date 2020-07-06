@@ -7,31 +7,31 @@ contributors:
   - jcesarmobile
 ---
 
-# Configuring Android
+# Androidの設定
 
-<p class="intro">Android apps manage permissions, device features, and other settings by modifying <code>AndroidManifest.xml</code>.</p>
+<p class="intro">Androidアプリは、<code>AndroidManifest.xml</code>を変更することで、権限、デバイス機能、その他の設定を管理します。</p>
 
-<p class="intro">This file references values from other files in <code>res/values/</code>, to make it easy to update them separately, including <code>styles.xml</code> and <code>strings.xml</code>.</p>
+<p class="intro">このファイルは、<code>res/values/</code>といった他のファイルの値を参照しており、別々に更新することを容易にするため、これらには <code>styles.xml</code> と <code>strings.xml</code> が含まれます。</p>
 
-<p class="intro">This article covers the basic modifications you'll need to make to your app. Read the <a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html" target="_blank">Android Manifest</a> docs to learn a whole lot more.</p>
+<p class="intro">この記事では、アプリに加える必要がある基本的な変更について説明します。<a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html" target="_blank">Android Manifest</a>ドキュメントを読んで、もっとたくさん学ぶことができます。</p>
 
-## Changing App ID
+## App IDを変更する
 
-To modify the bundle/app id for your app, edit the top `<manifest>` line in `AndroidManifest.xml`:
+アプリのバンドル/アプリIDを変更するには、`AndroidManifest.xml`の一番上の`<manifest>`を更新します:
 
 ```xml
 <manifest package="com.getcapacitor.myapp">
 ```
 
-## Changing App Name
+## App Nameの変更
 
-To change the name of your app, change the value for `app_name` in `strings.xml`:
+アプリ名を変更するには、`strings.xml`の`app_name` の値を変更します:
 
 ```xml
 <string name="app_name">MyApp</string>
 ```
 
-You probably also want to set the Activity name to match the App, for apps that plan to only have one activity (the main web activity running your app):
+また、アクティビティを1つだけにすることを予定しているアプリケーション（アプリケーションを実行している主なWebアクティビティ）の場合は、アクティビティ名をアプリケーションと一致するように設定することをお勧めします:
 
 ```xml
 <string name="title_activity_main">MyApp</string>
@@ -45,26 +45,26 @@ To enable deeplinking through Android App Links, follow the official Android gui
 
 Once configured, the [getLaunchUrl in the App API](/docs/apis/app#method-getLaunchUrl-0) will provide any URL the app was launched with, and the [appUrlOpen event](/docs/apis/app#method-addListener-1) will fire any time the app receives a new App Link deeplink.
 
-## Changing Custom URL
+## カスタムURLを変更する
 
-Your app can respond to custom URLs on launch, making it possible to handle deeplinks and app interactions.
+アプリは起動時にカスタムURLに応答することができるため、ディープリンクやアプリの操作を処理することができます。
 
-To change the URL, search for and modify this line in `strings.xml`. It's recommended to set this to the bundle/app id.
+URLを変更するには、`strings.xml`のこの行を検索します。これをbundle/app idに設定することをお勧めします。
 
 ```xml
 <string name="custom_url_scheme">com.getcapacitor.myapp</string>
 ```
 
-In this example, the app will respond to URLs with the `com.getcapacitor.myapp://` scheme.
+この例では、アプリは`com.getcapacitor.myapp://`スキーマURLに応答します。
 
-To get any custom URL the app may have launched with, see the Deeplinks section above this one.
+アプリの起動に使用したカスタムURLを取得するには、この上の Deeplinks セクションを参照してください。
 
-## Setting Permissions
+## 権限の設定
 
-In Android, permissions your app will need are defined in `AndroidManifest.xml` inside of the `<manifest>` tag, generally at the bottom
-of the file.
+Androidでは、アプリに必要な権限は通常、`AndroidManifest.xml`の`<manifest>`の
+下部に定義されています。
 
-For example, here's what adding Network permissions looks like:
+たとえば、ネットワークのアクセス許可を追加すると次のようになります:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -82,8 +82,8 @@ package="com.getcapacitor.myapp">
 </manifest>
 ```
 
-Generally, the plugin you choose to use will ask you to set a permission. Add it in this file.
+一般的に、あなたが使用することを選択したプラグインはあなたに許可を設定するように求めます。このファイルに追加してください。
 
-## Default Permissions
+## デフォルトPermissions
 
-By default, the entire initial permissions requested for the latest version of Capacitor with the standard plugins can be found in the android-template's [AndroidManifest.xml](https://github.com/ionic-team/capacitor/blob/master/android-template/app/src/main/AndroidManifest.xml)
+デフォルトでは、標準プラグインを使用した最新バージョンのCapacitorに要求される全体の初期許可は、android-templateの [AndroidManifest.xml](https://github.com/ionic-team/capacitor/blob/master/android-template/app/src/main/AndroidManifest.xml) に書かれています。
