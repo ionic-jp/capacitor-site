@@ -82,13 +82,13 @@ export class SiteHeader {
             'site-header__menu--hovered': !!this.hovered || !!this.forceHovered
           }}>
             <nav>
-              <NavLink
-                path="/#features"
-                hovered={(this.hovered || this.forceHovered) === 'features'}
-                onHover={this.setHovered('features')}
-                onExit={this.clearHover}>
-                特徴
-              </NavLink>
+              {/*<NavLink*/}
+              {/*  path="/#features"*/}
+              {/*  hovered={(this.hovered || this.forceHovered) === 'features'}*/}
+              {/*  onHover={this.setHovered('features')}*/}
+              {/*  onExit={this.clearHover}>*/}
+              {/*  特徴*/}
+              {/*</NavLink>*/}
               <NavLink
                 path="/docs"
                 hovered={this.hovered === 'docs'}
