@@ -95,9 +95,9 @@ export class InPageNavigtion {
     const pageLinks = this.pageLinks.filter(pl => pl.level !== 1);
 
     const submitEditLink = (
-       <a class="submit-edit-link" target="_blank" href={`https://github.com/ionic-team/capacitor-site/blob/master/${this.srcUrl}`}>
+       <a class="submit-edit-link" target="_blank" href={`https://github.com/ionic-jp/capacitor-site/blob/master/${this.srcUrl}`}>
          {this.ghIcon()}
-         <span>Submit an edit</span>
+         <span>翻訳に参加</span>
        </a>
     );
 
