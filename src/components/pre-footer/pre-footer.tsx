@@ -16,18 +16,18 @@ export class PreFooter {
             <Col md={6} sm={6} xs={12} cols={12}>
               <a href="/docs">
                 <img src="/assets/img/docs.png" alt="Installation Guide" />
-                <Heading level={4}>Installation Guide <span class="arrow">-&gt;</span></Heading>
+                <Heading level={4}>インストールガイド <span class="arrow">-&gt;</span></Heading>
                 <p>
-                  Install Capacitor and learn how to start building with it
+                  Capacitorをインストールしてアプリを構築する方法を学びます
                 </p>
               </a>
             </Col>
             <Col md={6} sm={6} xs={12} cols={12}>
               <a href="/docs/apis">
                 <img src="/assets/img/native-apis.png" alt="Explore the Native Plugins" />
-                <Heading level={4}>Explore Native Plugins <span class="arrow">-&gt;</span></Heading>
+                <Heading level={4}>ネイティブプラグインを探す <span class="arrow">-&gt;</span></Heading>
                 <p>
-                  Explore Native Plugins that are available to all Capacitor apps
+                  すべてのCapacitorアプリで利用可能なネイティブプラグインを探します
                 </p>
               </a>
             </Col>
