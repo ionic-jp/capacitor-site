@@ -7,16 +7,15 @@ contributors:
   - mlynch
 ---
 
-# Building your App
+# アプリのビルド
 
-<p class="intro">Capacitor works on a three-step build process: First, your web code is built (if necessary). Next, the built web code is copied to each platform. Finally, the app is compiled using the platform-specific tooling.</p>
+<p class="intro">Capacitorは3段階のビルドプロセスで動作します。最初に、あなたのWebコードがビルドされます（必要な場合）。次に、構築したWebコードを各プラットフォームにコピーします。最後に、アプリはプラットフォーム固有のツールを使ってコンパイルされます。</p>
 
-## 1. Building web code
+## 1. Webコードのビルド
 
-Capacitor does not have any built-in feature to build web code. Instead, you will use your framework's build process of choice.
+Capacitorには、Webコードを構築するための組み込み機能はありません。代わりに、あなたは自分のフレームワークのビルドプロセスを選択することができます。
 
-Regardless of your build process, we recommend adding a `build` script to your `package.json` to enable the standard frontend
-build command:
+ビルドプロセスに関係なく、標準のフロントエンドビルドコマンドを有効にするために、package.jsonにbuildスクリプトを追加することをお勧めします:
 
 ```json
 {
@@ -31,38 +30,38 @@ build command:
 npm run build
 ```
 
-This builds your Progressive Web App if you've configured <a href="/docs/basics/progressive-web-app">Progressive Web App</a> support already.
+<stencil-route-link url="/docs/basics/progressive-web-app">Progressive Web App</stencil-route-link> を設定していれば、これでProgressive Web Appをビルドできます。
 
-## 2. Copying Web Code
+## 2. Webコードをコピーする
 
-Once your web code is built, it needs to be copied into each native project:
+作成したWebコードは、各ネイティブプロジェクトにコピーする必要があります:
 
 ```bash
 npx cap copy
 ```
 
-Run this command each time you perform a build and consider adding it to the end of your build script in `package.json`.
+ビルドを実行するたびにこれを実行する必要があります。このコマンドを `package.json` のビルドスクリプトの最後に追加してください。
 
-## 3. Building Native Project
+## 3. Nativeプロジェクトのビルド
 
 ### iOS
 
-iOS relies on Xcode to do the final app compile:
+iOSは、最終的なアプリのコンパイルをXcodeに依存しています。
 
 ```bash
 npx cap copy ios
 npx cap open ios
 ```
 
-Once Xcode launches, you can build your app binary through the standard Xcode workflow.
+Xcodeが起動したら、標準的なXcodeワークフローを使って最終的なアプリバイナリを構築することができます。
 
 ### Android
 
-Android relies on Android Studio (or, optionally, the Android CLI tools) to build the app:
+現在、Androidはアプリの開発をAndroid Studio(または、オプションでAndroid CLIツール)に依存しています。
 
 ```bash
 npx cap copy android
 npx cap open android
 ```
 
-Once Android Studio launches, you can build your app through the standard Android Studio workflow.
+Android Studioが起動したら、標準のAndroid Studioワークフローを使ってアプリを構築することができます。

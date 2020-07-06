@@ -7,20 +7,20 @@ contributors:
   - dotNetkow
 ---
 
-# Using Capacitor Plugins
+# Capacitorプラグインを使う
 
-<p class="intro">Capacitor ships with a number of built-in plugins, such as <a href="https://capacitor.ionicframework.com/docs/apis/camera">Camera</a> and <a href="https://capacitor.ionicframework.com/docs/apis/filesystem">Filesystem</a>.</p>
+<p class="intro">Capacitorには、<a href="https://capacitor.ionicframework.com/docs/apis/camera">Camera</a> や <a href="https://capacitor.ionicframework.com/docs/apis/filesystem">Filesystem</a>など、Capacitor APIと呼ばれる多数の組み込みプラグインが付属しています。</p>
 
-<p class="intro">However, chances are your app will need to access more native functionality than provided out of the box in Capacitor.</p>
+<p class="intro">しかし、あなたのアプリは、Capacitorで提供されているものよりも多くのネイティブ機能にアクセスする必要がある可能性があります。</p>
 
-<p class="intro">Fortunately, you can quickly add your own native functionality by writing a small amount of native code then exposing it as a Capacitor plugin by following the <a href="/docs/plugins">Plugin Guide</a>.</p>
+<p class="intro">少量のネイティブコードを記述できる場合は、<a href="/docs/plugins">Plugin Guide</a>に従って、独自のネイティブ機能をすばやく追加し、Capacitorプラグインとして公開できます。</p>
 
-## Finding Plugins
+## プラグインの検索
 
-The community has built a number of plugins for various native functionality and you can easily add them to your app.
+コミュニティは様々なネイティブ機能のために多数のプラグインを構築しており、それらをあなたのアプリに簡単に追加することができます。
 
-See our [Community Plugins](/docs/community/plugins/) list for some options.
+[Community Plugins](/docs/community/plugins/)リストを参照ください。
 
-## Using Cordova and Ionic Native Plugins
+## CordovaおよびIonic Nativeプラグインの使用
 
-Capacitor also supports a wide range of [Cordova plugins](/docs/cordova/using-cordova-plugins), so there are a lot to choose from.
+Capacitorは幅広い[Cordovaプラグイン](/docs/cordova/using-cordova-plugins)もサポートしているので、選択肢はたくさんあります。
