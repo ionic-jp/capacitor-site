@@ -7,11 +7,11 @@ contributors:
   - mlynch
 ---
 
-# iOS Troubleshooting Guide
+# iOSトラブルシューティングガイド
 
-<p class="intro">Creating a 100% perfect native management tool is nearly impossible, and sooner or later you'll run into various issues with some part of the iOS workflow.</p>
+<p class="intro">100％完璧なネイティブ管理ツールを作成するのはほぼ不可能です。遅かれ早かれiOSワークフローの一部でさまざまな問題に遭遇するでしょう。</p>
 
-<p class="intro">This guide attempts to document common iOS/Xcode issues with possible solutions.</p>
+<p class="intro">このガイドでは、考えられる解決策とともに一般的なiOS / Xcodeの問題を文書化することを試みます。</p>
 
 ## iOS Toolbox
 

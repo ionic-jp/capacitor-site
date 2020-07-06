@@ -1,5 +1,5 @@
 ---
-title: Capacitor iOS Documentation 
+title: Capacitor iOS Documentation
 description: Communicate between JavaScript and Native Swift or Objective-C code
 url: /docs/ios
 contributors:
@@ -7,57 +7,57 @@ contributors:
   - mlynch
 ---
 
-# Capacitor iOS Documentation
+# Capacitor iOS ドキュメンテーション
 
-<p class="intro">Capacitor features a native iOS bridge that enables developers to communicate between JavaScript and Native Swift or Objective-C code.</p>
+<p class="intro">CapacitorはネイティブのiOSブリッジを特徴としており、開発者はJavaScriptとNative SwiftまたはObjective-Cコードとの間で通信できます。</p>
 
-<p class="intro">Capacitor iOS apps are configured and managed through Xcode, with dependencies managed by CocoaPods.</p>
+<p class="intro">Capacitor iOSアプリは、Xcodeを通じて設定、管理し、CocoaPodsが依存関係を管理します。</p>
 
 ## Getting Started
 
-Building iOS apps requires some iOS development dependencies to be installed, including Xcode 11 and the Xcode command line tools.
+iOSアプリを構築するには、Xcode11やXcodeコマンドラインツールなど、いくつかのiOS開発依存関係をインストールする必要があります。
 
-> Note: It's possible to develop and build iOS apps without a Mac, such as by using Ionic Appflow's <a href="https://ionicframework.com/docs/appflow/package/intro" target="_blank">Package feature</a>. Consult your service of choice for more information.
+Note: Ionic AppflowのPackageサービスを利用するなど、Macを使わずにiOSアプリを開発、ビルドすることも可能です。詳細については、選択したサービスを参照してください。
 
-### Creating iOS App
+### iOSアプリの作成
 
-By default, an iOS project is created for every Capacitor project. If you are adding Capacitor to an existing
-project, you can manually add the iOS project using:
+デフォルトでは、すべてのCapacitorプロジェクトに対してiOSプロジェクトが作成されます。
+既存のプロジェクトにCapacitorを追加する場合は、次を使用してiOSプロジェクトを手動で追加できます。
 
 ```bash
 npx cap add ios
 npx cap sync
 ```
 
-The `sync` command updates dependencies, and copies any web assets to your project. You can also run:
+`sync` コマンドは依存関係を更新し、Webアセットをプロジェクトにコピーします。このように実行することもできます:
 
 ```bash
 npx cap copy
 ```
 
-To copy web assets only, which is faster if you know you don't need to update native dependencies.
+Webアセットのみをコピーするだけで、ネイティブの依存関係を更新する必要がないことがわかっている場合にこのコマンドを使えば高速になります。
 
-### Opening iOS Project
+### iOSプロジェクトを開く
 
-To open the project in Xcode, run:
+プロジェクトをXcodeで開く時、実行してください。
 
 ```bash
 npx cap open ios
 ```
 
-### Running Your App
+### アプリの実行
 
-Once Xcode is open, just click the Play button to run your app on a Simulator or Device. 
+Xcodeを開いたら、 Playボタンをクリックして、シミュレータ、またはデバイス上でアプリを実行します。
 
 ![Running your app](/assets/img/docs/ios/running.png)
 
-## Next steps
+## 次のステップ
 
-You are now ready to continue developing and building your app. Use the various APIs available, Capacitor or Cordova plugins, or custom native code to build out the rest of your app.
+アプリケーションが動作したら、アプリケーションの開発と構築を続ける準備ができています。使用可能なさまざまなAPI、Capacitorプラグイン、Cordovaプラグイン、またはカスタムネイティブコードを使用して、残りのアプリケーションを構築します。
 
-## Further Reading 
+## Further Reading
 
-Follow these guides for more information on each topic:
+各トピックの詳細は、次のガイドを参照してください:
 
 [Configuring and setting permissions for iOS &#8250;](/docs/ios/configuration)
 
