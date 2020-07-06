@@ -14,22 +14,22 @@ load a responsive photo-taking experience when running on the web:</p>
 
 <img src="/assets/img/docs/pwa-elements.png" style="height: 200px" />
 
-This UI is implemented using web components. Due to the magic of Shadow DOM, these components should not conflict
-with your own UI.
+このUIは、Web Componentsを使って実装されています。
+Shadow DOMの魔法により、これらのコンポーネントを使用するかどうかにかかわらず、これらのコンポーネントが独自のUIと競合することはありません。
 
-## Installation
+## インストール
 
-To enable these controls, you must add `@ionic/pwa-elements` to your app. 
+これらを操作するため、あなたは `@ionic/pwa-elements` をアプリに追加しないといけません。
 
-A typical installation involves importing the package and registering the elements, or adding a script tag to the `<head>` of the `index.html` for your app:
+典型的なインストールはパッケージをインポートしてElementを登録することですが、あなたのアプリケーションで、`index.html`の`<head>`にscriptタグを追加することもできます:
 
-#### Importing PWA Elements
+#### PWA Elementsのインポート
 
 ```bash
 npm install @ionic/pwa-elements
 ```
 
-Then, depending on your framework of choice, import the element loader and call it at the correct time:
+次に、選択したフレームワークに応じて、エレメントローダーをインポートして正しいタイミングで呼び出します:
 
 _React_
 
@@ -70,7 +70,7 @@ defineCustomElements(window);
 
 #### Including through script tag
 
-PWA Elements can be included through a script tag in your `index.html`. However, keep in mind this will not work for offline scenarios:
+PWA Elementsはあなたの `index.html`の中のscriptタグを通して呼び出すこともできます。ただし、これはオフラインのシナリオでは機能しません:
 
 ```html
 <script type="module" src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"></script>
