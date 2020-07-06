@@ -3,25 +3,25 @@ title: Using Cordova Plugins and Ionic Native
 description: Using Cordova Plugins and Ionic Native
 url: /docs/cordova/using-cordova-plugins
 contributors:
-  - dotNetkow
+  - dotnetkow
 ---
 
-# Using Cordova Plugins and Ionic Native
+# Cordova Plugins と Ionic Native を使う
 
-<p class="intro">When developing an app that uses Capacitor, it's possible to use both Cordova and Ionic Native plugins.</p>
+<p class="intro">Capacitorを使ったアプリを開発するとき、CordovaとIonic Nativeの両方のプラグインを使うことができます。</p>
 
-## Installing Cordova Plugins
+## Cordova Pluginsのインストール
 
-Simply install your plugin of choice, sync your project, finish any required native project configuration, and you're ready to go:
+選択したプラグインをインストールし、プロジェクトを同期し、必要なネイティブプロジェクト構成を完了するだけで、次の作業を開始できます:
 
 ```bash
 npm install cordova-plugin-name
 npx cap sync
 ```
 
-## Updating Cordova Plugins
+## Cordova Pluginsのアップデート
 
-Similar to the installation steps. Simply update the cordova plugin to the latest version then Capacitor will pick up the changes:
+インストール手順と同様です。cordovaプラグインを最新バージョンにアップデートするだけで、変更が反映されます。
 
 ```bash
 npm install cordova-plugin-name@latest
@@ -30,8 +30,8 @@ npx cap update
 
 If you don't want to risk to introduce breaking changes, use `npm update cordova-plugin-name` instead of `@latest` as `update` respects semver.
 
-## Installing Ionic Native Plugins
-[Ionic Native](https://ionicframework.com/docs/native) provides TypeScript wrappers and a consistent API and naming convention for easier development with Cordova plugins. It's supported in Capacitor, so whenever you find an Ionic Native wrapper you'd like to use, install the JavaScript code, install the corresponding Cordova plugin, then sync your project:
+## Ionic Native Pluginsのインストール
+[Ionic Native](https://ionicframework.com/docs/native) は、Cordovaプラグインを使用した開発を容易にするために、TypeScriptラッパーと一貫したAPIおよび命名規則を提供します。これはCapacitorでサポートされているので、使いたいIonic Nativeラッパーが見つかったら、JavaScriptコードをインストールし、対応するCordovaプラグインをインストールし、プロジェクトを同期させます:
 
 ```bash
 npm install @ionic-native/javascript-package-name
@@ -39,9 +39,9 @@ npm install cordova-plugin-name
 npx cap sync
 ```
 
-## Updating Ionic Native Plugins
+## Ionic Native Pluginsのアップデート
 
-Similiar to the installation steps. Update the Ionic Native JavaScript library, remove then re-add the Cordova plugin, then update your project:
+インストール手順に従います。Ionic Native JavaScriptライブラリを更新し、Cordovaプラグインを削除してから再追加し、プロジェクトを更新します。
 
 ```bash
 npm install @ionic-native/javascript-package-name@latest
@@ -59,12 +59,16 @@ See the list of Capacitor and Cordova plugins (and their exact version numbers) 
 npx cap ls
 ```
 
-## Important: Configuration 
+## 重要: 設定方法 
 
-Capacitor does not support Cordova install variables, auto configuration, or hooks, due to our philosophy of letting you control your native project source code (meaning things like hooks are unnecessary). If your plugin requires variables or settings to be set, you'll need to apply those configuration settings manually by mapping between the plugin's `plugin.xml` and required settings on iOS and Android.
+CapacitorはCordovaのインストール変数、自動設定、フックをサポートしていません。これはネイティブプロジェクトのソースコード(フックのようなものが不要であることを意味する)をコントロールできるようにするという哲学によるものです。プラグインで変数や設定を設定する必要がある場合は、プラグインと`plugin.xml`間をマッピングして、これらの設定を手動で適用する必要があります。これは、iOSとAndroidで必要な設定です。
 
+<<<<<<< HEAD
+各プラットフォームの設定方法については [iOS](../ios/configuration) と [Android](../android/configuration) の構成ガイドを参照してください。
+=======
 Consult the [iOS](/docs/ios/configuration) and [Android](/docs/android/configuration) configuration guides for info on how to configure each platform.
+>>>>>>> 22d9a091545563ed553975a4936c0681a4858441
 
-## Compatibility Issues
+## 非互換の課題
 
-Some Cordova plugins don't work with Capacitor or Capacitor provides a conflicting alternative. [See here](/docs/cordova/known-incompatible-plugins) for details and a known incompatibility list.
+Cordovaプラグインの中には、Capacitorで動作しないものや、競合する代替品を提供するものがあります。 非互換のリストについて詳しく知りたい場合は[こちらをご覧ください](/docs/cordova/known-incompatible-plugins)。

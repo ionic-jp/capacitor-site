@@ -3,16 +3,16 @@ title: Known Incompatible Cordova Plugins
 description: Known Incompatible Cordova Plugins
 url: /docs/cordova/known-incompatible-plugins
 contributors:
-  - dotNetkow
+  - dotnetkow
 ---
 
-# Known Incompatible Cordova Plugins
+# 既知の互換性のないCordovaプラグイン
 
-<p class="intro">While we've tested a number of popular Cordova plugins, it's possible Capacitor doesn't support every Cordova plugin. Some don't work with Capacitor or Capacitor provides a conflicting alternative. If it's known that the plugin is conflicting or causes build issues, it will be skipped when running <code>npx cap update</code>.</p>
+<p class="intro">人気のあるCordovaプラグインをいくつかテストしましたが、CapacitorがすべてのCordovaプラグインをサポートしていない可能性もあります。Capacitorと一緒に動作しないものもあれば、競合する代替手段を提供するものもあります。プラグインが競合しているか、ビルドに問題があることがわかっている場合は、<code>npx cap update</code>の実行時にスキップされます。</p>
 
-<p class="intro">If you find an issue with an existing Cordova plugin, please <a href="https://github.com/ionic-team/capacitor/issues/new" target="_blank">let us know</a> by providing the issue's details and plugin information.<p class="intro">
+<p class="intro">既存のCordovaプラグインに問題がある場合は、その問題の詳細とプラグイン情報を<a href="https://github.com/ionic-team/capacitor/issues/new" target="_blank">お知らせください</a>。</p>
 
-## Known incompatible plugins (Subject to change)
+## 既知の互換性のないCordovaプラグイン (Subject to change)
 
 - cordova-plugin-add-swift-support (not needed, Capacitor has built in Swift support)
 - cordova-plugin-admobpro ([see details](https://github.com/ionic-team/capacitor/issues/1101))
