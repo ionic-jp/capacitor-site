@@ -22,7 +22,7 @@ export class LandingPage {
               <Col md={6} sm={6} xs={6} cols={12}>
                 <hgroup class="hero__heading">
                   <Heading level={1}>
-                    Webアプリをクロスプラットフォーム化するネイティブライブラリ
+                    Webアプリをクロスプラットフォームに展開。
                   </Heading>
                   <Heading level={3}>
                     Capacitorはどんなウェブアプリでもネイティブアプリにすることができるので
