@@ -9,27 +9,27 @@ contributors:
 
 # Capacitor Plugins
 
-Capacitor includes a number of native plugin APIs that are available to all Capacitor apps. These can be thought of as Capacitor "core plugins," and they make it easy to access commonly needed functionality on each platform.
+Capacitorには、すべてのCapacitorアプリで利用できるいくつかのネイティブなプラグインAPIが含まれている。これらはCapacitor「コアプラグイン」と考えることができ、各プラットフォームで共通に必要な機能に簡単にアクセスできるようにします。
 
-For those coming from Cordova, the core Capacitor plugins cover much of the core Cordova plugins, and also include some new ones.
+Cordovaから来た人のために、コアCapacitorプラグインはコアCordovaプラグインの多くをカバーし、いくつかの新しいものも含んでいる。
 
-See the Plugins list on the left menu for the full list of available plugins.
+使用可能なプラグインの完全なリストについては、左のメニューの 「プラグイン」 リストを参照してください。
 
-## API Usage
+## APIの使い方
 
-To use a Capacitor plugin, follow these steps:
+Capacitorプラグインを使うには以下の手順となります:
 
-1) Import the `Plugins` object. It represents the registry of all Capacitor plugins.
+1) `Plugins` オブジェクトをインポートします。これはすべてのCapacitorプラグインのレジストリとなります。
 ```typescript
 import { Plugins } from '@capacitor/core';
 ```
 
-2) Get a plugin from the Plugin Registry (`Plugins` object).
+2) プラグインレジストリ (`Plugins` オブジェクト)から利用するプラグインを取得します。
 ```typescript
 const { Browser } = Plugins;
 ```
 
-3) Use the plugin API:
+3) プラグインのAPIをご利用ください:
 ```typescript
 async openBrowser() {
   // On iOS, for example, open the URL in SFSafariViewController (the in-app browser)
@@ -37,7 +37,7 @@ async openBrowser() {
 }
 ```
 
-A common mistake is to import a plugin directly, then use the plugin API immediately, resulting in the web implementation being used:
+よくある間違いは、プラグインを直接インポートしてすぐにプラグインAPIを使用すると、Webだけで動作する実装が使用されてしまうことです:
 ```typescript
 import { Browser } from '@capacitor/core';
 
@@ -48,4 +48,4 @@ async openBrowser() {
 }
 ```
 
-By using the plugins from the plugin registry (`Plugins` object), the native implementation of the plugin is used (if available), with fallback to the web version.
+プラグインレジストリ(`Plugins` オブジェクト)のプラグインを使用することで、プラグインのネイティブ実装が(利用可能な場合)使用され、Webバージョンにフォールバックします。
