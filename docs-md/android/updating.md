@@ -102,7 +102,7 @@ Recommended changes:
   When you open the Android project in Android Studio, a `Plugin Update Recommended` message will appear. Click on `update`. It will tell you to update Gradle plugin and Gradle. Click `Update` button.
 
   You can also manually update the Gradle plugin and Gradle.
-  
+
   To manually update Gradle plugin, edit `android/build.gradle` file. Change `classpath 'com.android.tools.build:gradle:3.3.2'` to `classpath 'com.android.tools.build:gradle:3.6.1'`.
 
   To manually update Gradle, edit `android/gradle/wrapper/gradle-wrapper.properties`. Change `gradle-4.10.1-all.zip` to `gradle-5.6.4-all.zip`.

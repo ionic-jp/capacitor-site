@@ -41,7 +41,7 @@ public class CustomNativePlugin extends Plugin {
     // More code here...
     call.success();
   }
-  
+
   @PluginMethod()
   public void customFunction(PluginCall call) {
     // More code here...
@@ -83,7 +83,7 @@ CustomNativePlugin.customFunction();
 // Other codes...
 ```
 
-より詳しいプラグインAPIの使い方を知るには [Capacitor Android Plugin Guide](https://capacitor.ionicframework.com/docs/plugins/android/) をご覧ください。
+より詳しいプラグインAPIの使い方を知るには [Capacitor Android Plugin Guide](https://capacitorjs.com/docs/plugins/android) をご覧ください。
 
 ## プライベート Native Code
 

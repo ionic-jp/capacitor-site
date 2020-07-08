@@ -9,7 +9,7 @@ contributors:
 
 # Capacitorプラグインを使う
 
-<p class="intro">Capacitorには、<a href="https://capacitor.ionicframework.com/docs/apis/camera">Camera</a> や <a href="https://capacitor.ionicframework.com/docs/apis/filesystem">Filesystem</a>など、Capacitor APIと呼ばれる多数の組み込みプラグインが付属しています。</p>
+<p class="intro">Capacitorには、<a href="https://capacitorjs.com/docs/apis/camera">Camera</a> や <a href="https://capacitorjs.com/docs/apis/filesystem">Filesystem</a>など、Capacitor APIと呼ばれる多数の組み込みプラグインが付属しています。</p>
 
 <p class="intro">しかし、あなたのアプリは、Capacitorで提供されているものよりも多くのネイティブ機能にアクセスする必要がある可能性があります。</p>
 
