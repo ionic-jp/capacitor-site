@@ -11,7 +11,7 @@ import { Tabs, Tab, TabBar, TabBarButton } from '../tabs';
 })
 export class CordovaLandingPage {
   @State() selectedCodeTab: string = 'before' ;
-  
+
   render() {
     return (
       <Host>
@@ -22,13 +22,13 @@ export class CordovaLandingPage {
               <Col md={12} sm={12} xs={12} cols={12}>
                 <hgroup class="hero__heading">
                   <Heading level={2}>
-                    Cordova to Capacitor Migration
+                    Capacitorへのマイグレーション
                   </Heading>
                   <Heading level={3}>
-                  A modern development experience and 99% backward-compatibility with Cordova.
+                  Capacitorによるモダンな開発経験とCordovaとの99％の下位互換性
                   </Heading>
                   <AnchorButton href="#code-branch" id="get-started">
-                      Get Started
+                      はじめ方
                   </AnchorButton>
                 </hgroup>
               </Col>
@@ -54,9 +54,9 @@ const GettingStartedSection = ({ selectedCodeTab, setSelectedCodeTab}: { selecte
       <Grid class="section--getting-started__step">
         <Col cols={1}>01</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3} id="code-branch">Create a new code branch.</Heading>
+          <Heading level={3} id="code-branch">新しいブランチを作成します。</Heading>
           <Paragraph>
-            Recommended, but not required.
+            推奨ですが、必須ではありません。
           </Paragraph>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
@@ -69,9 +69,9 @@ git checkout -b cap-migration
       <Grid class="section--getting-started__step">
         <Col cols={1}>02</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Install Capacitor.</Heading>
+          <Heading level={3}>Capacitorをインストール。</Heading>
           <Paragraph>
-            Create the Capacitor app using the Cordova app's name and id found in `config.xml`.
+            `config.xml` にあるCordovaアプリの名前とIDを使用してCapacitorアプリを作成します。
           </Paragraph>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
@@ -84,10 +84,10 @@ npx cap init [name] [id]
       <Grid class="section--getting-started__step">
         <Col cols={1}>03</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Build the Web App.</Heading>
+          <Heading level={3}>Webアプリをビルドします。</Heading>
           <Paragraph>
-            The compiled web assets will be copied into each Capacitor native platform 
-            during the next step.
+            コンパイルされたWebアセットは、
+            次のステップでCapacitorの各ネイティブプラットフォームにコピーされます。
           </Paragraph>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
@@ -103,13 +103,13 @@ ionic build
       <Grid class="section--getting-started__step">
         <Col cols={1}>04</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Install the native platforms you want to target.</Heading>
+          <Heading level={3}>ターゲットにするネイティブプラットフォームをインストール。</Heading>
           <img src="/assets/img/landing/apple.png" alt="Apple" class="apple" />
           <img src="/assets/img/landing/android.png" alt="Android" class="android" />
           <Paragraph>
-          Capacitor native projects exist in their own top-level folders and should be considered 
-          part of your app (check them into source control).
-          Any existing Cordova plugins are automatically installed into each native project. 🎉
+            Capacitorネイティブプロジェクトは独自の最上位フォルダーに存在し、アプリの一部と見なされます
+            （ソース管理にチェックインします）。
+            既存のCordovaプラグインは、各ネイティブプロジェクトに自動的にインストールされます。🎉
           </Paragraph>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
@@ -122,10 +122,10 @@ npx cap add ios
       <Grid class="section--getting-started__step">
         <Col cols={1}>05</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Recreate Splash Screens and Icons.</Heading>
+          <Heading level={3}>スプラッシュスクリーンとアイコンの再作成。</Heading>
           <Paragraph>
-          Reuse the existing splash screen/icon images, located in the top-level `resources` folder of your Cordova project, 
-          using the `cordova-res` tool. Images are copied into each native project.
+          `cordova-res` ツールを使用して、Cordovaプロジェクトの最上位の `resources` フォルダにある
+          既存のスプラッシュスクリーン/アイコン画像を再利用します。画像は各ネイティブプロジェクトにコピーされます。
           </Paragraph>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
@@ -140,13 +140,13 @@ cordova-res android --skip-config --copy
       <Grid class="section--getting-started__step">
         <Col cols={1}>06</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Audit existing Cordova plugins.</Heading>
+          <Heading level={3}>既存のCordovaプラグインを監査。</Heading>
           <Paragraph>
-          Review all of Capacitor's <a href="/docs/apis" target="_blank">core</a> and <a href="/docs/community/plugins" target="_blank">community</a> plugins. 
-            You may be able to switch to the Capacitor-equivalent Cordova plugin, such as the Camera.
+            Capacitorのすべての<a href="/docs/apis" target="_blank">コア</a>プラグインと<a href="/docs/community/plugins" target="_blank">コミュニティプラグイン</a>を確認します。
+            カメラなど、Cordovaと同等のCapacitorプラグインに切り替えることができる場合があります。
           </Paragraph>
           <Paragraph>
-            Remove unneeded ones to improve performance and reduce app size.
+            不要なものを削除して、パフォーマンスを向上させ、アプリのサイズを小さくします。
           </Paragraph>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
@@ -204,9 +204,9 @@ const photo = await Camera.getPhoto({
       <Grid class="section--getting-started__step">
         <Col cols={1}>07</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Remove Cordova from your project.</Heading>
+          <Heading level={3}>プロジェクトからCordovaを削除。</Heading>
           <Paragraph>
-          After successful migration testing, Cordova can be removed from the project.
+            移行テストが成功したら、Cordovaをプロジェクトから削除できます。
           </Paragraph>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
@@ -225,11 +225,11 @@ rm -R plugins/
       <Grid class="section--getting-started__step">
         <Col cols={1}>08</Col>
         <Col md={5} sm={5} xs={5} cols={12}>
-          <Heading level={3}>Continue your Capacitor Journey.</Heading>
+          <Heading level={3}>Capacitorの旅を続けよう。</Heading>
           <Paragraph>
-          This is only the beginning. Learn more about <a href="/docs/cordova/using-cordova-plugins" target="_blank">using Cordova plugins</a> in 
-          a Capacitor project, check out the Capacitor <a href="/docs/basics/workflow" target="_blank">development workflow</a>, or 
-          create your own <a href="/docs/plugins" target="_blank">native plugin</a>.
+            これは序章に過ぎません。Capacitorプロジェクトでの<a href="/docs/cordova/using-cordova-plugins" target="_blank">Cordovaプラグイン</a>の使い方、
+            Capacitorの<a href="/docs/basics/workflow" target="_blank">開発フロー</a>、
+            自分自身の<a href="/docs/plugins" target="_blank">ネイティブプラグイン</a>のつくり方を学びましょう.
           </Paragraph>
         </Col>
         <Col md={6} sm={6} xs={6} cols={12}>
@@ -250,11 +250,11 @@ npx @capacitor/cli plugin:generate
 const MoreResourcesSection = () => (
   <ResponsiveContainer class="section--more-resources">
     <hgroup>
-      <Heading level={3}>More Resources</Heading>
+      <Heading level={3}>その他のリソース</Heading>
       <Paragraph>
-        Explore these resources to learn more about Capacitor
+        これらのリソースを調べて、Capacitorの詳細を学び
         <br />
-        and make your Cordova migration easier.
+        Cordovaからの移行を容易にしてください。
       </Paragraph>
     </hgroup>
     <more-resources resources={[
