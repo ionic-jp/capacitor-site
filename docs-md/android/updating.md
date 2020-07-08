@@ -11,19 +11,20 @@ contributors:
 
 <p class="intro">アプリで使用しているCapacitorのバージョンを更新したり、Androidコードベース内でCapacitorとやり取りする新しい方法を使用したりするなど、Capacitor Androidアプリを更新する必要があります。</p>
 
-## Updating Capacitor Android Library
+## Capacitor Androidライブラリのアップデート
 
-To update the version of @capacitor/android used in your app, just npm install latest version:
+あなたのアプリで使ってる @capacitor/android のバージョンをあげる場合、npmで最新版をインストール必要があります:
 
 ```bash
 npm install @capacitor/android@latest
 ```
 
-Then from Android Studio click the "Sync Project with Gradle Files" button.
+そしてAndroid Studioの "Sync Project with Gradle Files" ボタンをクリックください。
 
-## Updating Android Project
+## Android Projectのアップデート
 
-To update the base structure of your Android project, view the [android-template](https://github.com/ionic-team/capacitor/tree/master/android-template) project in the Capacitor repo, under the tag corresponding to the latest stable release of Capacitor. The core project is kept simple on purpose: it shouldn't take much time to see what is different from the core project and your project.
+
+Xcodeプロジェクトのベース構造を更新するには、Capacitorリポジトリで、Capacitorの最新の安定リリースに対応するタグの下にある [android-template](https://github.com/ionic-team/capacitor/tree/master/android-template) プロジェクトを参照してください。コアプロジェクトは意図的にシンプルに保たれているため、コアプロジェクトやプロジェクトとの違いを確認するのにそれほど時間はかからないはずです。
 
 ### From 1.0.0 to 1.1.0
 

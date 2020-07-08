@@ -39,11 +39,11 @@ contributors:
 
 ## Deeplinks (aka Android App Links)
 
-> For a complete Deep Links guide, [see here](/docs/guides/deep-links).
+> Deep Linksの詳しいガイドは [こちら](/docs/guides/deep-links) をご覧ください。
 
-To enable deeplinking through Android App Links, follow the official Android guide on [Adding Android App Links](https://developer.android.com/studio/write/app-link-indexing). Android Studio comes with a handy wizard for configuring App Links.
+Android App LinksでDeeplinksを有効にするには、公式Androidガイドの [Adding Android App Links](https://developer.android.com/studio/write/app-link-indexing)を参照してください。Android Studioには、App Linksを設定するための便利なウィザードが付属しています。
 
-Once configured, the [getLaunchUrl in the App API](/docs/apis/app#method-getLaunchUrl-0) will provide any URL the app was launched with, and the [appUrlOpen event](/docs/apis/app#method-addListener-1) will fire any time the app receives a new App Link deeplink.
+設定が完了すると、[App APIのgetLaunchUrl](/docs/apis/app#method-getLaunchUrl-0) はアプリが起動されたURLを提供し、[appUrlOpenイベント](/docs/apis/app#method-addListener-1) はアプリが新しいApp Linkディープリンクを受信すると起動します。
 
 ## カスタムURLを変更する
 

@@ -21,7 +21,7 @@ Capacitor は [yarn](https://yarnpkg.com) をサポートしています。
 
 ## iOS開発
 
-For building iOS apps, Capacitor requires a **Mac with Xcode 11 or above**. Or you can use [Ionic Appflow](http://ionicframework.com/appflow) to build for iOS even if you're on Windows.
+iOSアプリをビルドするには、Capacitorは **Xcode 11以上をインストールしたMacが必要です**. または、[Ionic Appflow] (http://ionicframework.com/appflow)を使ってWindowsであってもiOS用にビルドできます。
 
 さらに、 **[CocoaPods](https://cocoapods.org/)** (`sudo gem install cocoapods`)と **Xcode Command Line tools** ツール(Xcodeから実行するか、 `xcode-select --install`)をインストールする必要があります。
 
@@ -37,4 +37,4 @@ Android開発には、**[Android Studio](https://developer.android.com/studio/in
 
 CapacitorのAndroidバージョンのサポートはiOSよりも複雑です。現在、APIレベル21以上、つまりAndroid 5.0(ロリポップ)以上をターゲットにしています。[May 2019時点で](https://developer.android.com/about/dashboards)、Android市場の89%以上を占めています。
 
-Also, Capacitor requires an Android WebView with Chrome version 50 or later. On Android 5 and 6, the Capacitor uses the System WebView. On Android 7+, Google Chrome is used.
+また、CapacitorにはChromeバージョン50以降のAndroid WebViewが必要です。Android 5と6では、CapacitorはSystem WebView.使います。Android 7+ではGoogle Chromeが使われています。

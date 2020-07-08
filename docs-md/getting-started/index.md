@@ -18,8 +18,7 @@ contributors:
 
 ## はじめる前に
 
-Make sure you have all the required [Dependencies](/docs/getting-started/dependencies) installed for the platforms you will be building for. Most importantly,
-make sure you update CocoaPods using `pod repo update` before starting a new project, if you plan on building for iOS using a Mac.
+構築するプラットフォームに[必要な依存関係](/docs/getting-started/dependencies)がすべてインストールされていることを確認してください。最も重要なのは、Macを使ってiOS用にビルドする予定の場合、新しいプロジェクトを始める前に必ず `pod repo update` を使ってCocoaPodsをアップデートすることです。
 
 ## 既存のIonicアプリにCapacitorを追加する
 

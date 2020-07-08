@@ -37,13 +37,13 @@ Entitlementsは、アプリが必要とする可能性がある主な機能を�
 
 特定の設定オプションや使用方法の説明とは異なり、Entitlementsは`Info.plist`とは異なり、Xcode内の特別な領域で設定されます。
 
-If a plugin requires certain entitlements, open your app in Xcode, click on the name of your project in the left project menu, and select `Capabilities` in the tab bar.
+プラグインに特定の権限が必要な場合は、Xcodeでアプリケーションを開き、左側のプロジェクトメニューでプロジェクト名をクリックし、タブバーで `Capabilities` を選択します。
 
-## Renaming the application's default `App` name
+## アプリケーションのデフォルト名 `App` を変更する
 
-You can't rename the App folder, but you can set the name of your app by renaming the "target" called "App".
+Appフォルダ名を変更することはできませんが、"App"という"target"の名前を変更することはできます。
 
-In XCode you will see something like this:
+XCodeでは、以下のようになります:
 ```
 PROJECT
   App
@@ -51,12 +51,12 @@ PROJECT
 TARGET
   App
 ```
-Here you can click on the name "App" under TARGET to rename your app.
+TARGETの下にある"App"という名前をクリックすると、アプリの名前を変更できます。
 
-You then also have to modify the Podfile to rename the current target accordingly:
+また、Podfileを変更して、現在のTARGETの名前を適宜変更する必要があります。
 
-The default Podfile has an `'App'` target, which needs to be replaced with <a href="https://github.com/ionic-team/capacitor/blob/master/ios-template/App/Podfile#L16" target="_blank">your new name here.</a>
+デフォルトのPodfileには `'App'` ターゲットがありますが、<a href="https://github.com/ionic-team/capacitor/blob/master/ios-template/App/Podfile#L16" target="_blank">ここで新しい名前に置き換える</a>必要があります。
 
 ## Deeplinks (aka Universal Links)
 
-For a complete Deep Links guide, [see here](/docs/guides/deep-links).
+Deep Linksのガイドは [こちら](/docs/guides/deep-links) をご覧ください。

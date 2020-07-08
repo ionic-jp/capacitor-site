@@ -113,11 +113,11 @@ Capacitorには、`capacitor.config.json`に設定するいくつかの高レベ
     "overrideUserAgent": "my custom user agent for iOS",
     // iOS用Capacitor WebViewの元のユーザーエージェントに追加する文字列.
     "appendUserAgent": "string to append for iOS",
-    // Background color of Capacitor WebView for iOS only
+    // iOSにおけるCapacitor WebViewの背景色を指定
     "backgroundColor": "#ffffffff",
-    // Configure the WebView's UIScrollView's content inset behavior
-    // Default is never
-    // Possible values are "automatic", "scrollableAxes", "never" and "always"
+    // WebViewのUIScrollViewのコンテンツ挿入動作を設定する
+    // Default は never
+    //  "automatic", "scrollableAxes", "never" と "always" を利用可能です
     // https://developer.apple.com/documentation/uikit/uiscrollview/contentinsetadjustmentbehavior
     "contentInset": "always",
     // Cordovaプラグインを利用するためのSwiftのバージョン。
@@ -128,12 +128,12 @@ Capacitorには、`capacitor.config.json`に設定するいくつかの高レベ
     "minVersion": "11.3",
     // 一部のCordovaプラグインでは、linker flagsを設定する必要があります。
     "cordovaLinkerFlags": ["-ObjC"],
-    // A Boolean value that determines whether pressing on a link displays a preview of
-    // the destination for the link.
+    // リンクをタップしたときにプレビューを表示するかどうかを決定する真偽値
+    // リンクの行き先
     "allowsLinkPreview": false,
 
-    // A Boolean value that determines whether to hide native iOS logs or not
-    // Default is false
+    // この真偽値はiOSのNative Logを非表示にするかどうかを設定します。
+    // Default は false です
     "hideLogs": true
   }
 }

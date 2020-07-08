@@ -6,13 +6,13 @@ contributors:
   - dotNetkow
 ---
 
-# Capacitor CLI Reference
+# Capacitor CLIリファレンス
 
-<p class="intro">The Capacitor command-line interface (CLI) tool is used to develop Capacitor apps. View installation details <a href="/docs/getting-started">here</a>.</p>
+<p class="intro">Capacitorのコマンドラインインターフェイス(CLI) ツールは、Capacitorアプリの開発に使用されます。 <a href="/docs/getting-started">ここ</a>でインストールの詳細を表示します。/p>
 
 ## Add
 
-Add a native platform project to your project.
+あなたのプロジェクトにネイティブプラットフォームを追加します。
 
 ```bash
 npx cap add <platform>
@@ -23,19 +23,19 @@ npx cap add <platform>
 
 ## Cap
 
-View all available CLI commands and options.
+すべての利用可能なCLIのコマンドとオプションを表示します。
 
 ```bash
 npx cap [-V] [-h]
 ```
 
 <strong>Options:</strong>
-- `-V, --version` (optional): Output the version number
-- `-h, --help` (optional): Output usage information. Can be used with individual commands too.
+- `-V, --version` (optional): バージョンを出力します
+- `-h, --help` (optional): 利用できる情報を出力します。個別のコマンドについても利用できます。
 
 ## Copy
 
-Copy the web app build and Capacitor configuration file into the native platform project. Run this each time you make changes to your web app or change a configuration value in `capacitor.config.json`.
+WebアプリのビルドファイルとCapacitorの設定ファイルをネイティブのプラットフォームプロジェクトにコピーします。Webアプリケーションに変更を加えたり、 `capacitor.config.json` を変更したりするたびに、これを実行します。
 
 ```bash
 npx cap copy [platform]
@@ -56,7 +56,7 @@ npx cap copy [platform]
 
 ## Create
 
-Create a new Capacitor project with a stock project structure if you'd rather start fresh and plan to add a UI/frontend framework separately.
+新しくプロジェクトをはじめて、UI/フロントエンドフレームワークを個別に追加する場合は、標準プロジェクト構造で新規のCapacitorプロジェクトを作成します。
 
 ```bash
 npx @capacitor/cli create [options] [directory] [name] [id]
@@ -72,7 +72,7 @@ npx @capacitor/cli create [options] [directory] [name] [id]
 
 ## Doctor
 
-Check each native project for common errors and compare the latest Capacitor dependencies available with the currently installed dependencies.
+各ネイティブプロジェクトで一般的なエラーを確認し、使用可能な最新のCapacitorの依存関係と現在インストールされている依存関係を比較します。
 
 ```bash
 npx cap doctor [platform]
@@ -98,7 +98,7 @@ Installed Dependencies:
 
 ## Init
 
-Initialize a new Capacitor project within an existing web app. All provided values (App name, App Id, WebDir, etc.) are written to `capacitor.config.json`.
+既存のWebアプリケーション内でCapacitorプロジェクトを初期化します。指定されたすべての値(アプリケーション名、アプリケーションID、WebDirなど)が `capacitor.config.json` に書き込まれます。
 
 ```bash
 npx cap init [options] [appName] [appId]
@@ -114,7 +114,7 @@ npx cap init [options] [appName] [appId]
 
 ## List
 
-List all installed Cordova and Capacitor plugins.
+インストールされているすべてのCordovaプラグインとCapacitorプラグインを一覧表示します。
 
 ```bash
 npx cap ls [platform]
@@ -134,7 +134,7 @@ Found 2 Cordova plugins for android:
 
 ## Open
 
-Opens the native project workspace in the specified native IDE (Xcode for iOS, Android Studio for Android). Once open, use the native IDEs to build, simulate, and run your app on a device.
+指定したネイティブIDE (Xcode for iOS, Android Studio for Android)でネイティブプロジェクトのワークスペースを開きます。アプリケーションを開いたら、ネイティブIDEを使用して、デバイス上でアプリケーションを構築、シミュレート、および実行します。
 
 ```bash
 npx cap open <platform>
@@ -145,7 +145,7 @@ npx cap open <platform>
 
 ## Plugin Generate
 
-Create a new custom Capacitor plugin. This starts a wizard that prompts you for information about your new plugin. More information on developing plugins [here](/docs/plugins).
+新しくカスタムCapacitorプラグインを作成します。新しいプラグインに関する情報を入力するウィザードが起動します。プラグインの開発に関する詳細は[こちら](/docs/plugins) .
 
 ```bash
 # Capacitor CLI already installed in project
@@ -157,7 +157,7 @@ npx @capacitor/cli plugin:generate
 
 ## Serve
 
-Serves a Capacitor Progressive Web App in the browser, using the `webDir` directory specified in `capacitor.config.json`.
+`capacitor.config.json` で指定された `webDir` ディレクトリを使用して、ブラウザでCapacitor Progressive Web Appを提供します。。
 
 ```bash
 npx cap serve
@@ -165,7 +165,7 @@ npx cap serve
 
 ## Sync
 
-Run the [Copy](#copy) and [Update](#update) commands together.
+[Copy](#copy) と [Update](#update) を同時に実行します。
 
 ```bash
 npx cap sync [options] [platform]
@@ -194,7 +194,7 @@ Sync finished in 3.563s
 
 ## Update
 
-Updates the native plugins and dependencies referenced in `package.json`.
+ネイティブプラグインと依存関係を `package.json` を参照してアップデートします。
 
 ```bash
 npx cap update

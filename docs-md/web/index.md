@@ -12,9 +12,9 @@ contributors:
 
 ### インストール
 
-Chances are, you already have Capacitor installed in your app if you're using Capacitor to build an iOS, or Android app. In capacitor, the `web` platform is just the web project that powers your app!
+Capacitor を使用してiOSまたはAndroidアプリケーションを構築している場合は、 Capacitor がすでにアプリケーションにインストールされている可能性があります。Capacitorでは、 `web` プラットフォームは単にアプリケーションを実行するWebプロジェクトです。
 
-If you don't have Capacitor installed yet, consult the [Installation](/docs/getting-started/) guide before continuing.
+まだCapacitorをインストールしていない場合は、先に進む前に [Installation](/docs/getting-started/) ガイドを参照してください。
 
 #### CapacitorをModuleとして使う
 

@@ -20,7 +20,7 @@ WebViewでアクセス可能にする必要があるカスタムNativeコード�
 そのためのローカルCapacitorプラグインを構築することです。この場合、プラグインの構築は `com.getcapacitor.Plugin` を継承するクラスの構築と同じくらい簡単です。
 プラグインは `@NativePlugin()` と `@PluginMethod()` のアノテーションを使用します。
 
-Here is a simple example: 
+簡単な例です:
 
 `com/example/myapp/CustomNativePlugin.java` in `android/app/src/main/java`:
 
@@ -71,7 +71,7 @@ public class MainActivity extends BridgeActivity {
 }
 ```
 
-Then you can use your functions in your webView code:
+そうするとあなたはwebViewのコードであなたの機能を使うことができます:
 
 ```javascript
 // Other codes...
@@ -83,7 +83,7 @@ CustomNativePlugin.customFunction();
 // Other codes...
 ```
 
-For more usages of plugin APIs, have a look at [Capacitor Android Plugin Guide](https://capacitor.ionicframework.com/docs/plugins/android/).
+より詳しいプラグインAPIの使い方を知るには [Capacitor Android Plugin Guide](https://capacitor.ionicframework.com/docs/plugins/android/) をご覧ください。
 
 ## プライベート Native Code
 

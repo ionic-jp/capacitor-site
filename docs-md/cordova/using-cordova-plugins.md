@@ -63,11 +63,7 @@ npx cap ls
 
 CapacitorはCordovaのインストール変数、自動設定、フックをサポートしていません。これはネイティブプロジェクトのソースコード(フックのようなものが不要であることを意味する)をコントロールできるようにするという哲学によるものです。プラグインで変数や設定を設定する必要がある場合は、プラグインと`plugin.xml`間をマッピングして、これらの設定を手動で適用する必要があります。これは、iOSとAndroidで必要な設定です。
 
-<<<<<<< HEAD
-各プラットフォームの設定方法については [iOS](../ios/configuration) と [Android](../android/configuration) の構成ガイドを参照してください。
-=======
-Consult the [iOS](/docs/ios/configuration) and [Android](/docs/android/configuration) configuration guides for info on how to configure each platform.
->>>>>>> 22d9a091545563ed553975a4936c0681a4858441
+各プラットフォームの設定方法については [iOS](/docs/ios/configuration) と [Android](/docs/android/configuration) の構成ガイドを参照してください。
 
 ## 非互換の課題
 

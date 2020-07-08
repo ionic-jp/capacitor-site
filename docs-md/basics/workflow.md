@@ -74,4 +74,4 @@ npm install @capacitor/ios@latest
 npm install @capacitor/android@latest
 ```
 
-Note: If you don't want to risk introducing breaking changes, use `npm update @capacitor/package-name` instead of `@latest` as `update` respects semantic versioning.
+Note: 破壊的な変更をもたらすリスクを避けたいのであれば、 `npm update @capacitor/package-name` において、@latestではなくセマンティックバージョニングを考慮してバージョンを指定してください。

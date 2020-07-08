@@ -70,47 +70,47 @@ npx cap add android
 
 アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。[このガイドに従って](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)に従って、これらを各ネイティブプロジェクトに移動します。
 
-First, install `cordova-res`:
+まず、 `cordova-res` をインストールください:
 
 ```bash
 $ npm install -g cordova-res
 ```
 
-Next, run the following to regenerate the images and copy them into the native projects:
+次に次のコマンドで画像を生成してネイティブプロジェクトにコピーしてください:
 
 ```bash
 $ cordova-res ios --skip-config --copy
 $ cordova-res android --skip-config --copy
 ```
 
-[Complete details here](https://github.com/ionic-team/cordova-res#capacitor).
+[詳細はこちらをご覧ください](https://github.com/ionic-team/cordova-res#capacitor).
 
-## Migrate Plugins
+## プラグインのマイグレート
 
-Begin by auditing your existing Cordova plugins - it's possible that you may be able to remove ones that are no longer needed. 
+まず、既存のCordovaプラグインを監査します - 不要になったプラグインを削除できる場合があります。
 
-Next, review all of Capacitor's [core plugins](/docs/apis) as well as [community plugins](/docs/community/plugins). You may be able to switch to the Capacitor-equivalent Cordova plugin.
+次に、Capacitorの [core plugins](/docs/apis) と [community plugins](/docs/community/plugins) をすべて確認します。Cordovaと同等のCapacitorプラグインに切り替えることができます。
 
-Some plugins may not match functionality entirely, but based on the features you need that may not matter.
+一部のプラグインは機能は完全には一致しませんが、必要な機能は実装されている場合があります。
 
-Note that any plugins that are [incompatible or cause build issues](/docs/cordova/known-incompatible-plugins) are automatically skipped.
+Note: [既知の非互換プラグイン](/docs/cordova/known-incompatible-plugins) は自動的にスキップされます
 
-### Remove Cordova Plugin
+### Cordova Pluginの削除
 
-After replacing a Cordova plugin with a Capacitor one (or simply removing it entirely), uninstall the plugin then run the `sync` command to remove the plugin code from a native project:
+CordovaプラグインをCapacitorプラグインに置き換えたあと(もしくは完全に削除することもできます)、プラグインをアンインストールし、 `sync` コマンドを実行してネイティブプロジェクトからプラグインコードを削除します。
 
 ```bash
 npm uninstall cordova-plugin-name
 npx cap sync [android | ios]
 ```
 
-## Set Permissions
+## Permissionsの設定
 
-By default, the entire initial permissions requested for the latest version of Capacitor are set for you in the default native projects for both iOS and Android. However, you may need to apply additional permissions manually by mapping between `plugin.xml` and required settings on iOS and Android. Consult the [iOS](/docs/ios/configuration) and [Android](/docs/android/configuration) configuration guides for info on how to configure each platform.
+デフォルトでは、最新バージョンのCapacitorに要求された初期設定の権限が、iOSとAndroidの両方のデフォルトネイティブプロジェクトに設定されます。ただし、 `plugin.xml` でマッピングすることによって、追加のアクセス権を手動で適用する必要がある場合があります。この設定は、iOSとAndroidでは必須です。各プラットフォームの設定方法については、 [iOS](/docs/ios/configuration) および [Android](/docs/android/configuration) の設定ガイドを参照してください。
 
-## Config.xml フィールドの追加
+## Cordova Plugin preferences
 
-When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` and port them to `capacitor.config.json` file. You can manually add more preferences to the `cordova.preferences` object too.
+`npx cap init` が実行されると、コンデンサは `config.xml` のすべてのプリファレンスを読み込みます。これらを `capacitor.config.json` に移植します。手動で `cordova.preferences` に環境設定を追加することもできます。
 
 ```json
 {
@@ -124,7 +124,7 @@ When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` 
 ```
 
 
-## Additional Config.xml Fields
+## Config.xml フィールドの追加
 
 あなたは `config.xml` の他の要素がCapacitorアプリではどのように動作するか気になるかもしれません。
 
@@ -155,9 +155,9 @@ iOS の`edit-config` 要素は [configured in Info.plist](/docs/ios/configuratio
 
 すべての`config.xml`の要素をカバーするのは不可能です。しかし、"CapacitorでXを設定するにはどうやったらいい？"に関する質問のほとんどは、オンラインで答えを探すときには「[プラットフォーム](iOS/Android)でXを設定するには?」と考えるべきです。
 
-## Setting Scheme
+## Scheme の設定
 
-When using Ionic with Cordova, your app uses `cordova-plugin-ionic-webview` by default, which on iOS uses `ionic://` scheme for serving the content. Capacitor apps use `capacitor://` as default scheme on iOS. This means that using a origin-binded Web API like LocalStorage, will result in a loss of data as the origin is different. This can be fixed by changing the scheme that is used for serving the content:
+CordovaでIonicを使用すると、アプリはデフォルトで `cordova-plugin-ionic-webview` を使用し、iOSではコンテンツの提供に `ionic://` schemeを使用します。CapacitorアプリはiOSのデフォルトスキームとして `capacitor://` を使用しています。これはLocalStorageのようなオリジンバインドされたWeb APIを使用すると、起点が異なるためデータが失われることを意味します。これは、コンテンツの提供に使用するスキームを変更することで修正できます。
 
 ```json
 {

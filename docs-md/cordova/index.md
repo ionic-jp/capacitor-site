@@ -53,6 +53,6 @@ Cordovaとは異なり、CapacitorはグローバルCLIを使用せず、Capacit
 
 したがって、 `capacitor` ディレクトリから直接コマンドラインを実行するのではなくく、アプリケーションのディレクトリで`npx cap`を呼び出すことによってCapacitorが呼び出されます。
 
-## Start the Migration
+## マイグレーションをはじめる
 
-Learn more about the [migration process](/docs/cordova/migration-strategy) or [get started migrating](/docs/cordova/migrating-from-cordova-to-capacitor) right away.
+[migration process](/docs/cordova/migration-strategy) と [get started migrating](/docs/cordova/migrating-from-cordova-to-capacitor) で正しい方法を学んでください。

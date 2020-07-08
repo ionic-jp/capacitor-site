@@ -6,16 +6,16 @@ contributors:
   - mlynch
 ---
 
-# Deploying your Capacitor iOS App to the App Store
+# あなたのCapacitorアプリをApp Storeにデプロイ
 
-Because Capacitor apps are normal native apps at the end of the day, the way they are deployed to the App Store is just like any other native app.
+Capacitorアプリは結局のところ通常のネイティブアプリなので、App Storeへのデプロイ方法は他のネイティブアプリと同じです。
 
-To start, consult the official Apple documentation on [Submitting Apps to the App Store](https://developer.apple.com/app-store/submissions/). [See here](/docs/guides/splash-screens-and-icons) for details on generating splash screens and icons for your app.
+まず、App Storeへのアプリの提出に関する [Appleの公式ドキュメント](https://developer.apple.com/app-store/submissions/) を参照してください。あなたのアプリのスプラッシュ画面とアイコンの生成についての [詳細はこちら](/docs/guides/splash-screens-and-icons) をご覧ください。
 
-For a guide with some Capacitor-specific considerations, see [Josh Morony's wonderful guide](https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/) on the topic.
+Capacitor特有の考慮事項についてのガイドは、[Josh Moronyの素晴らしいガイド](https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/)を参照してください。
 
-## Automating Deployments
+## 自動デプロイ
 
-For teams that wish to streamline their App Store (and Google Play Store) submissions and even automate them with integration into their CI/CD workflow, Capacitor's parent company, Ionic, offers a powerful Mobile DevOps service called [Appflow](https://useappflow.com/) that offers end-to-end app development and deployment capabilities.
+App Store (およびGoogle Play Store)への提出を合理化したり、 CI/CDワークフローへの統合によって自動化さえしたいチームのために、 Capacitorの提供会社であるIonicは、エンドツーエンドのアプリ開発とデプロイ機能を提供する、 [Appflow](https://useappflow.com/)という強力なMobile DevOpsサービスを提供しています。
 
-Interested? Check out this [brief guide](/docs/guides/deploying-updates) on how it works and how you can use it with Capacitor today, or view the official [Appflow Documentation](https://ionicframework.com/docs/appflow/).
+興味ありますか? この [手引書を読んで](/docs/guides/deploying-updates) 、どのように動作するのか、またどのように現在のキャパシターで使用できるのかを知るか、または公式の[Appflowドキュメント](https://ionicframework.com/docs/appflow/) をご覧ください。

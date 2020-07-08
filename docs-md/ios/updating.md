@@ -10,25 +10,25 @@ contributors:
 
 <p class="intro">アプリで使用しているCapacitorのバージョンを更新したり、iOSコードベース内でCapacitorとやり取りする新しい方法を使用して（新しいiOS APIの変更など）、CapacitorのiOSアプリを更新する必要がある場合があります。</p>
 
-## Updating Capacitor iOS Library
+## Capacitor iOS ライブラリのアップデート
 
-To update the version of @capacitor/ios used in your app, just npm install latest version:
+あなたのアプリで使ってる @capacitor/ios のバージョンをあげる場合、npmで最新版をインストール必要があります:
 
 ```bash
 npm install @capacitor/ios@latest
 ```
 
-Then sync the native project:
+そしてネイティブプロジェクトと同期します:
 
 ```bash
 npx cap sync ios
 ```
 
-## Updating iOS Project
+## iOS プロジェクトのアップデート
 
-To update the base structure of your Xcode project, view the [ios-template](https://github.com/ionic-team/capacitor/tree/master/ios-template) project in the Capacitor repo, under the tag corresponding to the latest stable release of Capacitor. The core project is kept simple on purpose: it shouldn't take much time to see what is different from the core project and your project.
+Xcodeプロジェクトのベース構造を更新するには、Capacitorリポジトリで、Capacitorの最新の安定リリースに対応するタグの下にある [ios-template](https://github.com/ionic-team/capacitor/tree/master/ios-template) プロジェクトを参照してください。コアプロジェクトは意図的にシンプルに保たれているため、コアプロジェクトやプロジェクトとの違いを確認するのにそれほど時間はかからないはずです。
 
-In particular, [AppDelegate.swift](https://github.com/ionic-team/capacitor/blob/master/ios-template/App/App/AppDelegate.swift) should be checked regularly for possible changes to iOS events.
+特に [AppDelegate.swift](https://github.com/ionic-team/capacitor/blob/master/ios-template/App/App/AppDelegate.swift) は、iOSイベントに変更がないか定期的にチェックされるべきです。
 
 ### From 1.0.0 to 1.1.0
 
