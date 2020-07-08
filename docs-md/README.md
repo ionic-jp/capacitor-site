@@ -21,7 +21,7 @@
   * [Cordova/Ionic Nativeプラグイン](cordova/using-cordova-plugins.md)
   * [既知の非互換プラグイン](cordova/known-incompatible-plugins.md)
 * ガイド
-  * [Live Reload](guides/live-reload.md)
+  * [ライブリロード](guides/live-reload.md)
   * [Ionic Photo Gallery App](guides/ionic-framework-app.md)
   * [Push Notifications - Firebase](guides/push-notifications-firebase.md)
   * [Deep Links](guides/deep-links.md)
@@ -53,9 +53,9 @@
   * [Web/PWAガイド](plugins/web.md)
   * [JavaScriptガイド](plugins/js.md)
 * プラグイン
-  * [Introduction](apis/index.md)
-  * [Community Plugins](community/plugins.md)
-  * [Enterprise Plugins](enterprise/index.md)
+  * [紹介](apis/index.md)
+  * [コミュニティプラグイン](community/plugins.md)
+  * [エンタープライズプラグイン](enterprise/index.md)
   * [Accessibility](apis/accessibility/index.md)
   * [App](apis/app/index.md)
   * [Background Task](apis/background-task/index.md)
