@@ -14,7 +14,7 @@ contributors:
 
 アプリケーション開発者がユーザーに提供する最も一般的な機能の1つは、プッシュ通知です。このチュートリアルでは、[Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging)をiOSとAndroidで動作させるために必要なすべての手順について説明します。
 
-Firebaseからのプッシュ通知の登録とモニタリングを行うために、Ionic+Angularアプリケーションで[Push Notification API for Capacitor](https://capacitorjs.com/docs/apis/push-notifications)を利用します。
+Firebaseからのプッシュ通知の登録とモニタリングを行うために、Ionic+Angularアプリケーションで[Push Notification API for Capacitor](https://capacitorjs.jp/docs/apis/push-notifications)を利用します。
 
 ## Required Dependencies
 

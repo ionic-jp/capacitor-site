@@ -83,7 +83,7 @@ CustomNativePlugin.customFunction();
 // Other codes...
 ```
 
-より詳しいプラグインAPIの使い方を知るには [Capacitor Android Plugin Guide](https://capacitorjs.com/docs/plugins/android) をご覧ください。
+より詳しいプラグインAPIの使い方を知るには [Capacitor Android Plugin Guide](https://capacitorjs.jp/docs/plugins/android) をご覧ください。
 
 ## プライベート Native Code
 
