@@ -33,7 +33,7 @@ export class CodeSnippet {
   render() {
     return (
       <Host>
-        <pre><code class={`language-${this.language}`} ref={e => this.codeRef = e}>{this.code.trim()}</code></pre>
+        <pre><code class={`language-${this.language}`} ref={e => this.codeRef = e} innerHTML={this.code.trim()}/></pre>
       </Host>
     );
   }
