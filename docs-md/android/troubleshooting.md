@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Android Issues
-description: Troubleshooting Android Issues
+title: Android の問題のトラブルシューティング
+description: Android の問題のトラブルシューティング
 url: /docs/android/troubleshooting
 contributors:
   - mlynch

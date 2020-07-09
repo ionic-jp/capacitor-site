@@ -1,6 +1,6 @@
 ---
-title: Configuring iOS
-description: Configuring iOS
+title: iOSの設定
+description: iOSの設定
 url: /docs/ios/configuration
 contributors:
   - dotnetkow

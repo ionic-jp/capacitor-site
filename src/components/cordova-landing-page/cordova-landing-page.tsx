@@ -269,7 +269,7 @@ const MoreResourcesSection = () => (
 
 const MetaHead = () => (
   <Helmet>
-    <title>Capacitor: Cross-platform native runtime for web apps</title>
+    <title>Capacitor - Webアプリをクロスプラットフォームに展開するライブラリ</title>
     <meta
       name="description"
       content={'Build iOS, Android, and Progressive Web Apps with HTML, CSS, and JavaScript'}

@@ -1,6 +1,6 @@
 ---
-title: iOS Troubleshooting Guide
-description: iOS Troubleshooting Guide
+title: iOSトラブルシューティングガイド
+description: iOSトラブルシューティングガイド
 url: /docs/ios/troubleshooting
 contributors:
   - dotNetkow

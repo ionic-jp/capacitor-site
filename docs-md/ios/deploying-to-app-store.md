@@ -1,6 +1,6 @@
 ---
-title: Deploying to App Store
-description: How to deploy iOS Capacitor apps to the Apple App Store
+title: App Storeにデプロイ
+description: あなたのCapacitorアプリをApp Storeにデプロイする方法
 url: /docs/ios/deploying-to-app-store
 contributors:
   - mlynch

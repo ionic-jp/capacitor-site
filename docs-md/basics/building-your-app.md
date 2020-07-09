@@ -1,6 +1,6 @@
 ---
-title: Building your App 
-description: Building your App
+title: アプリのビルド
+description: アプリのビルド
 url: /docs/basics/building-your-app
 contributors:
   - dotNetkow

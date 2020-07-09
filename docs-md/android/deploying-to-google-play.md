@@ -1,6 +1,6 @@
 ---
-title: Deploying to Google Play
-description: How to deploy Android Capacitor apps to the Google Play Store
+title: Google Play Storeへのデプロイ
+description: あなたのCapacitorアプリのGoogle Play Storeへのデプロイの方法
 url: /docs/android/deploying-to-google-play
 contributors:
   - mlynch

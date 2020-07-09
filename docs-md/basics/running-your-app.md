@@ -1,6 +1,6 @@
 ---
-title: Running your App 
-description: Running your App
+title: アプリの実行
+description: アプリの実行
 url: /docs/basics/running-your-app
 contributors:
   - dotNetkow

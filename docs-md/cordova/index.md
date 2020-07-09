@@ -1,6 +1,6 @@
 ---
-title: Cordova and PhoneGap
-description: Cordova and PhoneGap
+title: CordovaとPhoneGap
+description: CordovaとPhoneGap
 url: /docs/cordova
 contributors:
   - dotnetkow

@@ -1,13 +1,13 @@
 ---
-title: Updating Your Capacitor Android Project
-description: Updating Your Capacitor Android Project
+title: Capacitor Androidプロジェクトのアップデート
+description: Capacitor Androidプロジェクトのアップデート
 url: /docs/android/updating
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Updating Your Capacitor Android Project
+# Capacitor Androidプロジェクトのアップデート
 
 <p class="intro">アプリで使用しているCapacitorのバージョンを更新したり、Androidコードベース内でCapacitorとやり取りする新しい方法を使用したりするなど、Capacitor Androidアプリを更新する必要があります。</p>
 

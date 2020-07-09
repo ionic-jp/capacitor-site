@@ -1,6 +1,6 @@
 ---
-title: Known Incompatible Cordova Plugins
-description: Known Incompatible Cordova Plugins
+title: 既知の互換性のないCordovaプラグイン
+description: 既知の互換性のないCordovaプラグイン
 url: /docs/cordova/known-incompatible-plugins
 contributors:
   - dotnetkow

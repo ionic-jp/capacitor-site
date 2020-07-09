@@ -1,6 +1,6 @@
 ---
-title: Using Capacitor Plugins
-description: How to use Capacitor Plugins
+title: Capacitorプラグインを使う
+description: Capacitorプラグインの使い方
 url: /docs/basics/using-plugins
 contributors:
   - jcesarmobile

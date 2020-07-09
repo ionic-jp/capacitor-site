@@ -1,6 +1,6 @@
 ---
 title: PWA Elements
-description: Using PWA Elements
+description: PWA Elementsの使い方
 url: /docs/pwa-elements
 contributors:
   - dotNetkow

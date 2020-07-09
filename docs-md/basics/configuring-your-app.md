@@ -1,6 +1,6 @@
 ---
-title: Configuring Your App
-description: Native Project Configuration
+title: アプリの設定
+description: ネイティブアプリの設定
 url: /docs/basics/configuring-your-app
 contributors:
   - jcesarmobile
@@ -14,7 +14,7 @@ contributors:
 
 ## プラットフォームごとのマネジメント
 
-Capacitorでは、例えばCordovaに比べて、よりネイティブのプロジェクト構成に関与する必要があります。しかし、既存のネイティブiOS/Androidガイドを簡単にフォローしたり、Stack Overflowのヘルプを利用したり、プロジェクトを完全にコントロールしたりできるので、これは正しいアプローチだと思います。
+Capacitorでは、例えばCordovaに比べて、よりネイティブのプロジェクト構成に関与する必要があります。しかし、既存のNative iOS/Androidガイドを簡単にフォローしたり、Stack Overflowのヘルプを利用したり、プロジェクトを完全にコントロールしたりできるので、これは正しいアプローチだと思います。
 
 また、Capacitorプロジェクトの構成は、iOSやAndroidプロジェクトの構成と何ら変わりがないため、既存のネイティブ開発チームは、使い慣れたツールやSDKを使用してWeb開発者と容易に連携できます。もちろん、私たちもWeb開発者も必要なNative configurationをすべて自分で処理できると考えており、CapacitorのドキュメントはWeb開発者がそれを実行するのを支援するために存在します。
 

@@ -1,6 +1,6 @@
 ---
-title: Installing Capacitor
-description: Installing Capacitor
+title: Capacitorのインストール
+description: Capacitorのインストール
 url: /docs/getting-started
 contributors:
   - dotNetkow

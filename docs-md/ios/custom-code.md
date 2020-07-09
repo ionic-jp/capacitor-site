@@ -1,6 +1,6 @@
 ---
-title: Custom Native iOS Code
-description: Custom Native iOS Code
+title: カスタムNative iOSコード
+description: カスタムNative iOSコード
 url: /docs/ios/custom-code
 contributors:
   - dotnetkow

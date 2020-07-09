@@ -1,6 +1,6 @@
 ---
-title: Using Capacitor with Ionic
-description: Using Capacitor with Ionic
+title: IonicでCapacitorを使う
+description: IonicでCapacitorを使う
 url: /docs/getting-started/with-ionic
 contributors:
   - dotNetkow

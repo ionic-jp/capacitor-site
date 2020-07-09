@@ -1,6 +1,6 @@
 ---
-title: Capacitor Web Documentation
-description: Web Getting Started
+title: CapacitorのWebドキュメンテーション
+description: Webでのはじめ方
 url: /docs/web
 contributors:
   - mlynch

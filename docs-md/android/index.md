@@ -1,6 +1,6 @@
 ---
-title: Capacitor Android Documentation
-description: Capacitor Android Documentation
+title: Capacitor Android ドキュメンテーション
+description: Capacitor Android ドキュメンテーション
 url: /docs/android
 contributors:
   - mlynch

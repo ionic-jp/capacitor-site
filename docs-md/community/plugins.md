@@ -1,6 +1,6 @@
 ---
-title: Capacitor Community Plugins
-description: Capacitor Community Plugins
+title: Capacitorコミュニティプラグイン
+description: Capacitorコミュニティプラグイン
 url: /docs/community/plugins
 ---
 

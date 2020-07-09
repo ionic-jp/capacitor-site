@@ -1,5 +1,5 @@
 ---
-title: Capacitor for Enterprises
+title: エンタープライズ版Capacitor
 description: Capacitor offers powerful native features and support for enterprises
 url: /docs/enterprise
 ---

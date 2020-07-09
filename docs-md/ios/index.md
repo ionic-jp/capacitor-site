@@ -1,6 +1,6 @@
 ---
-title: Capacitor iOS Documentation
-description: Communicate between JavaScript and Native Swift or Objective-C code
+title: Capacitor iOS ドキュメンテーション
+description: JavaScriptとネイティブSwift（もしくはObjective-C）コードの連携
 url: /docs/ios
 contributors:
   - dotNetkow

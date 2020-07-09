@@ -1,6 +1,6 @@
 ---
-title: Development Workflow
-description: Capacitor Workflow
+title: 開発ワークフロー
+description: Capacitorワークフロー
 url: /docs/basics/workflow
 contributors:
   - dotNetkow

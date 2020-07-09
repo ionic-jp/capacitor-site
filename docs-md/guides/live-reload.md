@@ -1,6 +1,6 @@
 ---
 title: ライブリロード
-description: Use Live Reload to easily debug the web and native portions of an app on a device or simulator.
+description: デバイスやシュミレーター上でWebとネイティブ機能を簡単にライブリロードで検証する方法
 url: /docs/guides/live-reload
 contributors:
   - dotNetkow

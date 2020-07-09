@@ -1,6 +1,6 @@
 ---
-title: Updating Your Capacitor iOS Project
-description: Updating Your Capacitor iOS Project
+title: Capacitor iOSプロジェクトのアップデート
+description: Capacitor iOSプロジェクトのアップデート
 url: /docs/ios/updating
 contributors:
   - mlynch

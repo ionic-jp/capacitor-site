@@ -1,6 +1,6 @@
 ---
-title: Capacitor Required Dependencies
-description: Required Dependencies for different platforms
+title: Capacitorの必要な依存関係
+description: 異なるプラットフォームのための必要な依存関係
 url: /docs/getting-started/dependencies
 contributors:
   - mlynch

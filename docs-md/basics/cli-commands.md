@@ -1,6 +1,6 @@
 ---
-title: CLI Commands 
-description: Capacitor CLI command reference list
+title: CLIコマンド
+description: Capacitor CLIリファレンスリスト
 url: /docs/basics/cli-commands
 contributors:
   - dotNetkow

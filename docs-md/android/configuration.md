@@ -1,6 +1,6 @@
 ---
-title: Configuring Android
-description: Configuring Android
+title: Androidの設定
+description: Androidの設定
 url: /docs/android/configuration
 contributors:
   - mlynch

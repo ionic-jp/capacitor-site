@@ -1,13 +1,13 @@
 ---
-title: Opening Native Projects 
-description: Opening Native Projects via Native IDEs
+title: ネイティブプロジェクトを開く
+description: ネイティブプロジェクトをネイティブIDEで開く
 url: /docs/basics/opening-native-projects
 contributors:
   - dotNetkow
   - mlynch
 ---
 
-# Nativeプロジェクトを開く
+# ネイティブプロジェクトを開く
 
 <p class="intro">Capacitorは、必要な構成を提供し、アプリを構築、テスト、およびデプロイするために、プラットフォームごとにネイティブIDEを使用します。</p>
 

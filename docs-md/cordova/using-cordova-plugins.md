@@ -1,6 +1,6 @@
 ---
-title: Using Cordova Plugins and Ionic Native
-description: Using Cordova Plugins and Ionic Native
+title: Cordova Plugins と Ionic Native を使う
+description: Cordova Plugins と Ionic Native を使う
 url: /docs/cordova/using-cordova-plugins
 contributors:
   - dotnetkow
