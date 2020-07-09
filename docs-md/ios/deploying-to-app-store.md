@@ -8,7 +8,7 @@ contributors:
 
 # あなたのCapacitorアプリをApp Storeにデプロイ
 
-Capacitorアプリは結局のところ通常のネイティブアプリなので、App Storeへのデプロイ方法は他のネイティブアプリと同じです。
+Capacitorアプリは結局のところ通常のNativeアプリなので、App Storeへのデプロイ方法は他のNativeアプリと同じです。
 
 まず、App Storeへのアプリの提出に関する [Appleの公式ドキュメント](https://developer.apple.com/app-store/submissions/) を参照してください。あなたのアプリのスプラッシュ画面とアイコンの生成についての [詳細はこちら](/docs/guides/splash-screens-and-icons) をご覧ください。
 

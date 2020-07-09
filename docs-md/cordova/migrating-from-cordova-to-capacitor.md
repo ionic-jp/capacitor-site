@@ -39,20 +39,20 @@ npx cap init [appName] [appId]
 例えば、これは `npx cap init MyApp io.ionic.myapp` のようになります。これらの値は新しく作成される `capacitor.config.json` に反映されます。
 
 ### アプリをビルドする
-ネイティブプラットフォームを追加する前に、Webプロジェクトを少なくとも1回構築する必要があります。
+Nativeプラットフォームを追加する前に、Webプロジェクトを少なくとも1回構築する必要があります。
 
 これにより、Capacitorが、`capacitor.config.json`の`webDir`において使用するように[自動的に設定された](/docs/basics/configuring-your-app/)wwwフォルダーが実際に存在するようになります。
 
 ### Platformsの追加
 
-Capacitorのネイティブプラットフォームは、その最上位フォルダにあります。Cordovaの場合は、`platforms/ios` もしくは `platforms/android` でした。
+CapacitorのNativeプラットフォームは、その最上位フォルダにあります。Cordovaの場合は、`platforms/ios` もしくは `platforms/android` でした。
 
 ```bash
 npx cap add ios
 npx cap add android
 ```
 
-プロジェクトのルートにあるandroidフォルダとiosフォルダの両方が作成されます。これらは完全に独立したネイティブプロジェクトの成果物であり、アプリの一部と見なす必要があります（つまり、それらをソース管理にチェックインしたり、独自のIDEで編集したりするなど）。さらに、以前に `npm install`（` package.json`の `dependencies`の下にあります）でプロジェクトに追加されたCordovaプラグインは、Capacitorによってそれぞれの新しいネイティブプロジェクトに自動的にインストールされます（[incompatible ones](/docs/cordova/known-incompatible-plugins)は除きます）：
+プロジェクトのルートにあるandroidフォルダとiosフォルダの両方が作成されます。これらは完全に独立したNativeプロジェクトの成果物であり、アプリの一部と見なす必要があります（つまり、それらをソース管理にチェックインしたり、独自のIDEで編集したりするなど）。さらに、以前に `npm install`（` package.json`の `dependencies`の下にあります）でプロジェクトに追加されたCordovaプラグインは、Capacitorによってそれぞれの新しいNativeプロジェクトに自動的にインストールされます（[incompatible ones](/docs/cordova/known-incompatible-plugins)は除きます）：
 
 ```json
 "dependencies": {
@@ -68,7 +68,7 @@ npx cap add android
 
 ## スプラッシュ画像とアイコン
 
-アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。[このガイドに従って](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)に従って、これらを各ネイティブプロジェクトに移動します。
+アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。[このガイドに従って](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)に従って、これらを各Nativeプロジェクトに移動します。
 
 まず、 `cordova-res` をインストールください:
 
@@ -76,7 +76,7 @@ npx cap add android
 $ npm install -g cordova-res
 ```
 
-次に次のコマンドで画像を生成してネイティブプロジェクトにコピーしてください:
+次に次のコマンドで画像を生成してNativeプロジェクトにコピーしてください:
 
 ```bash
 $ cordova-res ios --skip-config --copy
@@ -97,7 +97,7 @@ Note: [既知の非互換プラグイン](/docs/cordova/known-incompatible-plugi
 
 ### Cordova Pluginの削除
 
-CordovaプラグインをCapacitorプラグインに置き換えたあと(もしくは完全に削除することもできます)、プラグインをアンインストールし、 `sync` コマンドを実行してネイティブプロジェクトからプラグインコードを削除します。
+CordovaプラグインをCapacitorプラグインに置き換えたあと(もしくは完全に削除することもできます)、プラグインをアンインストールし、 `sync` コマンドを実行してNativeプロジェクトからプラグインコードを削除します。
 
 ```bash
 npm uninstall cordova-plugin-name
@@ -106,7 +106,7 @@ npx cap sync [android | ios]
 
 ## Permissionsの設定
 
-デフォルトでは、最新バージョンのCapacitorに要求された初期設定の権限が、iOSとAndroidの両方のデフォルトネイティブプロジェクトに設定されます。ただし、 `plugin.xml` でマッピングすることによって、追加のアクセス権を手動で適用する必要がある場合があります。この設定は、iOSとAndroidでは必須です。各プラットフォームの設定方法については、 [iOS](/docs/ios/configuration) および [Android](/docs/android/configuration) の設定ガイドを参照してください。
+デフォルトでは、最新バージョンのCapacitorに要求された初期設定の権限が、iOSとAndroidの両方のデフォルトNativeプロジェクトに設定されます。ただし、 `plugin.xml` でマッピングすることによって、追加のアクセス権を手動で適用する必要がある場合があります。この設定は、iOSとAndroidでは必須です。各プラットフォームの設定方法については、 [iOS](/docs/ios/configuration) および [Android](/docs/android/configuration) の設定ガイドを参照してください。
 
 ## Cordova Plugin preferences
 

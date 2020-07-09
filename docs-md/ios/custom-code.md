@@ -9,7 +9,7 @@ contributors:
 
 # カスタムNative iOSコード
 
-<p class="intro">多くのアプリケーションでは、適切にCapacitorプラグインを構築して公開するというオーバーヘッドなしに、ネイティブ機能を実装するためのカスタムSwift（またはObjective-C）コードを追加したいと思うでしょう。</p>
+<p class="intro">多くのアプリケーションでは、適切にCapacitorプラグインを構築して公開するというオーバーヘッドなしに、Native機能を実装するためのカスタムSwift（またはObjective-C）コードを追加したいと思うでしょう。</p>
 
 <p class="intro">iOSのエコシステムはSwiftを採用しているので、Swiftを使用してプラグインを構築することを強くお勧めします。そうすれば、より簡単にヘルプや開発者を見つけることができますが、Objective-Cでも同様に機能します。</p>
 
@@ -65,6 +65,6 @@ console.log(result.value)
 ## プライベートNativeコード
 
 WebViewからコードにアクセスする必要がない場合は、必要な場所にコードを追加するだけです。
-Capacitorを使用すると、ネイティブプロジェクトを完全に制御できます。
+Capacitorを使用すると、Nativeプロジェクトを完全に制御できます。
 
 `AppDelegate` に新しいイベントハンドラを追加する必要がありますか？入れるだけです！Capacitorはコードに触れません。

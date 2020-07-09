@@ -18,7 +18,7 @@ contributors:
 npm install @capacitor/ios@latest
 ```
 
-そしてネイティブプロジェクトと同期します:
+そしてNativeプロジェクトと同期します:
 
 ```bash
 npx cap sync ios

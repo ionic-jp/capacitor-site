@@ -22,9 +22,9 @@ Cordovaとの下位互換性もあるので、既存のウェブアプリをい�
 
 IonicとCapacitorを一緒に使うことは、Ionic FrameworkがCapacitorにはないUIとUXの拡張を提供するので、最高のアプリ エクスペリエンスを構築する方法です。また、Angular、React、Vueなど、お気に入りのウェブアプリのフレームワークでも動作します。
 
-Capacitorのリリースにより、Ionicはそのスタックのほぼすべてをコントロールするようになった。今日Ionicアプリを構築すると、ネイティブランタイムレイヤ(Capacitor)、UIコントロール([Ionic Framework](https://ionicframework.com))、コントロールの構築に使用する"Framework"([Stencil](https://stenciljs.com/)を利用したWebコンポーネント)をコントロールできるようになります。重要なのは、私たちが管理しているスタックのどこかに問題があれば、すぐに修正できるということです。私たちがコントロールできない唯一の部分は、あなたが一番上で使うフロントエンドフレームワークです(Angular、React、Vue、またはプレーンのJavaScript)。
+Capacitorのリリースにより、Ionicはそのスタックのほぼすべてをコントロールするようになった。今日Ionicアプリを構築すると、Nativeランタイムレイヤ(Capacitor)、UIコントロール([Ionic Framework](https://ionicframework.com))、コントロールの構築に使用する"Framework"([Stencil](https://stenciljs.com/)を利用したWebコンポーネント)をコントロールできるようになります。重要なのは、私たちが管理しているスタックのどこかに問題があれば、すぐに修正できるということです。私たちがコントロールできない唯一の部分は、あなたが一番上で使うフロントエンドフレームワークです(Angular、React、Vue、またはプレーンのJavaScript)。
 
-`Ionic React` や `Ionic Vue`のような新しいIonicを使っていますか? Capacitorは公式にサポートされているネイティブ・ランタイムです。
+`Ionic React` や `Ionic Vue`のような新しいIonicを使っていますか? Capacitorは公式にサポートされているNative・ランタイムです。
 
 ### すでにIonicを使っていますか？Ionic 4へのアップデートを検討ください
 

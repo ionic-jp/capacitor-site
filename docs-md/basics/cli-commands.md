@@ -12,7 +12,7 @@ contributors:
 
 ## Add
 
-あなたのプロジェクトにネイティブプラットフォームを追加します。
+あなたのプロジェクトにNativeプラットフォームを追加します。
 
 ```bash
 npx cap add <platform>
@@ -35,7 +35,7 @@ npx cap [-V] [-h]
 
 ## Copy
 
-WebアプリのビルドファイルとCapacitorの設定ファイルをネイティブのプラットフォームプロジェクトにコピーします。Webアプリケーションに変更を加えたり、 `capacitor.config.json` を変更したりするたびに、これを実行します。
+WebアプリのビルドファイルとCapacitorの設定ファイルをNativeのプラットフォームプロジェクトにコピーします。Webアプリケーションに変更を加えたり、 `capacitor.config.json` を変更したりするたびに、これを実行します。
 
 ```bash
 npx cap copy [platform]
@@ -72,7 +72,7 @@ npx @capacitor/cli create [options] [directory] [name] [id]
 
 ## Doctor
 
-各ネイティブプロジェクトで一般的なエラーを確認し、使用可能な最新のCapacitorの依存関係と現在インストールされている依存関係を比較します。
+各Nativeプロジェクトで一般的なエラーを確認し、使用可能な最新のCapacitorの依存関係と現在インストールされている依存関係を比較します。
 
 ```bash
 npx cap doctor [platform]
@@ -134,7 +134,7 @@ Found 2 Cordova plugins for android:
 
 ## Open
 
-指定したネイティブIDE (Xcode for iOS, Android Studio for Android)でネイティブプロジェクトのワークスペースを開きます。アプリケーションを開いたら、ネイティブIDEを使用して、デバイス上でアプリケーションを構築、シミュレート、および実行します。
+指定したNativeIDE (Xcode for iOS, Android Studio for Android)でNativeプロジェクトのワークスペースを開きます。アプリケーションを開いたら、NativeIDEを使用して、デバイス上でアプリケーションを構築、シミュレート、および実行します。
 
 ```bash
 npx cap open <platform>
@@ -194,7 +194,7 @@ Sync finished in 3.563s
 
 ## Update
 
-ネイティブプラグインと依存関係を `package.json` を参照してアップデートします。
+Nativeプラグインと依存関係を `package.json` を参照してアップデートします。
 
 ```bash
 npx cap update

@@ -9,7 +9,7 @@ contributors:
 
 # Capacitor Android ドキュメンテーション
 
-<p class="intro">CapacitorはネイティブのAndroidランタイムを特徴としており、開発者はJavaScriptとNative Java for Androidコード間で通信することができます。</p>
+<p class="intro">CapacitorはNativeのAndroidランタイムを特徴としており、開発者はJavaScriptとNative Java for Androidコード間で通信することができます。</p>
 
 <p class="intro">CapacitorのAndroidアプリは(一般的に)Android Studioを通じて設定、管理されます。</p>
 
@@ -41,7 +41,7 @@ npx cap sync
 npx cap copy
 ```
 
-Webアセットのみをコピーするだけで、ネイティブの依存関係を更新する必要がないことがわかっている場合にこのコマンドを使えば高速になります。
+Webアセットのみをコピーするだけで、Nativeの依存関係を更新する必要がないことがわかっている場合にこのコマンドを使えば高速になります。
 
 ### Androidプロジェクトを開く
 
@@ -64,7 +64,7 @@ Android Studioを開くと、デバイスまたはエミュレータ上でアプ
 
 ### 次のステップ
 
-アプリケーションが動作したら、アプリケーションの開発と構築を続ける準備ができています。使用可能なさまざまなAPI、Capacitorプラグイン、Cordovaプラグイン、またはカスタムネイティブコードを使用して、残りのアプリケーションを構築します。
+アプリケーションが動作したら、アプリケーションの開発と構築を続ける準備ができています。使用可能なさまざまなAPI、Capacitorプラグイン、Cordovaプラグイン、またはカスタムNativeコードを使用して、残りのアプリケーションを構築します。
 
 ## 詳細情報
 

@@ -9,7 +9,7 @@ contributors:
 
 # PWA Elements
 
-<p class="intro">いくつかの <code>Camera</code> や <code>Toast</code> といったCapacitorプラグインは、ネイティブで実行していないときにWebベースのUIを使用できます。たとえば、Cameraを呼び出します。 <code>Camera.getPhoto()</code> を実行すると、Web上での実行時に応答性の高い写真撮影エクスペリエンスがロードされます。</p>
+<p class="intro">いくつかの <code>Camera</code> や <code>Toast</code> といったCapacitorプラグインは、Nativeで実行していないときにWebベースのUIを使用できます。たとえば、Cameraを呼び出します。 <code>Camera.getPhoto()</code> を実行すると、Web上での実行時に応答性の高い写真撮影エクスペリエンスがロードされます。</p>
 
 <img src="/assets/img/docs/pwa-elements.png" style="height: 200px" />
 

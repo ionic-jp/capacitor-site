@@ -1,6 +1,6 @@
 ---
 title: ライブリロード
-description: デバイスやシュミレーター上でWebとネイティブ機能を簡単にライブリロードで検証する方法
+description: デバイスやシュミレーター上でWebとNative機能を簡単にライブリロードで検証する方法
 url: /docs/guides/live-reload
 contributors:
   - dotNetkow
@@ -8,13 +8,13 @@ contributors:
 
 # ライブリロード
 
-ライブリロードは、アプリのウェブ部分とデバイスハードウェアやシミュレータのネイティブ機能の両方をデバッグするのに便利です。コードを変更するたびに新しいネイティブバイナリをデプロイするのではなく、アプリの変更が検出されるとブラウザ(またはWebビュー)を自動的にリロードします。
+ライブリロードは、アプリのウェブ部分とデバイスハードウェアやシミュレータのNative機能の両方をデバッグするのに便利です。コードを変更するたびに新しいNativeバイナリをデプロイするのではなく、アプリの変更が検出されるとブラウザ(またはWebビュー)を自動的にリロードします。
 
 > デバイス上で実行している場合は、そのデバイスがコンピュータと同じWi-Fiネットワーク上にあることを確認します。
 
 ## Ionic CLIを利用する
 
-Ionic CLIには完全なライブリロードエクスペリエンスが含まれており、以下で手動で説明するすべての手順が自動化されています。 `native-run` (デバイスやシミュレータ/エミュレータ上でネイティブバイナリを実行するためのクロスプラットフォームコマンドラインユーティリティ)と一緒にインストールします:
+Ionic CLIには完全なライブリロードエクスペリエンスが含まれており、以下で手動で説明するすべての手順が自動化されています。 `native-run` (デバイスやシミュレータ/エミュレータ上でNativeバイナリを実行するためのクロスプラットフォームコマンドラインユーティリティ)と一緒にインストールします:
 
 ```bash
 npm install -g @ionic/cli native-run
@@ -27,7 +27,7 @@ ionic cap run android -l --external
 ionic cap run ios -l --external
 ```
 
-これによって `ionic build` を行い、Webアセットをネイティブプラットフォームにコピーします。そしてネイティブプロジェクトのIDEを開きます(Xcode for iOS, Android Studio for Android)。
+これによって `ionic build` を行い、WebアセットをNativeプラットフォームにコピーします。そしてNativeプロジェクトのIDEを開きます(Xcode for iOS, Android Studio for Android)。
 
 `capacitor.config.json` の設定を読み込んで `server` が自動的に起動しますが、コマンドを終了すると自動的に削除されます。 `ionic cap run` コマンドの詳しくは、 [こちらをご覧ください](https://ionicframework.com/docs/cli/commands/capacitor-run)。
 
@@ -58,9 +58,9 @@ npm run start
 },
 ```
 
-次に `npx cap copy` を実行して、Capacitorの設定とWebアセットをネイティブプロジェクトにコピーします。
+次に `npx cap copy` を実行して、Capacitorの設定とWebアセットをNativeプロジェクトにコピーします。
 
-ネイティブIDEを開いていない場合は開いてください:
+NativeIDEを開いていない場合は開いてください:
 
 ```bash
 npx cap open ios

@@ -1,6 +1,6 @@
 ---
 title: Capacitor iOS ドキュメンテーション
-description: JavaScriptとネイティブSwift（もしくはObjective-C）コードの連携
+description: JavaScriptとNativeSwift（もしくはObjective-C）コードの連携
 url: /docs/ios
 contributors:
   - dotNetkow
@@ -9,7 +9,7 @@ contributors:
 
 # Capacitor iOS ドキュメンテーション
 
-<p class="intro">CapacitorはネイティブのiOSブリッジを特徴としており、開発者はJavaScriptとNative SwiftまたはObjective-Cコードとの間で通信できます。</p>
+<p class="intro">CapacitorはNativeのiOSブリッジを特徴としており、開発者はJavaScriptとNative SwiftまたはObjective-Cコードとの間で通信できます。</p>
 
 <p class="intro">Capacitor iOSアプリは、Xcodeを通じて設定、管理し、CocoaPodsが依存関係を管理します。</p>
 
@@ -35,7 +35,7 @@ npx cap sync
 npx cap copy
 ```
 
-Webアセットのみをコピーするだけで、ネイティブの依存関係を更新する必要がないことがわかっている場合にこのコマンドを使えば高速になります。
+Webアセットのみをコピーするだけで、Nativeの依存関係を更新する必要がないことがわかっている場合にこのコマンドを使えば高速になります。
 
 ### iOSプロジェクトを開く
 
@@ -53,7 +53,7 @@ Xcodeを開いたら、 Playボタンをクリックして、シミュレータ�
 
 ## 次のステップ
 
-アプリケーションが動作したら、アプリケーションの開発と構築を続ける準備ができています。使用可能なさまざまなAPI、Capacitorプラグイン、Cordovaプラグイン、またはカスタムネイティブコードを使用して、残りのアプリケーションを構築します。
+アプリケーションが動作したら、アプリケーションの開発と構築を続ける準備ができています。使用可能なさまざまなAPI、Capacitorプラグイン、Cordovaプラグイン、またはカスタムNativeコードを使用して、残りのアプリケーションを構築します。
 
 ## Further Reading
 

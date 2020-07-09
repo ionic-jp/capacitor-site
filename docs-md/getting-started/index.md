@@ -11,7 +11,7 @@ contributors:
 
 <p class="intro">Capacitorの使用を開始するには、既存のフロントエンドプロジェクトにCapacitorを追加する方法(推奨)と、新しいプロジェクトを開始する方法の2つがあります。Capacitorは主に既存のフロントエンドプロジェクトにドロップインするように設計されていますが、新しく始めたいのであれば、シンプルな開始プロジェクト構造が用意されています。</p>
 
-<p class="intro">CapacitorはネイティブなモバイルランタイムとWebアプリ用のAPIレイヤを提供します。
+<p class="intro">CapacitorはNativeなモバイルランタイムとWebアプリ用のAPIレイヤを提供します。
 ゲームなどを作成している場合を除き、必要になる可能性の高い特定のUIコントロールは付属していません。</p>
 
 <p class="intro">そのため、お好みのモバイルフロントエンドフレームワーク(<a href="https://ionicframework.com" target="_blank">Ionic</a>など)でCapacitorプロジェクトを開始することを強くお勧めします。</p>
@@ -45,7 +45,7 @@ npx cap init
 
 このコマンドを実行すると、アプリケーション名とアプリケーションID(Androidのパッケージ名とiOSのバンドル識別子)の入力を求められます。 `--web-dir` フラグを使用して、Webアセットフォルダ(デフォルトは `www` )を設定します。
 
-次に、必要なネイティブ・プラットフォームをインストールします:
+次に、必要なNative・プラットフォームをインストールします:
 
 ```bash
 npx cap add android

@@ -13,9 +13,9 @@ contributors:
 
 ## 1. Develop and build your Web App
 
-Capacitorは、ウェブアプリを各プラットフォーム用のネイティブバイナリに変換します。したがって、作業の大部分はモバイルに特化したウェブアプリの開発と構築となります。
+Capacitorは、ウェブアプリを各プラットフォーム用のNativeバイナリに変換します。したがって、作業の大部分はモバイルに特化したウェブアプリの開発と構築となります。
 
-あなたがネイティブプラットフォームと対話する場合、CapacitorのAPI([Camera](/docs/apis/camera)など)を使用するか、または既存のCordovaプラグインとCapacitorの[Cordova Compatibility](./cordova)を用いることになります。
+あなたがNativeプラットフォームと対話する場合、CapacitorのAPI([Camera](/docs/apis/camera)など)を使用するか、または既存のCordovaプラグインとCapacitorの[Cordova Compatibility](./cordova)を用いることになります。
 
 最後に、次のようなコマンドを使用してアプリケーションを構築します。
 
@@ -31,21 +31,21 @@ ionic build
 
 ## 2. Webアセットをコピー
 
-デバイスまたはシミュレータ上でネイティブにアプリケーションを実行する準備ができたら、次のコマンドを使用して構築したWebアセットをコピーします。
+デバイスまたはシミュレータ上でNativeにアプリケーションを実行する準備ができたら、次のコマンドを使用して構築したWebアセットをコピーします。
 
 ```bash
 npx cap copy
 ```
 
-## 3. ネイティブIDEを開く
+## 3. NativeIDEを開く
 
-CapacitorはネイティブIDEを使ってアプリを構築、シミュレート、実行します。
+CapacitorはNativeIDEを使ってアプリを構築、シミュレート、実行します。
 
 ```bash
 npx cap open
 ```
 
-## 4. ネイティブプロジェクトをアップデート
+## 4. Nativeプロジェクトをアップデート
 
 Capacitorアプリは新しいプラグインをインストールする時などにアップデートが必要です。
 

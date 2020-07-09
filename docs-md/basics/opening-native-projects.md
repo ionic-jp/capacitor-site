@@ -1,15 +1,15 @@
 ---
-title: ネイティブプロジェクトを開く
-description: ネイティブプロジェクトをネイティブIDEで開く
+title: Nativeプロジェクトを開く
+description: NativeプロジェクトをNativeIDEで開く
 url: /docs/basics/opening-native-projects
 contributors:
   - dotNetkow
   - mlynch
 ---
 
-# ネイティブプロジェクトを開く
+# Nativeプロジェクトを開く
 
-<p class="intro">Capacitorは、必要な構成を提供し、アプリを構築、テスト、およびデプロイするために、プラットフォームごとにネイティブIDEを使用します。</p>
+<p class="intro">Capacitorは、必要な構成を提供し、アプリを構築、テスト、およびデプロイするために、プラットフォームごとにNativeIDEを使用します。</p>
 
 <p class="intro">iOS開発の場合は、 <a href="https://developer.apple.com/xcode/" target="_blank">Xcode 11</a> 以上がインストールされている必要があります。Androidの場合は <a href="https://developer.android.com/studio/index.html" target="_blank">Android Studio</a> 3 以上が必要です。</p>
 

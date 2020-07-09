@@ -8,7 +8,7 @@ contributors:
 
 # あなたのCapacitorアプリのGoogle Play Storeへのデプロイ
 
-Capacitorアプリは結局のところ通常のネイティブアプリなので、Google Play Storeへのデプロイ方法は他のネイティブアプリと全く同じである。
+Capacitorアプリは結局のところ通常のNativeアプリなので、Google Play Storeへのデプロイ方法は他のNativeアプリと全く同じである。
 
 まずは、[起動チェックリスト](https://developer.android.com/distribute/best-practices/launch/launch-checklist) に関するGoogleの公式ドキュメントを参照して、アプリをサブミットできる状態にしてください。あなたのアプリのスプラッシュ画面とアイコンの生成については [ここをご覧ください](/docs/guides/splash-screens-and-icons)。
 

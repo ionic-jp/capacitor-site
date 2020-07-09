@@ -9,21 +9,21 @@ contributors:
 
 # Progressive Web Appsのビルド
 
-<p class="intro">CapacitorはProgressive Web Appsをサポートしており、iOSとAndroidだけでなく、モバイルウェブアプリ"プログレッシブWebアプリケーション"として、ウェブ上でもネイティブに動作するアプリを簡単に構築できます。</p>
+<p class="intro">CapacitorはProgressive Web Appsをサポートしており、iOSとAndroidだけでなく、モバイルウェブアプリ"プログレッシブWebアプリケーション"として、ウェブ上でもNativeに動作するアプリを簡単に構築できます。</p>
 
 ## Progressive Web Appとは
 
 簡単に言えば、Progressive Web App(PWA)は、最新のWeb機能を使用してアプリケーションのようなエクスペリエンスをユーザーに提供するWebアプリケーションです。これらのアプリは従来のウェブサーバにデプロイされ、URLを介してアクセスでき、検索エンジンによってインデックスされます。
 
-Progressive Web Appは、実用的な目的のために、モバイルパフォーマンスに最適化され、プッシュ通知やオフラインストレージなど、従来のネイティブアプリと同様の機能を提供するために新たに利用可能になったWeb APIを利用するWebサイトのことを指します。
+Progressive Web Appは、実用的な目的のために、モバイルパフォーマンスに最適化され、プッシュ通知やオフラインストレージなど、従来のNativeアプリと同様の機能を提供するために新たに利用可能になったWeb APIを利用するWebサイトのことを指します。
 
 ## Capacitor と Progressive Web Apps
 
-Capacitorは、Progressive Web Appsとネイティブアプリを最高レベルでサポートしています。つまり、Capacitorのプラグインブリッジは、ネイティブコンテキストとWebのどちらもの実行をサポートしており、まったく同じAPIとそのAPIの利用方法で、両方のコンテキストで多くのコアプラグインを使用できます。
+Capacitorは、Progressive Web AppsとNativeアプリを最高レベルでサポートしています。つまり、Capacitorのプラグインブリッジは、NativeコンテキストとWebのどちらもの実行をサポートしており、まったく同じAPIとそのAPIの利用方法で、両方のコンテキストで多くのコアプラグインを使用できます。
 
-つまり、ネイティブアプリとProgressive Web Appの両方の依存関係として `@capacitor/core` を使用することによって、Capacitorは必要に応じてWebコードをシームレスに呼び出し、ネイティブコードが使用可能な場合はネイティブコードを呼び出すことになります。
+つまり、NativeアプリとProgressive Web Appの両方の依存関係として `@capacitor/core` を使用することによって、Capacitorは必要に応じてWebコードをシームレスに呼び出し、Nativeコードが使用可能な場合はNativeコードを呼び出すことになります。
 
-また、Capacitorには、現在のプラットフォームに応じたクエリーを実行することで、ネイティブまたはWeb上での実行時にカスタマイズされたエクスペリエンスを提供するためのユーティリティが多数用意されています。
+また、Capacitorには、現在のプラットフォームに応じたクエリーを実行することで、NativeまたはWeb上での実行時にカスタマイズされたエクスペリエンスを提供するためのユーティリティが多数用意されています。
 
 ## アプリにProgressive Web Appサポートを追加
 
@@ -53,11 +53,11 @@ Progressive Web Appsは、 [Time to Interactive](https://developers.google.com/w
 
 既存のフロントエンドスタックでProgressive Web Appのパフォーマンス標準を満たすのに苦労しているなら、ほぼ0の設定で高速PWAサポートを得るためのオプションとして、 [Ionic Framework](http://ionicframework.com/) の4以上を見てください。Ionic4.x以上は,Angularだけでなく、いくつかの一般的なフロントエンドフレームワークで動作するWebコンポーネントライブラリです。
 
-## ネイティブとWebでの実行
+## NativeとWebでの実行
 
-Capacitorの重要な機能の一つは、ネイティブ(アプリストアで配信することができる) と ウェブの両方で動くアプリを作れることです。これは、ベースとなるプラットフォームと使用するAPI/プラグインの間にレイヤーを提供することで実現しています。
+Capacitorの重要な機能の一つは、Native(アプリストアで配信することができる) と ウェブの両方で動くアプリを作れることです。これは、ベースとなるプラットフォームと使用するAPI/プラグインの間にレイヤーを提供することで実現しています。
 
-もしあなたのアプリがSplashScreenのようなウェブでは代替物を持たないネイティブのプラグインコールをする `SplashScreen.show()` を実行すると、Webでもクラッシュすることなくこれらのコールを許可します。promiseを返すコールはrejected promiseを返します。
+もしあなたのアプリがSplashScreenのようなウェブでは代替物を持たないNativeのプラグインコールをする `SplashScreen.show()` を実行すると、Webでもクラッシュすることなくこれらのコールを許可します。promiseを返すコールはrejected promiseを返します。
 
 また、CapacitorのJavaScript APIには、特定のAPIが使用可能かどうかをプログラムでチェックできる多数のユーティリティーがあります。
 

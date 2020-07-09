@@ -11,7 +11,7 @@ contributors:
 
 # Modals
 
-Modals APIは、alerts, confirmations, アクションシートのようなInputプロンプトといったネイティブモーダルウィンドウを
+Modals APIは、alerts, confirmations, アクションシートのようなInputプロンプトといったNativeモーダルウィンドウを
 トリガするメソッドを提供します。
 
 <plugin-api index="true" name="modals"></plugin-api>
