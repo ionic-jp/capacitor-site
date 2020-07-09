@@ -1,5 +1,5 @@
 ---
-title: CapacitorのWebドキュメンテーション
+title: CapacitorのWebでの使い方
 description: Webでのはじめ方
 url: /docs/web
 contributors:

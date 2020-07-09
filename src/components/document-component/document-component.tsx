@@ -66,7 +66,7 @@ export class DocumentComponent implements ComponentInterface {
 
           <app-marked fetchPath={this.item.filePath} renderer={(docsContent) => [
             <Helmet>
-              <title>{docsContent.title ? `${docsContent.title} - Capacitor` : 'Capacitor'}</title>
+              <title>{docsContent.title ? `${docsContent.title} - Capacitor日本語ドキュメンテーション` : 'Capacitor日本語ドキュメンテーション'}</title>
             </Helmet>,
             <div class="doc-content">
               <div class="measure-lg">
