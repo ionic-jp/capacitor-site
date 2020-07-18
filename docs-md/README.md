@@ -13,6 +13,7 @@
   * [プラグインの使い方](basics/using-plugins.md)
   * [Native Projectの構成](basics/configuring-your-app.md)
   * [Progressive Web Apps](basics/progressive-web-app.md)
+  * [Utilities](basics/utilities.md)
   * [CLI Reference](basics/cli-commands.md)
 * Cordova/PhoneGap
   * [概要](cordova/index.md)
@@ -27,6 +28,7 @@
   * [Deep Links](guides/deep-links.md)
   * [Deploying and Updating](guides/deploying.md)
   * [Splash Screens and Icons](guides/splash-screens-and-icons.md)
+  * [Screen Orientation](guides/screen-orientation.md)
   * [Community Guides](guides/community.md)
 * iOS
   * [はじめ方](ios/index.md)
