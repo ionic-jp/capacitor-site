@@ -1,7 +1,7 @@
 import { Component, h, Host, State } from '@stencil/core';
 
 import Helmet from '@stencil/helmet';
-import { ResponsiveContainer, Grid, Col, Paragraph, Heading, AnchorButton } from '@ionic-internal/sites-shared';
+import { ResponsiveContainer, Grid, Col, Paragraph, Heading, AnchorButton } from '@ionic-internal/ionic-ds';
 import { Tabs, Tab, TabBar, TabBarButton } from '../tabs';
 
 @Component({
@@ -142,7 +142,7 @@ cordova-res android --skip-config --copy
         <Col md={5} sm={5} xs={5} cols={12}>
           <Heading level={3}>既存のCordovaプラグインを監査。</Heading>
           <Paragraph>
-            Capacitorのすべての<a href="/docs/apis" target="_blank">コア</a>プラグインと<a href="/docs/community/plugins" target="_blank">コミュニティプラグイン</a>を確認します。
+            Capacitorのすべての<a href="/docs/apis" target="_blank">コア</a>プラグインと<a href="/docs/community" target="_blank">コミュニティプラグイン</a>を確認します。
             カメラなど、Cordovaと同等のCapacitorプラグインに切り替えることができる場合があります。
           </Paragraph>
           <Paragraph>
