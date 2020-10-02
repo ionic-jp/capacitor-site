@@ -131,7 +131,7 @@ npx cap sync [android | ios]
 Author要素は`package.json` で設定できます。ただし、Capacitorやアプリケーション内では使用されません:
 
 ```xml
-<author email="email@test.com" href="http://ionicframework.com/">Ionic Framework Team</author>
+<author email="email@test.com" href="https://ionicframework.com/">Ionic Framework Team</author>
 ```
 
 `allow-intent`値のほとんどは使用されませんが、Capacitorに[構成可能な代替手段](/docs/basics/configuring-your-app/)の設定があります。

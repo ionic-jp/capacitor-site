@@ -10,7 +10,7 @@ contributors:
 
 # カスタムNative Androidコード
 
-<p class="intro">多くのアプリは、適切にCapacitorプラグインを構築して公開するというオーバーヘッドなしに、Native機能を実装するためのカスタムJavaコードを追加したいと思うでしょう。</p>
+<p class="intro">多くのアプリは、適切にCapacitorプラグインを構築して公開するというオーバーヘッドなしに、Native機能を実装するためのカスタムのJavaコードもしくはKotlinのコードを追加したいと思うでしょう。</p>
 
 <p class="intro">WebViewからそのコードにアクセスする必要があるかどうかによって、2つの方法があります：</p>
 
@@ -20,7 +20,9 @@ WebViewでアクセス可能にする必要があるカスタムNativeコード�
 そのためのローカルCapacitorプラグインを構築することです。この場合、プラグインの構築は `com.getcapacitor.Plugin` を継承するクラスの構築と同じくらい簡単です。
 プラグインは `@NativePlugin()` と `@PluginMethod()` のアノテーションを使用します。
 
-簡単な例です:
+JavaとKotlinのカスタムコードの例です:
+
+### Java
 
 `com/example/myapp/CustomNativePlugin.java` in `android/app/src/main/java`:
 
@@ -50,7 +52,41 @@ public class CustomNativePlugin extends Plugin {
 }
 ```
 
-最後に、アクティビティにプラグインを登録します。
+### Kotlin
+
+It is also possible to develop custom code with Kotlin. When adding new Kotlin files in Android Studio, you will be prompted to configure Kotlin in your project if necessary. When doing this, make sure to only configure Kotlin in your app module, not the Capacitor or third-party modules.
+
+`com/example/myapp/CustomNativePlugin.kt` in `android/app/src/main/java`:
+
+```kotlin
+package com.example.myapp;
+
+import com.getcapacitor.NativePlugin;
+import com.getcapacitor.Plugin;
+import com.getcapacitor.PluginCall;
+import com.getcapacitor.PluginMethod;
+
+@NativePlugin
+class CustomNativePlugin : Plugin() {
+
+  @PluginMethod
+  fun customCall(call: PluginCall) {
+    val message = call.getString("message")
+    // More code here...
+    call.success()
+  }
+
+  @PluginMethod
+  fun customFunction(call: PluginCall) {
+    // More code here...
+    call.resolve()
+  }
+}
+```
+
+### プラグインコードの登録
+
+最後のステップは、プラグインをActivityに登録することです。ActivityにKotlinプラグインクラスを登録することは、Javaクラスの登録と同様に行います:
 
 ```java
 // Other imports...

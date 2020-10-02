@@ -62,7 +62,7 @@ npx cap copy web
 
 ## アプリの開発
 
-あなたは[Ionic](http://ionicframework.com/)のようなUIコンポーネントとビルドシステムを採用してるかもしれません。 
+あなたは[Ionic](https://ionicframework.com/)のようなUIコンポーネントとビルドシステムを採用してるかもしれません。 
 その場合、Capacitorアプリでも、そのフレームワークのものを使ってください！
 
 フレームワークを使用していない場合、CapacitorにはHTML5ルーティングをサポートする小さな開発サービスが付属しています。

@@ -51,7 +51,7 @@ Progressive Web Appsは、 [Time to Interactive](https://developers.google.com/w
 
 本番環境に反映する前に、 [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist) を確認して、[Lighthouse](https://developers.google.com/web/tools/lighthouse/) を使ってあなたのアプリを監査してください。
 
-既存のフロントエンドスタックでProgressive Web Appのパフォーマンス標準を満たすのに苦労しているなら、ほぼ0の設定で高速PWAサポートを得るためのオプションとして、 [Ionic Framework](http://ionicframework.com/) の4以上を見てください。Ionic4.x以上は,Angularだけでなく、いくつかの一般的なフロントエンドフレームワークで動作するWebコンポーネントライブラリです。
+既存のフロントエンドスタックでProgressive Web Appのパフォーマンス標準を満たすのに苦労しているなら、ほぼ0の設定で高速PWAサポートを得るためのオプションとして、 [Ionic Framework](http://ionicframework.com/) の4以上を見てください。Ionic4.x以上は、Angularだけでなく、いくつかの一般的なフロントエンドフレームワークで動作するWebコンポーネントライブラリです。
 
 ## NativeとWebでの実行
 

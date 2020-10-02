@@ -21,7 +21,7 @@ Capacitor は [yarn](https://yarnpkg.com) をサポートしています。
 
 ## iOS開発
 
-iOSアプリをビルドするには、Capacitorは **Xcode 11以上をインストールしたMacが必要です**. または、[Ionic Appflow] (http://ionicframework.com/appflow)を使ってWindowsであってもiOS用にビルドできます。
+iOSアプリをビルドするには、Capacitorは **Xcode 11以上をインストールしたMacが必要です**. または、[Ionic Appflow] (http://ionicframework.com/appflow)を使って、WindowsであってもiOS用にビルドできます。
 
 さらに、 **[CocoaPods](https://cocoapods.org/)** (`sudo gem install cocoapods`)と **Xcode Command Line tools** ツール(Xcodeから実行するか、 `xcode-select --install`)をインストールする必要があります。
 
