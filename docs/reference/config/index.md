@@ -71,7 +71,7 @@ contributors:
   // overrideUserAgentが設定されていない場合のみ有効。
   "appendUserAgent": "string to append",
   // iOSとAndroidのCapacitor WebViewの背景色 (iOSまたはAndroidオブジェクト内でも宣言されていない場合)
-  "backgroundColor": "#ffffffff",
+  "backgroundColor": "#ffffff",
   "android": {
     // User agent of Capacitor WebView for Android
     "overrideUserAgent": "my custom user agent for Android",
