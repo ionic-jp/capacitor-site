@@ -78,7 +78,7 @@ contributors:
     // String to append to the original user agent of Capacitor WebView for Android.
     "appendUserAgent": "string to append for Android",
     // Background color of Capacitor WebView for Android only
-    "backgroundColor": "#ffffffff",
+    "backgroundColor": "#ffffff",
     // Androidで、あなたがアプリをremote/testingサーバからhttpsプロトゴルで入手する場合、
     // あなたはmixed content modeを有効にして、WebViewに異なるURLスキーマからロードする必要があります。
     // capacitor-content:// もしくは capacitor-file:// からです。
@@ -103,7 +103,7 @@ contributors:
     // iOS用Capacitor WebViewの元のユーザーエージェントに追加する文字列.
     "appendUserAgent": "string to append for iOS",
     // iOSにおけるCapacitor WebViewの背景色を指定
-    "backgroundColor": "#ffffffff",
+    "backgroundColor": "#ffffff",
     // WebViewのUIScrollViewのコンテンツ挿入動作を設定する
     // Default は never
     //  "automatic", "scrollableAxes", "never" と "always" を利用可能です
