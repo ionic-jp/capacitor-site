@@ -10,7 +10,7 @@ contributors:
 
 # Haptics
 
-The Haptics API provides physical feedback to the user through touch or vibration.
+Haptics APIは、タッチまたはバイブレーションを通じてユーザーに物理的なフィードバックを提供します。
 
 <docgen-index>
 

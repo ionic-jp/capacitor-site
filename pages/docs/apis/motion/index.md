@@ -10,7 +10,7 @@ contributors:
 
 # Motion
 
-The Motion API tracks accelerometer and device orientation (compass heading, etc.)
+Motion APIは、加速度計とデバイスの向きを追跡します(compass heading, etc.)。
 
 <docgen-index>
 

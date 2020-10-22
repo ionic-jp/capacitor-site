@@ -22,10 +22,10 @@ contributors:
 
 </docgen-index>
 
-The Browser API makes it easy to open an in-app browser session to show external web content,
-handle authentication flows, and more.
+Browser APIを使用すると、外部のWebコンテンツを表示したり、認証フローを処理したりするために、
+アプリケーション内のブラウザセッションを簡単に開くことができます。
 
-On iOS this uses `SFSafariViewController` and is compliant with leading oAuth service in-app-browser requirements.
+iOSではこれは `SFSafariViewController` を使用し、主要なoAuthサービスのアプリ内ブラウザ要件に準拠しています。
 
 ```typescript
 import { Plugins } from '@capacitor/core';

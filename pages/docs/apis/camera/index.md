@@ -10,8 +10,8 @@ contributors:
 
 # Camera
 
-The Camera API allows a user to pick a photo from their photo album or take a picture. On iOS, this uses `UIImagePickerController`, and on Android this
-API sends an intent which will be handled by the core Camera app by default.
+Camera APIを使用すると、フォトアルバムから写真を選択したり、写真を撮影したりできます。iOSでは`UIImagePickerController`を使用し、
+AndroidではこのAPIがインテントを送信し、インテントはデフォルトでコアのCameraアプリによって処理されます。
 
 <docgen-index>
 

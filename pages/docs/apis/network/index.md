@@ -10,7 +10,7 @@ contributors:
 
 # Network
 
-The Network API provides events for monitoring network status changes, along with querying the current state of the network.
+Network APIは、ネットワークの現在の状態を照会するとともに、ネットワークステータスの変化を監視するためのイベントを提供します。
 
 <docgen-index>
 

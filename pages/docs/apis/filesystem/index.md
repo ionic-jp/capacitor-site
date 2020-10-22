@@ -10,7 +10,7 @@ contributors:
 
 # Filesystem
 
-The Filesystem API provides a NodeJS-like API for working with files on the device.
+Filsystem APIは、デバイス上のファイルを操作するためのNodeJSのようなAPIを提供します。
 
 <docgen-index>
 

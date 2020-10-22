@@ -10,7 +10,7 @@ contributors:
 
 # Photos
 
-The Photos API provides methods to load photos and albums from the user's photo library, along with saving photos.
+Photos APIには、ユーザーのフォトライブラリから写真やアルバムをロードしたり、写真を保存したりするためのメソッドが用意されています。
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->

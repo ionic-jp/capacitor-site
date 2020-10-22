@@ -11,8 +11,8 @@ contributors:
 
 # Clipboard
 
-The Clipboard API enables copy and pasting to/from the clipboard. On iOS this API also allows 
-copying images and URLs.
+Clipboard APIを使用すると、クリップボードとの間でコピーと貼り付けを行うことができます。
+iOSでは、このAPIを使って画像やURLをコピーすることもできます。
 
 <docgen-index>
 

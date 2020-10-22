@@ -10,9 +10,9 @@ contributors:
 
 # Share
 
-The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
+Share APIは、ユーザーがインストールした可能性のある共有対応なアプリでコンテンツを共有するためのメソッドを提供します。
 
-The Share API works on iOS, Android, and the Web (using the new [Web Share API](https://developers.google.com/web/updates/2016/09/navigator-share)), though web support is currently spotty.
+Share APIは、iOS、Android、Webで利用することができます（新しい[Web Share API](https://developers.google.com/web/updates/2016/09/navigator-share)を利用しますが、すべてのブラウザで利用できるわけではありません）。
 
 <docgen-index>
 
