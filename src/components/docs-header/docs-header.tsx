@@ -56,13 +56,13 @@ export class DocsHeader implements ComponentInterface {
                 {...href(docsVersionHref('/docs'))}
                 class={{ active: template === 'guide' }}
               >
-                Guides
+                ガイド
               </a>
               <a
                 {...href(docsVersionHref('/docs/plugins'))}
                 class={{ active: template === 'plugins' }}
               >
-                Plugins
+                プラグイン
               </a>
               <a
                 {...href(docsVersionHref('/docs/reference/cli'))}

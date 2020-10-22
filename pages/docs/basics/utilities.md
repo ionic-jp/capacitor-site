@@ -1,13 +1,13 @@
 ---
-title: JavaScript Utilities
-description: Capacitor's JavaScript Utilities
+title: JavaScriptユーティリティ
+description: CapacitorのJavaScriptユーティリティ
 contributors:
   - dotNetkow
 ---
 
-# JavaScript Utilities
+# JavaScriptユーティリティ
 
-Capacitor has several JavaScript utilities useful for ensuring apps run successfully across multiple platforms with the same codebase. To use them, import Capacitor then call the desired utility function:
+Capacitorには、同じコードベースを持つ複数のプラットフォーム間でアプリケーションを正常に実行するのに便利なJavaScriptユーティリティがいくつかあります。これらを使用するには、 Capacitorを読み込み、目的のユーティリティ関数を呼び出します:
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
@@ -18,9 +18,9 @@ const isAvailable = Capacitor.isPluginAvailable('Camera');
 
 `convertFileSrc: (filePath: string) => string;`
 
-Convert a device filepath into a Web View-friendly path.
+デバイスのファイルパスをWeb Viewに適したパスに変換します。
 
-Capacitor apps are served on a different protocol than device files. To avoid difficulties between these protocols, paths to device files must be rewritten. For example, on Android, `file:///path/to/device/file` must be rewritten as `http://localhost/_capacitor_file_/path/to/device/file` before being used in the Web View.
+Capacitorアプリケーションは、デバイスファイルとは異なるプロトコルで提供されます。これらのプロトコル間の問題を回避するには、デバイスファイルへのパスを書き換える必要があります。たとえば、Androidでは、 `file:///path/to/device/file` を `http://localhost/_capacitor_file_/path/to/device/file` に書き換えてからWebビューで使用する必要があります。
 
 ```typescript
 // file:///path/to/device/photo.jpg
@@ -43,7 +43,7 @@ document.getElementById("savedPhoto").src = savedPhoto;
 
 `getPlatform: () => string;`
 
-Get the name of the platform the app is currently running on: `web`, `ios`, `android`.
+現在実行してるプラットフォームの名前を取得できます: `web`, `ios`, `android`.
 
 ```typescript
 if (Capacitor.getPlatform() === 'ios') {
@@ -55,7 +55,7 @@ if (Capacitor.getPlatform() === 'ios') {
 
 `isNative?: boolean;`
 
-Check whether the currently running platform is native (`ios`, `android`).
+現在実行しているプラットフォームがネイティブかをチェックすることができます (`ios`, `android`).
 
 ```typescript
 if (Capacitor.isNative) {
@@ -67,7 +67,7 @@ if (Capacitor.isNative) {
 
 `isPluginAvailable: (name: string) => boolean;`
 
-Check if a plugin is available on the currently running platform. The plugin name is used in the plugin registry (e.g. `const { Name } = Plugins;`), which means it also works with custom plugins.
+現在実行中のプラットフォームでプラグインが使用可能かどうかを確認できます。プラグイン名はプラグインレジストリ(例: `const { Name } = Plugins;` )で使用されます。これは、カスタムプラグインも含め、動作することを確認することができます。
 
 ```typescript
 const isAvailable = Capacitor.isPluginAvailable('Camera');

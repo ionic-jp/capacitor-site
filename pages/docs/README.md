@@ -13,15 +13,15 @@
   * [プラグインの使い方](basics/using-plugins.md)
   * [Native Projectの構成](basics/configuring-your-app.md)
   * [Progressive Web Apps](basics/progressive-web-app.md)
-  * [Utilities](basics/utilities.md)
+  * [ユーティリティ](basics/utilities.md)
 * Cordova/PhoneGap
   * [概要](cordova/index.md)
   * [マイグレーション戦略](cordova/migration-strategy.md)
   * [Capacitorへのマイグレーション](cordova/migrating-from-cordova-to-capacitor.md)
   * [Cordova/Ionic Nativeプラグイン](cordova/using-cordova-plugins.md)
   * [既知の非互換プラグイン](cordova/known-incompatible-plugins.md)
-* Concepts
-  * [Ads](guides/ads.md)
+* コンセプト
+  * [広告](guides/ads.md)
   * [CI/CD](guides/ci-cd.md)
   * [Deep Links](guides/deep-links.md)
   * [Deploying and Updating](guides/deploying-updates.md)
