@@ -65,7 +65,7 @@ Appflow now fully supports Capacitor, and Capacitor is quickly becoming the pref
 
 ## Updated Site, Domain, and Docs
 
-We've updated the Capacitor site and moved to a new domain ([capacitorjs.com](https://capacitorjs.jp)) and Twitter handle ([@capacitorjs](https://twitter.com/capacitorjs)).
+We've updated the Capacitor site and moved to a new domain ([capacitorjs.jp](https://capacitorjs.jp)) and Twitter handle ([@capacitorjs](https://twitter.com/capacitorjs)).
 
 We also rolled out [updated documentation](/docs) as we embark on a documentation overhaul.
 

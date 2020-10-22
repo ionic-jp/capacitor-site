@@ -65,13 +65,13 @@ Capacitor works by extending a Web View with additional functionality and indire
 
 Capacitor apps _are native apps_. The project files used to build the native iOS and Android binaries is a plain iOS app for Xcode and a plain Android app using Gradle. This means teams can add arbitrary native code to the app and invoke it from the Web View through the Capacitor Plugin API. If you'd like to explore this in detail, read how [Capacitor Apps are Native Apps](https://medium.com/@maxlynch/cordova-ionic-apps-are-native-apps-64f9e1a995d9).
 
-In the diagram above, the native project contains our built web assets which will be some kind of modern JS app that is built and copied to the native project. That modern JS app imports the `@capacitor/core` library to code against the JavaScript symbols Capacitor generates at runtime (and to support Web APIs like [Camera](https://capacitorjs.com/docs/apis/camera) or [Share](https://capacitorjs.com/docs/apis/share) for PWAs).
+In the diagram above, the native project contains our built web assets which will be some kind of modern JS app that is built and copied to the native project. That modern JS app imports the `@capacitor/core` library to code against the JavaScript symbols Capacitor generates at runtime (and to support Web APIs like [Camera](https://capacitorjs.jp/docs/apis/camera) or [Share](https://capacitorjs.jp/docs/apis/share) for PWAs).
 
 During the `copy` step from the Capacitor CLI tools, the `native-bridge.js` is copied to the project which contains Capacitor's message passing bridge on the Web View side.
 
 Finally, any Capacitor plugins or custom native code will be in the project as well, along with any libraries that code requires.
 
-One note about Progressive Web Apps (PWA): when building a PWA, you simply need to deploy your built web app somewhere to the web. There really is no additional step because the `@capacitor/core` library contains all the functionality needed for Capacitor plugins that have web support, such as [Camera](https://capacitorjs.com/docs/apis/camera), [Filesystem](https://capacitorjs.com/docs/apis/filesystem), or [Share](https://capacitorjs.com/docs/apis/share).
+One note about Progressive Web Apps (PWA): when building a PWA, you simply need to deploy your built web app somewhere to the web. There really is no additional step because the `@capacitor/core` library contains all the functionality needed for Capacitor plugins that have web support, such as [Camera](https://capacitorjs.jp/docs/apis/camera), [Filesystem](https://capacitorjs.jp/docs/apis/filesystem), or [Share](https://capacitorjs.jp/docs/apis/share).
 
 ## Conclusion
 

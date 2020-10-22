@@ -32,7 +32,7 @@ import { Plugins } from '@capacitor/core';
 
 const { Browser } = Plugins;
 
-await Browser.open({ url: 'http://capacitorjs.com/' });
+await Browser.open({ url: 'http://capacitorjs.jp/' });
 ```
 
 <docgen-api>
