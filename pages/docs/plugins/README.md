@@ -1,18 +1,18 @@
 # Plugins Table of Contents (v2)
 
-* Getting Started
-  * [Introduction](index.md)
-  * [Community Plugins](community.md)
-  * [Enterprise Plugins](enterprise.md)
-* Creating Plugins
+* はじめ方
+  * [紹介](index.md)
+  * [コミュニティプラグイン](community.md)
+  * [エンタープライズプラグイン](enterprise.md)
+* プラグインの作り方
   * [Overview](creating-plugins.md)
   * [Development Workflow](workflow.md)
   * [iOS Guide](ios.md)
   * [Android Guide](android.md)
   * [Web/PWA Guide](web.md)
   * [JavaScript Guide](js.md)
-* Official Plugins
-  * [Introduction](../apis/index.md)
+* 公式プラグイン
+  * [紹介](../apis/index.md)
   * [Accessibility](../apis/accessibility/index.md)
   * [App](../apis/app/index.md)
   * [Background Task](../apis/background-task/index.md)
