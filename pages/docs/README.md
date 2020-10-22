@@ -23,10 +23,6 @@
 * Concepts
   * [Ads](guides/ads.md)
   * [CI/CD](guides/ci-cd.md)
-* ガイド
-  * [ライブリロード](guides/live-reload.md)
-  * [Ionic Photo Gallery App](guides/ionic-framework-app.md)
-  * [Push Notifications - Firebase](guides/push-notifications-firebase.md)
   * [Deep Links](guides/deep-links.md)
   * [Deploying and Updating](guides/deploying-updates.md)
   * [In App Purchases](guides/in-app-purchases.md)
