@@ -1,7 +1,0 @@
-{
-  "trailingSlash": false,
-  "redirects": [
-    { "source": "/docs/community/plugins", "destination": "/docs/community" },
-    { "source": "/docs/basics/cli-commands", "destination": "/docs/reference/cli" }
-  ]
-}

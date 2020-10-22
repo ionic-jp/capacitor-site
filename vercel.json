@@ -1,0 +1,73 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/docs/basics/cli-commands",
+      "destination": "/docs/reference/cli"
+    },
+    {
+      "source": "/docs/community/plugins",
+      "destination": "/docs/plugins/community"
+    },
+    {
+      "source": "/docs/community",
+      "destination": "/docs/plugins/community"
+    },
+    {
+      "source": "/docs/pwa-elements",
+      "destination": "/docs/web/pwa-elements"
+    },
+    {
+      "source": "/docs/v3/getting-started/dependencies",
+      "destination": "/docs/v3/getting-started/environment-setup"
+    },
+    {
+      "source": "/docs/v3/basics/opening-native-projects",
+      "destination": "/docs/v3/basics/workflow"
+    },
+    {
+      "source": "/docs/v3/basics/running-your-app",
+      "destination": "/docs/v3/basics/workflow"
+    },
+    {
+      "source": "/docs/v3/cordova/using-cordova-plugins",
+      "destination": "/docs/v3/plugins/cordova"
+    },
+    {
+      "source": "/docs/v3/cordova/known-incompatible-plugins",
+      "destination": "/docs/v3/plugins/cordova"
+    },
+    {
+      "source": "/docs/v3/apis/accessibility",
+      "destination": "/docs/v3/apis/screen-reader"
+    },
+    {
+      "source": "/docs/v3/apis/push-notifications",
+      "destination": "/docs/v3/apis/notifications"
+    },
+    {
+      "source": "/docs/v3/apis/local-notifications",
+      "destination": "/docs/v3/apis/notifications"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)/page.state.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
