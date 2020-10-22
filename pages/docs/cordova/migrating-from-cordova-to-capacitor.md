@@ -65,7 +65,7 @@ npx cap add android
 
 ## スプラッシュ画像とアイコン
 
-アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。[このガイドに従って](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)に従って、これらを各Nativeプロジェクトに移動します。
+アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。`cordova-res` ルールを使って、生成したアイコンとスプラッシュ画像を各Nativeプロジェクトに移動します。
 
 まず、 `cordova-res` をインストールください:
 
@@ -150,7 +150,7 @@ iOS の`edit-config` 要素は [configured in Info.plist](/docs/ios/configuratio
 </edit-config>
 ```
 
-すべての`config.xml`の要素をカバーするのは不可能です。しかし、"CapacitorでXを設定するにはどうやったらいい？"に関する質問のほとんどは、オンラインで答えを探すときには「[プラットフォーム](iOS/Android)でXを設定するには?」と考えるべきです。
+すべての`config.xml`の要素をカバーするのは不可能です。しかし、"CapacitorでXを設定するにはどうやったらいい？"に関する質問のほとんどは、オンラインで答えを探すときには「[プラットフォーム] (iOS/Android)でXを設定するには?」と考えるべきです。
 
 ## Scheme の設定
 

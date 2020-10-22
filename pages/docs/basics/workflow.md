@@ -14,7 +14,7 @@ Capacitorのワークフローには、いくつかの一貫したタスクが�
 
 Capacitorは、ウェブアプリを各プラットフォーム用のNativeバイナリに変換します。したがって、作業の大部分はモバイルに特化したウェブアプリの開発と構築となります。
 
-あなたがNativeプラットフォームと対話する場合、CapacitorのAPI([Camera](/docs/apis/camera)など)を使用するか、または既存のCordovaプラグインとCapacitorの[Cordova Compatibility](./cordova)を用いることになります。
+あなたがNativeプラットフォームと対話する場合、CapacitorのAPI([Camera](/docs/apis/camera)など)を使用するか、または既存のCordovaプラグインとCapacitorの[Cordova Compatibility](/docs/cordova)を用いることになります。
 
 最後に、次のようなコマンドを使用してアプリケーションを構築します。
 
