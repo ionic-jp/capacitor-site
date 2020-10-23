@@ -12,10 +12,10 @@ contributors:
 
 Photos APIには、ユーザーのフォトライブラリから写真やアルバムをロードしたり、写真を保存したりするためのメソッドが用意されています。
 
+## API
+
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
-
-## API
 
 ### getPhotos(...)
 

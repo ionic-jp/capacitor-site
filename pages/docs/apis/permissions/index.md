@@ -14,10 +14,10 @@ Permissions APIには、特定のパーミッションが付与されている�
 これは、例えば、アプリが許可を要求している理由の背後にあるコンテキストの欠如のために、ユーザが許可要求を拒否することを避けるために有用です。代わりに、権限を確認します。
 最初にカスタムUIを表示してユーザーに許可チェックの準備をさせると、許可レートが上がり、ユーザーの操作性が向上します。
 
+## API
+
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
-
-## API
 
 ### query(...)
 
