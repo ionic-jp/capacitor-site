@@ -9,7 +9,7 @@ contributors:
 
 ## Sync
 
-Run the [Copy](#copy) and [Update](#update) commands together.
+[Copy](#copy) と [Update](#update) の両方を実行します。
 
 ```bash
 npx cap sync [options] [platform]

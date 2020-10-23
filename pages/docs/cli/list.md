@@ -7,7 +7,7 @@ contributors:
 
 # Capacitor CLI - cap ls
 
-List all installed Cordova and Capacitor plugins.
+インストールされているすべてのCordovaプラグインとCapacitorプラグインを一覧表示します。
 
 ```bash
 npx cap ls [platform]

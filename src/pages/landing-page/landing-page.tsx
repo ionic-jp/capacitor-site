@@ -54,16 +54,16 @@ export class LandingPage {
 
   MetaHead = () => (
     <Helmet>
-      <title>Capacitor: Cross-platform native runtime for web apps</title>
+      <title>Capacitor: Webアプリのためのネイティブなクロスプラットフォームライブラリ</title>
       <meta
         name="description"
         content={
-          'Build iOS, Android, and Progressive Web Apps with HTML, CSS, and JavaScript'
+          'HTML、CSS、JavaScriptでiOS、Android、PWAを構築'
         }
       />
       <meta
         property="og:description"
-        content="Build iOS, Android, and Progressive Web Apps with HTML, CSS, and JavaScript"
+        content="HTML、CSS、JavaScriptでiOS、Android、PWAを構築"
       />
       <meta property="og:site_name" content="Capacitor" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -71,11 +71,11 @@ export class LandingPage {
       <meta name="twitter:creator" content="capacitorjs" />
       <meta
         name="twitter:title"
-        content="Build cross-platform apps with web technologies"
+        content="Web技術でクロスプラットフォームを構築"
       />
       <meta
         name="twitter:description"
-        content="Build cross-platform apps with web technologies"
+        content="Web技術でクロスプラットフォームを構築"
       />
       <meta
         name="twitter:image"

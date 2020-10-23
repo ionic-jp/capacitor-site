@@ -7,7 +7,7 @@ contributors:
 
 # Plugin Generate
 
-Create a new custom Capacitor plugin. This starts a wizard that prompts you for information about your new plugin. More information on developing plugins [here](/docs/plugins).
+新しくカスタムCapacitorプラグインを作成します。新しいプラグインに関する情報を入力するウィザードが起動します。プラグインの開発に関する詳細は [こちら](/docs/plugins) .
 
 ```bash
 # Capacitor CLI already installed in project

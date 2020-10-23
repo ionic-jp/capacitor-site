@@ -7,7 +7,7 @@ contributors:
 
 # Capacitor CLI - cap opy
 
-Opens the native project workspace in the specified native IDE (Xcode for iOS, Android Studio for Android). Once open, use the native IDEs to build, simulate, and run your app on a device.
+指定したNativeIDE (Xcode for iOS, Android Studio for Android)でNativeプロジェクトのワークスペースを開きます。アプリケーションを開いたら、NativeIDEを使用して、デバイス上でアプリケーションを構築、シミュレート、および実行します。
 
 ```bash
 npx cap open <platform>

@@ -7,7 +7,7 @@ contributors:
 
 # Capacitor CLI - cap
 
-View all available CLI commands and options.
+すべての利用可能なCLIのコマンドとオプションを表示します。
 
 ```bash
 npx cap [-V] [-h]
