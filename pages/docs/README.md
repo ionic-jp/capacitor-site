@@ -52,6 +52,6 @@
   * [はじめ方](web/index.md)
   * [PWA Elements](web/pwa-elements.md)
 * Reference
-  * [CLI ->](reference/cli/index.md)
-  * [Config ->](reference/config/index.md)
+  * [Config](config/index.md)
+  * [CLI ->](cli/index.md)
   * [Plugins ->](plugins/index.md)

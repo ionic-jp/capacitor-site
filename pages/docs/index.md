@@ -12,7 +12,11 @@ contributors:
 
 CapacitorはクロスプラットフォームためのNativeライブラリであり、iOS、Android、<em>そして</em>WebでNativeに実行されるWebアプリを簡単に構築できます。ハイブリッドアプリの次の進化を表すものであり、必要なときにNativeSDKに完全にアクセスできるWebファーストアプリを構築したいチームに、最新のNativeなコンテナアプローチを提供します。
 
-<img src="/assets/img/docs/capacitor-index.png" style="max-height: 360px" />
+<img
+  src="/assets/img/docs/capacitor-index.png"
+  width="752" height="410"
+  loading="eager"
+/>
 
 ## 紹介
 
