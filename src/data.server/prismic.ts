@@ -3,6 +3,7 @@ import { Client } from './prismic-configuration';
 import { PrismicDocsResponse } from './models';
 import Prismic from 'prismic-javascript';
 import { MapParamData } from '@stencil/router';
+import { TranslateLandingPage } from './translate';
 
 export const getBlogPost = async (slug: string): Promise<PrismicDocument> => {
   const prismicClient = Client();
@@ -26,7 +27,7 @@ export const getPage: MapParamData = async (_params, url) => {
   switch(url.pathname) {
     case '/':
       return {
-        ...await queryPrismic('capacitor_homepage'),
+        ...Object.assign(await queryPrismic('capacitor_homepage'), TranslateLandingPage),
         whitepaper_ad: await queryPrismic('capacitor_whitepaper_ad'),
         announcement: await queryPrismic('capacitor_homepage_announcement'),
       }
@@ -44,4 +45,5 @@ const queryPrismic = async (prismicId: string) => {
   } catch (e) {
     console.warn(e);
   }
-}  
+}
+
