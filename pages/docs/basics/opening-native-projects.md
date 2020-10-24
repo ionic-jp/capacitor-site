@@ -6,30 +6,30 @@ contributors:
   - mlynch
 ---
 
-# Opening Native Projects
+# ネイティブプロジェクトを開く
 
-Capacitor uses the native IDE for each platform in order to provide required configuration, and to build, test, and deploy apps. 
+Capacitorは必要な構成を提供し、アプリケーションをビルド、テスト、およびデプロイするために、各プラットフォームのネイティブIDEを使用します。
 
-For iOS development, that means you must have [Xcode 11](https://developer.apple.com/xcode/) or above installed. For Android, [Android Studio](https://developer.android.com/studio/index.html) 3 or above. 
+iOSの開発では、 [Xcode 11](https://developer.apple.com/xcode/) かそれ以上のバージョンをインストールしている必要があります。Androidでは [Android Studio](https://developer.android.com/studio/index.html) 3 かそれ以上のバージョンが必要です。
 
-Both IDEs can be opened manually or using the `npx cap open` command:
+どちらのIDEも手動で開くことができますし、 `npx cap open` コマンドも使うことができます:
 
-## Opening Xcode
+## Xcodeを開く
 
 ```bash
 npx cap open ios
 ```
 
-Alternatively, you can open Xcode manually:
+代わりに手動で開くこともできます:
 
 ```bash
 open ios/App/App.xcworkspace
 ```
 
-## Opening Android Studio
+## Android Studioを開く
 
 ```bash
 npx cap open android
 ```
 
-Alternatively, you can open Android Studio and import the `android/` directory as an Android Studio project.
+代わりに、Android Studioを開いて `android/` ディレクトリをプロジェクトにインポートすることもできます。
