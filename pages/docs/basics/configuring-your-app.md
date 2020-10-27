@@ -1,29 +1,29 @@
 ---
-title: Configuring Your App
-description: Native Project Configuration
+title: アプリの設定
+description: ネイティブプロジェクトの設定
 contributors:
   - jcesarmobile
   - dotNetkow
 ---
 
-# Configuring Your App
+# アプリの設定
 
-Capacitor embraces the idea of "Code once, configure everywhere": configuration is
-managed per-platform instead of in an abstracted system like `config.xml` in Cordova.
+Capacitor は「一度だけコードを記述し、あらゆる場所で利用」という考え方を取り入れています。
+Cordova の `config.xml` のように抽象化されたシステムではなく、プラットフォームごとに管理されます。
 
-## Per-platform Management
+## プラットフォームごとの管理
 
-Capacitor requires you to be more involved in the native project configuration than with Cordova. We think this is the right approach because it makes it easy to follow existing native iOS/Android guides, get help on Stack Overflow, and have complete control over your project.
+Capacitor では、Cordova よりもネイティブプロジェクト構成に深く関与するようになっています。このことで、既存の iOS/Android ネイティブガイドが利用できたり、Stack Overflow が助けになったりし、プロジェクトを完全にコントロールするのが簡単になるので、これは正しいアプローチだと考えています。
 
-Additionally, since configuring a Capacitor project is no different from configuring any iOS or Android project, existing native development teams can easily work alongside web developers, with each side using the tools and SDKs they are familiar with. Of course, we believe web developers can handle all the required native configuration on their own, and the Capacitor documentation exists to help web developers do just that.
+また、Capacitor プロジェクトの設定は iOS や Android のプロジェクトの設定と同じであるため、既存のネイティブ開発チームは Web 開発者と一緒に、それぞれの側が使い慣れたツールや SDK を使用して簡単に作業することができます。もちろん、Web 開発者は必要なネイティブ構成をすべて自分で処理できると信じていますし、Web 開発者がそれを実行できるように、Capacitor のドキュメントも存在します。
 
-## Common Configuration
+## 共通の設定
 
-Capacitor has some high-level configuration options that are set in the [Capacitor configuration file](/docs/config). These generally don't modify native functionality, but control Capacitor's tooling.
+Capacitor には [Capacitor の設定ファイル](/docs/config) で設定されるいくつかの高レベルな構成オプションがあります。これらは通常、ネイティブの機能を変更するのではなく、Capacitor のツールを制御します。
 
-## Native Configuration
+## ネイティブの設定
 
-iOS and Android each have configuration guides walking through making common changes to their behavior:
+iOS と Android にはそれぞれ共通の変更を行うための設定ガイドが用意されています:
 
 [Configuring iOS &#8250;](/docs/ios/configuration)
 
