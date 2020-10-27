@@ -5,9 +5,9 @@ contributors:
   - dotNetkow
 ---
 
-# JavaScriptユーティリティ
+# JavaScript ユーティリティ
 
-Capacitorには、同じコードベースを持つ複数のプラットフォーム間でアプリケーションを正常に実行するのに便利なJavaScriptユーティリティがいくつかあります。これらを使用するには、 Capacitorを読み込み、目的のユーティリティ関数を呼び出します:
+Capacitor には、同じコードベースを持つ複数のプラットフォーム間でアプリケーションを正常に実行するのに便利な JavaScript ユーティリティがいくつかあります。これらを使用するには、 Capacitor を読み込み、目的のユーティリティ関数を呼び出します:
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
@@ -18,9 +18,9 @@ const isAvailable = Capacitor.isPluginAvailable('Camera');
 
 `convertFileSrc: (filePath: string) => string;`
 
-デバイスのファイルパスをWeb Viewに適したパスに変換します。
+デバイスのファイルパスを Web View に適したパスに変換します。
 
-Capacitorアプリケーションは、デバイスファイルとは異なるプロトコルで提供されます。これらのプロトコル間の問題を回避するには、デバイスファイルへのパスを書き換える必要があります。たとえば、Androidでは、 `file:///path/to/device/file` を `http://localhost/_capacitor_file_/path/to/device/file` に書き換えてからWebビューで使用する必要があります。
+Capacitor アプリケーションは、デバイスファイルとは異なるプロトコルで提供されます。これらのプロトコル間の問題を回避するには、デバイスファイルへのパスを書き換える必要があります。たとえば、Android では、 `file:///path/to/device/file` を `http://localhost/_capacitor_file_/path/to/device/file` に書き換えてから Web ビューで使用する必要があります。
 
 ```typescript
 // file:///path/to/device/photo.jpg
@@ -77,7 +77,7 @@ if (!isAvailable) {
 } else {
   // Otherwise, make the call:
   const image = await Camera.getPhoto({
-    resultType: CameraResultType.Uri
+    resultType: CameraResultType.Uri,
   });
 }
 ```

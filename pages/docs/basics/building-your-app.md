@@ -8,13 +8,13 @@ contributors:
 
 # アプリのビルド
 
-Capacitorは3段階のビルドプロセスで動作します。最初に、あなたのWebコードがビルドされます（必要な場合）。次に、構築したWebコードを各プラットフォームにコピーします。最後に、アプリはプラットフォーム固有のツールを使ってコンパイルされます。
+Capacitor は 3 段階のビルドプロセスで動作します。最初に、あなたの Web コードがビルドされます（必要な場合）。次に、構築した Web コードを各プラットフォームにコピーします。最後に、アプリはプラットフォーム固有のツールを使ってコンパイルされます。
 
-## 1. Webコードのビルド
+## 1. Web コードのビルド
 
-Capacitorには、Webコードを構築するための組み込み機能はありません。代わりに、あなたは自分のフレームワークのビルドプロセスを選択することができます。
+Capacitor には、Web コードを構築するための組み込み機能はありません。代わりに、あなたは自分のフレームワークのビルドプロセスを選択することができます。
 
-ビルドプロセスに関係なく、標準のフロントエンドビルドコマンドを有効にするために、package.jsonにbuildスクリプトを追加することをお勧めします:
+ビルドプロセスに関係なく、標準のフロントエンドビルドコマンドを有効にするために、package.json に build スクリプトを追加することをお勧めします:
 
 ```json
 {
@@ -24,16 +24,15 @@ Capacitorには、Webコードを構築するための組み込み機能はあ�
 }
 ```
 
-
 ```bash
 npm run build
 ```
 
-<stencil-route-link url="/docs/basics/progressive-web-app">Progressive Web App</stencil-route-link> を設定していれば、これでProgressive Web Appをビルドできます。
+<stencil-route-link url="/docs/basics/progressive-web-app">Progressive Web App</stencil-route-link> を設定していれば、これで Progressive Web App をビルドできます。
 
-## 2. Webコードをコピーする
+## 2. Web コードをコピーする
 
-作成したWebコードは、各Nativeプロジェクトにコピーする必要があります:
+作成した Web コードは、各 Native プロジェクトにコピーする必要があります:
 
 ```bash
 npx cap copy
@@ -41,26 +40,26 @@ npx cap copy
 
 ビルドを実行するたびにこれを実行する必要があります。このコマンドを `package.json` のビルドスクリプトの最後に追加してください。
 
-## 3. Nativeプロジェクトのビルド
+## 3. Native プロジェクトのビルド
 
 ### iOS
 
-iOSは、最終的なアプリのコンパイルをXcodeに依存しています。
+iOS は、最終的なアプリのコンパイルを Xcode に依存しています。
 
 ```bash
 npx cap copy ios
 npx cap open ios
 ```
 
-Xcodeが起動したら、標準的なXcodeワークフローを使って最終的なアプリバイナリを構築することができます。
+Xcode が起動したら、標準的な Xcode ワークフローを使って最終的なアプリバイナリを構築することができます。
 
 ### Android
 
-現在、Androidはアプリの開発をAndroid Studio(または、オプションでAndroid CLIツール)に依存しています。
+現在、Android はアプリの開発を Android Studio(または、オプションで Android CLI ツール)に依存しています。
 
 ```bash
 npx cap copy android
 npx cap open android
 ```
 
-Android Studioが起動したら、標準のAndroid Studioワークフローを使ってアプリを構築することができます。
+Android Studio が起動したら、標準の Android Studio ワークフローを使ってアプリを構築することができます。

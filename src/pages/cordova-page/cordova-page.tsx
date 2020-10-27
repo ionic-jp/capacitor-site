@@ -23,7 +23,7 @@ export class CordovaPage {
     return (
       <Host>
         <MetaHead />
-        
+
         <Top />
         <GettingStarted />
 
@@ -41,17 +41,19 @@ export class CordovaPage {
   Top = () => (
     <ResponsiveContainer id="top" as="section">
       <div class="heading-group">
-        <Heading level={2} as="h1">Cordova to Capacitor Migration</Heading>
+        <Heading level={2} as="h1">
+          Cordova to Capacitor Migration
+        </Heading>
         <Paragraph level={2}>
-          A modern development experience and 99%
-          backward-compatibility with Cordova.
+          A modern development experience and 99% backward-compatibility with
+          Cordova.
         </Paragraph>
         {/* <Button anchor href="#code-branch" id="get-started">
           Get Started
         </Button> */}
       </div>
     </ResponsiveContainer>
-  )
+  );
 
   GettingStarted = () => (
     <ResponsiveContainer id="getting-started" as="section">
@@ -59,7 +61,7 @@ export class CordovaPage {
         <sup class="ui-heading-6">01</sup>
         <div class="heading-group">
           <Heading level={3} id="code-branch">
-          新しいブランチを作成します。
+            新しいブランチを作成します。
           </Heading>
           <Paragraph>推奨ですが、必須ではありません。</Paragraph>
         </div>
@@ -118,7 +120,7 @@ ionic build
         <sup class="ui-heading-6">04</sup>
         <div class="heading-group">
           <Heading level={3}>
-          ターゲットにするネイティブプラットフォームをインストール。
+            ターゲットにするネイティブプラットフォームをインストール。
           </Heading>
           <div class="platforms">
             <img
@@ -126,14 +128,16 @@ ionic build
               src="/assets/img/landing/apple.png"
               alt="Apple"
               class="apple"
-              width="22" height="26"
+              width="22"
+              height="26"
             />
             <img
               loading="lazy"
               src="/assets/img/landing/android.png"
               alt="Android"
               class="android"
-              width="27" height="23"
+              width="27"
+              height="23"
             />
           </div>
           <Paragraph>
@@ -156,11 +160,14 @@ npx cap add ios
       <article class="step">
         <sup class="ui-heading-6">05</sup>
         <div class="heading-group">
-          <Heading level={3}>スプラッシュスクリーンとアイコンの再作成。</Heading>
+          <Heading level={3}>
+            スプラッシュスクリーンとアイコンの再作成。
+          </Heading>
           <Paragraph>
-          `cordova-res` ツールを使用して、Cordovaプロジェクトの最上位の `resources` フォルダにある
-          既存のスプラッシュスクリーン/アイコン画像を再利用します。
-          画像は各ネイティブプロジェクトにコピーされます。
+            `cordova-res` ツールを使用して、Cordovaプロジェクトの最上位の
+            `resources` フォルダにある
+            既存のスプラッシュスクリーン/アイコン画像を再利用します。
+            画像は各ネイティブプロジェクトにコピーされます。
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -200,13 +207,13 @@ cordova-res android --skip-config --copy
             <TabBar>
               <TabBarButton
                 selected={this.selectedCodeTab === 'before'}
-                tabSelect={() => this.selectedCodeTab = 'before'}
+                tabSelect={() => (this.selectedCodeTab = 'before')}
               >
                 Cordova Camera
               </TabBarButton>
               <TabBarButton
                 selected={this.selectedCodeTab === 'after'}
-                tabSelect={() => this.selectedCodeTab = 'after'}
+                tabSelect={() => (this.selectedCodeTab = 'after')}
               >
                 Capacitor Camera
               </TabBarButton>
@@ -255,8 +262,7 @@ const photo = await Camera.getPhoto({
         <div class="heading-group">
           <Heading level={3}>プロジェクトからCordovaを削除。</Heading>
           <Paragraph>
-            移行テストが成功したら、Cordovaをプロジェクトから
-            削除できます。
+            移行テストが成功したら、Cordovaをプロジェクトから 削除できます。
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -284,9 +290,10 @@ rm -R plugins/
             <a {...href('/docs/cordova/using-cordova-plugins')}>
               Cordovaプラグインを
             </a>{' '}
-            Capacitorで使う方法と、Capacitorの {' '}
-            <a {...href('/docs/basics/workflow')}>開発フロー</a> や
-            自分自身の <a {...href('/docs/plugins')}>ネイティブプラグイン</a> をつくったりしましょう。
+            Capacitorで使う方法と、Capacitorの{' '}
+            <a {...href('/docs/basics/workflow')}>開発フロー</a> や 自分自身の{' '}
+            <a {...href('/docs/plugins')}>ネイティブプラグイン</a>{' '}
+            をつくったりしましょう。
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -323,7 +330,10 @@ npx @capacitor/cli plugin:generate
             type: 'article',
           },
           { uid: 'capacitor-2-launch', type: 'webinar' },
-          { uid: 'migrating-from-phonegap-build-to-ionic-appflow', type: 'blog' },
+          {
+            uid: 'migrating-from-phonegap-build-to-ionic-appflow',
+            type: 'blog',
+          },
           {
             uid: 'thanks-to-capacitor-ive-fallen-in-love-with-mobile-again',
             type: 'blog',
@@ -331,20 +341,18 @@ npx @capacitor/cli plugin:generate
           { uid: 'the-modern-hybrid-app-developer', type: 'blog' },
         ]}
         routing={{
-          base: "https://ionicframework.com/resources"
+          base: 'https://ionicframework.com/resources',
         }}
       />
     </ResponsiveContainer>
   );
 }
 
-
-
-
-
 const MetaHead = () => (
   <Helmet>
-    <title>Capacitor - Webアプリをクロスプラットフォームに展開するライブラリ</title>
+    <title>
+      Capacitor - Webアプリをクロスプラットフォームに展開するライブラリ
+    </title>
     <meta
       name="description"
       content={

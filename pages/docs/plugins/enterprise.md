@@ -3,9 +3,9 @@ title: エンタープライズ版Capacitor
 description: Capacitor offers powerful native features and support for enterprises
 ---
 
-# エンタープライズ版Capacitor
+# エンタープライズ版 Capacitor
 
-Capacitorは、強力なNativeセキュリティ、認証、およびデータ管理ソリューションと、ミッションクリティカルなエンタープライズアプリ向けのプラグインを提供します。
+Capacitor は、強力な Native セキュリティ、認証、およびデータ管理ソリューションと、ミッションクリティカルなエンタープライズアプリ向けのプラグインを提供します。
 
 さらに、チームは顧客に愛されているサポートやオプションのアドバイザリーサービスを利用して、モバイルエコシステムの変化に関わらず、次の主要なアプリプロジェクトが成功し、その状態を維持できるようにします。
 

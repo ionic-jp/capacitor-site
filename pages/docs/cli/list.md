@@ -7,16 +7,18 @@ contributors:
 
 # Capacitor CLI - cap ls
 
-インストールされているすべてのCordovaプラグインとCapacitorプラグインを一覧表示します。
+インストールされているすべての Cordova プラグインと Capacitor プラグインを一覧表示します。
 
 ```bash
 npx cap ls [platform]
 ```
 
 <strong>Inputs:</strong>
+
 - `platform` (optional): `android`, `ios`
 
 <strong>Example output:</strong>
+
 ```
 Found 1 Capacitor plugin for android:
     capacitor-mapbox (0.0.1)

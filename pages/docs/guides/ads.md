@@ -5,11 +5,11 @@ contributors:
   - mlynch
 ---
 
-# Capacitorアプリに広告を表示
+# Capacitor アプリに広告を表示
 
 多くの消費者向けアプリは、収益を上げるために広告を表示する必要があります。
 
-モバイルアプリの広告ネットワークで最も人気があるのはGoogle Admobですが、これをすぐ使うための [コミュニティ管理のCapacitorプラグイン](https://github.com/capacitor-community/admob) があります:
+モバイルアプリの広告ネットワークで最も人気があるのは Google Admob ですが、これをすぐ使うための [コミュニティ管理の Capacitor プラグイン](https://github.com/capacitor-community/admob) があります:
 
 ```shell
 npm install @capacitor-community/admob

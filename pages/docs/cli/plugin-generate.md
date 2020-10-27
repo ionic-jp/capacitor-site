@@ -1,5 +1,5 @@
 ---
-title: Capacitor Plugin Generate 
+title: Capacitor Plugin Generate
 description: Capacitor Plugin Generate
 contributors:
   - dotNetkow
@@ -7,7 +7,7 @@ contributors:
 
 # Plugin Generate
 
-新しくカスタムCapacitorプラグインを作成します。新しいプラグインに関する情報を入力するウィザードが起動します。プラグインの開発に関する詳細は [こちら](/docs/plugins) .
+新しくカスタム Capacitor プラグインを作成します。新しいプラグインに関する情報を入力するウィザードが起動します。プラグインの開発に関する詳細は [こちら](/docs/plugins) .
 
 ```bash
 # Capacitor CLI already installed in project

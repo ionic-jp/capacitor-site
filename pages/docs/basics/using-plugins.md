@@ -10,9 +10,9 @@ contributors:
 
 キャパシターには、 [Camera](/docs/apis/camera) や [Filesystem](/docs/apis/filesystem) などの組み込みプラグインが付属しています。
 
-しかし、おそらくあなたのアプリは、Capacitorの本体機能よりも多くのネイティブ機能にアクセスする必要があるでしょう。
+しかし、おそらくあなたのアプリは、Capacitor の本体機能よりも多くのネイティブ機能にアクセスする必要があるでしょう。
 
-少しのネイティブ・コードを作成し、それを [プラグインガイド](/docs/plugins) に従ってCapacitorプラグインとして公開することで、独自のネイティブ機能を素早く追加することができます。
+少しのネイティブ・コードを作成し、それを [プラグインガイド](/docs/plugins) に従って Capacitor プラグインとして公開することで、独自のネイティブ機能を素早く追加することができます。
 
 ## プラグインの見つけ方
 
@@ -22,4 +22,4 @@ contributors:
 
 ## Cordova と Ionic Native Plugin
 
-Capacitorはまた、広範囲の [Cordovaプラグイン](/docs/cordova/using-cordova-plugins) をサポートしているので、選ぶべきものがたくさんあります。
+Capacitor はまた、広範囲の [Cordova プラグイン](/docs/cordova/using-cordova-plugins) をサポートしているので、選ぶべきものがたくさんあります。

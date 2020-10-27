@@ -7,19 +7,19 @@ contributors:
   - RoderickQiu
 ---
 
-# カスタムNative Androidコード
+# カスタム Native Android コード
 
-多くのアプリは、適切にCapacitorプラグインを構築して公開するというオーバーヘッドなしに、Native機能を実装するためのカスタムのJavaコードもしくはKotlinのコードを追加したいと思うでしょう。
+多くのアプリは、適切に Capacitor プラグインを構築して公開するというオーバーヘッドなしに、Native 機能を実装するためのカスタムの Java コードもしくは Kotlin のコードを追加したいと思うでしょう。
 
-WebViewからそのコードにアクセスする必要があるかどうかによって、2つの方法があります：
+WebView からそのコードにアクセスする必要があるかどうかによって、2 つの方法があります：
 
-## WebViewからNativeコードにアクセス
+## WebView から Native コードにアクセス
 
-WebViewでアクセス可能にする必要があるカスタムNativeコードを構築する最も簡単な方法は、
-そのためのローカルCapacitorプラグインを構築することです。この場合、プラグインの構築は `com.getcapacitor.Plugin` を継承するクラスの構築と同じくらい簡単です。
+WebView でアクセス可能にする必要があるカスタム Native コードを構築する最も簡単な方法は、
+そのためのローカル Capacitor プラグインを構築することです。この場合、プラグインの構築は `com.getcapacitor.Plugin` を継承するクラスの構築と同じくらい簡単です。
 プラグインは `@NativePlugin()` と `@PluginMethod()` のアノテーションを使用します。
 
-JavaとKotlinのカスタムコードの例です:
+Java と Kotlin のカスタムコードの例です:
 
 ### Java
 
@@ -85,7 +85,7 @@ class CustomNativePlugin : Plugin() {
 
 ### プラグインコードの登録
 
-最後のステップは、プラグインをActivityに登録することです。ActivityにKotlinプラグインクラスを登録することは、Javaクラスの登録と同様に行います:
+最後のステップは、プラグインを Activity に登録することです。Activity に Kotlin プラグインクラスを登録することは、Java クラスの登録と同様に行います:
 
 ```java
 // Other imports...
@@ -106,21 +106,21 @@ public class MainActivity extends BridgeActivity {
 }
 ```
 
-そうするとあなたはwebViewのコードであなたの機能を使うことができます:
+そうするとあなたは webView のコードであなたの機能を使うことができます:
 
 ```typescript
 // Other codes...
-import { Plugins } from "@capacitor/core";
+import { Plugins } from '@capacitor/core';
 const { CustomNativePlugin } = Plugins;
 // Other codes...
-CustomNativePlugin.customCall({ message: "CUSTOM MESSAGE" });
+CustomNativePlugin.customCall({ message: 'CUSTOM MESSAGE' });
 CustomNativePlugin.customFunction();
 // Other codes...
 ```
 
-より詳しいプラグインAPIの使い方を知るには [Capacitor Android Plugin Guide](/docs/plugins/android) をご覧ください。
+より詳しいプラグイン API の使い方を知るには [Capacitor Android Plugin Guide](/docs/plugins/android) をご覧ください。
 
-## プライベートNativeコード
+## プライベート Native コード
 
-WebViewからコードにアクセスする必要がない場合は、必要な場所にコードを追加するだけです。
-Capacitorを使用すると、Nativeプロジェクトを完全に制御できます。アクティビティに新しいイベントハンドラを追加する必要がありますか？ `MainActivity` を更新して追加するだけです。世界はあなたの思いのままです。
+WebView からコードにアクセスする必要がない場合は、必要な場所にコードを追加するだけです。
+Capacitor を使用すると、Native プロジェクトを完全に制御できます。アクティビティに新しいイベントハンドラを追加する必要がありますか？ `MainActivity` を更新して追加するだけです。世界はあなたの思いのままです。

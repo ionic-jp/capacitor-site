@@ -7,13 +7,13 @@ contributors:
 
 # ライブリロード
 
-ライブリロードは、アプリのウェブ部分とデバイスハードウェアやシミュレータのNative機能の両方をデバッグするのに便利です。コードを変更するたびに新しいNativeバイナリをデプロイするのではなく、アプリの変更が検出されるとブラウザ(またはWebビュー)を自動的にリロードします。
+ライブリロードは、アプリのウェブ部分とデバイスハードウェアやシミュレータの Native 機能の両方をデバッグするのに便利です。コードを変更するたびに新しい Native バイナリをデプロイするのではなく、アプリの変更が検出されるとブラウザ(または Web ビュー)を自動的にリロードします。
 
-> デバイス上で実行している場合は、そのデバイスがコンピュータと同じWi-Fiネットワーク上にあることを確認します。
+> デバイス上で実行している場合は、そのデバイスがコンピュータと同じ Wi-Fi ネットワーク上にあることを確認します。
 
-## Ionic CLIを利用する
+## Ionic CLI を利用する
 
-Ionic CLIには完全なライブリロードエクスペリエンスが含まれており、以下で手動で説明するすべての手順が自動化されています。 `native-run` (デバイスやシミュレータ/エミュレータ上でNativeバイナリを実行するためのクロスプラットフォームコマンドラインユーティリティ)と一緒にインストールします:
+Ionic CLI には完全なライブリロードエクスペリエンスが含まれており、以下で手動で説明するすべての手順が自動化されています。 `native-run` (デバイスやシミュレータ/エミュレータ上で Native バイナリを実行するためのクロスプラットフォームコマンドラインユーティリティ)と一緒にインストールします:
 
 ```bash
 npm install -g @ionic/cli native-run
@@ -26,29 +26,28 @@ ionic cap run android -l --external
 ionic cap run ios -l --external
 ```
 
-これによって `ionic build` を行い、WebアセットをNativeプラットフォームにコピーします。そしてNativeプロジェクトのIDEを開きます(Xcode for iOS, Android Studio for Android)。
+これによって `ionic build` を行い、Web アセットを Native プラットフォームにコピーします。そして Native プロジェクトの IDE を開きます(Xcode for iOS, Android Studio for Android)。
 
 `capacitor.config.json` の設定を読み込んで `server` が自動的に起動しますが、コマンドを終了すると自動的に削除されます。 `ionic cap run` コマンドの詳しくは、 [こちらをご覧ください](https://ionicframework.com/docs/cli/commands/capacitor-run)。
 
+## Framework CLI を使う
 
-## Framework CLIを使う
+Capacitor ライブリロード機能を備えた CLI をサポートしています。
 
-Capacitorライブリロード機能を備えたCLIをサポートしています。
+まず、LAN 上のコンピュータの IP アドレスを確認します。
 
-まず、LAN上のコンピュータのIPアドレスを確認します。
+- macOS の場合、 `ifconfig` を実行します。 IP アドレスは、 `inet` の後の `en0` エントリの下に表示されます。または、システム環境設定->ネットワーク->(アクティブなネットワークを選択)を開き、ステータスに表示されている IP を探します。
+- Windows の場合、`ipconfig` を実行して `IPv4` address をご確認ください。
 
-- macOSの場合、 `ifconfig` を実行します。 IPアドレスは、 `inet` の後の `en0` エントリの下に表示されます。または、システム環境設定->ネットワーク->(アクティブなネットワークを選択)を開き、ステータスに表示されているIPを探します。
-- Windowsの場合、`ipconfig` を実行して `IPv4` addressをご確認ください。
-
-次に、ローカルWebサーバーを起動します。LANからアクセスできるようにするには、サーバーを `0.0.0.0` にバインドする必要があります。実行するコマンドはさまざまですが、通常は次のようになります:
+次に、ローカル Web サーバーを起動します。LAN からアクセスできるようにするには、サーバーを `0.0.0.0` にバインドする必要があります。実行するコマンドはさまざまですが、通常は次のようになります:
 
 ```bash
 npm run start
 ```
 
-> react-scriptsでは `HOST=0.0.0.0 npm run start` を使ってください。
+> react-scripts では `HOST=0.0.0.0 npm run start` を使ってください。
 
-`capacitor.config.json` の中で、 `server` キーをつくって、 `url` フィールドにローカルWebサーバーのIPアドレスとポートを設定します:
+`capacitor.config.json` の中で、 `server` キーをつくって、 `url` フィールドにローカル Web サーバーの IP アドレスとポートを設定します:
 
 ```json
 "server": {
@@ -57,15 +56,15 @@ npm run start
 },
 ```
 
-次に `npx cap copy` を実行して、Capacitorの設定とWebアセットをNativeプロジェクトにコピーします。
+次に `npx cap copy` を実行して、Capacitor の設定と Web アセットを Native プロジェクトにコピーします。
 
-NativeIDEを開いていない場合は開いてください:
+NativeIDE を開いていない場合は開いてください:
 
 ```bash
 npx cap open ios
 npx cap open android
 ```
 
-最後に、Runボタンをクリックしてアプリを起動し、ライブリロードを使い始めます。
+最後に、Run ボタンをクリックしてアプリを起動し、ライブリロードを使い始めます。
 
 > サーバー構成をコミットしないように注意してください。

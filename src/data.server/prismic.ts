@@ -6,13 +6,16 @@ import { MapParamData } from '@stencil/router';
 import { TranslateLandingPage } from './translate';
 
 export const getPage: MapParamData = async (_params, url) => {
-  switch(url.pathname) {
+  switch (url.pathname) {
     case '/':
       return {
-        ...Object.assign(await queryPrismic('capacitor_homepage'), TranslateLandingPage),
+        ...Object.assign(
+          await queryPrismic('capacitor_homepage'),
+          TranslateLandingPage,
+        ),
         whitepaper_ad: await queryPrismic('capacitor_whitepaper_ad'),
         announcement: await queryPrismic('capacitor_homepage_announcement'),
-      }
+      };
     case '/community':
       return await queryPrismic('capacitor_community');
   }
@@ -23,10 +26,16 @@ export const getBlogPost = async (slug: string): Promise<PrismicDocument> => {
   return prismicClient.getByUID('blog', slug, {});
 };
 
-export const getBlogPosts = async (_page: number = 0, pageSize = 10): Promise<PrismicDocsResponse> => {
+export const getBlogPosts = async (
+  _page: number = 0,
+  pageSize = 10,
+): Promise<PrismicDocsResponse> => {
   const prismicClient = Client();
 
-  const res = await prismicClient.query(Prismic.Predicates.at('document.type', 'blog'), { pageSize });
+  const res = await prismicClient.query(
+    Prismic.Predicates.at('document.type', 'blog'),
+    { pageSize },
+  );
 
   return {
     docs: res.results,
@@ -39,11 +48,13 @@ export const getBlogPosts = async (_page: number = 0, pageSize = 10): Promise<Pr
 const queryPrismic = async (prismicId: string) => {
   try {
     const prismicClient = Client();
-    const response: PrismicDocument = await prismicClient.getSingle(prismicId, {});
+    const response: PrismicDocument = await prismicClient.getSingle(
+      prismicId,
+      {},
+    );
 
     return response.data;
   } catch (e) {
     console.warn(e);
   }
-}
-
+};

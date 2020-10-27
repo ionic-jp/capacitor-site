@@ -60,7 +60,7 @@ const { Share } = Plugins;
 await Share.share({
   title: 'My awesome thing',
   text: 'Check out this really awesome thing',
-  url: 'https://capacitorjs.jp/'
+  url: 'https://capacitorjs.com/',
 });
 ```
 
@@ -88,4 +88,4 @@ Beyond React, Capacitor can be used with any modern web app technology, so is a 
 
 We're excited about Capacitor in the React ecosystem, and many teams are as well. Today, Capacitor is powering React apps with hundreds of millions of users, and for major brands and [enterprise customers](https://ionicframework.com/customers) like Burger King and Popeye's. Capacitor adoption has been [growing quickly](https://twitter.com/maxlynch/status/1280531102650769408) and given that given that web development with React represents the largest area of React development ([> 17x React Native](https://npmcharts.com/compare/react-native,react-dom?interval=7)), we're thrilled about the potential to help more web devs build cross-platform apps.
 
-Check out Capacitor today and stay tuned for some exciting updates with the project coming soon: [capacitorjs.jp](https://capacitorjs.jp/)
+Check out Capacitor today and stay tuned for some exciting updates with the project coming soon: [capacitorjs.com](https://capacitorjs.com/)

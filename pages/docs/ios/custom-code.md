@@ -6,20 +6,19 @@ contributors:
   - mlynch
 ---
 
-# カスタムNative iOSコード
+# カスタム Native iOS コード
 
-多くのアプリケーションでは、適切にCapacitorプラグインを構築して公開するというオーバーヘッドなしに、Native機能を実装するためのカスタムSwift（またはObjective-C）コードを追加したいと思うでしょう。
+多くのアプリケーションでは、適切に Capacitor プラグインを構築して公開するというオーバーヘッドなしに、Native 機能を実装するためのカスタム Swift（または Objective-C）コードを追加したいと思うでしょう。
 
-iOSのエコシステムはSwiftを採用しているので、Swiftを使用してプラグインを構築することを強くお勧めします。そうすれば、より簡単にヘルプや開発者を見つけることができますが、Objective-Cでも同様に機能します。
+iOS のエコシステムは Swift を採用しているので、Swift を使用してプラグインを構築することを強くお勧めします。そうすれば、より簡単にヘルプや開発者を見つけることができますが、Objective-C でも同様に機能します。
 
-WebViewからそのコードにアクセスする必要があるかどうかによって、カスタムコードを追加する2つの方法があります：
+WebView からそのコードにアクセスする必要があるかどうかによって、カスタムコードを追加する 2 つの方法があります：
 
+## WebView から Native コードへアクセス
 
-## WebViewからNativeコードへアクセス
-
-WebViewでアクセス可能にする必要があるカスタムNativeコードを構築する最も簡単な方法は、
-そのためのローカルCapacitorプラグインを構築することです。
-この場合、プラグインのビルドは、新しいClassをビルドしてCapacitorに登録するだけです。
+WebView でアクセス可能にする必要があるカスタム Native コードを構築する最も簡単な方法は、
+そのためのローカル Capacitor プラグインを構築することです。
+この場合、プラグインのビルドは、新しい Class をビルドして Capacitor に登録するだけです。
 
 `MyPlugin.swift`
 
@@ -37,11 +36,11 @@ public class MyPlugin: CAPPlugin {
 }
 ```
 
-`@objc` デコレーターは、Capacitorのランタイム（ダイナミックプラグインサポートにはobj-Cを使用する必要があります）が認識できるようにするために必要です。
+`@objc` デコレーターは、Capacitor のランタイム（ダイナミックプラグインサポートには obj-C を使用する必要があります）が認識できるようにするために必要です。
 
-次に、プラグイン(`MyPlugin.m`)に対応する新しいObjective-Cファイル(拡張子は`.m`です。`.h`ではありません！)を作成する必要があります。重要: これを行うには、Xcodeの 「新規ファイル」 ダイアログを使用する必要があります。XcodeからBridging Headerを作成するように指示されますので、これを実行してください。
+次に、プラグイン(`MyPlugin.m`)に対応する新しい Objective-C ファイル(拡張子は`.m`です。`.h`ではありません！)を作成する必要があります。重要: これを行うには、Xcode の 「新規ファイル」 ダイアログを使用する必要があります。Xcode から Bridging Header を作成するように指示されますので、これを実行してください。
 
-最後に、必要なCapacitorプラグインマクロを新しい `.m` ファイル に追加して、プラグインを登録します:
+最後に、必要な Capacitor プラグインマクロを新しい `.m` ファイル に追加して、プラグインを登録します:
 
 ```objectivec
 #import <Capacitor/Capacitor.h>
@@ -51,19 +50,19 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-これは `MyPlugin` を作成し、`echo` メソッドをこのようにCapacitor web runtimeで実行できるようになります:
+これは `MyPlugin` を作成し、`echo` メソッドをこのように Capacitor web runtime で実行できるようになります:
 
 ```typescript
-import { Plugins } from "@capacitor/core"
-const { MyPlugin } = Plugins
+import { Plugins } from '@capacitor/core';
+const { MyPlugin } = Plugins;
 
-const result = await MyPlugin.echo({ value: "Hello World!" })
-console.log(result.value)
+const result = await MyPlugin.echo({ value: 'Hello World!' });
+console.log(result.value);
 ```
 
-## プライベートNativeコード
+## プライベート Native コード
 
-WebViewからコードにアクセスする必要がない場合は、必要な場所にコードを追加するだけです。
-Capacitorを使用すると、Nativeプロジェクトを完全に制御できます。
+WebView からコードにアクセスする必要がない場合は、必要な場所にコードを追加するだけです。
+Capacitor を使用すると、Native プロジェクトを完全に制御できます。
 
-`AppDelegate` に新しいイベントハンドラを追加する必要がありますか？入れるだけです！Capacitorはコードに触れません。
+`AppDelegate` に新しいイベントハンドラを追加する必要がありますか？入れるだけです！Capacitor はコードに触れません。

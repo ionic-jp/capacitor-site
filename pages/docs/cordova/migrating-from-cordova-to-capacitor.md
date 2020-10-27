@@ -5,17 +5,17 @@ contributors:
   - dotNetkow
 ---
 
-# WebアプリのCordovaからCapacitorへのマイグレーション
+# Web アプリの Cordova から Capacitor へのマイグレーション
 
-Cordovaを使用してWebアプリケーションを完全にCapacitorに移行するには、いくつかの手順が必要です。
+Cordova を使用して Web アプリケーションを完全に Capacitor に移行するには、いくつかの手順が必要です。
 
->Note これらの変更を適用する場合は、別のコードブランチで作業することをお勧めします。
+> Note これらの変更を適用する場合は、別のコードブランチで作業することをお勧めします。
 
-## Capacitorを追加する
+## Capacitor を追加する
 
-まず、プロジェクトをターミナルで開き、[Webアプリ](/docs/getting-started) か [Ionicアプリ](/docs/getting-started/with-ionic) の方法でCapacitorを追加します。
+まず、プロジェクトをターミナルで開き、[Web アプリ](/docs/getting-started) か [Ionic アプリ](/docs/getting-started/with-ionic) の方法で Capacitor を追加します。
 
-次に、`config.xml`を開いて、widgetエレメントにある`id`を見つけます。例えば、 `io.ionic.myapp` です。
+次に、`config.xml`を開いて、widget エレメントにある`id`を見つけます。例えば、 `io.ionic.myapp` です。
 
 ```xml
 <widget id="io.ionic.myapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
@@ -27,7 +27,7 @@ Cordovaを使用してWebアプリケーションを完全にCapacitorに移行�
 <name>MyApp</name>
 ```
 
-Capacitorのインストールの時に、あなたのアプリの情報を入力します:
+Capacitor のインストールの時に、あなたのアプリの情報を入力します:
 
 ```bash
 npx cap init [appName] [appId]
@@ -36,20 +36,21 @@ npx cap init [appName] [appId]
 例えば、これは `npx cap init MyApp io.ionic.myapp` のようになります。これらの値は新しく作成される `capacitor.config.json` に反映されます。
 
 ### アプリをビルドする
-Nativeプラットフォームを追加する前に、Webプロジェクトを少なくとも1回構築する必要があります。
 
-これにより、Capacitorが、`capacitor.config.json`の`webDir`において使用するように[自動的に設定された](/docs/basics/configuring-your-app/)wwwフォルダーが実際に存在するようになります。
+Native プラットフォームを追加する前に、Web プロジェクトを少なくとも 1 回構築する必要があります。
 
-### Platformsの追加
+これにより、Capacitor が、`capacitor.config.json`の`webDir`において使用するように[自動的に設定された](/docs/basics/configuring-your-app/)www フォルダーが実際に存在するようになります。
 
-CapacitorのNativeプラットフォームは、その最上位フォルダにあります。Cordovaの場合は、`platforms/ios` もしくは `platforms/android` でした。
+### Platforms の追加
+
+Capacitor の Native プラットフォームは、その最上位フォルダにあります。Cordova の場合は、`platforms/ios` もしくは `platforms/android` でした。
 
 ```bash
 npx cap add ios
 npx cap add android
 ```
 
-プロジェクトのルートにあるandroidフォルダとiosフォルダの両方が作成されます。これらは完全に独立したNativeプロジェクトの成果物であり、アプリの一部と見なす必要があります（つまり、それらをソース管理にチェックインしたり、独自のIDEで編集したりするなど）。さらに、以前に `npm install`（` package.json`の `dependencies`の下にあります）でプロジェクトに追加されたCordovaプラグインは、Capacitorによってそれぞれの新しいNativeプロジェクトに自動的にインストールされます（[incompatible ones](/docs/cordova/known-incompatible-plugins)は除きます）：
+プロジェクトのルートにある android フォルダと ios フォルダの両方が作成されます。これらは完全に独立した Native プロジェクトの成果物であり、アプリの一部と見なす必要があります（つまり、それらをソース管理にチェックインしたり、独自の IDE で編集したりするなど）。さらに、以前に `npm install`（` package.json`の `dependencies`の下にあります）でプロジェクトに追加された Cordova プラグインは、Capacitor によってそれぞれの新しい Native プロジェクトに自動的にインストールされます（[incompatible ones](/docs/cordova/known-incompatible-plugins)は除きます）：
 
 ```json
 "dependencies": {
@@ -65,7 +66,7 @@ npx cap add android
 
 ## スプラッシュ画像とアイコン
 
-アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。`cordova-res` ルールを使って、生成したアイコンとスプラッシュ画像を各Nativeプロジェクトに移動します。
+アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。`cordova-res` ルールを使って、生成したアイコンとスプラッシュ画像を各 Native プロジェクトに移動します。
 
 まず、 `cordova-res` をインストールください:
 
@@ -73,7 +74,7 @@ npx cap add android
 $ npm install -g cordova-res
 ```
 
-次に次のコマンドで画像を生成してNativeプロジェクトにコピーしてください:
+次に次のコマンドで画像を生成して Native プロジェクトにコピーしてください:
 
 ```bash
 $ cordova-res ios --skip-config --copy
@@ -84,26 +85,26 @@ $ cordova-res android --skip-config --copy
 
 ## プラグインのマイグレート
 
-まず、既存のCordovaプラグインを監査します - 不要になったプラグインを削除できる場合があります。
+まず、既存の Cordova プラグインを監査します - 不要になったプラグインを削除できる場合があります。
 
-次に、Capacitorの [core plugins](/docs/apis) と [community plugins](/docs/plugins/community) をすべて確認します。Cordovaと同等のCapacitorプラグインに切り替えることができます。
+次に、Capacitor の [core plugins](/docs/apis) と [community plugins](/docs/plugins/community) をすべて確認します。Cordova と同等の Capacitor プラグインに切り替えることができます。
 
 一部のプラグインは機能は完全には一致しませんが、必要な機能は実装されている場合があります。
 
 Note: [既知の非互換プラグイン](/docs/cordova/known-incompatible-plugins) は自動的にスキップされます
 
-### Cordova Pluginの削除
+### Cordova Plugin の削除
 
-CordovaプラグインをCapacitorプラグインに置き換えたあと(もしくは完全に削除することもできます)、プラグインをアンインストールし、 `sync` コマンドを実行してNativeプロジェクトからプラグインコードを削除します。
+Cordova プラグインを Capacitor プラグインに置き換えたあと(もしくは完全に削除することもできます)、プラグインをアンインストールし、 `sync` コマンドを実行して Native プロジェクトからプラグインコードを削除します。
 
 ```bash
 npm uninstall cordova-plugin-name
 npx cap sync [android | ios]
 ```
 
-## Permissionsの設定
+## Permissions の設定
 
-デフォルトでは、最新バージョンのCapacitorに要求された初期設定の権限が、iOSとAndroidの両方のデフォルトNativeプロジェクトに設定されます。ただし、 `plugin.xml` でマッピングすることによって、追加のアクセス権を手動で適用する必要がある場合があります。この設定は、iOSとAndroidでは必須です。各プラットフォームの設定方法については、 [iOS](/docs/ios/configuration) および [Android](/docs/android/configuration) の設定ガイドを参照してください。
+デフォルトでは、最新バージョンの Capacitor に要求された初期設定の権限が、iOS と Android の両方のデフォルト Native プロジェクトに設定されます。ただし、 `plugin.xml` でマッピングすることによって、追加のアクセス権を手動で適用する必要がある場合があります。この設定は、iOS と Android では必須です。各プラットフォームの設定方法については、 [iOS](/docs/ios/configuration) および [Android](/docs/android/configuration) の設定ガイドを参照してください。
 
 ## Cordova Plugin preferences
 
@@ -120,18 +121,17 @@ npx cap sync [android | ios]
 }
 ```
 
-
 ## Config.xml フィールドの追加
 
-あなたは `config.xml` の他の要素がCapacitorアプリではどのように動作するか気になるかもしれません。
+あなたは `config.xml` の他の要素が Capacitor アプリではどのように動作するか気になるかもしれません。
 
-Author要素は`package.json` で設定できます。ただし、Capacitorやアプリケーション内では使用されません:
+Author 要素は`package.json` で設定できます。ただし、Capacitor やアプリケーション内では使用されません:
 
 ```xml
 <author email="email@test.com" href="https://ionicframework.com/">Ionic Framework Team</author>
 ```
 
-`allow-intent`値のほとんどは使用されませんが、Capacitorに[構成可能な代替手段](/docs/basics/configuring-your-app/)の設定があります。
+`allow-intent`値のほとんどは使用されませんが、Capacitor に[構成可能な代替手段](/docs/basics/configuring-your-app/)の設定があります。
 
 ```xml
 <allow-intent href="http://*/*" />
@@ -150,11 +150,11 @@ iOS の`edit-config` 要素は [configured in Info.plist](/docs/ios/configuratio
 </edit-config>
 ```
 
-すべての`config.xml`の要素をカバーするのは不可能です。しかし、"CapacitorでXを設定するにはどうやったらいい？"に関する質問のほとんどは、オンラインで答えを探すときには「[プラットフォーム] (iOS/Android)でXを設定するには?」と考えるべきです。
+すべての`config.xml`の要素をカバーするのは不可能です。しかし、"Capacitor で X を設定するにはどうやったらいい？"に関する質問のほとんどは、オンラインで答えを探すときには「[プラットフォーム] (iOS/Android)で X を設定するには?」と考えるべきです。
 
 ## Scheme の設定
 
-CordovaでIonicを使用すると、アプリはデフォルトで `cordova-plugin-ionic-webview` を使用し、iOSではコンテンツの提供に `ionic://` schemeを使用します。CapacitorアプリはiOSのデフォルトスキームとして `capacitor://` を使用しています。これはLocalStorageのようなオリジンバインドされたWeb APIを使用すると、起点が異なるためデータが失われることを意味します。これは、コンテンツの提供に使用するスキームを変更することで修正できます。
+Cordova で Ionic を使用すると、アプリはデフォルトで `cordova-plugin-ionic-webview` を使用し、iOS ではコンテンツの提供に `ionic://` scheme を使用します。Capacitor アプリは iOS のデフォルトスキームとして `capacitor://` を使用しています。これは LocalStorage のようなオリジンバインドされた Web API を使用すると、起点が異なるためデータが失われることを意味します。これは、コンテンツの提供に使用するスキームを変更することで修正できます。
 
 ```json
 {
@@ -166,8 +166,8 @@ CordovaでIonicを使用すると、アプリはデフォルトで `cordova-plug
 
 ## Cordova の削除
 
-すべてのマイグレーション変更が適用され、アプリケーションが正常に動作することをテストしたら、Cordovaをプロジェクトから削除できます。`config.xml`を削除します。`platforms` フォルダと `plugins` フォルダも同様です。CordovaはCapacitorと一緒に動作するので、技術的に取り外す必要はないことに注意してください。実際、Cordovaプラグインの使用を継続する予定がある場合、または将来的に使用する可能性がある場合は、Cordovaアセットをそのまま使用できます。
+すべてのマイグレーション変更が適用され、アプリケーションが正常に動作することをテストしたら、Cordova をプロジェクトから削除できます。`config.xml`を削除します。`platforms` フォルダと `plugins` フォルダも同様です。Cordova は Capacitor と一緒に動作するので、技術的に取り外す必要はないことに注意してください。実際、Cordova プラグインの使用を継続する予定がある場合、または将来的に使用する可能性がある場合は、Cordova アセットをそのまま使用できます。
 
 ## 次のステップ
 
-これは、Capacitorの旅の始まりにすぎません。より学ぶには、Capacitorプロジェクトでの [using Cordova plugins](/docs/cordova/using-cordova-plugins)か、より詳しくは [development workflow](/docs/basics/workflow) をご覧ください。
+これは、Capacitor の旅の始まりにすぎません。より学ぶには、Capacitor プロジェクトでの [using Cordova plugins](/docs/cordova/using-cordova-plugins)か、より詳しくは [development workflow](/docs/basics/workflow) をご覧ください。

@@ -30,10 +30,18 @@ export class LandingPage {
     console.log(this.data);
   }
 
-
   render() {
-    const { Top, Started, Native, Features, Framework,
-            Companies, GetStarted, WhitepaperAd, MetaHead } = this;
+    const {
+      Top,
+      Started,
+      Native,
+      Features,
+      Framework,
+      Companies,
+      GetStarted,
+      WhitepaperAd,
+      MetaHead,
+    } = this;
 
     return (
       <Host>
@@ -54,12 +62,12 @@ export class LandingPage {
 
   MetaHead = () => (
     <Helmet>
-      <title>Capacitor: Webアプリのためのネイティブなクロスプラットフォームライブラリ</title>
+      <title>
+        Capacitor: Webアプリのためのネイティブなクロスプラットフォームライブラリ
+      </title>
       <meta
         name="description"
-        content={
-          'HTML、CSS、JavaScriptでiOS、Android、PWAを構築'
-        }
+        content={'HTML、CSS、JavaScriptでiOS、Android、PWAを構築'}
       />
       <meta
         property="og:description"
@@ -88,7 +96,6 @@ export class LandingPage {
       <meta property="og:url" content="https://capacitorjs.com/" />
     </Helmet>
   );
-
 
   Top = () => {
     const { Announcement } = this;
@@ -128,26 +135,27 @@ export class LandingPage {
             <PrismicResponsiveImage
               loading="eager"
               image={top__icons}
-              params = {{
+              params={{
                 w: '91',
-                h: '16'
+                h: '16',
               }}
             />
           </div>
           <div class="image-wrapper">
-            <PrismicResponsiveImage
-              loading="eager"
-              image={top__hero}
-            />
+            <PrismicResponsiveImage loading="eager" image={top__hero} />
           </div>
         </ResponsiveContainer>
       </section>
     );
-  }
-
+  };
 
   Announcement = () => {
-    const { tag_text, desktop_text, mobile_text, link } = this.data.announcement;
+    const {
+      tag_text,
+      desktop_text,
+      mobile_text,
+      link,
+    } = this.data.announcement;
     const { target, url } = link;
 
     const newUrl = url.replace(window.location.origin, '');
@@ -161,27 +169,19 @@ export class LandingPage {
         rel={target ? 'noopener' : undefined}
       >
         <div class="tag">{tag_text}</div>
-        <Breakpoint sm={true} display='inline-block' class="text">
+        <Breakpoint sm={true} display="inline-block" class="text">
           <span class="text__content">
-            {desktop_text}{' '}
-            <span class="arrow">-&gt;</span>
+            {desktop_text} <span class="arrow">-&gt;</span>
           </span>
         </Breakpoint>
-        <Breakpoint
-          xs={true}
-          sm={false}
-          display='inline-block'
-          class="text"
-        >
+        <Breakpoint xs={true} sm={false} display="inline-block" class="text">
           <span class="text__content">
-            {mobile_text}{' '}
-            <span class="arrow">-&gt;</span>
+            {mobile_text} <span class="arrow">-&gt;</span>
           </span>
         </Breakpoint>
       </a>
     );
   };
-
 
   Started = () => {
     const { started, started__list, started__icons } = this.data;
@@ -199,25 +199,25 @@ export class LandingPage {
         <TabBar>
           <TabBarButton
             selected={this.selectedCodeTab === 'notifications'}
-            tabSelect={() => this.selectedCodeTab = 'notifications'}
+            tabSelect={() => (this.selectedCodeTab = 'notifications')}
           >
             Notifications
           </TabBarButton>
           <TabBarButton
             selected={this.selectedCodeTab === 'geolocation'}
-            tabSelect={() => this.selectedCodeTab = 'geolocation'}
+            tabSelect={() => (this.selectedCodeTab = 'geolocation')}
           >
             Geolocation
           </TabBarButton>
           <TabBarButton
             selected={this.selectedCodeTab === 'camera'}
-            tabSelect={() => this.selectedCodeTab = 'camera'}
+            tabSelect={() => (this.selectedCodeTab = 'camera')}
           >
             Camera
           </TabBarButton>
           <TabBarButton
             selected={this.selectedCodeTab === 'custom'}
-            tabSelect={() => this.selectedCodeTab = 'custom'}
+            tabSelect={() => (this.selectedCodeTab = 'custom')}
           >
             Custom
           </TabBarButton>
@@ -300,11 +300,10 @@ public class MyAwesomePlugin: CAPPlugin {
 `}
           />
         </Tab>
-      </Tabs>
-    ]
+      </Tabs>,
+    ];
 
-    const dimensions = ['22x26', '27x23']
-
+    const dimensions = ['22x26', '27x23'];
 
     return (
       <ResponsiveContainer id="started" as="section">
@@ -316,8 +315,8 @@ public class MyAwesomePlugin: CAPPlugin {
             <sup class="ui-heading-6">{number}</sup>
             <div class="heading-wrapper">
               <Heading>{title}</Heading>
-              {i === 1
-              ? <div class="platforms">
+              {i === 1 ? (
+                <div class="platforms">
                   {started__icons.map(({ icon }, i) => (
                     <PrismicResponsiveImage
                       image={icon}
@@ -326,18 +325,14 @@ public class MyAwesomePlugin: CAPPlugin {
                     />
                   ))}
                 </div>
-              : null
-              }
+              ) : null}
             </div>
-            <div class="panel">
-              {panels[i]}
-            </div>
+            <div class="panel">{panels[i]}</div>
           </div>
         ))}
       </ResponsiveContainer>
-    )
+    );
   };
-
 
   WhitepaperAd = () => {
     const { image, text, cta } = this.data.whitepaper_ad;
@@ -352,13 +347,14 @@ public class MyAwesomePlugin: CAPPlugin {
             </div>
             <div class="info">
               <Heading>
-                <span>{line1}</span>{' '}
-                <span>{line2}</span>
+                <span>{line1}</span> <span>{line2}</span>
               </Heading>
               <Button
                 kind="round"
                 anchor
-                onClick={() => {this.showHubspotForm = true}}
+                onClick={() => {
+                  this.showHubspotForm = true;
+                }}
               >
                 {cta}
                 <span class="arrow">-&gt;</span>
@@ -366,9 +362,14 @@ public class MyAwesomePlugin: CAPPlugin {
             </div>
           </div>
         </ResponsiveContainer>
-        <site-modal open={this.showHubspotForm} modalClose={() =>  this.showHubspotForm = false}>
+        <site-modal
+          open={this.showHubspotForm}
+          modalClose={() => (this.showHubspotForm = false)}
+        >
           <hgroup>
-            <Heading level={2}>Building Cross-Platform Apps with Capacitor</Heading>
+            <Heading level={2}>
+              Building Cross-Platform Apps with Capacitor
+            </Heading>
             <p>Fill out the form below to download our free whitepaper</p>
           </hgroup>
           <capacitor-hubspot-form
@@ -376,11 +377,11 @@ public class MyAwesomePlugin: CAPPlugin {
             ajax={false}
             onFormSubmitted={() => this.hubspotFormSubmitted}
           />
-        </site-modal>,
+        </site-modal>
+        ,
       </Fragment>
-    )
-  }
-
+    );
+  };
 
   Native = () => {
     const { native, native__list } = this.data;
@@ -405,14 +406,20 @@ public class MyAwesomePlugin: CAPPlugin {
         </Grid>
       </ResponsiveContainer>
     );
-  }
-
+  };
 
   Features = () => {
     const { features, features__list, features__link } = this.data;
     const dimensions = [
-      '40x32', '40x32', '32x32', '33x32', '28x32', '32x32', '32x32', '32x30',
-    ]
+      '40x32',
+      '40x32',
+      '32x32',
+      '33x32',
+      '28x32',
+      '32x32',
+      '32x32',
+      '32x30',
+    ];
 
     return (
       <section id="features">
@@ -439,20 +446,14 @@ public class MyAwesomePlugin: CAPPlugin {
         </ResponsiveContainer>
       </section>
     );
-  }
-
+  };
 
   Framework = () => {
     const { framework, framework__list } = this.data;
 
     const logoTile = (logo: any) => (
-      <PrismicResponsiveImage
-        image={logo}
-        width="272"
-        height="200"
-      />
-    )
-
+      <PrismicResponsiveImage image={logo} width="272" height="200" />
+    );
 
     return (
       <ResponsiveContainer id="framework" as="section">
@@ -462,18 +463,13 @@ public class MyAwesomePlugin: CAPPlugin {
         <Grid>
           {framework__list.map(({ logo, link }) => (
             <Col sm={3} cols={6}>
-              {link
-              ? <a {...href(link)}>
-                  {logoTile(logo)}
-                </a>
-              : logoTile(logo)}
+              {link ? <a {...href(link)}>{logoTile(logo)}</a> : logoTile(logo)}
             </Col>
           ))}
         </Grid>
       </ResponsiveContainer>
     );
-  }
-
+  };
 
   Companies = () => {
     const { companies, companies__list } = this.data;
@@ -489,7 +485,7 @@ public class MyAwesomePlugin: CAPPlugin {
       [
         ['41x40', '152x26'],
         ['40x40', '79x32'],
-      ]
+      ],
     ];
 
     return (
@@ -506,7 +502,7 @@ public class MyAwesomePlugin: CAPPlugin {
                 <div class="image-group">
                   {dimensions[i1][i2].map((dimensions, i3) => (
                     <PrismicResponsiveImage
-                      image={companies__list[(i1 * 4) + (i2 * 2) + i3].logo}
+                      image={companies__list[i1 * 4 + i2 * 2 + i3].logo}
                       width={dimensions.split('x')[0]}
                       height={dimensions.split('x')[1]}
                     />
@@ -518,8 +514,7 @@ public class MyAwesomePlugin: CAPPlugin {
         </div>
       </ResponsiveContainer>
     );
-  }
-
+  };
 
   GetStarted = () => {
     const Background = this.getStartedBackground;
@@ -558,46 +553,91 @@ public class MyAwesomePlugin: CAPPlugin {
         </ResponsiveContainer>
       </section>
     );
-  }
-
+  };
 
   getStartedBackground = (props?: JSXBase.SVGAttributes) => (
-    <svg viewBox="0 0 1800 492" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin slice" {...props}>
-      <mask id="get_started_background_mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1800" height="492">
-      <rect width="1800" height="492" fill="#119EFF"/>
+    <svg
+      viewBox="0 0 1800 492"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMinYMin slice"
+      {...props}
+    >
+      <mask
+        id="get_started_background_mask0"
+        mask-type="alpha"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="1800"
+        height="492"
+      >
+        <rect width="1800" height="492" fill="#119EFF" />
       </mask>
       <g mask="url(#get_started_background_mask0)">
-      <rect width="1800" height="492" fill="url(#paint0_linear)"/>
-      <path opacity="0.1" d="M359 -288H1825V-155.138L985.613 338L359 -31.7071V-288Z" fill="url(#paint1_linear)"/>
-      <path opacity="0.1" d="M-211 619H812V526.251L226.261 182L-211 440.086V619Z" fill="url(#paint2_linear)"/>
-      <path opacity="0.1" d="M1192 686H2215V593.251L1629.26 249L1192 507.086V686Z" fill="url(#paint3_linear)"/>
+        <rect width="1800" height="492" fill="url(#paint0_linear)" />
+        <path
+          opacity="0.1"
+          d="M359 -288H1825V-155.138L985.613 338L359 -31.7071V-288Z"
+          fill="url(#paint1_linear)"
+        />
+        <path
+          opacity="0.1"
+          d="M-211 619H812V526.251L226.261 182L-211 440.086V619Z"
+          fill="url(#paint2_linear)"
+        />
+        <path
+          opacity="0.1"
+          d="M1192 686H2215V593.251L1629.26 249L1192 507.086V686Z"
+          fill="url(#paint3_linear)"
+        />
       </g>
       <defs>
-      <linearGradient id="paint0_linear" x1="-6.6919e-06" y1="246" x2="1809" y2="246" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#37B3FF"/>
-      <stop offset="1" stop-color="#0097FF"/>
-      </linearGradient>
-      <linearGradient id="paint1_linear" x1="1092" y1="-288" x2="1092" y2="338" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white" stop-opacity="0"/>
-      <stop offset="1" stop-color="white"/>
-      </linearGradient>
-      <linearGradient id="paint2_linear" x1="300.5" y1="619" x2="300.5" y2="182" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white" stop-opacity="0"/>
-      <stop offset="1" stop-color="white"/>
-      </linearGradient>
-      <linearGradient id="paint3_linear" x1="1703.5" y1="686" x2="1703.5" y2="249" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white" stop-opacity="0"/>
-      <stop offset="1" stop-color="white"/>
-      </linearGradient>
+        <linearGradient
+          id="paint0_linear"
+          x1="-6.6919e-06"
+          y1="246"
+          x2="1809"
+          y2="246"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#37B3FF" />
+          <stop offset="1" stop-color="#0097FF" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear"
+          x1="1092"
+          y1="-288"
+          x2="1092"
+          y2="338"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="1" stop-color="white" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear"
+          x1="300.5"
+          y1="619"
+          x2="300.5"
+          y2="182"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="1" stop-color="white" />
+        </linearGradient>
+        <linearGradient
+          id="paint3_linear"
+          x1="1703.5"
+          y1="686"
+          x2="1703.5"
+          y2="249"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" stop-opacity="0" />
+          <stop offset="1" stop-color="white" />
+        </linearGradient>
       </defs>
     </svg>
-  )
+  );
 }
-
-
-
-
-
-
-
-

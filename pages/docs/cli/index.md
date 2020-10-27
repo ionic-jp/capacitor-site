@@ -1,5 +1,5 @@
 ---
-title: CLI Commands 
+title: CLI Commands
 description: Capacitor CLI command reference list
 contributors:
   - dotNetkow
@@ -7,7 +7,7 @@ contributors:
 
 # Capacitor CLI Reference
 
-Capacitorのコマンドラインインターフェイス(CLI) ツールは、Capacitorアプリの開発に使用されます。 [ここ](/docs/getting-started) でインストールの詳細を表示します。
+Capacitor のコマンドラインインターフェイス(CLI) ツールは、Capacitor アプリの開発に使用されます。 [ここ](/docs/getting-started) でインストールの詳細を表示します。
 
 - [Add](/docs/cli/add)
 - [Cap](/docs/cli/cap)
