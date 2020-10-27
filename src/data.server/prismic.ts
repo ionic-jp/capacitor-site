@@ -3,7 +3,7 @@ import { Client } from './prismic-configuration';
 import { PrismicDocsResponse } from './models';
 import Prismic from 'prismic-javascript';
 import { MapParamData } from '@stencil/router';
-import { TranslateLandingPage } from './translate';
+import { TranslateLandingPage, CommunityPage } from './translate';
 
 export const getPage: MapParamData = async (_params, url) => {
   switch (url.pathname) {
@@ -17,7 +17,10 @@ export const getPage: MapParamData = async (_params, url) => {
         announcement: await queryPrismic('capacitor_homepage_announcement'),
       };
     case '/community':
-      return await queryPrismic('capacitor_community');
+      return Object.assign(
+        await queryPrismic('capacitor_community'),
+        CommunityPage,
+      );
   }
 };
 
