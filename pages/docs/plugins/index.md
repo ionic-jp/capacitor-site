@@ -51,7 +51,7 @@ Capacitorのプラグインによって、JavaScriptはネイティブAPIと直�
       width="40" height="40"
     >
     <p class="ui-heading-5">公式プラグイン</p>
-    <p class="ui-paragraph-5">Step-by-step guides to setting up your system and installing the framework.</p>
+    <p class="ui-paragraph-5">公式プラグインはCapacitor teamがメンテナンスしています。</p>
   </a>
   <a class="card" href="/docs/plugins/community">
     <img
@@ -59,7 +59,7 @@ Capacitorのプラグインによって、JavaScriptはネイティブAPIと直�
       width="40" height="40"
     >
     <p class="ui-heading-5">コミュニティプラグイン</p>
-    <p class="ui-paragraph-5">Dive into Ionic Framework’s beautifylly designed UI component library.</p>
+    <p class="ui-paragraph-5">コミュニティプラグインはCapacitorのコミュニティがメンテナンスしています。</p>
   </a>
 </plugin-cards>
 
