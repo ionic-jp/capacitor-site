@@ -24,6 +24,7 @@ declare global {
 export class DocsSearch implements ComponentInterface {
   private siteContent: HTMLElement;
   private contentWidth = 736;
+  private uniqueId = Math.random().toString().replace('.', '');
 
   @Element() el: HTMLElement;
   @Prop() placeholder = 'Search';
@@ -40,30 +41,8 @@ export class DocsSearch implements ComponentInterface {
     left?: string;
   } = {};
 
-  private uniqueId = Math.random().toString().replace('.', '');
-  private algolia: { linkEl?: HTMLLinkElement; js: string; css: string } = {
-    js: 'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js',
-    css:
-      'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css',
-  };
-
-  componentWillLoad() {
-    const linkEls = document.head.querySelectorAll('link');
-
-    const hasAlgoliaCss = Array.from(linkEls).some(link => {
-      return link.href === this.algolia.css;
-    });
-
-    if (!hasAlgoliaCss) {
-      this.algolia.linkEl = document.createElement('link');
-      this.algolia.linkEl.rel = 'stylesheet';
-      this.algolia.linkEl.href = this.algolia.css;
-      document.head.append(this.algolia.linkEl);
-    }
-  }
-
   componentDidLoad() {
-    importResource({ propertyName: 'docsearch', link: this.algolia.js }, () =>
+    importResource({ propertyName: 'docsearch', link: algolia }, () =>
       this.setupSearch(),
     );
 
@@ -77,15 +56,6 @@ export class DocsSearch implements ComponentInterface {
       },
       true,
     );
-  }
-
-  disconnectedCallback() {
-    this.algolia.linkEl?.remove();
-
-    const scripts = document.head.querySelectorAll('script');
-    scripts.forEach(script => {
-      if ((script.src = this.algolia.js)) script.remove();
-    });
   }
 
   @Listen('resize', { target: 'window' })
@@ -210,3 +180,5 @@ export class DocsSearch implements ComponentInterface {
     );
   }
 }
+
+const algolia = `https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js`;
