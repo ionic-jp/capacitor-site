@@ -1,4 +1,4 @@
-import { Component, Prop, h, Fragment } from '@stencil/core';
+import { Component, Element, Prop, h, Fragment } from '@stencil/core';
 import { Heading, ResponsiveContainer } from '@ionic-internal/ionic-ds';
 
 import { BlogPost } from './blog-common';
@@ -11,12 +11,19 @@ import { BlogData } from '../../data.server/blog';
 export class BlogPage {
   @Prop() data: BlogData[];
 
+  @Element() el;
+
   render() {
     const { AllPosts } = this;
 
     if (this.data) {
       return (
         <Fragment>
+          <meta-tags
+            page-title={`Blog`}
+            description={'The lastest news and updates from the Copacitor team'}
+            ogType="blog"
+          />
           <AllPosts posts={this.data} />
 
           <ResponsiveContainer>

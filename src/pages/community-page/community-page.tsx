@@ -20,6 +20,12 @@ export class CommunityPage {
 
     return (
       <Host>
+        <meta-tags
+          page-title="Community"
+          description={
+            'Get connected and get help from the Capacitor community'
+          }
+        />
         <Top />
         <Websites />
         <ResponsiveContainer id="newsletter" as="section">

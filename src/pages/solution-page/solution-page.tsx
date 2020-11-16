@@ -1,6 +1,5 @@
 import { Component, Host, h, Prop, ComponentInterface } from '@stencil/core';
 
-import Helmet from '@stencil/helmet';
 import {
   ResponsiveContainer,
   Heading,
@@ -54,7 +53,10 @@ export class SolutionPage implements ComponentInterface {
   render() {
     return (
       <Host>
-        <MetaHead framework={this.framework} />
+        <meta-tags
+          page-title={`Using Capacitor with ${this.framework.name}`}
+          description={`Build iOS, Android, and Progressive Web Apps with ${this.framework.name}`}
+        />
         <ResponsiveContainer id="top" as="section">
           <div class="heading-group">
             <img
@@ -95,29 +97,6 @@ export class SolutionPage implements ComponentInterface {
     );
   }
 }
-
-const MetaHead = ({ framework }) => {
-  return (
-    <Helmet>
-      <title>Capacitor: Cross-platform native runtime for web apps</title>
-      <meta
-        name="description"
-        content={`Build iOS, Android, and Progressive Web Apps with ${framework.name}`}
-      />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@capacitorjs" />
-      <meta name="twitter:creator" content="capacitorjs" />
-      <meta
-        name="twitter:title"
-        content="Build cross-platform apps with web technologies"
-      />
-      <meta
-        name="twitter:description"
-        content="Build cross-platform apps with web technologies"
-      />
-    </Helmet>
-  );
-};
 
 const solutions = [
   {

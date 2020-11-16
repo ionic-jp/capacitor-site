@@ -1,5 +1,4 @@
 import { Component, h, Host, Prop, State } from '@stencil/core';
-import Helmet from '@stencil/helmet';
 import {
   ResponsiveContainer,
   Grid,
@@ -39,12 +38,11 @@ export class LandingPage {
       Companies,
       GetStarted,
       WhitepaperAd,
-      MetaHead,
     } = this;
 
     return (
       <Host>
-        <MetaHead />
+        <meta-tags />
         <Top />
         <Started />
         <WhitepaperAd />
@@ -58,43 +56,6 @@ export class LandingPage {
       </Host>
     );
   }
-
-  MetaHead = () => (
-    <Helmet>
-      <title>
-        Capacitor: Webアプリのためのネイティブなクロスプラットフォームライブラリ
-      </title>
-      <meta
-        name="description"
-        content={'HTML、CSS、JavaScriptでiOS、Android、PWAを構築'}
-      />
-      <meta
-        property="og:description"
-        content="HTML、CSS、JavaScriptでiOS、Android、PWAを構築"
-      />
-      <meta property="og:site_name" content="Capacitor" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@capacitorjs" />
-      <meta name="twitter:creator" content="capacitorjs" />
-      <meta
-        name="twitter:title"
-        content="Web技術でクロスプラットフォームを構築"
-      />
-      <meta
-        name="twitter:description"
-        content="Web技術でクロスプラットフォームを構築"
-      />
-      <meta
-        name="twitter:image"
-        content="https://capacitorjs.com/assets/img/og.png"
-      />
-      <meta
-        property="og:image"
-        content="https://capacitorjs.com/assets/img/og.png"
-      />
-      <meta property="og:url" content="https://capacitorjs.com/" />
-    </Helmet>
-  );
 
   Top = () => {
     const { Announcement } = this;

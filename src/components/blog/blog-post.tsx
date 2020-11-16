@@ -1,7 +1,6 @@
 import { Component, Prop, h, Host } from '@stencil/core';
 import { BlogPost } from './blog-common';
 import { Heading, ResponsiveContainer } from '@ionic-internal/ionic-ds';
-import Helmet from '@stencil/helmet';
 import { BlogData } from '../../data.server/blog';
 
 @Component({
@@ -16,24 +15,16 @@ export class BlogPage {
     if (this.data) {
       return (
         <Host>
-          <Helmet>
-            <title>
-              {this.data.title} - Capacitor Blog - Cross-platform native runtime
-              for web apps
-            </title>
-            <meta name="description" content={this.data.description} />
-            <meta
-              name="twitter:description"
-              content={`${this.data.description} - Capacitor Blog`}
-            />
-            <meta
-              property="og:image"
-              content={
-                this.data.featuredImage ||
-                'https://capacitorjs.com/assets/img/og.png'
-              }
-            />
-          </Helmet>
+          <meta-tags
+            page-title={`${this.data.title} - Blog`}
+            description={this.data.description}
+            image={
+              this.data.featuredImage ||
+              'https://capacitorjs.com/assets/img/og.png'
+            }
+            authorTwitter={getTwitterUserFromURL(this.data.authorUrl)}
+            ogType="blog"
+          />
           <div class="blog-posts">
             <hgroup class="blog-posts__heading">
               <Heading level={3}>Blog</Heading>
@@ -53,3 +44,9 @@ export class BlogPage {
     return null;
   }
 }
+
+const getTwitterUserFromURL = (url: string): string | undefined => {
+  return url.indexOf('twitter.com') != -1
+    ? `@${url.replace('https://twitter.com/', '')}`
+    : undefined;
+};

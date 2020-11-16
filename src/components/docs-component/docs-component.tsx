@@ -1,5 +1,6 @@
 import {
   Component,
+  Element,
   Listen,
   Prop,
   ComponentInterface,
@@ -7,7 +8,6 @@ import {
   h,
   Fragment,
 } from '@stencil/core';
-import Helmet from '@stencil/helmet';
 import { RenderJsxAst } from '@stencil/ssg';
 import { DocsData } from '../../data.server/docs';
 import Router, { docsVersionHref } from '../../router';
@@ -25,6 +25,8 @@ export class DocsComponent implements ComponentInterface {
 
   @State() showBackdrop = false;
 
+  @Element() el;
+
   @Listen('menuToggleClick')
   toggleMenu() {
     this.menuEl.toggleOverlayMenu();
@@ -40,22 +42,8 @@ export class DocsComponent implements ComponentInterface {
     this.menuEl.toggleOverlayMenu();
   };
 
-  Helmet = () => (
-    <Helmet>
-      <title>
-        {this.data.title ? `${this.data.title} - Capacitor` : 'Capacitor'}
-      </title>
-      {this.data.description && (
-        <meta
-          name="description"
-          content={`${this.data.description} - Official Capacitor Documentation`}
-        />
-      )}
-    </Helmet>
-  );
-
   render() {
-    const { data, showBackdrop, Helmet } = this;
+    const { data, showBackdrop } = this;
 
     if (!data) {
       return (
@@ -67,7 +55,10 @@ export class DocsComponent implements ComponentInterface {
 
     return (
       <Fragment>
-        <Helmet />
+        <meta-tags
+          page-title={this.data.title}
+          description={`${this.data.description} - Official Capacitor Documentation`}
+        />
         <platform-bar
           containerClass="sc-docs-component docs-container"
           productName="Capacitor"

@@ -1,6 +1,5 @@
 import { Component, h, Host, State } from '@stencil/core';
 
-import Helmet from '@stencil/helmet';
 import {
   ResponsiveContainer,
   Paragraph,
@@ -21,7 +20,10 @@ export class CordovaPage {
 
     return (
       <Host>
-        <MetaHead />
+        <meta-tags
+          page-title={`Cordova to Capacitor Migration`}
+          description={'A step by step guide to migrating your app'}
+        />
 
         <Top />
         <GettingStarted />
@@ -326,28 +328,3 @@ npx @capacitor/cli plugin:generate
     </ResponsiveContainer>
   );
 }
-
-const MetaHead = () => (
-  <Helmet>
-    <title>
-      Capacitor - Webアプリをクロスプラットフォームに展開するライブラリ
-    </title>
-    <meta
-      name="description"
-      content={
-        'Build iOS, Android, and Progressive Web Apps with HTML, CSS, and JavaScript'
-      }
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@capacitorjs" />
-    <meta name="twitter:creator" content="capacitorjs" />
-    <meta
-      name="twitter:title"
-      content="Build cross-platform apps with web technologies"
-    />
-    <meta
-      name="twitter:description"
-      content="Build cross-platform apps with web technologies"
-    />
-  </Helmet>
-);
