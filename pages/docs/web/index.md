@@ -5,27 +5,27 @@ contributors:
   - mlynch
 ---
 
-# Using Capacitor in a Web Project
+# CapacitorをWebプロジェクトで利用する
 
-Capacitor fully supports traditional web and Progressive Web Apps. In fact, using Capacitor makes it easy to ship a PWA version of your iOS and Android app store apps with minimal work.
+​キャパシターは、従来のWebおよびProgressive Web Appsを完全にサポートします。​Capacitorを使えば、iOSとAndroidのアプリストアアプリのPWAバージョンを最小限の作業で簡単にリリースすることができます。
 
-### Installation
+### インストール
 
-Chances are, you already have Capacitor installed in your app if you're using Capacitor to build an iOS, or Android app. In capacitor, the `web` platform is just the web project that powers your app!
+​iOSやAndroidアプリを作るためにCapacitorを使っているなら、すでにアプリにCapacitorがインストールされている可能性は高いでしょう。Capacitorでは、 `web` プラットフォームはあなたのアプリを動かす単なるwebプロジェクトです!
 
-If you don't have Capacitor installed yet, consult the [Installation](/docs/getting-started/) guide before continuing.
+Capacitorをまだインストールしていない場合は、 [Installation](/docs/getting-started/) を参照してから続行してください。
 
-#### Using Capacitor as a Module
+#### Capacitorをモジュールとして利用する
 
-Generally, apps will be using a framework with a build system that supports importing JavaScript modules. In that case,
-simply import Capacitor at the top of your app and you're set:
+一般的に、アプリケーションはJavaScriptモジュールの `import` をサポートするビルドシステムを備えたフレームワークを使用します。​その場合、
+​アプリの上部で `Capacitor` をインポートし、以下のように設定できます:
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
 ```
 
-To use a plugin, import `Plugins` and call it, noting that only plugins
-with web support will actually provide useful functionality:
+​プラグインを使用するには、 `Plugins` をインポートして利用するプラグインを呼び出すだけです。
+Webプラットフォームがサポートされているプラグインを使用すると、実際に便利な機能を利用することができます:
 
 ```typescript
 import { Plugins } from '@capacitor/core';
@@ -33,12 +33,12 @@ import { Plugins } from '@capacitor/core';
 const position = await Plugins.Geolocation.getCurrentPosition();
 ```
 
-### Using Capacitor as a Script Include
+### CapacitorをScriptタグで利用する
 
-To use Capacitor core in a web app that is not using a build system or bundler/module loader,
-you must set `bundledWebRuntime` to `true` in your `capacitor.config.json`, tell capacitor to
-copy the specified version of Capacitor Core into your project,
-and then import `capacitor.js` into your `index.html`:
+​ビルドシステムまたはバンドラ/モジュールローダーを使用していないWebアプリケーションでCapacitor coreを使用するには、
+`capacitor.config.json` で `bundledWebRuntime` を `true` に設定する必要があります。
+​指定したバージョンのコンデンサコアをプロジェクトにコピーします。
+​そして `capacitor.js` を `index.html` にインポートします:
 
 ```json
 {
@@ -46,34 +46,34 @@ and then import `capacitor.js` into your `index.html`:
 }
 ```
 
-Copy to your project:
+あなたのプロジェクトにコピーします:
 
 ```bash
 npx cap copy web
 ```
 
-In `index.html`, import `capacitor.js` before your app's JS:
+`index.html` では、あなたのJSコードの前に `capacitor.js` を読み込みます:
 
 ```html
 <script src="capacitor.js"></script>
 <script src="your/app.js"></script>
 ```
 
-## Developing your App
+## アプリの開発
 
-Chances are, you're using a framework like [Ionic](http://ionicframework.com/) for UI components and building. To develop
-your Capacitor web app, just use your framework!
+​UIコンポーネントやビルドには、 [Ionic](http://ionicframework.com/) のようなフレームワークを使用している可能性があります。​開発
+​フレームワークを使うことがおすすめです！
 
-If you're not using a framework, Capacitor comes with a small development service with HTML5 routing support. To use it,
-run:
+​フレームワークを使用していない場合、CapacitorにはHTML 5ルーティングをサポートする小規模な開発サービスが付属しています。​これを使うには
+以下を実行ください:
 
 ```bash
 npx cap serve
 ```
 
-## Going Live
+## ライブ
 
-When you're ready to publish your Progressive Web App and share it with the world,
-just upload the contents of your web directory (for example, the `www/` or `build/` folder).
+​Progressive Web Appを公開して世界と共有する準備ができたら、
+​Webディレクトリ（例えば、 `www/` や `build/` フォルダ）の内容をアップロードします。
 
-That will contain everything you need to run your app!
+​アプリを実行するために必要なものがすべて含まれています！

@@ -10,7 +10,7 @@ contributors:
 
 Capacitor のワークフローには、いくつかの一貫したタスクが含まれます:
 
-## 1. Develop and build your Web App
+## 1. アプリを開発・ビルドする
 
 Capacitor は、ウェブアプリを各プラットフォーム用の Native バイナリに変換します。したがって、作業の大部分はモバイルに特化したウェブアプリの開発と構築となります。
 
