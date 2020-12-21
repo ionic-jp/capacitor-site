@@ -14,14 +14,14 @@ Capacitor iOS apps are configured and managed with Xcode and [CocoaPods](https:/
 
 ## iOS Support
 
-iOS 11+ is supported. Xcode 11+ is required (see [Environment Setup](/docs/getting-started/environment-setup#ios-development)). Capacitor uses [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), not the deprecated [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
+iOS 12+ is supported. Xcode 12+ is required (see [Environment Setup](/docs/getting-started/environment-setup#ios-development)). Capacitor uses [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), not the deprecated [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
 
 ## Adding the iOS Platform
 
 First, install the `@capacitor/ios` package.
 
 ```bash
-npm install @capacitor/ios
+npm install @capacitor/ios@next
 ```
 
 Then, add the iOS platform and sync your app. [Learn more about `sync`](/docs/cli/sync).

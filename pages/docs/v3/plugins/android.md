@@ -14,7 +14,7 @@ Building Capacitor plugins for Android involves writing Java or [Kotlin](https:/
 
 To get started, first generate a plugin as shown in the [Getting Started](/docs/plugins) section of the Plugin guide.
 
-Next, open `your-plugin/android/` in Android Studio. You then want to navigate to the `.java` file for your plugin, which changes depending on the Plugin ID and Plugin Class Name you used when creating the plugin.
+Next, open `my-plugin/android/` in Android Studio. You then want to navigate to the `.java` file for your plugin, which changes depending on the Plugin ID and Plugin Class Name you used when creating the plugin.
 
 For example, for a plugin with the ID `com.domain.myplugin` and the Plugin Class Name `MyPlugin`, you would find the `.java` file at `android/src/main/java/com/domain/myplugin/MyPlugin.java`.
 
@@ -24,9 +24,9 @@ Capacitor uses Java by default but you can use Kotlin instead, if you prefer.
 
 After generating a plugin, right click the Java plugin class in Android Studio and select the "Convert Java file to Kotlin file" option from the menu. Android Studio will walk you through configuring the project for Kotlin support. Once this is completed, right click the Java class again and re-select the conversion option to convert it to a Kotlin class.
 
-## Building your Plugin
+## Plugin Basics
 
-A Capacitor plugin for Android is a simple Java class that extends `com.getcapacitor.Plugin` and have a `@NativePlugin` annotation.
+A Capacitor plugin for Android is a simple Java class that extends `com.getcapacitor.Plugin` and has a `@CapacitorPlugin()` annotation.
 It has some methods with `@PluginMethod()` annotation that will be callable from JavaScript.
 
 Once your plugin is generated, you can start editing it by opening the file with the Plugin class name you choose on the generator.
@@ -43,12 +43,12 @@ This example demonstrates a couple core components of Capacitor plugins: receivi
 package android.plugin.test;
 
 import com.getcapacitor.JSObject;
-import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.CapacitorPlugin;
 
-@NativePlugin()
+@CapacitorPlugin(name = "Echo")
 public class EchoPlugin extends Plugin {
 
     @PluginMethod()
@@ -61,40 +61,6 @@ public class EchoPlugin extends Plugin {
     }
 }
 ```
-
-> In order to make Capacitor aware of your plugin, you have to [export it to capacitor](#export-to-capacitor) in your apps `MainActivity`.
-
-### Kotlin Example
-
-If choosing to use Kotlin instead of Java, the Echo plugin example looks like this:
-
-`EchoPlugin.kt`
-
-```kotlin
-package android.plugin.test;
-
-import com.getcapacitor.JSObject;
-import com.getcapacitor.NativePlugin;
-import com.getcapacitor.Plugin;
-import com.getcapacitor.PluginCall;
-import com.getcapacitor.PluginMethod;
-
-@NativePlugin()
-class EchoPlugin : Plugin() {
-
-  @PluginMethod
-  fun echo(call: PluginCall) {
-    val value = call.getString("value")
-    val ret = JSObject()
-    ret.put("value", value)
-    call.success(ret)
-  }
-}
-```
-
-> In order to make Capacitor aware of your plugin, you have to [export it to capacitor](#export-to-capacitor) in your apps `MainActivity`.
-
-It is recommended for Kotlin files to be in the `android/src/main/java/` directory where Java files might also reside.
 
 ### Accessing Called Data
 
@@ -126,9 +92,9 @@ Notice the various ways data can be accessed on the `PluginCall` instance, inclu
 
 ### Returning Data Back
 
-A plugin call can succeed or fail. For calls using promises (most common), succeeding corresponds to calling `resolve` on the Promise, and failure calling `reject`. For those using callbacks, a succeeding will call the success callback or the error callback if failing.
+A plugin call can either succeed or fail. Plugin calls borrow method names from JavaScript promises: call `resolve()` to indicate success (optionally returning data) and use `reject()` to indicate failure with an error message.
 
-The `resolve` method of `PluginCall` takes a `JSObject` and supports JSON-serializable data types. Here's an example of returning data back to the client:
+The `resolve()` method of `PluginCall` takes a `JSObject` and supports JSON-serializable data types. Here's an example of returning data back to the client:
 
 ```java
 JSObject ret = new JSObject();
@@ -139,17 +105,83 @@ ret.put("info", info);
 call.resolve(ret);
 ```
 
-To fail, or reject a call, use `call.reject`, passing an error string and (optionally) an `Exception` instance
+To fail, or reject a call, use `call.reject`, passing an error string and optionally an error code and `Exception` instance
 
 ```java
-call.reject(exception.getLocalizedMessage(), exception);
+call.reject(exception.getLocalizedMessage(), null, exception);
 ```
 
-### Presenting Native Screens
+## Permissions
+
+If your plugin has functionality on Android that requires permissions from the end user, then you will need to implement the permissions pattern. If you haven't yet set up your permission aliases and status interfaces yet, see the [Permissions section in the Web guide](/docs/plugins/web#permissions).
+
+TODO
+
+### Annotation Changes
+
+> Still using `@NativePlugin`? See the [upgrade guide](/docs/updating/plugins#use-the-new-capacitorplugin-annotation) to switch to `@CapacitorPlugin`.
+
+```diff-java
+ @CapacitorPlugin(
+     name = "FooBar",
++    permissionRequestCode = FooBarPlugin.REQUEST_ALL_PERMISSIONS,
++    permissions = {
++        @Permission(
++            alias = "camera",
++            strings = { Manifest.permission.CAMERA }
++        ),
++        @Permission(
++            alias = "storage",
++            strings = {
++                Manifest.permission.READ_EXTERNAL_STORAGE,
++                Manifest.permission.WRITE_EXTERNAL_STORAGE
++            }
++        )
++    }
+ )
+ public class FooBarPlugin extends Plugin {
++    static final int REQUEST_ALL_PERMISSIONS = 10050;
+
+     ...
+```
+
+TODO
+
+## Error Handling
+
+### Unavailable
+
+This error can be thrown to indicate that the functionality can't be used right now, usually because it requires a newer Android API version.
+
+```java
+@PluginMethod
+public void methodThatUsesNewAndroidAPI(PluginCall call) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        // TODO implementation
+    } else {
+        call.unavailable('Not available on Android API 25 or earlier.');
+    }
+}
+```
+
+> It is recommended to gracefully degrade the experience with older APIs as much as possible. Use `unavailable` sparingly.
+
+### Unimplemented
+
+Use this error to indicate that a method can't be implemented for Android.
+
+```java
+@PluginMethod
+public void methodThatRequiresIOS(PluginCall call) {
+    call.unimplemented('Not implemented on Android.');
+}
+```
+
+## Presenting Native Screens
 
 To present a Native Screen over the Capacitor screen we will use [Android's Intents](https://developer.android.com/guide/components/intents-filters). Intents allow you to start an activity from your app, or from another app. [See Common Intents](https://developer.android.com/guide/components/intents-common)
 
-#### Intents without Result(s)
+### Intents without Result(s)
 
 Most times you just want to present the native Activity,
 in this case you can just trigger the [relevant action](https://developer.android.com/guide/components/intents-common).
@@ -159,17 +191,15 @@ Intent intent = new Intent(Intent.ACTION_VIEW);
 getActivity().startActivity(intent);
 ```
 
-#### Intents with Result(s)
+### Intents with Result(s)
 
 Sometimes when you launch an Intent, you expect some result back. In that case you want to use `startActivityForResult`.
 
-Also make sure you call `saveCall(call);` as you will need it later when handling the intents result.
-
-You also have to register your intents [unique request](https://developer.android.com/training/basics/intents/result#StartActivity) code with `@NativePlugin` in order for
+Make sure to register your intents [unique request](https://developer.android.com/training/basics/intents/result#StartActivity) code with `@CapacitorPlugin` in order for
 `handleOnActivityResult` to be triggered.
 
 ```java
-@NativePlugin(
+@CapacitorPlugin(
   requestCodes={MyPlugin.REQUEST_IMAGE_PICK} // register request code(s) for intent results
 )
 class ImagePicker extends Plugin {
@@ -177,8 +207,6 @@ class ImagePicker extends Plugin {
 
   @PluginMethod()
   public void pickImage(PluginCall call) {
-    saveCall(call);
-
     Intent intent = new Intent(Intent.ACTION_PICK);
     intent.setType("image/*");
 
@@ -187,15 +215,11 @@ class ImagePicker extends Plugin {
 
   // in order to handle the intents result, you have to @Override handleOnActivityResult
   @Override
-  protected void handleOnActivityResult(int requestCode, int resultCode, Intent data) {
-    super.handleOnActivityResult(requestCode, resultCode, data);
-
-    // Get the previously saved call
-    PluginCall savedCall = getSavedCall();
-
-    if (savedCall == null) {
+  protected void handleOnActivityResult(PluginCall lastPluginCall, int requestCode, int resultCode, Intent data) {
+    if (lastPluginCall == null) {
       return;
     }
+
     if (requestCode == REQUEST_IMAGE_PICK) {
       // Do something with the data
     }
@@ -203,52 +227,19 @@ class ImagePicker extends Plugin {
 }
 ```
 
-### Events
+## Plugin Events
 
-Capacitor Plugins can emit App events and Plugin events
-
-#### App Events
-
-App Events are regular javascript events, like `window` or `document` events.
-
-Capacitor provides all this functions to fire events:
-
-```java
-//If you want to provide the target
-bridge.triggerJSEvent("myCustomEvent", "window");
-
-bridge.triggerJSEvent("myCustomEvent", "document", "{ 'dataKey': 'dataValue' }");
-
-// Window Events
-bridge.triggerWindowJSEvent("myCustomEvent");
-
-bridge.triggerWindowJSEvent("myCustomEvent", "{ 'dataKey': 'dataValue' }");
-
-// Document events
-bridge.triggerDocumentJSEvent("myCustomEvent");
-
-bridge.triggerDocumentJSEvent("myCustomEvent",  "{ 'dataKey': 'dataValue' }");
-```
-
-And to listen for it, just use regular javascript:
+Plugins can emit their own events that you can listen by attaching a listener to the plugin object like this:
 
 ```typescript
-window.addEventListener('myCustomEvent', function () {
-  console.log('myCustomEvent was fired');
-});
-```
+import { MyPlugin } from 'my-plugin';
 
-#### Plugin Events
-
-Plugins can emit their own events that you can listen by attaching a listener to the plugin Object like this:
-
-```typescript
-Plugins.MyPlugin.addListener('myPluginEvent', (info: any) => {
+MyPlugin.addListener('myPluginEvent', (info: any) => {
   console.log('myPluginEvent was fired');
 });
 ```
 
-To emit the event from the Java plugin class you can do it like this:
+To emit the event from the Java plugin class:
 
 ```java
 JSObject ret = new JSObject();
@@ -259,7 +250,9 @@ notifyListeners("myPluginEvent", ret);
 To remove a listener from the plugin object:
 
 ```typescript
-const myPluginEventListener = Plugins.MyPlugin.addListener(
+import { MyPlugin } from 'my-plugin';
+
+const myPluginEventListener = MyPlugin.addListener(
   'myPluginEvent',
   (info: any) => {
     console.log('myPluginEvent was fired');
@@ -269,90 +262,11 @@ const myPluginEventListener = Plugins.MyPlugin.addListener(
 myPluginEventListener.remove();
 ```
 
-### Permissions
+> It is also possible to trigger global events on `window`. See the docs for [`triggerJSEvent`](/docs/core-apis/android#triggerjsevent).
 
-Some Plugins will require you to request permissions.
-Capacitor provides some helpers to do that.
-
-First declare your plugin permissions in the `@NativePlugin` annotation
-
-```java
-@NativePlugin(
-  permissions={
-    Manifest.permission.ACCESS_NETWORK_STATE
-  }
-)
-```
-
-You can check if all the required permissions has been granted with `hasRequiredPermissions()`.
-You can request all permissions with `pluginRequestAllPermissions();`.
-You can request for a single permission with `pluginRequestPermission(Manifest.permission.CAMERA, 12345);`
-Or you can request a group of permissions with:
-
-```java
-static final int REQUEST_IMAGE_CAPTURE = 12345;
-pluginRequestPermissions(new String[] {
-  Manifest.permission.CAMERA,
-  Manifest.permission.WRITE_EXTERNAL_STORAGE,
-  Manifest.permission.READ_EXTERNAL_STORAGE
-}, REQUEST_IMAGE_CAPTURE);
-```
-
-To handle the permission request you have to Override `handleRequestPermissionsResult`
-
-```java
-@Override
-protected void handleRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-  super.handleRequestPermissionsResult(requestCode, permissions, grantResults);
-
-  log("handling request perms result");
-  PluginCall savedCall = getSavedCall();
-  if (savedCall == null) {
-    log("No stored plugin call for permissions request result");
-    return;
-  }
-
-  for(int result : grantResults) {
-    if (result == PackageManager.PERMISSION_DENIED) {
-      savedCall.error("User denied permission");
-      return;
-    }
-  }
-
-  if (requestCode == REQUEST_IMAGE_CAPTURE) {
-    // We got the permission
-  }
-}
-```
-
-### Override navigation
+## Override navigation
 
 Capacitor plugins can override the webview navigation. For that the plugin can override `public Boolean shouldOverrideLoad(Uri url)` method.
 Returning `true` causes the WebView to abort loading the URL.
 Returning `false` causes the WebView to continue loading the URL.
 Returning `null` will defer to the default Capacitor policy.
-
-### Export to Capacitor
-
-By using the `@NativePlugin` and `@PluginMethod()` annotations in your plugins, you make them available to Capacitor, but you still need an extra step in your application to make Capacitor aware of the plugins.
-
-This is done in your apps `MainActivity`, where you `add` it in e.g. `src/main/java/com/example/myapp/MainActivity.java` like so:
-
-```java
-// Other imports...
-import com.example.myapp.EchoPlugin;
-
-public class MainActivity extends BridgeActivity {
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    // Initializes the Bridge
-    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-      // Additional plugins you've installed go here
-      // Ex: add(TotallyAwesomePlugin.class);
-      add(EchoPlugin.class);
-    }});
-  }
-}
-```

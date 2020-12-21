@@ -4,14 +4,12 @@
   - [Introduction](index.md)
   - [Environment Setup](getting-started/environment-setup.md)
   - [Installation](getting-started/index.md)
-  - [Using with Ionic](getting-started/with-ionic.md)
+  - [Using with Ionic Framework](getting-started/with-ionic.md)
 - Basics
   - [Development Workflow](basics/workflow.md)
-  - [Building your App](basics/building-your-app.md)
   - [Using Plugins](basics/using-plugins.md)
   - [Native Project Configuration](basics/configuring-your-app.md)
   - [Progressive Web Apps](basics/progressive-web-app.md)
-  - [Utilities](basics/utilities.md)
 - Cordova/PhoneGap
   - [Overview](cordova/index.md)
   - [Migration Strategy](cordova/migration-strategy.md)
@@ -34,14 +32,12 @@
 - iOS
   - [Getting Started](ios/index.md)
   - [Configuration](ios/configuration.md)
-  - [Updating](ios/updating.md)
   - [Custom Native Code](ios/custom-code.md)
   - [Deploying to App Store](ios/deploying-to-app-store.md)
   - [Troubleshooting](ios/troubleshooting.md)
 - Android
   - [Getting Started](android/index.md)
   - [Configuration](android/configuration.md)
-  - [Updating](android/updating.md)
   - [Custom Native Code](android/custom-code.md)
   - [Deploying to Google Play](android/deploying-to-google-play.md)
   - [Troubleshooting](android/troubleshooting.md)
@@ -49,6 +45,8 @@
   - [Getting Started](web/index.md)
   - [PWA Elements](web/pwa-elements.md)
 - Reference
+  - [Upgrade Guide](updating/apps.md)
   - [Config](config/index.md)
+  - [Core APIs](core-apis/index.md)
+  - [Plugin APIs ->](apis/index.md)
   - [CLI ->](cli/index.md)
-  - [Plugins ->](plugins/index.md)

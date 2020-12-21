@@ -1,22 +1,27 @@
 ---
-title: JavaScript Utilities
-description: Capacitor's JavaScript Utilities
+title: Capacitor Web API
+description: The API for Capacitor on web
 contributors:
   - dotNetkow
 ---
 
-# JavaScript Utilities
+# Capacitor Web API
 
 Capacitor has several JavaScript utilities useful for ensuring apps run successfully across multiple platforms with the same codebase. To use them, import Capacitor then call the desired utility function:
 
+## Capacitor Object
+
+The `Capacitor` object is a container for several utility functions. It is available at `window.Capacitor`, but the preferred usage for modern JavaScript apps is to import it:
+
 ```typescript
 import { Capacitor } from '@capacitor/core';
-const isAvailable = Capacitor.isPluginAvailable('Camera');
 ```
 
-## convertFileSrc
+### convertFileSrc(...)
 
-`convertFileSrc: (filePath: string) => string;`
+```typescript
+convertFileSrc: (filePath: string) => string;
+```
 
 Convert a device filepath into a Web View-friendly path.
 
@@ -39,9 +44,11 @@ document.getElementById("savedPhoto").src = savedPhoto;
 <img id="savedPhoto" />
 ```
 
-## getPlatform
+### getPlatform()
 
-`getPlatform: () => string;`
+```typescript
+getPlatform: () => string;
+```
 
 Get the name of the platform the app is currently running on: `web`, `ios`, `android`.
 
@@ -51,23 +58,27 @@ if (Capacitor.getPlatform() === 'ios') {
 }
 ```
 
-## isNative
+### isNativePlatform()
 
-`isNative?: boolean;`
+```typescript
+isNativePlatform: () => boolean;
+```
 
 Check whether the currently running platform is native (`ios`, `android`).
 
 ```typescript
-if (Capacitor.isNative) {
+if (Capacitor.isNativePlatform()) {
   // do something
 }
 ```
 
-## isPluginAvailable
+### isPluginAvailable(...)
 
-`isPluginAvailable: (name: string) => boolean;`
+```typescript
+isPluginAvailable: (name: string) => boolean;
+```
 
-Check if a plugin is available on the currently running platform. The plugin name is used in the plugin registry (e.g. `const { Name } = Plugins;`), which means it also works with custom plugins.
+Check if a plugin is available on the currently running platform. The plugin name is used in the plugin registry, which means it also works with custom plugins.
 
 ```typescript
 const isAvailable = Capacitor.isPluginAvailable('Camera');

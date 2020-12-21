@@ -25,7 +25,19 @@ If a plugin exists for a particular topic within the [Capacitor Community](https
 
 ### Small in Scope
 
-We believe Capacitor plugins should be reasonably small in scope. With the hybrid approach Capacitor takes, plugins add native code to apps that may or may not be used by apps. By keeping the scope of plugins small, we can ensure apps have a minimal amount of native code that they need. This avoids unnecessary app bloat and warnings/rejections from the App Store due to APIs without usage descriptions, etc.
+We believe Capacitor plugins should be reasonably small in scope. Capacitor plugins add native code to apps that may or may not be used. By keeping the scope of plugins small, we can ensure apps have a minimal amount of native code that they need. This avoids unnecessary app bloat and warnings/rejections from the App Store due to APIs without usage descriptions, etc.
+
+Of course, having a small scope yields other benefits such as quicker deployment, easier cooperation, maintainability, etc.
+
+### Unified and Idiomatic
+
+Capacitor plugins should strive to provide a unified experience across platforms that is familiar to JavaScript developers. This means values from native platforms may need to be coerced.
+
+Here are a few guidelines with examples to demonstrate how to create a unified and idiomatic experience:
+
+- **Prefer `undefined` over `null` and other nonvalues.** Example: If an Android API returns `0.0` to denote "no value", then the value should be coerced to `undefined` for the JavaScript layer.
+- **Prefer identical units.** Example: If an iOS API uses Celsius and an Android API uses Fahrenheit, then the value should be coerced to one or the other before it reaches the JavaScript consumer.
+- **Prefer ISO 8601 datetimes with timezones over other formats.** Example: It is easy to get an accurate JavaScript `Date` from a string like `"2020-12-13T20:21:58.415Z"`, but confusing if given a Unix timestamp (JavaScript timestamps are in milliseconds). Always include the timezone, otherwise datetimes may be interpreted inaccurately from different locales.
 
 ## Plugin Generator
 
