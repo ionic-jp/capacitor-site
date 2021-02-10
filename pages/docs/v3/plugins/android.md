@@ -57,7 +57,7 @@ public class EchoPlugin extends Plugin {
 
         JSObject ret = new JSObject();
         ret.put("value", value);
-        call.success(ret);
+        call.resolve(ret);
     }
 }
 ```
@@ -113,9 +113,9 @@ call.reject(exception.getLocalizedMessage(), null, exception);
 
 ## Permissions
 
-If your plugin has functionality on Android that requires permissions from the end user, then you will need to implement the permissions pattern. If you haven't yet set up your permission aliases and status interfaces yet, see the [Permissions section in the Web guide](/docs/plugins/web#permissions).
+If your plugin has functionality on Android that requires permissions from the end user, then you will need to implement the permissions pattern.
 
-TODO
+Before following this section, make sure you've set up your permission aliases and status interfaces. If you haven't, see the [Permissions section in the Web guide](/docs/plugins/web#permissions).
 
 ### Annotation Changes
 
@@ -124,7 +124,6 @@ TODO
 ```diff-java
  @CapacitorPlugin(
      name = "FooBar",
-+    permissionRequestCode = FooBarPlugin.REQUEST_ALL_PERMISSIONS,
 +    permissions = {
 +        @Permission(
 +            alias = "camera",
@@ -140,12 +139,80 @@ TODO
 +    }
  )
  public class FooBarPlugin extends Plugin {
-+    static final int REQUEST_ALL_PERMISSIONS = 10050;
-
      ...
 ```
 
-TODO
+Add the `permissions` attribute in the `@CapacitorPlugin` annotation, which is an array of one or more `@Permission` annotations. Each `@Permission` annotation contains zero or more Android permission `strings` and a short `alias` describing the purpose.
+
+Group permission strings in each `@Permission` by the distinct pieces of functionality of your plugin.If your plugin requires permissions in other platforms but not Android, then define the permission with the same alias but an empty array for `strings`. This causes the result of the permission request to automatically return as 'granted' for that permission alias.
+
+```java
+@Permission(
+    alias = "notifications",
+    strings = {}
+)
+```
+
+### Implementing Permission Requests
+
+By defining permissions in your `@CapacitorPlugin` annotation, the `checkPermissions()` and `requestPermissions()` methods should be fully functional. App developers will be able to manually request permissions as needed. However, it is considered best practice to wrap plugin functionality with automatic permission requests as well.
+
+#### Permission Callback
+
+Create a void method with a single `PluginCall` parameter and annotate it with `@PermissionCallback`, then pass the name of the method as a string in the permission request call. The callback will run after the completion of the permission request.
+
+```java
+@PluginMethod()
+public void takePhoto(PluginCall call) {
+  if (getPermissionState("camera") != PermissionState.GRANTED) {
+    requestPermissionForAlias("camera", call, "cameraPermsCallback");
+  } else {
+    loadCamera(call);
+  }
+}
+
+@PermissionCallback
+private void cameraPermsCallback(PluginCall call) {
+  if (getPermissionState("camera") == PermissionState.GRANTED) {
+    loadCamera(call);
+  } else {
+    call.reject("Permission is required to take a picture");
+  }
+}
+```
+
+#### Initiating a Permission Request
+
+Permission requests are initiated by calling one of the request helper methods.
+
+For a single alias `requestPermissionForAlias` may be used. Multiple aliases can be provided to `requestPermissionForAliases`. Use `requestAllPermissions` to request all permissions defined in the plugin annotation.
+
+```diff-java
+ @PluginMethod()
+ public void takePhoto(PluginCall call) {
+   if (!hasRequiredPermissions()) {
++    requestAllPermissions(call, "cameraPermsCallback");
+   } else {
+     loadCamera(call);
+   }
+ }
+
+ @PermissionCallback
+ private void cameraPermsCallback(PluginCall call) {
+   ...
+ }
+```
+
+### Manifest
+
+Place any required [install-time](https://developer.android.com/guide/topics/permissions/overview#install-time) permissions in the `AndroidManifest.xml` of the plugin. Do not add runtime permissions (permissions that prompts users to accept). These should be added to the manifest of the Capacitor app instead, and your plugin should document any required runtime permissions.
+
+```diff-xml
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.mycompany.plugins.network">
++     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  </manifest>
+```
 
 ## Error Handling
 
@@ -195,34 +262,28 @@ getActivity().startActivity(intent);
 
 Sometimes when you launch an Intent, you expect some result back. In that case you want to use `startActivityForResult`.
 
-Make sure to register your intents [unique request](https://developer.android.com/training/basics/intents/result#StartActivity) code with `@CapacitorPlugin` in order for
-`handleOnActivityResult` to be triggered.
+Create a callback method to handle the result of the launched activity with a `PluginCall` and `ActivityResult` parameter, and annotate it with `@ActivityCallback`. Pass the name of this method to `startActivityForResult` and it will run when the started activity is finished.
 
 ```java
-@CapacitorPlugin(
-  requestCodes={MyPlugin.REQUEST_IMAGE_PICK} // register request code(s) for intent results
-)
+@CapacitorPlugin()
 class ImagePicker extends Plugin {
-  protected static final int REQUEST_IMAGE_PICK = 12345; // Unique request code
 
   @PluginMethod()
   public void pickImage(PluginCall call) {
     Intent intent = new Intent(Intent.ACTION_PICK);
     intent.setType("image/*");
 
-    startActivityForResult(call, intent, REQUEST_IMAGE_PICK);
+    // Start the Activity for result using the name of the callback method
+    startActivityForResult(call, intent, "pickImageResult");
   }
 
-  // in order to handle the intents result, you have to @Override handleOnActivityResult
-  @Override
-  protected void handleOnActivityResult(PluginCall lastPluginCall, int requestCode, int resultCode, Intent data) {
-    if (lastPluginCall == null) {
+  @ActivityCallback
+  private void pickImageResult(PluginCall call, ActivityResult result) {
+    if (call == null) {
       return;
     }
 
-    if (requestCode == REQUEST_IMAGE_PICK) {
-      // Do something with the data
-    }
+    // Do something with the result data
   }
 }
 ```

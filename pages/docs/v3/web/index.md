@@ -11,23 +11,23 @@ Capacitor 従来の Web アプリケーションと Progressive Web Apps を完�
 
 ## ブラウザサポート
 
-CapacitorとプラグインはES2017用に構築されています。この新しいJavaScript構文は、すべてのモダンなブラウザ(iOSとAndroidのPWAを動かすものを含む)でサポートされていますが、IE 11ではたとえば [Babel](https://babeljs.io)のような、追加のJavaScript変換を使用しないと動作しません。
+Capacitor とプラグインは ES2017 用に構築されています。この新しい JavaScript 構文は、すべてのモダンなブラウザ(iOS と Android の PWA を動かすものを含む)でサポートされていますが、IE 11 ではたとえば [Babel](https://babeljs.io)のような、追加の JavaScript 変換を使用しないと動作しません。
 
-Webサポートを持つプラグインは、機能検出を実行し、ブラウザが特定のWeb APIをサポートしていない場合は例外をスローします。
+Web サポートを持つプラグインは、機能検出を実行し、ブラウザが特定の Web API をサポートしていない場合は例外をスローします。
 
 ## インストール
 
-すでにiOSやAndroid用のCapacitorを使っているなら、追加のインストール手順はありません。
+すでに iOS や Android 用の Capacitor を使っているなら、追加のインストール手順はありません。
 
 それ以外の場合は、先に進む前に [Installation](/docs/getting-started/) ガイドを参照してください。
 
-### CapacitorをModuleとして使う
+### Capacitor を Module として使う
 
-一般的なアプリケーションは、JavaScriptモジュールのインポートをサポートするビルドシステムを備えたフレームワークを使用しています。その場合、 `@capacitor/core` からインポートするか、プラグインをインポートすることによって、Capacitor JavaScriptランタイムがあなたのアプリと共にロードされます。
+一般的なアプリケーションは、JavaScript モジュールのインポートをサポートするビルドシステムを備えたフレームワークを使用しています。その場合、 `@capacitor/core` からインポートするか、プラグインをインポートすることによって、Capacitor JavaScript ランタイムがあなたのアプリと共にロードされます。
 
 ### Script タグから Capacitor を利用する
 
-ビルドシステムまたはバンドラー/モジュールローダーを使用していないWebアプリケーションでCapacitorランタイムを使用するには、次の手順に従います。
+ビルドシステムまたはバンドラー/モジュールローダーを使用していない Web アプリケーションで Capacitor ランタイムを使用するには、次の手順に従います。
 
 1. [Capacitor configuration file](/docs/v3/config) の `bundledWebRuntime` を `true` にします
 
@@ -41,7 +41,7 @@ Webサポートを持つプラグインは、機能検出を実行し、ブラ�
 npx cap sync web
 ```
 
-3. `capacitor.js` を他のJavaScriptよりも先に `index.html` で読み込みます
+3. `capacitor.js` を他の JavaScript よりも先に `index.html` で読み込みます
 
 ```html
 <script src="capacitor.js"></script>
@@ -50,6 +50,6 @@ npx cap sync web
 
 ## 本番にデプロイする
 
-Progressive Web Appを公開して世界と共有する準備ができたら、Web Assetディレクトリのコンテンツをアップロードするだけです。
+Progressive Web App を公開して世界と共有する準備ができたら、Web Asset ディレクトリのコンテンツをアップロードするだけです。
 
 これには、アプリケーションを実行するために必要なものがすべて含まれています！

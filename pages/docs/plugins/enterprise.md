@@ -9,7 +9,7 @@ Capacitor は、強力な Native セキュリティ、認証、およびデー�
 
 さらに、チームは顧客に愛されているサポートやオプションのアドバイザリーサービスを利用して、モバイルエコシステムの変化に関わらず、次の主要なアプリプロジェクトが成功し、その状態を維持できるようにします。
 
-Capacitor's Enterprise offering centers around a suite of powerful native Capacitor plugins: [Auth Connect](https://ionicframework.com/enterprise/auth-connect) for secure authentication, [Identity Vault](https://ionicframework.com/enterprise/identity-vault) for encrypted session and user identity management, and [Offline Storage](https://ionicframework.com/enterprise/offline-storage) for high-performance, encrypted SQL data storage.
+[Capacitor's Enterprise offering](/enterprise) centers around a suite of powerful native Capacitor plugins: [Auth Connect](https://ionicframework.com/enterprise/auth-connect) for secure authentication, [Identity Vault](https://ionicframework.com/enterprise/identity-vault) for encrypted session and user identity management, and [Offline Storage](https://ionicframework.com/enterprise/offline-storage) for high-performance, encrypted SQL data storage.
 
 Each solution works great with any modern web technology stack running in Capacitor, and does not require Ionic Framework.
 

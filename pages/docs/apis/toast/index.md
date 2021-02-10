@@ -12,7 +12,12 @@ contributors:
 
 Toast APIは、ユーザに重要な情報を表示するための通知ポップアップを提供します。本物のトーストみたい!
 
-<docgen-index></docgen-index>
+<docgen-index>
+
+* [`show(...)`](#show)
+* [Interfaces](#interfaces)
+
+</docgen-index>
 
 ## PWA Notes
 

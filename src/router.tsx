@@ -22,7 +22,11 @@ export const Routes = () => (
       mapParams={staticState(getPage)}
       render={(_, data) => (
         <Fragment>
-          <SiteHeader />
+          <platform-bar
+            containerClass="heading-container"
+            productName="Capacitor"
+          />
+          <site-header class="heading-container" />
           <landing-page data={data} />
         </Fragment>
       )}
@@ -33,7 +37,11 @@ export const Routes = () => (
       mapParams={staticState(getAllBlogData)}
       render={(_, data) => (
         <Fragment>
-          <SiteHeader />
+          <platform-bar
+            containerClass="heading-container"
+            productName="Capacitor"
+          />
+          <site-header class="heading-container" sticky={true} />
           <blog-page data={data} />
         </Fragment>
       )}
@@ -44,7 +52,11 @@ export const Routes = () => (
       mapParams={staticState(getBlogData)}
       render={(_, data) => (
         <Fragment>
-          <SiteHeader />
+          <platform-bar
+            containerClass="heading-container"
+            productName="Capacitor"
+          />
+          <site-header class="heading-container" sticky={true} />
           <blog-post data={data} />
         </Fragment>
       )}
@@ -55,21 +67,43 @@ export const Routes = () => (
       mapParams={staticState(getPage)}
       render={(_, data) => (
         <Fragment>
-          <SiteHeader />
+          <platform-bar
+            containerClass="heading-container"
+            productName="Capacitor"
+          />
+          <site-header class="heading-container" sticky={true} />
           <community-page data={data} />
         </Fragment>
       )}
     />
 
+    <Route path="/telemetry">
+      <platform-bar
+        containerClass="heading-container"
+        productName="Capacitor"
+      />
+      <site-header class="heading-container" sticky={true} />
+      <telemetry-page />
+    </Route>
+
     <Route path="/cordova">
-      <SiteHeader />
       <cordova-page />
     </Route>
 
-    <Route path="/enterprise">
-      <SiteHeader />
-      <capacitor-enterprise />
-    </Route>
+    <Route
+      path="/enterprise"
+      mapParams={staticState(getPage)}
+      render={(_, data) => (
+        <Fragment>
+          <platform-bar
+            containerClass="heading-container"
+            productName="Capacitor"
+          />
+          <site-header class="heading-container" theme="dark" sticky={false} />
+          <enterprise-page data={data} />
+        </Fragment>
+      )}
+    />
 
     <Route
       path={matchAny(['/docs/v3/:id*', '/docs/v3'])}
@@ -87,7 +121,11 @@ export const Routes = () => (
       path={match('/solution/:solutionId*')}
       render={({ solutionId }) => (
         <Fragment>
-          <SiteHeader />
+          <platform-bar
+            containerClass="heading-container"
+            productName="Capacitor"
+          />
+          <site-header class="heading-container" />
           <solution-page solutionId={solutionId} />
         </Fragment>
       )}
@@ -95,20 +133,14 @@ export const Routes = () => (
   </Router.Switch>
 );
 
-Router.on('change', (newUrl, _oldUrl) => {
-  (window as any).gtag('config', 'UA-44023830-42', {
-    page_path: newUrl.pathname + newUrl.search,
-  });
-
+Router.on('change', (_newUrl, _oldUrl) => {
   // if (!oldUrl || oldUrl.pathname !== newUrl.pathname) {
   //   state.isLeftSidebarIn = false;
   //   state.showTopBar = true;
   //   state.pageTheme = 'light';
   // }
-
   // Reset scroll position
   // requestAnimationFrame(() => window.scrollTo(0, 0));
-
   // if (newUrl.hash) {
   //   const id = newUrl.hash.slice(1);
   //   setTimeout(() => {
@@ -119,13 +151,6 @@ Router.on('change', (newUrl, _oldUrl) => {
   //   }, 50);
   // }
 });
-
-const SiteHeader = () => (
-  <Fragment>
-    <platform-bar containerClass="heading-container" productName="Capacitor" />
-    <site-header class="heading-container" />
-  </Fragment>
-);
 
 const docsPath = '/docs';
 const versionedDocsPath = '/docs/v3';

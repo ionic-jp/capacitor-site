@@ -27,7 +27,7 @@ Modals APIは、alerts, confirmations, アクションシートのようなInput
 ## Example
 
 ```typescript
-import { Plugins } from '@capacitor/core';
+import { Plugins, ActionSheetOptionStyle } from '@capacitor/core';
 
 const { Modals } = Plugins;
 
