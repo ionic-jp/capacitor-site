@@ -21,6 +21,8 @@ export const getPage: MapParamData = async (_params, url) => {
         await queryPrismic('capacitor_community'),
         CommunityPage,
       );
+    case '/enterprise':
+      return await queryPrismic('capacitor_enterprise');
   }
 };
 
