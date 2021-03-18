@@ -9,6 +9,18 @@ Capacitor iOS is the native runtime that powers Capacitor apps on iOS.
 
 > 🚧 This guide is a work-in-progress. Thanks for your patience!
 
+## Passing data
+
+Notes on how to work with data that is passed between environments can be [found here](/docs/core-apis/data-types#ios).
+
+---
+
+## Saving CAPPluginCall
+
+Notes on persisting plugin calls for asynchronous or repeated operations can be [found here](/docs/core-apis/saving-calls).
+
+---
+
 ## Bridge
 
 The iOS bridge is the heart of the Capacitor iOS library. There are several properties and methods available on the bridge which provide information or change behavior.
@@ -24,6 +36,8 @@ self.bridge?
 > ```swift
 > guard let bridge = self.bridge else { return }
 > ```
+
+---
 
 ### viewController
 

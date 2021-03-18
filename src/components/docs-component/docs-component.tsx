@@ -59,10 +59,10 @@ export class DocsComponent implements ComponentInterface {
           page-title={this.data.title}
           description={`${this.data.description} - Official Capacitor Documentation`}
         />
-        <platform-bar
+        {/* <platform-bar
           containerClass="sc-docs-component docs-container"
           productName="Capacitor"
-        />
+        /> */}
         <div class="row">
           <site-backdrop
             visible={showBackdrop}
@@ -121,7 +121,7 @@ const elementRouterHref = (tagName: string, props: any) => {
       return {
         ...props,
         target: '_blank',
-        class: 'external-link',
+        class: props.class ? `${props.class} external-link` : 'external-link',
         rel: 'noopener',
       };
     }
