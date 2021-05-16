@@ -104,11 +104,11 @@ npx cap sync [android | ios]
 
 ## Permissions の設定
 
-デフォルトでは、最新バージョンの Capacitor に要求された初期設定の権限が、iOS と Android の両方のデフォルト Native プロジェクトに設定されます。ただし、 `plugin.xml` でマッピングすることによって、追加のアクセス権を手動で適用する必要がある場合があります。この設定は、iOS と Android では必須です。各プラットフォームの設定方法については、 [iOS](/docs/ios/configuration) および [Android](/docs/android/configuration) の設定ガイドを参照してください。
+If the plugin declared the permissions or usage descriptions in the `plugin.xml`, Capacitor will automatically add them to your `AndroidManifest.xml` and `Info.plist`. However, you may need to apply additional permissions or usage descriptions manually by mapping between `plugin.xml` and required settings on iOS and Android. Consult the [iOS](/docs/ios/configuration) and [Android](/docs/android/configuration) configuration guides for info on how to configure each platform.
 
 ## Cordova Plugin preferences
 
-`npx cap init` が実行されると、コンデンサは `config.xml` のすべてのプリファレンスを読み込みます。これらを `capacitor.config.json` に移植します。手動で `cordova.preferences` に環境設定を追加することもできます。
+When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` and port them to `capacitor.config.json` or `capacitor.config.ts` file. You can manually add more preferences to the `cordova.preferences` object too.
 
 ```json
 {
@@ -121,7 +121,18 @@ npx cap sync [android | ios]
 }
 ```
 
-## Config.xml フィールドの追加
+```ts
+const config: CapacitorConfig = {
+  cordova: {
+    preferences: {
+      DisableDeploy: 'false',
+      CameraUsesGeolocation: 'true',
+    },
+  },
+};
+```
+
+## Additional Config.xml Fields
 
 あなたは `config.xml` の他の要素が Capacitor アプリではどのように動作するか気になるかもしれません。
 

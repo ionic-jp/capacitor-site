@@ -16,10 +16,10 @@ Android アプリは、 `AndroidManifest.xml` を変更することで、権限�
 
 ## App ID を変更する
 
-アプリのバンドル/アプリ ID を変更するには、`AndroidManifest.xml`の一番上の`<manifest>`を更新します:
+アプリのバンドル/アプリ ID を変更するには、 `android/app/build.gradle` の `applicationId` を更新します:
 
-```xml
-<manifest package="com.getcapacitor.myapp">
+```groovy
+applicationId "com.getcapacitor.myapp"
 ```
 
 ## App Name の変更

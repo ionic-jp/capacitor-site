@@ -12,8 +12,7 @@ contributors:
 
 <img src="/assets/img/docs/pwa-elements.png" style="height: 200px" />
 
-​ この UI は、Web コンポーネントを使用して実装されます。​Shadow DOM の魔法により、これらのコンポーネントはあなたのプロジェクトに競合しません。
-​ 独自の UI を使用します。
+この UI は、Web コンポーネントを使用して実装されます。 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) の魔法により、これらのコンポーネントはあなたのプロジェクトに競合しません。
 
 ## インストール
 
@@ -29,7 +28,7 @@ npm install @ionic/pwa-elements
 
 ​ 次に、選択したフレームワークに応じて、 element loader をインポートし、適切なタイミングで呼び出します:
 
-_React_
+##### React
 
 `index.tsx` or `index.js`:
 
@@ -42,7 +41,31 @@ ReactDOM.render(<App />, document.getElementById('root'));
 defineCustomElements(window);
 ```
 
-_Angular_
+##### Vue
+
+`main.ts`
+
+```typescript
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
+Vue.config.productionTip = false;
+
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App },
+});
+
+// Call the element loader after the platform has been bootstrapped
+defineCustomElements(window);
+```
+
+##### Angular
 
 `main.ts`:
 
