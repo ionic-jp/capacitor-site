@@ -50,13 +50,13 @@ export class LandingPage {
           </div>
           <Capacitor3Rainbow />
           <h1>
-            <span class="reveal">Faster.</span>
-            <span class="reveal">Smaller.</span>
-            <span class="reveal">Simpler.</span>
+            <span class="reveal">高速に.</span>
+            <span class="reveal">軽量に.</span>
+            <span class="reveal">そしてシンプルに.</span>
           </h1>
           <p class="reveal">
-            A brand new approach to building native apps with the Web — now even
-            faster, more modular, and more enjoyable to build with than ever.
+            Webでネイティブアプリケーションを構築するためのアプローチを刷新し、
+            これまで以上に速く、モジュール化され、より楽しく構築できるようになりました。
           </p>
           <div class="btns">
             <Button
@@ -67,7 +67,7 @@ export class LandingPage {
               href="/docs/getting-started"
               anchor={true}
             >
-              Try Capacitor 3 <span>{'->'}</span>
+              Capacitor3を試す <span>{'->'}</span>
             </Button>
             <Button
               class="reveal"
@@ -76,7 +76,7 @@ export class LandingPage {
               href="https://ionicframework.com/blog/announcing-capacitor-3-0/"
               anchor={true}
             >
-              Read the Blog post <span>{'->'}</span>
+              ブログ記事を読む <span>{'->'}</span>
             </Button>
           </div>
         </ResponsiveContainer>
