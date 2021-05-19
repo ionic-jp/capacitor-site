@@ -11,7 +11,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/motion
 
 # Motion
 
-The Motion API tracks accelerometer and device orientation (compass heading, etc.)
+Motion API は、加速度計とデバイスの向きを追跡します(compass heading, etc.)。
 
 <docgen-index>
 

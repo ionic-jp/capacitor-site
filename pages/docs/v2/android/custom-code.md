@@ -1,6 +1,6 @@
 ---
-title: Custom Native Android Code
-description: Custom Native Android Code
+title: カスタムNative Androidコード
+description: カスタムNative Androidコード
 contributors:
   - mlynch
   - jcesarmobile
@@ -8,19 +8,19 @@ contributors:
 canonicalUrl: https://capacitorjs.com/docs/android/custom-code
 ---
 
-# Custom Native Android Code
+# カスタム Native Android コード
 
-Many apps will want to add custom Java or Kotlin code to implement native features, without the overhead of building and publishing a proper Capacitor plugin.
+多くのアプリは、適切に Capacitor プラグインを構築して公開するというオーバーヘッドなしに、Native 機能を実装するためのカスタムの Java コードもしくは Kotlin のコードを追加したいと思うでしょう。
 
-There are two ways to do this depending on whether or not you need to access that code from the WebView:
+WebView からそのコードにアクセスする必要があるかどうかによって、2 つの方法があります：
 
-## WebView Accessible Native Code
+## WebView から Native コードにアクセス
 
-The easiest way to build custom native code that needs to be accessible in the WebView is to build
-a local Capacitor plugin for it. In this case, building the plugin is as simple as building a class
-that inherits from `com.getcapacitor.Plugin` and uses the `@NativePlugin()` and `@PluginMethod()` annotations.
+WebView でアクセス可能にする必要があるカスタム Native コードを構築する最も簡単な方法は、
+そのためのローカル Capacitor プラグインを構築することです。この場合、プラグインの構築は `com.getcapacitor.Plugin` を継承するクラスの構築と同じくらい簡単です。
+プラグインは `@NativePlugin()` と `@PluginMethod()` のアノテーションを使用します。
 
-Here are examples of custom code in Java and Kotlin:
+Java と Kotlin のカスタムコードの例です:
 
 ### Java
 
@@ -84,9 +84,9 @@ class CustomNativePlugin : Plugin() {
 }
 ```
 
-### Registering Plugin Code
+### プラグインコードの登録
 
-The final step is to register the plugin in your Activity. Registering a Kotlin plugin class in the Activity is the same as registering a Java class:
+最後のステップは、プラグインを Activity に登録することです。Activity に Kotlin プラグインクラスを登録することは、Java クラスの登録と同様に行います:
 
 ```java
 // Other imports...
@@ -107,7 +107,7 @@ public class MainActivity extends BridgeActivity {
 }
 ```
 
-Then you can use your functions in your webView code:
+そうするとあなたは webView のコードであなたの機能を使うことができます:
 
 ```typescript
 // Other codes...
@@ -119,9 +119,9 @@ CustomNativePlugin.customFunction();
 // Other codes...
 ```
 
-For more usages of plugin APIs, have a look at [Capacitor Android Plugin Guide](/docs/plugins/android).
+より詳しいプラグイン API の使い方を知るには [Capacitor Android Plugin Guide](/docs/plugins/android) をご覧ください。
 
-## Private Native Code
+## プライベート Native コード
 
-If your code doesn't need to be accessible from the WebView, then simply add your code anywhere it needs to go. With Capacitor, you have full
-control over your native project. Need to add a new event handler in your Activity? Just update `MainActivity` and add it. The world is truly your oyster.
+WebView からコードにアクセスする必要がない場合は、必要な場所にコードを追加するだけです。
+Capacitor を使用すると、Native プロジェクトを完全に制御できます。アクティビティに新しいイベントハンドラを追加する必要がありますか？ `MainActivity` を更新して追加するだけです。世界はあなたの思いのままです。

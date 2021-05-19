@@ -11,7 +11,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/filesystem
 
 # Filesystem
 
-The Filesystem API provides a NodeJS-like API for working with files on the device.
+Filsystem API は、デバイス上のファイルを操作するための NodeJS のような API を提供します。
 
 <docgen-index>
 

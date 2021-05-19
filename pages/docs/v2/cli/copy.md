@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/copy
 
 # Capacitor CLI - cap copy
 
-Copy the web app build and Capacitor configuration file into the native platform project. Run this each time you make changes to your web app or change a configuration value in `capacitor.config.json`.
+Web アプリのビルドファイルと Capacitor の設定ファイルを Native のプラットフォームプロジェクトにコピーします。Web アプリケーションに変更を加えたり、 `capacitor.config.json` を変更したりするたびに、これを実行します。
 
 ```bash
 npx cap copy [platform]

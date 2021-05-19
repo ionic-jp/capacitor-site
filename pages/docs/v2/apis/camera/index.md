@@ -11,8 +11,8 @@ canonicalUrl: https://capacitorjs.com/docs/apis/camera
 
 # Camera
 
-The Camera API allows a user to pick a photo from their photo album or take a picture. On iOS, this uses `UIImagePickerController`, and on Android this
-API sends an intent which will be handled by the core Camera app by default.
+Camera API を使用すると、フォトアルバムから写真を選択したり、写真を撮影したりできます。iOS では`UIImagePickerController`を使用し、
+Android ではこの API がインテントを送信し、インテントはデフォルトでコアの Camera アプリによって処理されます。
 
 <docgen-index>
 

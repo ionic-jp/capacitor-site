@@ -11,9 +11,9 @@ canonicalUrl: https://capacitorjs.com/docs/apis/local-notifications
 
 # Local Notifications
 
-The Local Notification API provides a way to schedule "local" notifications - notifications that are scheduled and delivered on the device as opposed to "push" notifications sent from a server.
+ローカル通知 API は、サーバから送信される"Push"通知ではなく、デバイス上でスケジュールされ配信される"ローカル"通知をスケジュールする方法を提供します。
 
-Local Notifications are great for reminding the user about a change in the app since they last visited, providing reminder features, and delivering offline information without the app being in the foreground.
+ローカル通知は、ユーザーが最後にアクセスしてからのアプリの変更を通知したり、通知機能を提供したり、アプリを前面に表示してオフライン情報を配信したりするのに便利です。
 
 <docgen-index>
 

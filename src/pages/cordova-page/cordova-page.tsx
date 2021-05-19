@@ -62,9 +62,9 @@ export class CordovaPage {
         <sup class="ui-heading-6">01</sup>
         <div class="heading-group">
           <Heading level={3} id="code-branch">
-            Create a new code branch.
+            新しいブランチを作成します。
           </Heading>
-          <Paragraph>Recommended, but not required.</Paragraph>
+          <Paragraph>推奨ですが、必須ではありません。</Paragraph>
         </div>
         <div class="code-panel">
           <code-snippet
@@ -79,10 +79,10 @@ git checkout -b cap-migration
       <article class="step">
         <sup class="ui-heading-6">02</sup>
         <div class="heading-group">
-          <Heading level={3}>Install Capacitor.</Heading>
+          <Heading level={3}>Capacitorをインストール。</Heading>
           <Paragraph>
-            Create the Capacitor app using the Cordova app's name and id found
-            in `config.xml`.
+            `config.xml` にあるCordovaアプリの名前とIDを使用して
+            Capacitorアプリを作成します。
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -98,10 +98,10 @@ npx cap init [name] [id]
       <article class="step">
         <sup class="ui-heading-6">03</sup>
         <div class="heading-group">
-          <Heading level={3}>Build the Web App.</Heading>
+          <Heading level={3}>Webアプリをビルドします。</Heading>
           <Paragraph>
-            The compiled web assets will be copied into each Capacitor native
-            platform during the next step.
+            コンパイルされたWebアセットは、
+            次のステップでCapacitorの各ネイティブプラットフォームにコピーされます。
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -121,7 +121,7 @@ ionic build
         <sup class="ui-heading-6">04</sup>
         <div class="heading-group">
           <Heading level={3}>
-            Install the native platforms you want to target.
+            ターゲットにするネイティブプラットフォームをインストール。
           </Heading>
           <div class="platforms">
             <img
@@ -142,10 +142,10 @@ ionic build
             />
           </div>
           <Paragraph>
-            Capacitor native projects exist in their own top-level folders and
-            should be considered part of your app (check them into source
-            control). Any existing Cordova plugins are automatically installed
-            into each native project. 🎉
+            Capacitorネイティブプロジェクトは独自の最上位フォルダーに存在し、アプリの一部と見なされます
+            （ソース管理にチェックインします）。
+            既存のCordovaプラグインは、各ネイティブプロジェクトに
+            自動的にインストールされます。🎉
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -161,11 +161,14 @@ npx cap add ios
       <article class="step">
         <sup class="ui-heading-6">05</sup>
         <div class="heading-group">
-          <Heading level={3}>Recreate Splash Screens and Icons.</Heading>
+          <Heading level={3}>
+            スプラッシュスクリーンとアイコンの再作成。
+          </Heading>
           <Paragraph>
-            Reuse the existing splash screen/icon images, located in the
-            top-level `resources` folder of your Cordova project, using the
-            `cordova-res` tool. Images are copied into each native project.
+            `cordova-res` ツールを使用して、Cordovaプロジェクトの最上位の
+            `resources` フォルダにある
+            既存のスプラッシュスクリーン/アイコン画像を再利用します。
+            画像は各ネイティブプロジェクトにコピーされます。
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -183,21 +186,21 @@ cordova-res android --skip-config --copy
       <article class="step">
         <sup class="ui-heading-6">06</sup>
         <div class="heading-group">
-          <Heading level={3}>Audit existing Cordova plugins.</Heading>
+          <Heading level={3}>既存のCordovaプラグインを監査。</Heading>
           <Paragraph>
-            Review all of Capacitor's{' '}
+            すべてのCapacitorの{' '}
             <a {...href('/docs/apis')} target="_blank">
-              core
+              コア
             </a>{' '}
-            and{' '}
+            と{' '}
             <a {...href('/docs/plugins/community')} target="_blank">
-              community
+              コミュニティ
             </a>{' '}
-            plugins. You may be able to switch to the Capacitor-equivalent
-            Cordova plugin, such as the Camera.
+            プラグインをご確認ください。 Cordovaと同等のCapacitorプラグインに
+            切り替えることができる場合があります。
           </Paragraph>
           <Paragraph>
-            Remove unneeded ones to improve performance and reduce app size.
+            不要なものを削除して、パフォーマンスを向上させ、アプリのサイズを小さくします。
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -238,10 +241,9 @@ const photo = await Camera.getPhoto({
       <article class="step">
         <sup class="ui-heading-6">07</sup>
         <div class="heading-group">
-          <Heading level={3}>Remove Cordova from your project.</Heading>
+          <Heading level={3}>プロジェクトからCordovaを削除。</Heading>
           <Paragraph>
-            After successful migration testing, Cordova can be removed from the
-            project.
+            移行テストが成功したら、Cordovaをプロジェクトから 削除できます。
           </Paragraph>
         </div>
         <div class="code-panel">
@@ -263,13 +265,17 @@ rm -R plugins/
       <article class="step">
         <sup class="ui-heading-6">08</sup>
         <div class="heading-group">
-          <Heading level={3}>Continue your Capacitor Journey.</Heading>
+          <Heading level={3}>Capacitorの旅を続けよう。</Heading>
           <Paragraph>
-            This is only the beginning. Learn more about{' '}
-            <a {...href('/docs/plugins/cordova')}>using Cordova plugins</a> in a
-            Capacitor project, check out the Capacitor{' '}
-            <a {...href('/docs/basics/workflow')}>development workflow</a>, or
-            create your own <a {...href('/docs/plugins')}>native plugin</a>.
+            これははじまりにすぎません。続いて、{' '}
+            <a {...href('/docs/cordova/using-cordova-plugins')}>
+              {' '}
+              Cordovaプラグインを
+            </a>{' '}
+            Capacitorで使う方法と、Capacitorの{' '}
+            <a {...href('/docs/basics/workflow')}>開発フロー</a> や 自分自身の{' '}
+            <a {...href('/docs/plugins')}>ネイティブプラグイン</a>{' '}
+            をつくったりしましょう。
           </Paragraph>
         </div>
         <div class="code-panel">

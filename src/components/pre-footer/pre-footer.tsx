@@ -32,10 +32,10 @@ export class PreFooter {
               />
             </svg>
             <Heading level={4}>
-              Installation Guide <span class="arrow">-&gt;</span>
+              インストールガイド <span class="arrow">-&gt;</span>
             </Heading>
             <Paragraph>
-              Install Capacitor and learn how to start building with it
+              Capacitorをインストールしてアプリを構築する方法を学びます
             </Paragraph>
           </a>
           <a href="/docs/apis">
@@ -61,10 +61,10 @@ export class PreFooter {
               />
             </svg>
             <Heading level={4}>
-              Explore Native Plugins <span class="arrow">-&gt;</span>
+              ネイティブプラグインを探す <span class="arrow">-&gt;</span>
             </Heading>
             <Paragraph>
-              Explore Native Plugins that are available to all Capacitor apps
+              すべてのCapacitorアプリで利用可能なネイティブプラグインを探します
             </Paragraph>
           </a>
         </ResponsiveContainer>

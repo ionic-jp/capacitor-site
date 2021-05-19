@@ -1,21 +1,21 @@
 ---
-title: Deploying to App Store
-description: How to deploy iOS Capacitor apps to the Apple App Store
+title: App Storeにデプロイ
+description: あなたのCapacitorアプリをApp Storeにデプロイする方法
 contributors:
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/ios/deploying-to-app-store
 ---
 
-# Deploying your Capacitor iOS App to the App Store
+# あなたの Capacitor アプリを App Store にデプロイ
 
-Because Capacitor apps are normal native apps at the end of the day, the way they are deployed to the App Store is just like any other native app.
+Capacitor アプリは結局のところ通常の Native アプリなので、App Store へのデプロイ方法は他の Native アプリと同じです。
 
-To start, consult the official Apple documentation on [Submitting Apps to the App Store](https://developer.apple.com/app-store/submissions/). [See here](/docs/guides/splash-screens-and-icons) for details on generating splash screens and icons for your app.
+まず、App Store へのアプリの提出に関する [Apple の公式ドキュメント](https://developer.apple.com/app-store/submissions/) を参照してください。あなたのアプリのスプラッシュ画面とアイコンの生成についての [詳細はこちら](/docs/guides/splash-screens-and-icons) をご覧ください。
 
-For a guide with some Capacitor-specific considerations, see [Josh Morony's wonderful guide](https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/) on the topic.
+Capacitor 特有の考慮事項についてのガイドは、[Josh Morony の素晴らしいガイド](https://www.joshmorony.com/deploying-capacitor-applications-to-ios-development-distribution/)を参照してください。
 
-## Automating Deployments
+## 自動デプロイ
 
-For teams that wish to streamline their App Store (and Google Play Store) submissions and even automate them with integration into their CI/CD workflow, Capacitor's parent company, Ionic, offers a powerful Mobile DevOps service called [Appflow](https://useappflow.com/) that offers end-to-end app development and deployment capabilities.
+App Store (および Google Play Store)への提出を合理化したり、 CI/CD ワークフローへの統合によって自動化さえしたいチームのために、 Capacitor の提供会社である Ionic は、エンドツーエンドのアプリ開発とデプロイ機能を提供する、 [Appflow](https://useappflow.com/)という強力な Mobile DevOps サービスを提供しています。
 
-Interested? Check out this [brief guide](/docs/guides/deploying-updates) on how it works and how you can use it with Capacitor today, or view the official [Appflow Documentation](https://ionicframework.com/docs/appflow/).
+興味ありますか? この [手引書を読んで](/docs/guides/deploying-updates) 、どのように動作するのか、またどのように現在のキャパシターで使用できるのかを知るか、または公式の[Appflow ドキュメント](https://ionicframework.com/docs/appflow/) をご覧ください。

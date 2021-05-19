@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/list
 
 # Capacitor CLI - cap ls
 
-List all installed Cordova and Capacitor plugins.
+インストールされているすべての Cordova プラグインと Capacitor プラグインを一覧表示します。
 
 ```bash
 npx cap ls [platform]

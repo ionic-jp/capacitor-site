@@ -11,8 +11,8 @@ canonicalUrl: https://capacitorjs.com/docs/apis/geolocation
 
 # Geolocation
 
-The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along
-with altitude, heading, and speed information if available.
+Geolocation API は、GPS を使用してデバイスの現在位置を取得および追跡するための簡単な方法を、
+可能であれば高度、方位、および速度情報とともに提供します。
 
 <docgen-index>
 

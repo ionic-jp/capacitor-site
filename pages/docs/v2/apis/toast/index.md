@@ -11,7 +11,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/toast
 
 # Toast
 
-The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
+Toast API は、ユーザに重要な情報を表示するための通知ポップアップを提供します。本物のトーストみたい!
 
 <docgen-index>
 

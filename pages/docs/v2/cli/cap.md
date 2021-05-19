@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/cap
 
 # Capacitor CLI - cap
 
-View all available CLI commands and options.
+すべての利用可能な CLI のコマンドとオプションを表示します。
 
 ```bash
 npx cap [-V] [-h]

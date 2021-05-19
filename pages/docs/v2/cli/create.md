@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/create
 
 # Capacitor CLI - create
 
-Create a new Capacitor project with a stock project structure if you'd rather start fresh and plan to add a UI/frontend framework separately.
+新しくプロジェクトをはじめて、UI/フロントエンドフレームワークを個別に追加する場合は、標準プロジェクト構造で新規の Capacitor プロジェクトを作成します。
 
 ```bash
 npx @capacitor/cli create [options] [directory] [name] [id]

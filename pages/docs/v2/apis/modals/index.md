@@ -10,8 +10,8 @@ contributors:
 
 # Modals
 
-The Modals API provides methods for triggering native modal windows for alerts, confirmations, and input prompts, as
-well as Action Sheets.
+Modals API は、alerts, confirmations, アクションシートのような Input プロンプトといった Native モーダルウィンドウを
+トリガするメソッドを提供します。
 
 <docgen-index>
 

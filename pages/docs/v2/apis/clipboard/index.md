@@ -11,8 +11,8 @@ canonicalUrl: https://capacitorjs.com/docs/apis/clipboard
 
 # Clipboard
 
-The Clipboard API enables copy and pasting to/from the clipboard. On iOS this API also allows
-copying images and URLs.
+Clipboard API を使用すると、クリップボードとの間でコピーと貼り付けを行うことができます。
+iOS では、この API を使って画像や URL をコピーすることもできます。
 
 <docgen-index>
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Capacitor - build cross platform apps with the web</title>
+    <title>Capacitor - Webアプリをクロスプラットフォームに展開</title>
 
     <!-- Google Tag Manager -->
     <script>
@@ -25,7 +25,7 @@
     />
     <meta
       name="description"
-      content="Build iOS, Android, and Progressive Web Apps with HTML, CSS, and JavaScript"
+      content="HTML、CSS、JavaScriptで、iOSアプリ、Androidアプリ、PWAを構築します"
     />
     <meta property="og:type" content="website" />
     <meta
@@ -66,6 +66,35 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="theme-color" content="#16161d" />
+
+    <script>
+      navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    </script>
+    <script type="module" src="/build/site.esm.js"></script>
+    <script nomodule src="/build/site.js"></script>
+
+    <link
+      rel="preload"
+      href="/assets/fonts/inter/Inter-variable-ASCII-subset.woff2"
+      as="font"
+      type="font/woff2"
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/eina/eina-01-bold.woff2"
+      as="font"
+      type="font/woff2"
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/eina/eina-01-semibold.woff2"
+      as="font"
+      type="font/woff2"
+    />
 
     <script>
       navigator.serviceWorker.getRegistrations().then(function (registrations) {

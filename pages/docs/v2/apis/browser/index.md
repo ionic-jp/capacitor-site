@@ -23,17 +23,17 @@ canonicalUrl: https://capacitorjs.com/docs/apis/browser
 
 </docgen-index>
 
-The Browser API makes it easy to open an in-app browser session to show external web content,
-handle authentication flows, and more.
+Browser API を使用すると、外部の Web コンテンツを表示したり、認証フローを処理したりするために、
+アプリケーション内のブラウザセッションを簡単に開くことができます。
 
-On iOS this uses `SFSafariViewController` and is compliant with leading oAuth service in-app-browser requirements.
+iOS ではこれは `SFSafariViewController` を使用し、主要な oAuth サービスのアプリ内ブラウザ要件に準拠しています。
 
 ```typescript
 import { Plugins } from '@capacitor/core';
 
 const { Browser } = Plugins;
 
-await Browser.open({ url: 'http://capacitorjs.com/' });
+await Browser.open({ url: 'http://capacitorjs.jp/' });
 ```
 
 ## API
