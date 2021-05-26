@@ -4,6 +4,7 @@ description: Learn how to get Firebase Cloud Messaging working on iOS and Androi
 contributors:
   - bryplano
   - javebratt
+canonicalUrl: https://capacitorjs.com/docs/guides/push-notifications-firebase
 ---
 
 # Using Push Notifications with Firebase in an Ionic + Angular App
@@ -11,13 +12,13 @@ contributors:
 **Web Framework**: Angular
 **Platforms**: iOS, Android
 
-One of the most common features provided by application developers to their users is push notifications. In this tutorial, we'll walk through all the steps needed to get [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) working on iOS and Android.
+アプリケーション開発者がユーザーに提供する最も一般的な機能の 1 つは、プッシュ通知です。このチュートリアルでは、[Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging)を iOS と Android で動作させるために必要なすべての手順について説明します。
 
-For the purposes of registering and monitoring for push notifications from Firebase, we'll make use of the [Push Notification API for Capacitor](https://capacitorjs.jp/docs/apis/push-notifications) in an Ionic + Angular application.
+Firebase からのプッシュ通知の登録とモニタリングを行うために、Ionic+Angular アプリケーションで[Push Notification API for Capacitor](https://capacitorjs.jp/docs/apis/push-notifications)を利用します。
 
 ## Required Dependencies
 
-Building and deploying iOS and Android applications using Capacitor requires a bit of setup. Please [follow the instructions to install the necessary Capacitor dependencies here](/docs/getting-started/environment-setup) before continuing.
+Building and deploying iOS and Android applications using Capacitor requires a bit of setup. Please [follow the instructions to install the necessary Capacitor dependencies here](/docs/getting-started/dependencies) before continuing.
 
 To test push notifications on iOS, Apple requires that you have [a paid Apple Developer account](https://developer.apple.com/) and a _physical_ iOS device.
 
@@ -76,24 +77,19 @@ Upon running these commands, both `android` and `ios` folders at the root of the
 
 ## Using the Capacitor Push Notification API
 
-First of all, we need to install the Capacitor Push Notifications Plugin
-
-```bash
-npm install @capacitor/push-notifications
-npx cap sync
-```
-
-Then, before we get to Firebase, we'll need to ensure that our application can register for push notifications by making use of the Capacitor Push Notification API. We'll also add an `alert` (you could use `console.log` statements instead) to show us the payload for a notification when it arrives and the app is open on our device.
+Before we get to Firebase, we'll need to ensure that our application can register for push notifications by making use of the Capacitor Push Notification API. We'll also add an `alert` (you could use `console.log` statements instead) to show us the payload for a notification when it arrives and the app is open on our device.
 
 In your app, head to the `home.page.ts` file and add an `import` statement and a `const` to make use of the Capacitor Push API:
 
 ```typescript
 import {
-  PushNotificationSchema,
-  PushNotifications,
+  Plugins,
+  PushNotification,
   PushNotificationToken,
   PushNotificationActionPerformed,
-} from '@capacitor/push-notifications';
+} from '@capacitor/core';
+
+const { PushNotifications } = Plugins;
 ```
 
 Then, add the `ngOnInit()` method with some API methods to register and monitor for push notifications. We will also add an `alert()` a few of the events to monitor what is happening:
@@ -107,8 +103,8 @@ ngOnInit() {
     // Request permission to use push notifications
     // iOS will prompt user and return if they granted permission or not
     // Android will just grant without prompting
-    PushNotifications.requestPermissions().then(result => {
-      if (result.receive === 'granted') {
+    PushNotifications.requestPermission().then( result => {
+      if (result.granted) {
         // Register with Apple / Google to receive push via APNS/FCM
         PushNotifications.register();
       } else {
@@ -132,7 +128,7 @@ ngOnInit() {
 
     // Show us the notification payload if the app is open on our device
     PushNotifications.addListener('pushNotificationReceived',
-      (notification: PushNotificationSchema) => {
+      (notification: PushNotification) => {
         alert('Push received: ' + JSON.stringify(notification));
       }
     );
@@ -152,11 +148,13 @@ Here is the full implementation of `home.page.ts`:
 import { Component, OnInit } from '@angular/core';
 
 import {
-  PushNotificationSchema,
-  PushNotifications,
+  Plugins,
+  PushNotification,
   PushNotificationToken,
   PushNotificationActionPerformed,
-} from '@capacitor/push-notifications';
+} from '@capacitor/core';
+
+const { PushNotifications } = Plugins;
 
 @Component({
   selector: 'app-home',
@@ -170,8 +168,8 @@ export class HomePage implements OnInit {
     // Request permission to use push notifications
     // iOS will prompt user and return if they granted permission or not
     // Android will just grant without prompting
-    PushNotifications.requestPermissions().then(result => {
-      if (result.receive === 'granted') {
+    PushNotifications.requestPermission().then(result => {
+      if (result.granted) {
         // Register with Apple / Google to receive push via APNS/FCM
         PushNotifications.register();
       } else {
@@ -192,7 +190,7 @@ export class HomePage implements OnInit {
 
     PushNotifications.addListener(
       'pushNotificationReceived',
-      (notification: PushNotificationSchema) => {
+      (notification: PushNotification) => {
         alert('Push received: ' + JSON.stringify(notification));
       },
     );
@@ -259,7 +257,7 @@ iOS push notifications are significantly more complicated to set up than Android
 1. [Setup the proper Development or Production certificates & provisioning profiles](https://help.apple.com/xcode/mac/current/#/dev60b6fbbc7) for your iOS application in the Apple Developer Portal
 2. [Create an APNS certificate or key](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns) for either Development or Production in the Apple Developer Portal
 3. [Ensure Push Notification capabilities have been enabled](https://help.apple.com/xcode/mac/current/#/dev88ff319e7) in your application in Xcode
-4. Have a physical iOS device as per the guidelines in the [Environment Setup](/docs/getting-started/environment-setup) documentation
+4. Have a physical iOS device as per the guidelines in the [Dependencies](/docs/getting-started/dependencies) documentation
 
 ### Integrating Firebase with our native iOS app
 
@@ -301,20 +299,21 @@ To do this, we need to modify the `Podfile`, which can be found in Xcode under `
 
 ![Podfile Location iOS](/assets/img/docs/guides/firebase-push-notifications/podfile-location-ios.png)
 
-We need to add Firebase to the CocoaPods provided for our App target. To do that, add `pod Firebase/Messaging` to your `target 'App'` section, like so:
+We need to add Firebase to the CocoaPods provided for our App target. To do that, add `pod 'FirebaseCore'` and `pod 'Firebase/Messaging'` to your `target 'App'` section, like so:
 
 ```ruby
 target 'App' do
 capacitor_pods
 # Add your Pods here
-pod 'Firebase/Messaging' # Add this line
+pod 'FirebaseCore', '7.11.0' # Add this line
+pod 'Firebase/Messaging', '7.11.0' # Add this line
 end
 ```
 
 Your `Podfile` should look something like this:
 
 ```ruby
-platform :ios, '12.0'
+platform :ios, '11.0'
 use_frameworks!
 
 # workaround to avoid Xcode caching of Pods that requires
@@ -333,7 +332,8 @@ end
 target 'App' do
   capacitor_pods
   # Add your Pods here
-  pod 'Firebase/Messaging'
+  pod 'FirebaseCore', '7.11.0'
+  pod 'Firebase/Messaging', '7.11.0'
 end
 ```
 
@@ -354,10 +354,10 @@ To connect to Firebase when your iOS app starts up, you need to add the followin
 First, add an `import` at the top of the file:
 
 ```swift
-import Firebase
+import FirebaseCore
 ```
 
-... and then add the configuration method for Firebase to initialization code to your `AppDelegate.swift` file, in the `application(didFinishLaunchingWithOptions)` method.
+... and then add the configuration method for Firebase to initialization code to your `AppDelegate.swift` file, in the `application(_ application: UIApplication, didFinishLaunchingWithOptions)` method.
 
 ```swift
 FirebaseApp.configure()
@@ -368,7 +368,7 @@ Your completed `AppDelegate.swift` file should look something like this:
 ```swift
 import UIKit
 import Capacitor
-import Firebase
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -383,18 +383,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 ```
 
-If you would like to recieve the firebase FCM token from iOS instead of the raw APNS token, you will need to also change your `AppDelegate.didRegisterForRemoteNotificationsWithDeviceToken` code to look like this:
+If you would like to receive the Firebase FCM token from iOS instead of the raw APNS token, you will also need to add two new imports at the top of the file:
+
+```swift
+import FirebaseInstanceID // Add this line after import FirebaseCore
+import FirebaseMessaging
+```
+
+And change your `AppDelegate.didRegisterForRemoteNotificationsWithDeviceToken` code to look like this:
 
 ```swift
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
-        Messaging.messaging().token(completion: { (token, error) in
+        InstanceID.instanceID().instanceID { (result, error) in
             if let error = error {
-                NotificationCenter.default.post(name: .capacitorDidFailToRegisterForRemoteNotifications, object: error)
-            } else if let token = token {
-                NotificationCenter.default.post(name: .capacitorDidRegisterForRemoteNotifications, object: token)
+                NotificationCenter.default.post(name: Notification.Name(CAPNotifications.DidFailToRegisterForRemoteNotificationsWithError.name()), object: error)
+            } else if let result = result {
+                NotificationCenter.default.post(name: Notification.Name(CAPNotifications.DidRegisterForRemoteNotificationsWithDeviceToken.name()), object: result.token)
             }
-          })
+        }
     }
 ```
 

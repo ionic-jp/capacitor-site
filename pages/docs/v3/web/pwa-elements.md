@@ -1,25 +1,25 @@
 ---
 title: PWA Elements
-description: PWA Elementsの使い方
+description: Using PWA Elements
 contributors:
   - dotNetkow
   - mlynch
+canonicalUrl: https://capacitorjs.com/docs/web/pwa-elements
 ---
 
 # PWA Elements
 
-いくつかの `Camera` や `Toast` といった Capacitor プラグインは、Native で実行していないときに Web ベースの UI を使用できます。たとえば、Camera を呼び出します。 `Camera.getPhoto()` を実行すると、Web 上での実行時に応答性の高い写真撮影エクスペリエンスがロードされます:
+`Camera` や `Toast` などの一部の Capacitor プラグインでは、ネイティブで実行していない場合でも Web ベースの UI を使用できます。​ たとえば、 `Camera.getPhoto ()` を呼び出すと、Web 上での実行時に、応答性の高い写真撮影エクスペリエンスがロードされます。
 
 <img src="/assets/img/docs/pwa-elements.png" style="height: 200px" />
 
-この UI は、Web Components を使って実装されています。
-Shadow DOM の魔法により、これらのコンポーネントを使用するかどうかにかかわらず、これらのコンポーネントが独自の UI と競合することはありません。
+この UI は、Web コンポーネントを使用して実装されます。 [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) の魔法により、これらのコンポーネントはあなたのプロジェクトに競合しません。
 
 ## インストール
 
-これらを操作するため、あなたは `@ionic/pwa-elements` をアプリに追加しないといけません。
+​ これらのコントロールを有効にするには、 `@ionic/pwa-elements` をあなたのアプリに追加する必要があります。
 
-典型的なインストールはパッケージをインポートして Element を登録することですが、あなたのアプリケーションで、`index.html`の`<head>`に script タグを追加することもできます:
+​ 通常のインストールでは、パッケージをインポートして要素を登録するか、アプリケーションの `index.html` の `<head>` に script タグを追加します:
 
 #### PWA Elements のインポート
 
@@ -27,9 +27,9 @@ Shadow DOM の魔法により、これらのコンポーネントを使用する
 npm install @ionic/pwa-elements
 ```
 
-次に、選択したフレームワークに応じて、エレメントローダーをインポートして正しいタイミングで呼び出します:
+​ 次に、選択したフレームワークに応じて、 element loader をインポートし、適切なタイミングで呼び出します:
 
-_React_
+##### React
 
 `index.tsx` or `index.js`:
 
@@ -42,7 +42,31 @@ ReactDOM.render(<App />, document.getElementById('root'));
 defineCustomElements(window);
 ```
 
-_Angular_
+##### Vue
+
+`main.ts`
+
+```typescript
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
+Vue.config.productionTip = false;
+
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App },
+});
+
+// Call the element loader after the platform has been bootstrapped
+defineCustomElements(window);
+```
+
+##### Angular
 
 `main.ts`:
 
@@ -67,17 +91,17 @@ platformBrowserDynamic()
 defineCustomElements(window);
 ```
 
-#### script tag を利用する
+#### script タグを利用した読み込み
 
-PWA Elements はあなたの `index.html`の中の script タグを通して呼び出すこともできます。ただし、これはオフラインのシナリオでは機能しません:
+PWA Elements は、 `index.html` の script タグを通じて含めることができます。​ ただし、これはオフラインのシナリオでは機能しないことに注意してください。
 
 ```html
 <script
   type="module"
-  src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+  src="https://unpkg.com/@ionic/pwa-elements@2/dist/ionicpwaelements/ionicpwaelements.esm.js"
 ></script>
 <script
   nomodule
-  src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+  src="https://unpkg.com/@ionic/pwa-elements@2/dist/ionicpwaelements/ionicpwaelements.js"
 ></script>
 ```

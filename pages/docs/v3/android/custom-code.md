@@ -1,115 +1,127 @@
 ---
-title: Custom Native Android Code
-description: Custom Native Android Code
+title: カスタムNative Androidコード
+description: カスタムNative Androidコード
 contributors:
   - mlynch
   - jcesarmobile
   - RoderickQiu
+canonicalUrl: https://capacitorjs.com/docs/android/custom-code
 ---
 
-# Custom Native Android Code
+# カスタム Native Android コード
 
-With Capacitor, you are encouraged to write Java or Kotlin code to implement the native features your app needs.
+多くのアプリは、適切に Capacitor プラグインを構築して公開するというオーバーヘッドなしに、Native 機能を実装するためのカスタムの Java コードもしくは Kotlin のコードを追加したいと思うでしょう。
 
-There may not be [a Capacitor plugin](/docs/plugins) for everything--and that's okay! It is possible to write WebView-accessible native code right in your app.
+WebView からそのコードにアクセスする必要があるかどうかによって、2 つの方法があります：
 
-## WebView-Accessible Native Code
+## WebView から Native コードにアクセス
 
-The easiest way to communicate between JavaScript and native code is to build a custom Capacitor plugin that is local to your app.
+WebView でアクセス可能にする必要があるカスタム Native コードを構築する最も簡単な方法は、
+そのためのローカル Capacitor プラグインを構築することです。この場合、プラグインの構築は `com.getcapacitor.Plugin` を継承するクラスの構築と同じくらい簡単です。
+プラグインは `@NativePlugin()` と `@PluginMethod()` のアノテーションを使用します。
 
-### `EchoPlugin.java`
+Java と Kotlin のカスタムコードの例です:
 
-First, create a `EchoPlugin.java` file by [opening Android Studio](/docs/android#opening-the-android-project), expanding the **app** module and the **java** folder, right-clicking on your app's Java package, selecting **New** -> **Java Class** from the context menu, and creating the file.
+### Java
 
-![Android Studio app package](/assets/img/docs/android/studio-app-package.png)
-
-Copy the following Java code into `EchoPlugin.java`:
+`com/example/myapp/CustomNativePlugin.java` in `android/app/src/main/java`:
 
 ```java
 package com.example.myapp;
 
-import com.getcapacitor.JSObject;
+import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
-import com.getcapacitor.annotation.CapacitorPlugin;
 
-@CapacitorPlugin(name = "Echo")
-public class EchoPlugin extends Plugin {
+@NativePlugin()
+public class CustomNativePlugin extends Plugin {
 
-    @PluginMethod()
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
+  @PluginMethod()
+  public void customCall(PluginCall call) {
+    String message = call.getString("message");
+    // More code here...
+    call.success();
+  }
 
-        JSObject ret = new JSObject();
-        ret.put("value", value);
-        call.resolve(ret);
-    }
+  @PluginMethod()
+  public void customFunction(PluginCall call) {
+    // More code here...
+    call.resolve();
+  }
 }
 ```
 
-### Register the Plugin
+### Kotlin
 
-We must register custom plugins on both Android and web so that Capacitor can bridge between Java and JavaScript.
+It is also possible to develop custom code with Kotlin. When adding new Kotlin files in Android Studio, you will be prompted to configure Kotlin in your project if necessary. When doing this, make sure to only configure Kotlin in your app module, not the Capacitor or third-party modules.
 
-#### `MainActivity.java`
+`com/example/myapp/CustomNativePlugin.kt` in `android/app/src/main/java`:
 
-In your app's `MainActivity.java`, use `registerPlugin()` or `registerPlugins()` to register your custom plugin(s).
+```kotlin
+package com.example.myapp;
 
-```diff-java
- public class MainActivity extends BridgeActivity {
-     @Override
-     public void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-+        registerPlugin(EchoPlugin.class);
-     }
- }
+import com.getcapacitor.NativePlugin;
+import com.getcapacitor.Plugin;
+import com.getcapacitor.PluginCall;
+import com.getcapacitor.PluginMethod;
+
+@NativePlugin
+class CustomNativePlugin : Plugin() {
+
+  @PluginMethod
+  fun customCall(call: PluginCall) {
+    val message = call.getString("message")
+    // More code here...
+    call.success()
+  }
+
+  @PluginMethod
+  fun customFunction(call: PluginCall) {
+    // More code here...
+    call.resolve()
+  }
+}
 ```
 
-#### JavaScript
+### プラグインコードの登録
 
-In JS, we use `registerPlugin()` from `@capacitor/core` to create an object which is linked to our Java plugin.
+最後のステップは、プラグインを Activity に登録することです。Activity に Kotlin プラグインクラスを登録することは、Java クラスの登録と同様に行います:
+
+```java
+// Other imports...
+import com.example.myapp.CustomNativePlugin;
+
+public class MainActivity extends BridgeActivity {
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // Initializes the Bridge
+    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+      // Additional plugins you've installed go here
+      // Ex: add(TotallyAwesomePlugin.class);
+      add(CustomNativePlugin.class);
+    }});
+  }
+}
+```
+
+そうするとあなたは webView のコードであなたの機能を使うことができます:
 
 ```typescript
-import { registerPlugin } from '@capacitor/core';
-
-const Echo = registerPlugin('Echo');
-
-export default Echo;
+// Other codes...
+import { Plugins } from '@capacitor/core';
+const { CustomNativePlugin } = Plugins;
+// Other codes...
+CustomNativePlugin.customCall({ message: 'CUSTOM MESSAGE' });
+CustomNativePlugin.customFunction();
+// Other codes...
 ```
 
-> The first parameter to `registerPlugin()` is the plugin name, which must match the `name` attribute of our `@CapacitorPlugin` annotation in `EchoPlugin.java`.
+より詳しいプラグイン API の使い方を知るには [Capacitor Android Plugin Guide](/docs/plugins/android) をご覧ください。
 
-**TypeScript**
+## プライベート Native コード
 
-We can define types on our linked object by defining an interface and using it in the call to `registerPlugin()`.
-
-```diff-typescript
- import { registerPlugin } from '@capacitor/core';
-
-+export interface EchoPlugin {
-+  echo(options: { value: string }): Promise<{ value: string }>;
-+}
-
--const Echo = registerPlugin('Echo');
-+const Echo = registerPlugin<EchoPlugin>('Echo');
-
- export default Echo;
-```
-
-The generic parameter of `registerPlugin()` is what defines the structure of the linked object. You can use `registerPlugin<any>('Echo')` to ignore types if you need to. No judgment. ❤️
-
-### Use the Plugin
-
-Use the exported `Echo` object to call your plugin methods. The following snippet will call into Java on Android and print the result:
-
-```typescript
-import Echo from '../path/to/echo-plugin';
-
-const { value } = await Echo.echo({ value: 'Hello World!' });
-console.log('Response from native:', value);
-```
-
-### Next Steps
-
-[Read the Android Plugin Guide &#8250;](/docs/plugins/android)
+WebView からコードにアクセスする必要がない場合は、必要な場所にコードを追加するだけです。
+Capacitor を使用すると、Native プロジェクトを完全に制御できます。アクティビティに新しいイベントハンドラを追加する必要がありますか？ `MainActivity` を更新して追加するだけです。世界はあなたの思いのままです。

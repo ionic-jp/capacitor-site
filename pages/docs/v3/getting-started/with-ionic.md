@@ -1,66 +1,81 @@
 ---
-title: Using Capacitor with Ionic Framework
-description: Using Capacitor with Ionic Framework
+title: IonicでCapacitorを使う
+description: IonicでCapacitorを使う
 contributors:
   - dotNetkow
+canonicalUrl: https://capacitorjs.com/docs/getting-started/with-ionic
 ---
 
-# Using Capacitor with Ionic Framework
+# Ionic で Capacitor を使う
 
-## Installing
+## Ionic プロジェクトに Capacitor をインストール
 
-Capacitor can be installed directly into any new or existing Ionic app.
+Ionic プロジェクトに Capacitor をインストールするのはとても簡単です (1.0-4.x+).
 
-### New Ionic Project
-
-Capacitor is installed in new Ionic apps by default! All you have to do is start a new project:
+### Ionic プロジェクト新規作成
 
 ```bash
-ionic start
+ionic start myApp tabs --capacitor
+cd myApp
 ```
 
-> If you'd like a tutorial for building your first Ionic/Capacitor app, see [this tutorial](https://ionicframework.com/docs/intro/next).
-
-### Existing Ionic Project
-
-Install and initialize Capacitor with your app name and bundle ID:
+### 既存の Ionic プロジェクト
 
 ```bash
+cd myApp
 ionic integrations enable capacitor
 ```
 
-If your Ionic app uses Cordova, you will want to read the [Migrating from Cordova to Capacitor guide](/docs/cordova/migrating-from-cordova-to-capacitor) as well.
+### Capacitor の初期化
 
-### Add Platforms
-
-After Capacitor installed, you can add native platforms to your app:
+_Note: `npx` は、グローバルインストールを回避するためにローカルバイナリ/スクリプトを実行する、npm5 以降で使用可能な新しいユーティリティです。_
 
 ```bash
-ionic capacitor add
+npx cap init [appName] [appId]
 ```
 
-This will create a new directory in the root of your project for the native platform. This directory is a native project that should be considered a source artifact. Learn more about [native project management](/docs/cordova#native-project-management).
+`appName`はアプリケーションの名前で、`appId` はアプリケーションのドメイン識別子です(ex:v`com.example.app`)。
 
-## Workflow
+_Note: 初期構成後にこれらのプロパティーを変更するには、NativeIDE を使用します。_
 
-### Build your Ionic App
+### Ionic アプリのビルド
 
-Capacitor JavaScript libraries are bundled into your app, so the web asset build is no different after Capacitor is installed.
+Native プラットフォームを追加する前に、少なくとも 1 回は Ionic プロジェクトをビルドする必要があります。
 
 ```bash
 ionic build
 ```
 
-This creates the web asset directory that Capacitor copies into native projects, configured via `webDir` in the [Capacitor configuration](/docs/config).
+これにより、 `www` フォルダをの Capacitor の `webDir` として使用するための [automatically configured](/docs/basics/configuring-your-app) が `capacitor.config.json` に書き込まれます。
 
-### Ionic CLI Capacitor Commands
+### プラットフォームの追加
 
-The Ionic CLI has a variety of high-level commands that wrap the Capacitor CLI for convenience. See the documentation for each below. Help output is also available by using the `--help` flag after each command.
+```bash
+npx cap add ios
+npx cap add android
+```
 
-- [`ionic capacitor add`](https://ionicframework.com/docs/cli/commands/capacitor-add)
-- [`ionic capacitor build`](https://ionicframework.com/docs/cli/commands/capacitor-build)
-- [`ionic capacitor run`](https://ionicframework.com/docs/cli/commands/capacitor-run)
-- [`ionic capacitor sync`](https://ionicframework.com/docs/cli/commands/capacitor-sync)
-- [`ionic capacitor open`](https://ionicframework.com/docs/cli/commands/capacitor-open)
+プロジェクトのルートに `android` フォルダと `ios` フォルダの両方が作成されます。これらは完全に独立した Native プロジェクトであり、Ionic アプリのソースコードの一部と考えるべきです(つまり、それらをソース制御にチェックインし、独自の IDE で編集するなどです。)。
 
-[Learn more about development workflow in Capacitor &#8250;](/docs/basics/workflow)
+### IDE を開いて構築、実行、デプロイを行う
+
+```bash
+npx cap open ios
+npx cap open android
+```
+
+Native の iOS と Android プロジェクトは、それぞれの標準 IDE(それぞれ Xcode と Android Studio)で開きます。IDE を使用して、アプリケーションを実行およびデプロイします。
+
+## アプリを Capacitor と同期する
+
+ビルド（例えば `ionic build` ）を実行して Web ディレクトリ(デフォルト: `www` )を変更するたびに、これらの変更を Native プロジェクトにコピーする必要があります:
+
+```bash
+npx cap copy
+```
+
+## Cordova と Ionic Native Plugin を使う
+
+Cordova と [Ionic Native](https://ionicframework.com/docs/native/) プラグインは Capacitor をサポートしています。 詳しくは [Cordova Plugins](/docs/cordova/using-cordova-plugins) ガイドをご覧ください。
+
+すぐに Ionic アプリで Capacitor を使い始めたいですか？ [このガイドをご覧ください。](/docs/guides/ionic-framework-app).

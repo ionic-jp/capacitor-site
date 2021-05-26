@@ -3,14 +3,15 @@ title: CLI Command - cap update
 description: Capacitor - cap update
 contributors:
   - dotNetkow
+canonicalUrl: https://capacitorjs.com/docs/cli/update
 ---
 
 # Capacitor CLI - cap update
 
-Updates the native plugins and dependencies referenced in `package.json`.
+Native プラグインと依存関係を `package.json` を参照してアップデートします。
 
 ```bash
-npx cap update [<platform>]
+npx cap update
 ```
 
 <strong>Inputs:</strong>

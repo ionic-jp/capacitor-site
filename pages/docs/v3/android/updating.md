@@ -1,28 +1,28 @@
 ---
-title: Capacitor Androidプロジェクトのアップデート
-description: Capacitor Androidプロジェクトのアップデート
+title: Updating Your Capacitor Android Project
+description: Updating Your Capacitor Android Project
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Capacitor Android プロジェクトのアップデート
+# Updating Your Capacitor Android Project
 
-アプリで使用している Capacitor のバージョンを更新したり、Android コードベース内で Capacitor とやり取りする新しい方法を使用したりするなど、Capacitor Android アプリを更新する必要があります。
+Occasionally, you'll need to make Capacitor updates to your Android app, including updating the version of Capacitor used in your app, or using new ways of interfacing with Capacitor inside of your Android codebase.
 
-## Capacitor Android ライブラリのアップデート
+## Updating Capacitor Android Library
 
-あなたのアプリで使ってる @capacitor/android のバージョンをあげる場合、npm で最新版をインストール必要があります:
+To update the version of @capacitor/android used in your app, just npm install latest version:
 
 ```bash
-npm install @capacitor/android@latest
+npm install @capacitor/android@2
 ```
 
-そして Android Studio の "Sync Project with Gradle Files" ボタンをクリックください。
+Then from Android Studio click the "Sync Project with Gradle Files" button.
 
-## Android Project のアップデート
+## Updating Android Project
 
-Xcode プロジェクトのベース構造を更新するには、Capacitor リポジトリで、Capacitor の最新の安定リリースに対応するタグの下にある [android-template](https://github.com/ionic-team/capacitor/tree/master/android-template) プロジェクトを参照してください。コアプロジェクトは意図的にシンプルに保たれているため、コアプロジェクトやプロジェクトとの違いを確認するのにそれほど時間はかからないはずです。
+To update the base structure of your Android project, view the [android-template](https://github.com/ionic-team/capacitor/tree/master/android-template) project in the Capacitor repo, under the tag corresponding to the latest stable release of Capacitor. The core project is kept simple on purpose: it shouldn't take much time to see what is different from the core project and your project.
 
 ### From 1.0.0 to 1.1.0
 
@@ -49,11 +49,11 @@ Mandatory change:
   If using Cordova or Capacitor plugins that don't use Android X yet, you can use [jetifier](https://www.npmjs.com/package/jetifier) tool to patch them.
 
 ```bash
-npm install jetifier
+npm install -D jetifier
 npx jetifier
 ```
 
-To run it automatically after every package install, add `"postinstall": "jetifier"` in the `package.json`.
+To run it automatically after every package install, add `"postinstall": "jetifier"` in the `package.json` under "scripts".
 
 Recommended changes:
 

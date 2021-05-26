@@ -1,20 +1,21 @@
 ---
-title: Deploying to Google Play
-description: How to deploy Android Capacitor apps to the Google Play Store
+title: Google Play Storeへのデプロイ
+description: あなたのCapacitorアプリのGoogle Play Storeへのデプロイの方法
 contributors:
   - mlynch
+canonicalUrl: https://capacitorjs.com/docs/android/deploying-to-google-play
 ---
 
-# Deploying your Capacitor Android App to the Google Play Store
+# あなたの Capacitor アプリの Google Play Store へのデプロイ
 
-Because Capacitor apps are normal native apps at the end of the day, the way they are deployed to the Google Play Store is just like any other native Android app.
+Capacitor アプリは結局のところ通常の Native アプリなので、Google Play Store へのデプロイ方法は他の Native アプリと全く同じである。
 
-To start, consult the official Google documentation on the [launch checklist](https://developer.android.com/distribute/best-practices/launch/launch-checklist) to get your app ready for submission. [See here](/docs/guides/splash-screens-and-icons) for details on generating splash screens and icons for your app.
+まずは、[起動チェックリスト](https://developer.android.com/distribute/best-practices/launch/launch-checklist) に関する Google の公式ドキュメントを参照して、アプリをサブミットできる状態にしてください。あなたのアプリのスプラッシュ画面とアイコンの生成については [ここをご覧ください](/docs/guides/splash-screens-and-icons)。
 
-For a guide with some Capacitor-specific considerations, see [Josh Morony's wonderful guide](https://www.joshmorony.com/deploying-capacitor-applications-to-android-development-distribution/) on the topic.
+Capacitor 特有の考慮事項についてのガイドは、[Josh Morony の素晴らしいガイド](https://www.joshmorony.com/deploying-capacitor-applications-to-android-development-distribution/)を参照してください。
 
 ## Automating Deployments
 
-For teams that wish to streamline their Google Play Store (and Apple App Store) submissions and even automate them with integration into their CI/CD workflow, Capacitor's parent company, Ionic, offers a powerful Mobile DevOps service called [Appflow](https://useappflow.com/) that offers end-to-end app development and deployment capabilities.
+Google Play Store(および App Store)への提出を合理化したり、 CI/CD ワークフローへの統合によって自動化さえしたいチームのために、 Capacitor の提供会社である Ionic は、エンドツーエンドのアプリ開発とデプロイ機能を提供する、 [Appflow](https://useappflow.com/)という強力な Mobile DevOps サービスを提供しています。
 
-Interested? Check out this [brief guide](/docs/guides/deploying-updates) on how it works and how you can use it with Capacitor today, or view the official [Appflow Documentation](https://ionicframework.com/docs/appflow/).
+興味ありますか? この [手引書を読んで](/docs/guides/deploying-updates) 、どのように動作するのか、またどのように現在のキャパシターで使用できるのかを知るか、または公式の[Appflow ドキュメント](https://ionicframework.com/docs/appflow/) をご覧ください。

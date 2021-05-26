@@ -1,57 +1,73 @@
 ---
-title: Installing Capacitor
-description: Installing Capacitor
+title: Capacitorのインストール
+description: Capacitorのインストール
 contributors:
   - dotNetkow
   - jcesarmobile
+canonicalUrl: https://capacitorjs.com/docs/getting-started
 ---
 
-# Installing Capacitor
+# Capacitor のインストール
 
-This guide will help you install Capacitor into an existing frontend web app.
+Capacitor の使用を開始するには、既存のフロントエンドプロジェクトに Capacitor を追加する方法(推奨)と、新しいプロジェクトを開始する方法の 2 つがあります。Capacitor は主に既存のフロントエンドプロジェクトにドロップインするように設計されていますが、新しく始めたいのであれば、シンプルな開始プロジェクト構造が用意されています。
 
-> If starting a new app, we recommend using the documentation from your JavaScript framework of choice and then following this guide to integrate Capacitor.
->
-> You can also create a new basic app with `npm init @capacitor/app`.
+Capacitor は Native なモバイルランタイムと Web アプリ用の API レイヤを提供します。ゲームなどを作成している場合を除き、必要になる可能性の高い特定の UI コントロールは **付属していません** 。
 
-Capacitor provides a native mobile runtime and API layer for web apps. It does not come with any specific set of UI controls. We recommend you use a mobile component framework (such as [Ionic Framework](https://ionicframework.com/)).
+そのため、お好みのモバイルフロントエンドフレームワーク([Ionic Framework](https://ionicframework.com/)など)で Capacitor プロジェクトを開始することを強くお勧めします。
 
-## Before you start
+## はじめる前に
 
-Make sure your [environment is set up](/docs/getting-started/environment-setup) for the platforms you will be building for.
+構築するプラットフォームに [Dependencies](/docs/getting-started/dependencies) がすべてインストールされていることを確認してください。最も重要なのは、Mac を使って iOS 用にビルドする予定の場合、新しいプロジェクトを始める前に必ず `pod repo update` を使って CocoaPods をアップデートすることです。
 
-## Project Requirements
+## 既存の Ionic アプリに Capacitor を追加する
 
-Capacitor was designed to drop into any modern JavaScript web app. Projects must meet the following requirements:
+[こちらをご覧ください。](/docs/getting-started/with-ionic)
 
-- Must have a `package.json` file.
-- Must have a separate directory for web assets.
-- Must have an `index.html` file with a `<head>` tag in the root of the web assets directory.
+## 既存の Web アプリに Capacitor を追加する
 
-## Adding Capacitor to your app
+Capacitor は既存の JS ウェブアプリにドロップインするように設計されており、有用なパッケージです。開始するには、 `package.json` ファイルとすべての Web アセットを含むフォルダが必要です。
 
-In the root of your app, install Capacitor:
+Web アプリケーションに Capacitor を追加するには、次のコマンドを実行します:
 
 ```bash
+cd my-app
 npm install @capacitor/core @capacitor/cli
 ```
 
-Then, initialize Capacitor using the CLI questionnaire:
+そして、あなたのアプリ情報をつかって Capacitor を初期化します。
+
+_Note: `npx` は、グローバルインストールを回避するためにローカルバイナリ/スクリプトを実行する、npm5 以降で使用可能な新しいユーティリティです。_
 
 ```bash
 npx cap init
 ```
 
-The CLI will ask you a few questions, starting with your app name, and the package id you would like to use for your app.
+このコマンドを実行すると、アプリケーション名とアプリケーション ID(Android のパッケージ名と iOS のバンドル識別子)の入力を求められます。 `--web-dir` フラグを使用して、Web アセットフォルダ(デフォルトは `www` )を設定します。
 
-Last, it will ask what directory your web assets get built into. For Angular, this is `www`, React is `build`, and Vue is `dist`. If you don't know right now, you can update this value in the `capacitor.config.ts` file later.
+次に、必要な Native・プラットフォームをインストールします:
 
-> The `npx cap` command is how Capacitor is executed locally on the command-line in your project. [Learn more about the Capacitor CLI](/docs/cli).
+```bash
+npx cap add android
+npx cap add ios
+```
 
-## Where to go next
+🎉 Capacitor があなたのプロジェクトにインストールされました。 🎉
 
-[Get started with iOS &#8250;](/docs/ios)
+## Optional: 新規プロジェクトの開始
 
-[Get started with Android &#8250;](/docs/android)
+Capacitor には stock project 構造が用意されているので、新しく始めて UI とフロントエンドのフレームワークを別々に追加したいという場合に便利です。
 
-[Developer Workflow Guide &#8250;](/docs/basics/workflow)
+作成には以下を実行ください:
+
+```bash
+npx @capacitor/cli create
+```
+
+このコマンドを実行すると、アプリケーション名とアプリケーション ID(Android のパッケージ名と iOS のバンドル識別子)の入力を求められます。
+
+これにより、UI ライブラリを持たない非常にシンプルな起動アプリケーションが作成されます。
+
+## 次のアクション
+
+[PWA Elements](/docs/web/pwa-elements) を含む [必要な依存関係](/docs/getting-started/dependencies) がインストールされていることを確認してから、
+[Developer Workflow Guide](/docs/basics/workflow) に進んで、Capacitor アプリケーションの構築方法を確認してください。

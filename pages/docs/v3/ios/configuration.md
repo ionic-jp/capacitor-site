@@ -1,61 +1,64 @@
 ---
-title: Configuring iOS
-description: Configuring iOS
+title: iOSの設定
+description: iOSの設定
 contributors:
-  - dotNetkow
+  - dotnetkow
   - mlynch
+canonicalUrl: https://capacitorjs.com/docs/ios/configuration
 ---
 
-# Configuring iOS
+# iOS の設定
 
-## Configuring `Info.plist`
+## `Info.plist` を設定する
 
-The `Info.plist` file is the main configuration file for iOS apps. You may need to edit it whenever a Capacitor plugin requires new settings or permissions.
+iOS 開発者は、自分のアプリの主な設定ファイルである `Info.plist` ファイルを使いこなすことに慣れておくべきです。このファイルは、Capacitor プラグインが必要とする可能性のある新しい設定、アプリの追加設定、およびアプリが要求する権限のために頻繁に更新されます。
 
-To modify it, [open your project in Xcode](/docs/ios#opening-the-ios-project), select the **App** project and the **App** target, and click the **Info** tab.
+一般的に、このファイルを修正する最も簡単な方法は、Xcode でプロジェクトを開いて(`npx cap open ios`)、Xcode のプロパティリストエディタでファイルを編集することです。 `Info.plist` の各設定には、低レベルのパラメータ名と高レベルの名前があります。デフォルトでは、プロパティリストエディタには上位レベルの名前が表示されますが、生の下位レベル名の表示に切り替えると便利なことがよくあります。これを行うには、プロパティリストエディタ内の任意の場所を右クリックし、"Show Raw Keys / Values" を切り替えます。
 
-![Xcode info editor](/assets/img/docs/ios/xcode-info-editor.png)
+フードの下には `Info.plist` のプレーンな XML ファイルがあり、必要に応じて直接編集できます。この場合、 `Info.plist` の `<key>` values には必ず低レベルのパラメータ名を使用してください。
 
-> You can show the true key names by right-clicking in the table and checking **Raw Keys & Values** in the context menu.
->
-> You can also open and edit the `ios/App/App/Info.plist` file manually to inspect the raw keys. Use [this reference documentation](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html) for a list of possible keys.
+一部のプラグインと SDK は低レベルのキーを使用して設定を表示し、他のものは高レベルのキーを使用します。それらの間のマッピングに慣れましょう。
 
-## Managing Permissions
+この[Cocoa Keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html)リストには、`Info.plist`の設定可能な多数の設定オプションが表示されています。
 
-iOS permissions do not need to be specified explicitly like they are in Android. However, iOS requires "Usage Descriptions" to be defined in `Info.plist`. These settings are human-readable descriptions that will be presented to the end user when permission is requested for a particular device API.
+## 権限を管理する
 
-Consult the [Cocoa Keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) list for keys containing `UsageDescription` to see the various usage description settings that may be required for your app.
+Android とは異なり、iOS の許可は事前に指定する必要はありません。代わりに、特定のプラグインまたは SDK を使用しているときにプロンプ ​​ トが表示されます。
 
-For more information, Apple has provided a guide to [Resolving the Privacy-Sensitive Data App Rejection](https://developer.apple.com/library/content/qa/qa1937/_index.html) which contains more information on APIs that require usage descriptions.
+ただし、iOS のアクセス許可の多くには、`Info.plist`で定義されている"Usage Descriptions"と呼ばれるものが必要です。これらの設定は、アプリが要求する各許可について人間が読める形式で説明する必要があります。
 
-## Setting Capabilities
+アプリに必要となる可能性のあるさまざまな使用法の説明設定を確認するには、[Cocoa Keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html)リストに含まれる UsageDescription キーを調べてください。
 
-Capabilities are used to enable key features that your app may need. You may need to configure them whenever a Capacitor plugin requires it.
+詳細については、Apple は、[Resolving the Privacy-Sensitive Data App Rejection](https://developer.apple.com/library/content/qa/qa1937/_index.html)ガイドを提供しています。これには、使用方法の説明が必要な API に関する詳細情報が含まれています。
 
-Unlike other configuration options and usage descriptions, capabilities are _not_ configured in `Info.plist`.
+## Entitlements を設定する
 
-To add a new capability, [open your app in Xcode](/docs/ios#opening-the-ios-project), select the **App** project and the **App** target, click **Signing & Capabilities** in the tab bar, and then click the **+ Capability** button. See [this article](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app) for more information about iOS capabilities.
+Entitlements は、アプリが必要とする可能性がある主な機能を有効にするために使用されます。
 
-![Xcode Capabilities](/assets/img/docs/ios/xcode-capabilities.png)
+特定の設定オプションや使用方法の説明とは異なり、Entitlements は`Info.plist`とは異なり、Xcode 内の特別な領域で設定されます。
 
-## Renaming your App
+プラグインに特定の権限が必要な場合は、Xcode でアプリケーションを開き、左側のプロジェクトメニューでプロジェクト名をクリックし、タブバーで `Capabilities` を選択します。
 
-You can't rename the `App` directory, but you can set the name of your app by renaming the **App** target.
+## アプリケーションのデフォルト名 `App` を変更する
 
-To rename the **App** target, [open your project in Xcode](/docs/ios#opening-the-ios-project), select the **App** project, and double-click the **App** target.
+App フォルダ名を変更することはできませんが、"App"という"target"の名前を変更することはできます。
 
-![Xcode Target](/assets/img/docs/ios/xcode-target.png)
+XCode では、以下のようになります:
 
-Then, open `ios/App/Podfile` and rename the current target at the bottom of the file:
-
-```diff-ruby
--target 'App' do
-+target 'MyRenamedApp' do
-   capacitor_pods
-   # Add your Pods here
- end
 ```
+PROJECT
+  App
+-------
+TARGET
+  App
+```
+
+TARGET の下にある"App"という名前をクリックすると、アプリの名前を変更できます。
+
+また、Podfile を変更して、現在の TARGET の名前を適宜変更する必要があります。
+
+デフォルトの Podfile には `'App'` ターゲットがありますが、<a href="https://github.com/ionic-team/capacitor/blob/master/ios-template/App/Podfile#L16" target="_blank">ここで新しい名前に置き換える</a>必要があります。
 
 ## Deeplinks (aka Universal Links)
 
-For a Deep Links guide, [see here](/docs/guides/deep-links).
+Deep Links のガイドは [こちら](/docs/guides/deep-links) をご覧ください。

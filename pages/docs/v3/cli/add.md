@@ -3,11 +3,12 @@ title: CLI Command - cap add
 description: Capacitor CLI - cap add
 contributors:
   - dotNetkow
+canonicalUrl: https://capacitorjs.com/docs/cli/add
 ---
 
 # Capacitor CLI - cap add
 
-Add a native platform project to your app.
+あなたのプロジェクトに Native プラットフォームを追加します。
 
 ```bash
 npx cap add <platform>

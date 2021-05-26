@@ -1,12 +1,14 @@
-# CLI Table of Contents (v3)
+# CLI Table of Contents (v2)
 
-- Overview
-  - [Introduction](index.md)
-- Command List
-  - [`add`](add.md)
-  - [`copy`](copy.md)
-  - [`list`](list.md)
-  - [`open`](open.md)
-  - [`run`](run.md)
-  - [`sync`](sync.md)
-  - [`update`](update.md)
+- Command Reference
+  - [CLI Overview](index.md)
+  - [Add](add.md)
+  - [Cap](cap.md)
+  - [Copy](copy.md)
+  - [Create](create.md)
+  - [List](list.md)
+  - [Open](open.md)
+  - [Plugin Generate](plugin-generate.md)
+  - [Serve](serve.md)
+  - [Sync](sync.md)
+  - [Update](update.md)
