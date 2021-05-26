@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/open
 
 # Capacitor CLI - cap open
 
-Opens the native project workspace in the specified native IDE (Xcode for iOS, Android Studio for Android). Once open, use the native IDEs to build, simulate, and run your app on a device.
+指定した NativeIDE (Xcode for iOS, Android Studio for Android)で Native プロジェクトのワークスペースを開きます。アプリケーションを開いたら、NativeIDE を使用して、デバイス上でアプリケーションを構築、シミュレート、および実行します。
 
 ```bash
 npx cap open <platform>

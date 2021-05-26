@@ -1,17 +1,17 @@
 ---
-title: iOS Troubleshooting Guide
-description: iOS Troubleshooting Guide
+title: iOSトラブルシューティングガイド
+description: iOSトラブルシューティングガイド
 contributors:
   - dotNetkow
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/ios/troubleshooting
 ---
 
-# iOS Troubleshooting Guide
+# iOS トラブルシューティングガイド
 
-Creating a 100% perfect native management tool is nearly impossible, and sooner or later you'll run into various issues with some part of the iOS workflow.
+100％完璧な Native 管理ツールを作成するのはほぼ不可能です。遅かれ早かれ iOS ワークフローの一部でさまざまな問題に遭遇するでしょう。
 
-This guide attempts to document common iOS/Xcode issues with possible solutions.
+このガイドでは、考えられる解決策とともに一般的な iOS / Xcode の問題を文書化することを試みます。
 
 ## iOS Toolbox
 

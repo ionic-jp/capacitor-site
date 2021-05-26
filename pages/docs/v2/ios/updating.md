@@ -1,33 +1,33 @@
 ---
-title: Updating Your Capacitor iOS Project
-description: Updating Your Capacitor iOS Project
+title: Capacitor iOSプロジェクトのアップデート
+description: Capacitor iOSプロジェクトのアップデート
 contributors:
   - mlynch
 ---
 
-# Updating Your Capacitor iOS Project
+# Capacitor iOS プロジェクトのアップデート
 
-Occasionally, you'll need to make Capacitor updates to your iOS app, including updating the version of Capacitor used in your app, or using new ways of interfacing with Capacitor inside of your iOS codebase (for example, with new iOS API changes).
+アプリで使用している Capacitor のバージョンを更新したり、iOS コードベース内で Capacitor とやり取りする新しい方法を使用して（新しい iOS API の変更など）、Capacitor の iOS アプリを更新する必要がある場合があります。
 
-## Updating Capacitor iOS Library
+## Capacitor iOS ライブラリのアップデート
 
-To update the version of @capacitor/ios used in your app, just npm install latest version:
+あなたのアプリで使ってる @capacitor/ios のバージョンをあげる場合、npm で最新版をインストール必要があります:
 
 ```bash
 npm install @capacitor/ios@2
 ```
 
-Then sync the native project:
+そして Native プロジェクトと同期します:
 
 ```bash
 npx cap sync ios
 ```
 
-## Updating iOS Project
+## iOS プロジェクトのアップデート
 
-To update the base structure of your Xcode project, view the [ios-template](https://github.com/ionic-team/capacitor/tree/master/ios-template) project in the Capacitor repo, under the tag corresponding to the latest stable release of Capacitor. The core project is kept simple on purpose: it shouldn't take much time to see what is different from the core project and your project.
+Xcode プロジェクトのベース構造を更新するには、Capacitor リポジトリで、Capacitor の最新の安定リリースに対応するタグの下にある [ios-template](https://github.com/ionic-team/capacitor/tree/master/ios-template) プロジェクトを参照してください。コアプロジェクトは意図的にシンプルに保たれているため、コアプロジェクトやプロジェクトとの違いを確認するのにそれほど時間はかからないはずです。
 
-In particular, [AppDelegate.swift](https://github.com/ionic-team/capacitor/blob/master/ios-template/App/App/AppDelegate.swift) should be checked regularly for possible changes to iOS events.
+特に [AppDelegate.swift](https://github.com/ionic-team/capacitor/blob/master/ios-template/App/App/AppDelegate.swift) は、iOS イベントに変更がないか定期的にチェックされるべきです。
 
 ### From 1.0.0 to 1.1.0
 

@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/serve
 
 # Capacitor CLI - cap serve
 
-Serves a Capacitor Progressive Web App in the browser, using the `webDir` directory specified in `capacitor.config.json`.
+`capacitor.config.json` で指定された `webDir` ディレクトリを使用して、ブラウザで Capacitor Progressive Web App を提供します。
 
 ```bash
 npx cap serve

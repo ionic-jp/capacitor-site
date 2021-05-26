@@ -11,7 +11,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/haptics
 
 # Haptics
 
-The Haptics API provides physical feedback to the user through touch or vibration.
+Haptics API は、タッチまたはバイブレーションを通じてユーザーに物理的なフィードバックを提供します。
 
 <docgen-index>
 

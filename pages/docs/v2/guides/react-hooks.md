@@ -1,22 +1,22 @@
 ---
-title: React Hooks for Capacitor
-description: Use these React hooks to simplify native mobile API access with Capacitor
+title: Capacitor用 React Hooks
+description: これらのReact Hooksを使用して、Capacitorを使用したネイティブモバイルAPIアクセスを簡単にします
 contributors:
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/guides/react-hooks
 ---
 
-# React Hooks for Capacitor
+# Capacitor 用 React Hooks
 
-Developers using React in their Capacitor app have access to a set of useful, community-maintained React Hooks to access Capacitor APIs in their React function components.
+Capacitor アプリで React を使用している開発者は、React 関数コンポーネント内の Capacitor API にアクセスするための、コミュニティで保守されている便利な React Hooks のセットを利用することができます。
 
-To install the hooks:
+この hooks のインストール方法:
 
 ```shell
 npm install @capacitor-community/react-hooks
 ```
 
-To use the hooks, import and use in a function component:
+hooks を使うためには、関数コンポーネントにインストールして利用します:
 
 ```typescript
 import { useFilesystem, base64FromPath, availableFeatures } from '@capacitor-community/react-hooks/filesystem';
@@ -37,6 +37,6 @@ const MyComponent = () => (
   }, [ readFile ]);
 ```
 
-## More Reading
+## より多くの情報 More Reading
 
-See the [@capacitor-community/react-hooks](https://github.com/capacitor-community/react-hooks) repo for documentation on all the available hooks.
+[@capacitor-community/react-hooks](https://github.com/capacitor-community/react-hooks) レポジトリのドキュメンテーションにすべての利用可能な Hooks が掲載されています。

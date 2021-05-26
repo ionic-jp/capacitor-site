@@ -11,7 +11,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/keyboard
 
 # Keyboard
 
-The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+Keyboard API は、キーボードの表示と可視性のコントロール、およびキーボードの表示/非表示時のイベントトラッキングを提供します。
 
 <docgen-index>
 

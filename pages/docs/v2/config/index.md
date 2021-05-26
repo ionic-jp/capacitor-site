@@ -1,72 +1,72 @@
 ---
-title: Capacitor Configuration File
-description: Configuring Capacitor
+title: Capacitorの設定ファイル
+description: Capacitorの設定
 contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/config
 ---
 
-# Configuration File
+# 設定ファイル
 
-The Capacitor configuration file is used to set high-level options for Capacitor tooling.
+Capacitor 構成ファイルは、Capacitor ツールの高レベルオプションを設定するために使用されます。
 
-Here is a full example of available configuration options for `capacitor.config.json`:
+すべての `capacitor.config.json` で利用可能な設定オプションの例を紹介します:
 
 ```json5
 {
-  // The package name for Android and the bundle identifier for iOS.
+  // Androidのパッケージ名とiOSのバンドル識別子
   appId: 'com.company.appname',
 
-  // Your app's name.
+  // アプリ名
   appName: 'Capacitor Kitchen Sink',
 
-  // Sets the directory of your built web assets. This is the directory that will be
-  // used to run your app in a native environment.
+  // 構築したWeb資産のディレクトリを設定します。
+  // これは、Native環境でアプリケーションを実行するために使用されるディレクトリです。
   webDir: 'www',
 
-  // The JavaScript package manager to use, either npm or yarn.
+  // JavaScriptのパッケージマネージャーを選択します。npm か yarn かです。
   npmClient: 'npm',
 
-  // Whether to use capacitor.js as a bundle that is copied to your web code,
-  // or require it to be bundled/imported through a typical
-  // typescript/babel/webpack/rollup workflow.
+  // Webコードのコピーにcapacitor.jsを使うか、
+  // もしくは標準的なtypescript/babel/webpack/rollup workflow.を利用して
+  // bundled/importedする必要があります。
   //
-  // The starter project sets this to true, but if you're using Ionic or another framework,
-  // you'll probably want this to be false (default is false)
+  // スタータープロジェクトではこれをtrueにしますが、Ionicや他のフレームワークを使用している場合には、
+  // あなたはこれをfalseに設定する必要があります (デフォルトは false)
   bundledWebRuntime: false,
 
-  // On Windows, we aren't able to automatically open Android Studio
-  // without knowing the full path. The default is set to the default
-  // Android Studio install path, but you may change it manually.
+  // Windowsではフルパスを入力しなければ、
+  // Android Studioを開くことができません。
+  // Android Studioのインストールパスですが、手動で変更することもできます。
   windowsAndroidStudioPath: 'C:Program FilesAndroidAndroid Studio\binstudio64.exe',
 
   // A Boolean value that determines whether to hide native logs for iOS and Android. The preference is ignored if it's also declared inside ios or android
   // Default is false
   hideLogs: true,
 
-  // Server object contains port and url configurations
+  // Serverオブジェクトには、ポートとURLの設定が含まれます。
   server: {
-    // You can make the app to load an external url (i.e. to live reload)
+    // 外部URLをロードするようにアプリをつくることができます（つまりライブリロードです）
     url: 'http://192.168.1.33:8100',
-    // You can configure the local hostname, but it's recommended to keep localhost
-    // as it allows to run web APIs that require a secure context such as
-    // navigator.geolocation and MediaDevices.getUserMedia.
+    // ローカルホスト名を設定できますが、
+    // navigator.geolocationやMediaDevices.getUserMediaなどの安全なコンテキストを必要とする
+    // Web APIを実行できるようにlocalhostを保持することをお勧めします。
     hostname: 'app',
-    // It is possible to configure the local scheme that is used. This can be useful
-    // when migrating from cordova-plugin-ionic-webview, where the default scheme on iOS is ionic.
+    // 使用されるローカルスキームを設定することができます。
+    // これは、iOSのデフォルトのスキームがionicであるcordova-plugin-ionic-webviewから移行する場合に役立ちます。
     iosScheme: 'ionic',
     androidScheme: 'http',
-    // Normally all external URLs are opened in the browser. By setting this option, you tell
-    // Capacitor to open URLs belonging to these hosts inside its WebView.
+    // 通常、すべての外部URLはブラウザで開かれます。
+    // このオプションを設定することで、あなたはCapacitorのWebViewの中でこれらのホストに属するURLを開くようにできます。
     allowNavigation: ['example.org', '*.example.org', '192.0.2.1'],
   },
-  // User agent of Capacitor WebView for iOS and Android, unless also declared inside ios or android objects
+  // iOS、Android、Electron用のCapacitor WebViewのユーザーエージェント（ios、android、electronオブジェクト内でも宣言されていない場合）
   overrideUserAgent: 'my custom user agent',
-  // String to append to the original user agent of Capacitor WebView for iOS and Android,
-  // unless also declared inside ios or android objects. Only if overrideUserAgent is not set.
+  // iOS、Android、およびElectronのCapacitor WebViewの元のユーザーエージェントに追加する文字列。ios、android、またはelectronオブジェクト内でも宣言されている場合を除きます。
+  // overrideUserAgentが設定されていない場合のみ有効。
   appendUserAgent: 'string to append',
-  // Background color of Capacitor WebView for both iOS and Android unless also declared inside ios or android objects
+  // iOSとAndroidのCapacitor WebViewの背景色 (iOSまたはAndroidオブジェクト内でも宣言されていない場合)
   backgroundColor: '#ffffff',
   android: {
     // User agent of Capacitor WebView for Android
@@ -75,50 +75,50 @@ Here is a full example of available configuration options for `capacitor.config.
     appendUserAgent: 'string to append for Android',
     // Background color of Capacitor WebView for Android only
     backgroundColor: '#ffffff',
-    // On Android, if you are loading the app from a remote/testing server from https
-    // protocol, you need to enable mixed content mode to allow the WebView to load
-    // files from different schemes such as capacitor-content:// or capacitor-file://
+    // Androidで、あなたがアプリをremote/testingサーバからhttpsプロトゴルで入手する場合、
+    // あなたはmixed content modeを有効にして、WebViewに異なるURLスキーマからロードする必要があります。
+    // capacitor-content:// もしくは capacitor-file:// からです。
     allowMixedContent: true,
-    // Android's default keyboard doesn't allow proper JS key capture
-    // You can use a simpler keyboard enabling this preference
-    // Be aware that this keyboard has some problems and limitations
+    // Androidのデフォルトのキーボードでは、JSのキーを正しくキャプチャできません。
+    // あなたはこれをtrueにすることで、より簡単なキーボードを使うことができます。
+    // このキーボードにはいくつかの問題と制限があることに注意してください。
     captureInput: true,
-    // Enables debugging of web contents (HTML / CSS / JavaScript) loaded into
-    // any WebViews of this application.
-    // This flag can be enabled in order to facilitate debugging of web layouts
-    // and JavaScript code running inside WebViews.
+    // このアプリケーションの任意のWebViewにロードされたWebコンテンツ（HTML / CSS / JavaScript）の
+    // デバッグを有効にします。
+    // WebView内で実行されているWebレイアウトおよびJavaScriptコードのデバッグを容易にするために、
+    // このフラグを有効にすることができます
     webContentsDebuggingEnabled: true,
 
-    // A Boolean value that determines whether to hide native Android logs or not
-    // Default is false
+    // この真偽値はAndroidのNative Logを非表示にするかどうかを設定します。
+    // Default は false です
     hideLogs: true,
   },
   ios: {
-    // User agent of Capacitor WebView for iOS
+    // iOSにおけるCapacitor WebViewの背景色
     overrideUserAgent: 'my custom user agent for iOS',
-    // String to append to the original user agent of Capacitor WebView for iOS.
+    // iOS用Capacitor WebViewの元のユーザーエージェントに追加する文字列.
     appendUserAgent: 'string to append for iOS',
-    // Background color of Capacitor WebView for iOS only
+    // iOSにおけるCapacitor WebViewの背景色を指定
     backgroundColor: '#ffffff',
-    // Configure the WebView's UIScrollView's content inset behavior
-    // Default is never
-    // Possible values are "automatic", "scrollableAxes", "never" and "always"
+    // WebViewのUIScrollViewのコンテンツ挿入動作を設定する
+    // Default は never
+    //  "automatic", "scrollableAxes", "never" と "always" を利用可能です
     // https://developer.apple.com/documentation/uikit/uiscrollview/contentinsetadjustmentbehavior
     contentInset: 'always',
-    // Configure the Swift version to be used for Cordova plugins.
-    // Default is 5.0
+    // Cordovaプラグインを利用するためのSwiftのバージョン。
+    // 標準は 5.0
     cordovaSwiftVersion: '4.2',
-    // Minimum iOS version supported by the project.
-    // Default is 11.0
+    // このプロジェクトがサポートするiOSの最低バージョン。
+    // デフォルトは、11.0
     minVersion: '11.3',
-    // Some Cordova plugins require to configure the linker flags
+    // 一部のCordovaプラグインでは、linker flagsを設定する必要があります。
     cordovaLinkerFlags: ['-ObjC'],
-    // A Boolean value that determines whether pressing on a link displays a preview of
-    // the destination for the link.
+    // リンクをタップしたときにプレビューを表示するかどうかを決定する真偽値
+    // リンクの行き先
     allowsLinkPreview: false,
 
-    // A Boolean value that determines whether to hide native iOS logs or not
-    // Default is false
+    // この真偽値はiOSのNative Logを非表示にするかどうかを設定します。
+    // Default は false です
     hideLogs: true,
   },
 }

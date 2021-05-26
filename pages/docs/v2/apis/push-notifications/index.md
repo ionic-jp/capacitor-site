@@ -11,7 +11,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/push-notifications
 
 # Push Notifications
 
-The Push Notifications API provides methods for registering a device to receive notifications from a server, along with processing received notifications and responding to them. In contrast, the [Local Notifications](/docs/apis/local-notifications) API provides means for offline, local notification scheduling and processing.
+プッシュ通知 API は、サーバーから通知を受信するようにデバイスを登録するためのメソッドを、受信した通知の処理とそれらへの応答とともに提供します。対照的に、[Local Notifications](/docs/apis/local-notifications)API は、オフラインのローカル通知のスケジューリングと処理の手段を提供します。
 
 ## Enabling Push Notifications Capabilites
 

@@ -14,7 +14,7 @@ export const config: Config = {
     {
       type: 'www',
       prerenderConfig: './prerender.config.ts',
-      baseUrl: 'https://capacitorjs.com/',
+      baseUrl: 'https://capacitorjs.jp/',
       serviceWorker: null,
       copy: [
         {

@@ -1,37 +1,37 @@
 ---
-title: Configuring Android
-description: Configuring Android
+title: Androidの設定
+description: Androidの設定
 contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/android/configuration
 ---
 
-# Configuring Android
+# Android の設定
 
-Android apps manage permissions, device features, and other settings by modifying `AndroidManifest.xml`.
+Android アプリは、 `AndroidManifest.xml` を変更することで、権限、デバイス機能、その他の設定を管理します。
 
-This file references values from other files in `res/values/`, to make it easy to update them separately, including `styles.xml` and `strings.xml`.
+このファイルは、 `res/values/` といった他のファイルの値を参照しており、別々に更新することを容易にするため、これらには `styles.xml` と `strings.xml` が含まれます。
 
-This article covers the basic modifications you'll need to make to your app. Read the [Android Manifest](https://developer.android.com/guide/topics/manifest/manifest-intro.html) docs to learn a whole lot more.
+この記事では、アプリに加える必要がある基本的な変更について説明します。[Android Manifest](https://developer.android.com/guide/topics/manifest/manifest-intro.html)ドキュメントを読んで、もっとたくさん学ぶことができます。
 
-## Changing App ID
+## App ID を変更する
 
-To modify the bundle/app id for your app, edit the `applicationId` line in `android/app/build.gradle`:
+アプリのバンドル/アプリ ID を変更するには、 `android/app/build.gradle` の `applicationId` を更新します:
 
 ```groovy
 applicationId "com.getcapacitor.myapp"
 ```
 
-## Changing App Name
+## App Name の変更
 
-To change the name of your app, change the value for `app_name` in `strings.xml`:
+アプリ名を変更するには、`strings.xml`の`app_name` の値を変更します:
 
 ```xml
 <string name="app_name">MyApp</string>
 ```
 
-You probably also want to set the Activity name to match the App, for apps that plan to only have one activity (the main web activity running your app):
+また、アクティビティを 1 つだけにすることを予定しているアプリケーション（アプリケーションを実行している主な Web アクティビティ）の場合は、アクティビティ名をアプリケーションと一致するように設定することをお勧めします:
 
 ```xml
 <string name="title_activity_main">MyApp</string>
@@ -39,32 +39,32 @@ You probably also want to set the Activity name to match the App, for apps that 
 
 ## Deeplinks (aka Android App Links)
 
-> For a complete Deep Links guide, [see here](/docs/guides/deep-links).
+> Deep Links の詳しいガイドは [こちら](/docs/guides/deep-links) をご覧ください。
 
-To enable deeplinking through Android App Links, follow the official Android guide on [Adding Android App Links](https://developer.android.com/studio/write/app-link-indexing). Android Studio comes with a handy wizard for configuring App Links.
+Android App Links で Deeplinks を有効にするには、公式 Android ガイドの [Adding Android App Links](https://developer.android.com/studio/write/app-link-indexing)を参照してください。Android Studio には、App Links を設定するための便利なウィザードが付属しています。
 
-Once configured, the [getLaunchUrl in the App API](/docs/apis/app#method-getLaunchUrl-0) will provide any URL the app was launched with, and the [appUrlOpen event](/docs/apis/app#method-addListener-1) will fire any time the app receives a new App Link deeplink.
+設定が完了すると、[App API の getLaunchUrl](/docs/apis/app#method-getLaunchUrl-0) はアプリが起動された URL を提供し、[appUrlOpen イベント](/docs/apis/app#method-addListener-1) はアプリが新しい App Link ディープリンクを受信すると起動します。
 
-## Changing Custom URL
+## カスタム URL を変更する
 
-Your app can respond to custom URLs on launch, making it possible to handle deeplinks and app interactions.
+アプリは起動時にカスタム URL に応答することができるため、ディープリンクやアプリの操作を処理することができます。
 
-To change the URL, search for and modify this line in `strings.xml`. It's recommended to set this to the bundle/app id.
+URL を変更するには、`strings.xml`のこの行を検索します。これを bundle/app id に設定することをお勧めします。
 
 ```xml
 <string name="custom_url_scheme">com.getcapacitor.myapp</string>
 ```
 
-In this example, the app will respond to URLs with the `com.getcapacitor.myapp://` scheme.
+この例では、アプリは`com.getcapacitor.myapp://`スキーマ URL に応答します。
 
-To get any custom URL the app may have launched with, see the Deeplinks section above this one.
+アプリの起動に使用したカスタム URL を取得するには、この上の Deeplinks セクションを参照してください。
 
-## Setting Permissions
+## 権限の設定
 
-In Android, permissions your app will need are defined in `AndroidManifest.xml` inside of the `<manifest>` tag, generally at the bottom
-of the file.
+Android では、アプリに必要な権限は通常、`AndroidManifest.xml`の`<manifest>`の
+下部に定義されています。
 
-For example, here's what adding Network permissions looks like:
+たとえば、ネットワークのアクセス許可を追加すると次のようになります:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -82,8 +82,8 @@ package="com.getcapacitor.myapp">
 </manifest>
 ```
 
-Generally, the plugin you choose to use will ask you to set a permission. Add it in this file.
+一般的に、あなたが使用することを選択したプラグインはあなたに許可を設定するように求めます。このファイルに追加してください。
 
-## Default Permissions
+## デフォルト Permissions
 
-By default, the entire initial permissions requested for the latest version of Capacitor with the standard plugins can be found in the android-template's [AndroidManifest.xml](https://github.com/ionic-team/capacitor/blob/main/android-template/app/src/main/AndroidManifest.xml)
+デフォルトでは、標準プラグインを使用した最新バージョンの Capacitor に要求される全体の初期許可は、android-template の [AndroidManifest.xml](https://github.com/ionic-team/capacitor/blob/main/android-template/app/src/main/AndroidManifest.xml) に書かれています。

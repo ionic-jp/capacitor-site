@@ -3,6 +3,7 @@ import { Client } from './prismic-configuration';
 import { PrismicDocsResponse } from './models';
 import Prismic from 'prismic-javascript';
 import { MapParamData } from '@stencil/router';
+import { TranslateLandingPage, CommunityPage } from './translate';
 
 export const getPage: MapParamData = async (_params, url) => {
   let data: any = {};
@@ -10,13 +11,19 @@ export const getPage: MapParamData = async (_params, url) => {
   switch (url.pathname) {
     case '/':
       data = {
-        ...(await queryPrismic('capacitor_homepage')),
+        ...Object.assign(
+          await queryPrismic('capacitor_homepage'),
+          TranslateLandingPage,
+        ),
         whitepaper_ad: await queryPrismic('capacitor_whitepaper_ad'),
         announcement: await queryPrismic('capacitor_homepage_announcement'),
       };
       break;
     case '/community':
-      data = await queryPrismic('capacitor_community');
+      data = Object.assign(
+        await queryPrismic('capacitor_community'),
+        CommunityPage,
+      );
       break;
     case '/enterprise':
       data = await queryPrismic('capacitor_enterprise');

@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/add
 
 # Capacitor CLI - cap add
 
-Add a native platform project to your project.
+あなたのプロジェクトに Native プラットフォームを追加します。
 
 ```bash
 npx cap add <platform>

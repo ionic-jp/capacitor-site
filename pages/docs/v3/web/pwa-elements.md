@@ -1,6 +1,6 @@
 ---
 title: PWA Elements
-description: Using PWA Elements
+description: PWA Elementsの使い方
 contributors:
   - dotNetkow
   - mlynch
@@ -8,26 +8,26 @@ contributors:
 
 # PWA Elements
 
-Some Capacitor plugins, such as `Camera` or `Toast`, have web-based UI available when not running natively. For example, calling `Camera.getPhoto()` will load a responsive photo-taking experience when running on the web:
+いくつかの `Camera` や `Toast` といった Capacitor プラグインは、Native で実行していないときに Web ベースの UI を使用できます。たとえば、Camera を呼び出します。 `Camera.getPhoto()` を実行すると、Web 上での実行時に応答性の高い写真撮影エクスペリエンスがロードされます:
 
 <img src="/assets/img/docs/pwa-elements.png" style="height: 200px" />
 
-This UI is implemented using web components. Due to the magic of Shadow DOM, these components should not conflict
-with your own UI.
+この UI は、Web Components を使って実装されています。
+Shadow DOM の魔法により、これらのコンポーネントを使用するかどうかにかかわらず、これらのコンポーネントが独自の UI と競合することはありません。
 
-## Installation
+## インストール
 
-To enable these controls, you must add `@ionic/pwa-elements` to your app.
+これらを操作するため、あなたは `@ionic/pwa-elements` をアプリに追加しないといけません。
 
-A typical installation involves importing the package and registering the elements, or adding a script tag to the `<head>` of the `index.html` for your app:
+典型的なインストールはパッケージをインポートして Element を登録することですが、あなたのアプリケーションで、`index.html`の`<head>`に script タグを追加することもできます:
 
-#### Importing PWA Elements
+#### PWA Elements のインポート
 
 ```bash
 npm install @ionic/pwa-elements
 ```
 
-Then, depending on your framework of choice, import the element loader and call it at the correct time:
+次に、選択したフレームワークに応じて、エレメントローダーをインポートして正しいタイミングで呼び出します:
 
 _React_
 
@@ -67,9 +67,9 @@ platformBrowserDynamic()
 defineCustomElements(window);
 ```
 
-#### Including through script tag
+#### script tag を利用する
 
-PWA Elements can be included through a script tag in your `index.html`. However, keep in mind this will not work for offline scenarios:
+PWA Elements はあなたの `index.html`の中の script タグを通して呼び出すこともできます。ただし、これはオフラインのシナリオでは機能しません:
 
 ```html
 <script

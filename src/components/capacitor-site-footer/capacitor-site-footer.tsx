@@ -91,17 +91,17 @@ export class CapacitorSiteFooter {
                     <ul class="routes">
                       <li>
                         <a class="ui-paragraph-4" href="/docs/getting-started">
-                          Install
+                          インストール
                         </a>
                       </li>
                       <li>
                         <a class="ui-paragraph-4" href="/docs">
-                          Docs
+                          ドキュメント
                         </a>
                       </li>
                       <li>
                         <a class="ui-paragraph-4" href="/docs/apis">
-                          Plugins
+                          プラグイン
                         </a>
                       </li>
                     </ul>
@@ -111,12 +111,12 @@ export class CapacitorSiteFooter {
                     <ul class="routes">
                       <li>
                         <a class="ui-paragraph-4" href="/community">
-                          Community
+                          コミュニティ
                         </a>
                       </li>
                       <li>
                         <a class="ui-paragraph-4" href="/blog">
-                          Blog
+                          ブログ
                         </a>
                       </li>
                       <li>
@@ -124,7 +124,7 @@ export class CapacitorSiteFooter {
                           class="ui-paragraph-4"
                           href="https://github.com/ionic-team/capacitor/discussions"
                         >
-                          Discussions
+                          ディスカッション
                         </a>
                       </li>
                     </ul>

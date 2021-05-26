@@ -12,7 +12,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/splash-screen
 
 # Splash Screen
 
-The Splash Screen API provides methods for showing or hiding a Splash image.
+Splash Screen API は、スプラッシュ画像を表示または非表示にするためのメソッドを提供します。
 
 <docgen-index>
 

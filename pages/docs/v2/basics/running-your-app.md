@@ -1,24 +1,24 @@
 ---
-title: Running your App
-description: Running your App
+title: アプリの実行
+description: アプリの実行
 contributors:
   - dotNetkow
   - mlynch
 ---
 
-# Running your App
+# アプリの実行
 
-Capacitor relies on each platform's IDE of choice to run and test your app.
+Capacitor は、各プラットフォームの IDE を選択してアプリの実行とテストを行います。
 
 ## iOS
 
-iOS requires using Xcode to run your app.
+現在、iOS でアプリを実行するには Xcode を使う必要があります。
 
 ```bash
 npx cap open ios
 ```
 
-Once Xcode launches, you can build/simulate/run your app through the standard Xcode workflow.
+Xcode が起動したら、標準的な Xcode ワークフローを使ってアプリを構築/シミュレート/実行することができます。
 
 ## Android
 
@@ -26,15 +26,15 @@ Once Xcode launches, you can build/simulate/run your app through the standard Xc
 npx cap open android
 ```
 
-Once Android Studio launches, you can build/emulate/run your app through the standard Android Studio workflow.
+Android Studio が起動したら、標準の Android Studio ワークフローを使ってアプリをビルド/エミュレート/実行できます。
 
 ## Progressive Web App
 
-Capacitor has a tiny development web server for local testing, but it's recommended to run your web app
-using your framework of choice's server tools.
+Capacitor には簡単なテスト用の小さな開発用ウェブサーバがありますが、
+一般的には、選択したフレームワークのサーバツールを使ってウェブアプリを実行します。
 
 ```bash
 npx cap serve
 ```
 
-This will open your web app in a local web server instance in the browser.
+これにより、ブラウザのローカル Web サーバーインスタンスで Web アプリケーションが開きます。

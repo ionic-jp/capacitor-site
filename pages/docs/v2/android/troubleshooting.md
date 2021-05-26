@@ -1,17 +1,17 @@
 ---
-title: Troubleshooting Android Issues
-description: Troubleshooting Android Issues
+title: Android の問題のトラブルシューティング
+description: Android の問題のトラブルシューティング
 contributors:
   - mlynch
   - jcesarmobile
 canonicalUrl: https://capacitorjs.com/docs/android/troubleshooting
 ---
 
-# Troubleshooting Android Issues
+# Android の問題のトラブルシューティング
 
-Creating a 100% perfect native management tool is nearly impossible, and sooner or later you'll run into various issues with some part of the Android workflow.
+100％完璧な Native 管理ツールを作成するのはほぼ不可能です。遅かれ早かれ、Android ワークフローの一部でさまざまな問題に遭遇するでしょう。
 
-This guide attempts to document common Android issues with possible solutions.
+このガイドでは、考えられる解決策とともに一般的な Android の問題を文書化することを試みます。
 
 ## Android Toolbox
 

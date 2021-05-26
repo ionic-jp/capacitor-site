@@ -1,73 +1,73 @@
 ---
-title: Development Workflow
-description: Capacitor Workflow
+title: 開発ワークフロー
+description: Capacitorワークフロー
 contributors:
   - dotNetkow
   - mlynch
 canonicalUrl: https://capacitorjs.com/docs/basics/workflow
 ---
 
-# Capacitor Workflow
+# Capacitor ワークフロー
 
-The Capacitor workflow involves a few consistent tasks:
+Capacitor のワークフローには、いくつかの一貫したタスクが含まれます:
 
-## 1. Develop and build your Web App
+## 1. アプリを開発・ビルドする
 
-Capacitor turns your web app into a native binary for each platform. Thus, much of your work will consist of developing and then building a mobile-focused web app.
+Capacitor は、ウェブアプリを各プラットフォーム用の Native バイナリに変換します。したがって、作業の大部分はモバイルに特化したウェブアプリの開発と構築となります。
 
-You will interact with the native platform underneath using Capacitor's plugins (such as [Camera](/docs/apis/camera)), or by using existing Cordova plugins with Capacitor's [Cordova Compatibility](/docs/cordova).
+あなたが Native プラットフォームと対話する場合、Capacitor の API([Camera](/docs/apis/camera)など)を使用するか、または既存の Cordova プラグインと Capacitor の[Cordova Compatibility](/docs/cordova)を用いることになります。
 
-As a final step, you will build your application using a command similar to:
+最後に、次のようなコマンドを使用してアプリケーションを構築します。
 
 ```bash
 npm run build
 ```
 
-If you are using a framework, follow your framework's build process. If, for example, you are using [Ionic](https://ionicframework.com/), this would be:
+フレームワークを使用している場合は、フレームワークの構築プロセスに従います。[Ionic](https://ionicframework.com/) の場合、ビルドコマンドは以下の通りです:
 
 ```bash
 ionic build
 ```
 
-## 2. Copy your Web Assets
+## 2. Web アセットをコピー
 
-When you are ready to run your app natively on a device or in a simulator, copy your built web assets using:
+デバイスまたはシミュレータ上で Native にアプリケーションを実行する準備ができたら、次のコマンドを使用して構築した Web アセットをコピーします。
 
 ```bash
 npx cap copy
 ```
 
-## 3. Open your Native IDE
+## 3. NativeIDE を開く
 
-Capacitor uses the Native IDEs to build, simulate, and run your app. To open one, run:
+Capacitor は NativeIDE を使ってアプリを構築、シミュレート、実行します。
 
 ```bash
 npx cap open
 ```
 
-## 4. Update the native project
+## 4. Native プロジェクトをアップデート
 
-In some cases, the Capacitor app needs to be updated, such as when installing new plugins.
+Capacitor アプリは新しいプラグインをインストールする時などにアップデートが必要です。
 
-To install new plugins (including Cordova ones), run:
+新しいプラグイン（Cordova プラグインも含みます）をインストールするには、以下を実行します。
 
 ```bash
 npm install really-cool-plugin
 npx cap update
 ```
 
-## 5. Updating Capacitor
+## 5. Capacitor のアップデート
 
-To check if there are any new updates to Capacitor itself, run `npx cap doctor` to print out the current installed dependencies as well view the latest available.
+Capacitor 本体に新しいアップデートがあるかどうかを確認するには、`npx cap doctor` を実行して現在インストールされている依存関係を出力し、最新の利用可能な依存関係を確認します。
 
-To update Capacitor Core and CLI:
+Capacitor Core と CLI のアップデート:
 
 ```bash
 npm install @capacitor/cli@2
 npm install @capacitor/core@2
 ```
 
-To update any or all of the platforms you are using:
+利用しているプラットフォームのアップデート:
 
 ```bash
 npm install @capacitor/ios@2

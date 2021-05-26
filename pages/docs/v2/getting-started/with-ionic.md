@@ -1,81 +1,81 @@
 ---
-title: Using Capacitor with Ionic
-description: Using Capacitor with Ionic
+title: IonicでCapacitorを使う
+description: IonicでCapacitorを使う
 contributors:
   - dotNetkow
 canonicalUrl: https://capacitorjs.com/docs/getting-started/with-ionic
 ---
 
-# Using Capacitor with Ionic
+# Ionic で Capacitor を使う
 
-## Install Capacitor into an Ionic project
+## Ionic プロジェクトに Capacitor をインストール
 
-Capacitor is easily installed directly into any Ionic project (1.0-4.x+).
+Ionic プロジェクトに Capacitor をインストールするのはとても簡単です (1.0-4.x+).
 
-### New Ionic Project
+### Ionic プロジェクト新規作成
 
 ```bash
 ionic start myApp tabs --capacitor
 cd myApp
 ```
 
-### Existing Ionic Project
+### 既存の Ionic プロジェクト
 
 ```bash
 cd myApp
 ionic integrations enable capacitor
 ```
 
-### Initialize Capacitor with your app information
+### Capacitor の初期化
 
-_Note: `npx` is a new utility available in npm 5 or above that executes local binaries/scripts to avoid global installs._
+_Note: `npx` は、グローバルインストールを回避するためにローカルバイナリ/スクリプトを実行する、npm5 以降で使用可能な新しいユーティリティです。_
 
 ```bash
 npx cap init [appName] [appId]
 ```
 
-where `appName` is the name of your app, and `appId` is the domain identifier of your app (ex: `com.example.app`).
+`appName`はアプリケーションの名前で、`appId` はアプリケーションのドメイン識別子です(ex:v`com.example.app`)。
 
-_Note: Use the native IDEs to change these properties after initial configuration._
+_Note: 初期構成後にこれらのプロパティーを変更するには、NativeIDE を使用します。_
 
-### Build your Ionic App
+### Ionic アプリのビルド
 
-You must build your Ionic project at least once before adding any native platforms.
+Native プラットフォームを追加する前に、少なくとも 1 回は Ionic プロジェクトをビルドする必要があります。
 
 ```bash
 ionic build
 ```
 
-This creates the `www` folder that Capacitor has been [automatically configured](/docs/basics/configuring-your-app) to use as the `webDir` in `capacitor.config.json`.
+これにより、 `www` フォルダをの Capacitor の `webDir` として使用するための [automatically configured](/docs/basics/configuring-your-app) が `capacitor.config.json` に書き込まれます。
 
-### Add Platforms
+### プラットフォームの追加
 
 ```bash
 npx cap add ios
 npx cap add android
 ```
 
-Both `android` and `ios` folders at the root of the project are created. These are entirely separate native project artifacts that should be considered part of your Ionic app (i.e., check them into source control, edit them in their own IDEs, etc.).
+プロジェクトのルートに `android` フォルダと `ios` フォルダの両方が作成されます。これらは完全に独立した Native プロジェクトであり、Ionic アプリのソースコードの一部と考えるべきです(つまり、それらをソース制御にチェックインし、独自の IDE で編集するなどです。)。
 
-### Open IDE to build, run, and deploy
+### IDE を開いて構築、実行、デプロイを行う
 
 ```bash
 npx cap open ios
 npx cap open android
 ```
 
-The native iOS and Android projects are opened in their standard IDEs (Xcode and Android Studio, respectively). Use the IDEs to run and deploy your app.
+Native の iOS と Android プロジェクトは、それぞれの標準 IDE(それぞれ Xcode と Android Studio)で開きます。IDE を使用して、アプリケーションを実行およびデプロイします。
 
-## Syncing your app with Capacitor
+## アプリを Capacitor と同期する
 
-Every time you perform a build (e.g. `ionic build`) that changes your web directory (default: `www`), you'll need to copy those changes down to your native projects:
+ビルド（例えば `ionic build` ）を実行して Web ディレクトリ(デフォルト: `www` )を変更するたびに、これらの変更を Native プロジェクトにコピーする必要があります:
 
 ```bash
 npx cap copy
 ```
 
-## Using Cordova and Ionic Native Plugins
+## Cordova と Ionic Native Plugin を使う
 
-Cordova and [Ionic Native](https://ionicframework.com/docs/native/) plugins are supported in Capacitor. See the [Using Cordova Plugins](/docs/cordova/using-cordova-plugins) guide for more information.
+Cordova と [Ionic Native](https://ionicframework.com/docs/native/) プラグインは Capacitor をサポートしています。 詳しくは [Cordova Plugins](/docs/cordova/using-cordova-plugins) ガイドをご覧ください。
 
-Want to start using Capacitor in an Ionic app immediately? [Check out this guide](/docs/guides/ionic-framework-app).
+すぐに Ionic アプリで Capacitor を使い始めたいですか？ [このガイドをご覧ください。](/docs/guides/ionic-framework-app).

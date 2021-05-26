@@ -1,66 +1,66 @@
 ---
-title: Building Progressive Web Apps
-description: How to build Progressive Web Apps with Capacitor
+title: Progressive Web Appsのビルド
+description: Capacitorを使ったProgressive Web Appsのビルド方法
 contributors:
   - jcesarmobile
   - dotNetkow
 ---
 
-# Building Progressive Web Apps
+# Progressive Web Apps のビルド
 
-Capacitor has first-class support for Progressive Web Apps, making it easy to build an app that runs natively on iOS and Android, but also on the web as a mobile web app or "Progressive Web App."
+Capacitor は Progressive Web Apps をサポートしており、iOS と Android だけでなく、モバイルウェブアプリ"プログレッシブ Web アプリケーション"として、ウェブ上でも Native に動作するアプリを簡単に構築できます。
 
-## What is a Progressive Web App?
+## Progressive Web App とは
 
-Put simply, a Progressive Web App (PWA) is a web app that uses modern web capabilities to deliver an app-like experience to users. These apps are deployed to traditional web servers, are accessible through URLs, and can be indexed by search engines.
+簡単に言えば、Progressive Web App(PWA)は、最新の Web 機能を使用してアプリケーションのようなエクスペリエンスをユーザーに提供する Web アプリケーションです。これらのアプリは従来のウェブサーバにデプロイされ、URL を介してアクセスでき、検索エンジンによってインデックスされます。
 
-A Progressive Web App is, for all practical purposes, just another term for a website that has been optimized for mobile performance and that utilizes newly available Web APIs to deliver features that are similar to a traditional native app, such as push notifications and offline storage.
+Progressive Web App は、実用的な目的のために、モバイルパフォーマンスに最適化され、プッシュ通知やオフラインストレージなど、従来の Native アプリと同様の機能を提供するために新たに利用可能になった Web API を利用する Web サイトのことを指します。
 
-## Capacitor and Progressive Web Apps
+## Capacitor と Progressive Web Apps
 
-Capacitor has first-class support for Progressive Web Apps _and_ native apps. That means that Capacitor's plugin bridge supports running in either a native context or in the web, with many core plugins available _in both contexts_ with the exact same API and calling conventions.
+Capacitor は、Progressive Web Apps と Native アプリを最高レベルでサポートしています。つまり、Capacitor のプラグインブリッジは、Native コンテキストと Web のどちらもの実行をサポートしており、まったく同じ API とその API の利用方法で、両方のコンテキストで多くのコアプラグインを使用できます。
 
-This means you use `@capacitor/core` as a dependency for both your native app _and_ your Progressive Web App, and Capacitor seamlessly calls web code when required and native code when available.
+つまり、Native アプリと Progressive Web App の両方の依存関係として `@capacitor/core` を使用することによって、Capacitor は必要に応じて Web コードをシームレスに呼び出し、Native コードが使用可能な場合は Native コードを呼び出すことになります。
 
-Additionally, Capacitor offers a number of utilities for querying the current platform to provide customized experiences when running natively or on the web.
+また、Capacitor には、現在のプラットフォームに応じたクエリーを実行することで、Native または Web 上での実行時にカスタマイズされたエクスペリエンスを提供するためのユーティリティが多数用意されています。
 
-## Adding Progressive Web App Support to your app
+## アプリに Progressive Web App サポートを追加
 
-Adding PWA support to any existing frontend project is easy. Just add an App Manifest file and configure a service worker:
+PWA サポートを既存のフロントエンドプロジェクトに追加するのは簡単です。App Manifest ファイルを追加し、service worker を設定するだけです:
 
 ### App Manifest
 
-First, you'll need an [App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) file ([manifest.json](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json))
-that sits alongside your `index.html` file and provides metadata about your app, such as its name, theme colors, and icons. This information will be used
-when your app is installed on the home screen, for example.
+まず、`index.html` ファイルと同じ階層に [App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) ファイル
+([manifest.json](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json))を置き、
+App の名前、テーマカラー、アイコンなどのメタデータを提供する必要があります。この情報は、例えばあなたのアプリがホーム画面にインストールされる時に使われます。
 
 ### Service Worker
 
-Next, in order to send push notifications and store data offline, a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) will
-enable your web app to proxy network requests and perform background tasks needed to process and sync data.
+次に、プッシュ通知を送信したりデータをオフラインで保存するために、 [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) によってあなたのウェブアプリがネットワークリクエストをプロキシし、
+データの処理と同期に必要なバックグラウンドタスクを実行できるようにします。
 
-Service Workers are powerful, but complicated. Generally, writing them from scratch is not recommended. Instead, take a look at tools like [Workbox](https://developers.google.com/web/tools/workbox/) that
-provide common Service Worker recipes that you can easily incorporate into your app.
+Service Workers は強力ですが、複雑です。通常、最初から作成することはお勧めしません。
+代わりに、あなたのアプリに簡単に組み込むことができる一般的な Service Worker のレシピを提供する[Workbox](https://developers.google.com/web/tools/workbox/)のようなツールの利用を検討ください。
 
-Read more about using Service Workers, including how to register them, on the [Using Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) page on MDN.
+登録方法など、Service Workers の使用方法の詳細は、MDN の [Using Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) ページを参照してください。
 
-## Progressive Web App Performance
+## Progressive Web App のパフォーマンス
 
-Progressive Web Apps are judged by several performance standards, including [Time to Interactive](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive) and [First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint).
+Progressive Web Apps は、 [Time to Interactive](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive) や [First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint) など、いくつかのパフォーマンス標準によって評価されます。
 
-Follow the [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist) before going live, and use [Lighthouse](https://developers.google.com/web/tools/lighthouse/) to audit and test your app.
+本番環境に反映する前に、 [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist) を確認して、[Lighthouse](https://developers.google.com/web/tools/lighthouse/) を使ってあなたのアプリを監査してください。
 
-If you're struggling to meet Progressive Web App performance standards with your existing frontend stack, take a look at [Ionic Framework](https://ionicframework.com/) version 4 or greater as an option for getting fast PWA support with nearly zero configuration. Ionic 4.x or above is a web component library that works in several popular frontend frameworks, not just Angular.
+既存のフロントエンドスタックで Progressive Web App のパフォーマンス標準を満たすのに苦労しているなら、ほぼ 0 の設定で高速 PWA サポートを得るためのオプションとして、 [Ionic Framework](http://ionicframework.com/) の 4 以上を見てください。Ionic4.x 以上は、Angular だけでなく、いくつかの一般的なフロントエンドフレームワークで動作する Web コンポーネントライブラリです。
 
-## Running Natively and on the Web
+## Native と Web での実行
 
-One of the key features of Capacitor is the ability to build one app that runs both natively (in the app stores), _and_ on the web. Capacitor does this by providing a layer between the underlying platform and the APIs/Plugins you'd like to use.
+Capacitor の重要な機能の一つは、Native(アプリストアで配信することができる) **と** ウェブの両方で動くアプリを作れることです。これは、ベースとなるプラットフォームと使用する API/プラグインの間にレイヤーを提供することで実現しています。
 
-If your app makes native plugin calls that don't have a web substitute, such as `SplashScreen.show()`, the app will allow those calls without crashing. Calls that return a promise will return a rejected promise, which you should be handling in your app anyways.
+もしあなたのアプリが SplashScreen のようなウェブでは代替物を持たない Native のプラグインコールをする `SplashScreen.show()` を実行すると、Web でもクラッシュすることなくこれらのコールを許可します。promise を返すコールは rejected promise を返します。
 
-Additionally, Capacitor's JavaScript API has a number of utilities that make it possible to programmatically check whether certain APIs are available.
+また、Capacitor の JavaScript API には、特定の API が使用可能かどうかをプログラムでチェックできる多数のユーティリティーがあります。
 
-For example, if your app would normally rely on the Camera app being used to take a photo, you could check if the Camera is available, and if not, ask the user to upload a file instead:
+例えば、もしあなたのアプリが写真を撮るためためにカメラアプリに依存しているのであれば、そのカメラが利用可能かどうかをチェックし、利用可能でない場合は代わりにファイルをアップロードするようユーザに依頼することができます。
 
 ```typescript
 import { Capacitor } from '@capacitor/core';

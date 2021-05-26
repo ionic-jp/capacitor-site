@@ -11,7 +11,7 @@ canonicalUrl: https://capacitorjs.com/docs/apis/status-bar
 
 # Status Bar
 
-The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
+StatusBar API は、ステータスバーのスタイルを表示または非表示に設定するメソッドを提供します。
 
 <docgen-index>
 

@@ -17,7 +17,7 @@ Working with CapacitorJS, the power of native device features is there for you t
 
 ## Making CapacitorJS Plugins Globally Availble
 
-After you've run through the install of CapacitorJS, you have a variety of plugins available for you to [integrate into your app](https://capacitorjs.com/docs/apis). Let's check out the [Geolocation plugin](https://capacitorjs.com/docs/apis/geolocation) for a good example. To use the Geolocation plugin, you have to first import `Plugins` from the `@capacitor/core` library:
+After you've run through the install of CapacitorJS, you have a variety of plugins available for you to [integrate into your app](https://capacitorjs.jp/docs/apis). Let's check out the [Geolocation plugin](https://capacitorjs.jp/docs/apis/geolocation) for a good example. To use the Geolocation plugin, you have to first import `Plugins` from the `@capacitor/core` library:
 
 ```typescript
 import { Plugins } from '@capacitor/core';

@@ -9,10 +9,10 @@ contributors:
 
 # Permissions
 
-The Permissions API provides methods to check if certain permissions have been granted before requesting them.
+Permissions API には、特定のパーミッションが付与されているかどうかを確認してから要求するメソッドが用意されています。
 
-This can be useful, for example, to avoid a user denying a permission request due to lack of context behind why the app is requesting the permission. Instead, checking the permission
-first and optionally displaying a custom UI to prepare the user for the permission check could increase permission allow rates and improve user experience.
+これは、例えば、アプリが許可を要求している理由の背後にあるコンテキストの欠如のために、ユーザが許可要求を拒否することを避けるために有用です。代わりに、権限を確認します。
+最初にカスタム UI を表示してユーザーに許可チェックの準備をさせると、許可レートが上がり、ユーザーの操作性が向上します。
 
 ## API
 

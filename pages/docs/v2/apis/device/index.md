@@ -11,8 +11,8 @@ canonicalUrl: https://capacitorjs.com/docs/apis/device
 
 # Device
 
-The Device API exposes internal information about the device, such as the model and operating system version, along with user information
-such as unique ids.
+Device API は、一意の ID などのユーザー情報とともに、モデルやオペレーティングシステムのバージョンなどのデバイスに関する
+内部情報を公開します。
 
 <docgen-index>
 
