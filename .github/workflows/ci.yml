@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 14.x
 
       # パッケージのキャッシュ
       - name: Use cached node_modules
@@ -19,9 +19,9 @@ jobs:
         with:
           path:
             node_modules
-          key: ${{ runner.os }}-v1-dependencies-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-v2-dependencies-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-v1-dependencies-
+            ${{ runner.os }}-v2-dependencies-
 
       # Lintとテストの実行
       - name: npm install, build
