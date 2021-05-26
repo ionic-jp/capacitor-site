@@ -268,10 +268,7 @@ rm -R plugins/
           <Heading level={3}>Capacitorの旅を続けよう。</Heading>
           <Paragraph>
             これははじまりにすぎません。続いて、{' '}
-            <a {...href('/docs/cordova/using-cordova-plugins')}>
-              {' '}
-              Cordovaプラグインを
-            </a>{' '}
+            <a {...href('/docs/plugins/cordova')}> Cordovaプラグインを</a>{' '}
             Capacitorで使う方法と、Capacitorの{' '}
             <a {...href('/docs/basics/workflow')}>開発フロー</a> や 自分自身の{' '}
             <a {...href('/docs/plugins')}>ネイティブプラグイン</a>{' '}
