@@ -23,18 +23,18 @@ Ionic と Capacitor を一緒に使うことは、Ionic Framework が Capacitor 
 
 Capacitor のリリースにより、Ionic はそのスタックのほぼすべてをコントロールするようになった。今日 Ionic アプリを構築すると、Native ランタイムレイヤ(Capacitor)、UI コントロール([Ionic Framework](https://ionicframework.com))、コントロールの構築に使用する"Framework"([Stencil](https://stenciljs.com/)を利用した Web コンポーネント)をコントロールできるようになります。重要なのは、私たちが管理しているスタックのどこかに問題があれば、すぐに修正できるということです。私たちがコントロールできない唯一の部分は、あなたが一番上で使うフロントエンドフレームワークです(Angular、React、Vue、またはプレーンの JavaScript)。
 
-## Migration Process Overview
+## マイグレーションプロセスの概要
 
-### Audit Then Migrate Existing Cordova Plugins
+### 既存の Cordova プラグインの監査と移行
 
-Begin by auditing your existing Cordova plugins. It's possible that you may be able to remove ones that are no longer needed.
+まず、既存の Cordova プラグインの監査を行います。不要になったプラグインは削除できる可能性があります。
 
-Next, review all of Capacitor's [official plugins](/docs/apis) as well as [community plugins](/docs/plugins/community). You may be able to switch to the Capacitor-equivalent Cordova plugin.
+次に、Capacitor の [official plugins](/docs/apis) と [community plugins](/docs/plugins/community) の全てを確認します。その結果、Capacitor と同等の Cordova プラグインに変更できる可能性があります。
 
-Some plugins may not match functionality entirely, but based on the features you need that may not matter.
+プラグインによっては機能が完全に一致しないものもありますが、必要な機能を考えれば問題ないでしょう。
 
-### Continue to Use Cordova or Ionic Native if Needed
+### C 必要に応じて Cordova や Ionic Native を使い続ける
 
-To leverage Cordova and/or Ionic Native plugins in your Capacitor app, [see here](/docs/plugins/cordova). If a replacement plugin doesn't exist, continue to use the Cordova plugin as-is. If there's a plugin you'd like to see supported, open a [plugin proposal](https://github.com/capacitor-community/proposals)!
+Cordova や Ionic Native のプラグインを Capacitor アプリで活用するには、 [こちら](/docs/plugins/cordova) を参照してください。代替プラグインが存在しない場合は、Cordova プラグインをそのまま使用してください。もし、サポートしてほしいプラグインがあれば、 [plugin proposal](https://github.com/capacitor-community/proposals) を公開してください。
 
-Ready to [migrate to Capacitor](/docs/cordova/migrating-from-cordova-to-capacitor)?
+[Capacitor への移行](/docs/cordova/migrating-from-cordova-to-capacitor)の準備はできましたか？

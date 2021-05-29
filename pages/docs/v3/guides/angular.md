@@ -3,11 +3,11 @@ title: Capacitor and Angular
 description: Using Angular with Capacitor
 ---
 
-# Using Angular with Capacitor
+# Angular で Capacitor を使う
 
 ## NgZone
 
-Capacitor plugin event listeners run outside of Angular's `NgZone` execution context. Contain handler logic within an `NgZone.run` block to ensure Angular's change detection is triggered:
+Capacitor プラグインのイベントリスナーは、Angular の `NgZone` 実行コンテキストの外で実行されます。ハンドラロジックを `NgZone.run` ブロック内に格納し、Angular の変更検出が確実にトリガーされるようにします:
 
 ```typescript
 constructor(private ngZone: NgZone) { }

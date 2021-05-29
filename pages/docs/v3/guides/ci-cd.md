@@ -5,46 +5,46 @@ contributors:
   - mlynch
 ---
 
-# CI/CD for Capacitor Apps
+# Capacitor アプリでの CI/CD
 
-Every serious app will utilize a CI/CD process for continuous testing, integration, and delivery.
+すべての本格的なアプリケーションは、継続的なテスト、統合、および配信のために CI/CD プロセスを利用します。
 
-Unfortunately, Mobile presents unique CI/CD challenges, and the same techniques that web developers use for frontend CI/CD won't apply for mobile, since build and deployment processes are radically different.
+残念ながら、モバイルでは CI/CD に特有の課題があります。ビルドとデプロイメントのプロセスが根本的に異なるため、ウェブ開発者がフロントエンドの CI/CD に使用する同じテクニックは、モバイルには適用できません。
 
-## Basic CI/CD for your frontend
+## フロントエンドの基本的な CI/CD
 
-The first step for CI/CD for a Capacitor app is using a process for building and testing your _frontend_ JS app.
+Capacitor アプリの CI/CD の最初のステップは、_frontend_ JS アプリの構築とテストのためのプロセスを使用することです。
 
-This is commonly done today using a generic CI/CD service like GitHub Actions, CircleCI, Jenkins, etc.
+これは、GitHub Actions、CircleCI、Jenkins などの一般的な CI/CD サービスを使って行うのが一般的です。
 
-In this process, an app is set to build on each commit and often run a local test suite. This is the typical JS CI/CD process and your team is likely already familiar with it.
+このプロセスでは、アプリは各コミットでビルドするように設定され、多くの場合、ローカルのテストスイートを実行します。これは典型的な JS の CI/CD プロセスであり、あなたのチームはすでに慣れ親しんでいることでしょう。
 
-But this is just the tip of the iceberg, as teams will need to figure out how to build, test, and deploy the actual native mobile side of their app.
+しかし、これは氷山の一角に過ぎません。チームは、アプリの実際のネイティブ・モバイル側をどのように構築し、テストし、デプロイするかを考える必要があります。
 
-## Adding Mobile CI/CD
+## モバイル CI/CD の追加
 
-Just building and running JS app tests is not nearly enough for a mobile app, given that a big portion of your app needs to build and run as a native iOS and Android app.
+モバイルアプリでは、JS アプリのテストを構築して実行するだけでは十分ではなく、アプリの大部分はネイティブの iOS や Android アプリとして構築して実行する必要があります。
 
-Additionally, the way a mobile app is deployed and updated is very different from a web app. Whereas a web app will be hosted on a server that can be quickly updated, mobile apps are "hosted" in app stores and distributed as cryptographically-signed binaries. The update process is very different.
+さらに、モバイルアプリのデプロイとアップデートの方法は、ウェブアプリとは大きく異なります。ウェブアプリはサーバー上でホストされ、すぐに更新できるのに対し、モバイルアプリはアプリストアで "ホスト" され、暗号化されたバイナリとして配布されます。そのため、更新プロセスも大きく異なります。
 
-This means we need a service that can do native mobile builds and tests, and also offer a way to deploy and update our apps in a native mobile appropriate way.
+つまり、ネイティブ・モバイルのビルドとテストを行うことができ、ネイティブモバイルに適した方法でアプリのデプロイとアップデートを行うことができるサービスが必要なのです。
 
-## Appflow: Mobile CI/CD for Capacitor apps
+## Appflow: Capacitor アプリのためのモバイル CI/CD
 
-One such service that provides end-to-end Mobile CI/CD is [Appflow](https://useappflow.com/), the official Mobile CI/CD and Mobile DevOps platform for Capacitor apps.
+end-to-end のモバイル CI/CD を提供するサービスとして、Capacitor アプリの公式モバイル CI/CD および Mobile DevOps プラットフォームである [Appflow](https://useappflow.com/) があります。
 
-Appflow provides frequently updated, managed iOS and Android build environments. Appflow integrates with popular git services like GitLab, GitHub, and Bitbucket, to support triggering JS and native mobile builds on each commit. Appflow also supports separating builds into different channels for stakeholders, beta testers, and production users.
+Appflow は、頻繁に更新され、管理された iOS および Android のビルド環境を提供します。Appflow は、GitLab、GitHub、Bitbucket などの一般的な git サービスと統合し、コミットごとに JS とネイティブモバイルのビルドをトリガーすることをサポートしています。また、Appflow はビルドをステークホルダー、ベータテスター、本番ユーザーのそれぞれのチャンネルに分けることも可能です。
 
-For Capacitor developers, Appflow also offers the ability to push real-time updates to apps without app store submission, as long as those updates are at the JS/HTML/CSS layer of an app.
+また、Appflow は、Capacitor の開発者向けに、アプリの JS/HTML/CSS レイヤーの更新であれば、アプリストアに申請することなく、アプリの更新をリアルタイムにプッシュする機能も提供しています。
 
-For more details, see the [Appflow Documentation](https://ionicframework.com/docs/appflow).
+詳しくは、 [Appflow Documentation](https://ionicframework.com/docs/appflow) をご覧ください。
 
-## Using a traditional CI/CD service with Appflow
+## 従来の CI/CD サービスを Appflow で使用する場合
 
-Appflow can replace a traditional CI/CD service since it performs web/JS builds and native mobile builds. However, it works great with a traditional CI/CD service.
+Appflow は、Web/JS のビルドとモバイルのネイティブビルドを行うため、従来の CI/CD サービスを置き換えることができます。しかし、従来の CI/CD サービスとの相性は抜群です。
 
-To use it in this way, use webhooks to send built assets to Appflow on each commit.
+このような使い方をするには、Webhook を使って、コミットごとにビルドしたアセットを Appflow に送ります。
 
-## Other Mobile CI/CD Options
+## その他のモバイル CI/CD オプション
 
-There are other services for Mobile CI/CD, though none focused on Capacitor. Some of those options include [Visual Studio App Center](https://appcenter.ms), [Bitrise](https://www.bitrise.io/), and [Buddybuild](https://www.buddybuild.com/) (iOS only). Keep in mind none of these services currently provide remote real-time app updates for Capacitor apps.
+モバイル CI/CD のサービスは他にもありますが、Capacitor に特化したものはありません。これらのサービスには、 [Visual Studio App Center](https://appcenter.ms) 、 [Bitrise](https://www.bitrise.io/) 、 [Buddybuild](https://www.buddybuild.com/) (iOS のみ) などがあります。なお、これらのサービスは現在、Capacitor アプリのリモート・リアルタイム・アプリ・アップデートを提供していないことに留意してください。

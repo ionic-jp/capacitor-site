@@ -1,43 +1,43 @@
 ---
-title: Deep Links
-description: Implement deep linking functionality in an iOS and Android app
+title: ディープリンク
+description: iOSとAndroidアプリにディープリンク機能を実装する
 contributors:
   - dotNetkow
   - jaydrogers
 ---
 
-# Deep Linking with Universal and App Links
+# ユニバーサルリンクとアプリリンクによるディープリンク
 
-**Platforms**: iOS, Android
+**プラットフォーム**: iOS, Android
 
-Universal links (iOS) and App Links (Android) offer the ability to take users directly to specific content within a native app (commonly known as deep linking).
+ユニバーサルリンク（iOS）とアプリリンク（Android）は、ユーザーをネイティブアプリ内の特定のコンテンツに直接誘導する機能を提供します（一般的にはディープリンクとして知られています）。
 
-When users tap or click on a deep link, the user is sent directly into your app without routing through the device's web browser or website first. If the app isn't installed, then the user is directed to the website. If the user navigates directly to the website, they remain on the website. This makes deep links an excellent feature for cross-platform apps built for the web, iOS, and Android: a seamless mobile experience, with graceful fallback to the website.
+ユーザーがディープリンクをタップまたはクリックすると、デバイスの Web ブラウザや Web サイトを経由せずに、ユーザーは直接アプリに移動します。アプリがインストールされていない場合は、ユーザーはウェブサイトに誘導されます。ユーザーが Web サイトに直接移動した場合、ユーザーは Web サイトに留まります。このように、ディープリンクは、ウェブ、iOS、Android 向けに構築されたクロスプラットフォームのアプリにとって、優れた機能となっています。
 
-Benefits:
+メリット
 
-- Secure: Universal/App Links use HTTPS URLs that link to a website domain that you own, ensuring that no other app can use your links.
-- Seamless experience: One URL works for both your website and app, ensuring that users can successfully access the content they're looking for without errors.
-- Increase Engagement: Links can be opened from email clients, search engine results, and more.
+- 安全。ユニバーサル/アプリリンクでは、HTTPS URL を使用してお客様が所有するウェブサイトのドメインにリンクするため、他のアプリがお客様のリンクを使用できないことが保証されます。
+- シームレスな体験。1 つの URL がウェブサイトとアプリの両方で機能するため、ユーザーはエラーなく目的のコンテンツに正常にアクセスできます。
+- エンゲージメントの向上。リンクは、メールクライアントや検索エンジンの検索結果などから開くことができます。
 
-## Demo Video
+## デモビデオ
 
-Here's what it looks like in practice. In this example, the user has the native app installed. They tap on app links from an email and are brought directly into the app itself. First, the root link is tapped (https://beerswift.app), which directs the user to the main app page. Next, a deep link is tapped (https://beerswift.app/tabs/tab3) bringing the user to the Tab3 page.
+ここでは、実際にどのように見えるかを説明します。この例では、ユーザーはネイティブアプリをインストールしています。メールに記載されたアプリのリンクをタップすると、アプリ自体に直接アクセスできます。まず、ルートリンクをタップすると（https://beerswift.app）、アプリのメインページに移動します。次に、ディープリンクをタップすると（https://beerswift.app/tabs/tab3）、Tab3のページが表示されます。
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vadlZ-d8wAI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Prerequisites
+## 前提条件
 
-- A pre-configured [Capacitor app](/docs/getting-started).
-- For iOS, enrollment in the Apple Developer Program.
+- 設定済みの [Capacitor app](/docs/getting-started) があること。
+- iOS の場合、Apple Developer Program に登録していること。
 
-For illustrative purposes, https://beerswift.app will be used as the web app link.
+例示のため、ウェブアプリのリンクとして https://beerswift.app を使用します。
 
-## Deep Link Routing using the Capacitor App API
+## Capacitor App API によるディープリンクルーティング
 
-When the native app is opened after a deep link is clicked, the mobile OS doesn't automatically know where to route the user. This must be implemented within the app itself using the Capacitor [App API](/docs/apis/app) on app startup.
+ディープリンクがクリックされた後にネイティブアプリが開かれた場合、モバイル OS は自動的にユーザーをどこに誘導すればよいかを知りません。これは、アプリの起動時に Capacitor [App API](/docs/apis/app) を使用して、アプリ自体に実装する必要があります。
 
-If your website and app paths don't match, you will need to implement more advanced url pattern matching (see [this guide](https://devdactic.com/universal-links-ionic/) for examples). If your mobile app and web app use the same codebase though, this is very straightforward - just redirect to the same URL. The following examples assume this.
+Web サイトとアプリのパスが一致しない場合は、より高度な URL パターンマッチングを実装する必要があります（例は [本ガイド](https://devdactic.com/universal-links-ionic/) を参照）。モバイルアプリとウェブアプリが同じコードベースを使用している場合は、同じ URL にリダイレクトするだけなので、非常に簡単です。以下の例はこれを前提としています。
 
 ### Angular
 

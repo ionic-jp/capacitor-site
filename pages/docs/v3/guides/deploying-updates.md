@@ -5,36 +5,36 @@ contributors:
   - mlynch
 ---
 
-# App Deployment and Realtime Updates
+# アプリの公開とリアルタイムの更新
 
-The last mile of app development involves publishing your app to the app stores, as well as keeping it updated over time.
+アプリ開発のラストワンマイルは、アプリストアへのアプリの公開と、アプリの継続的な更新です。
 
-One of the key advantages to a Web Native mobile development approach is the ability to make realtime updates to apps in an app store friendly way, as long as those changes do not require binary updates (aka compiled native functionality).
+Web Native モバイル開発アプローチの主な利点の 1 つは、バイナリの更新（コンパイルされたネイティブ機能）を必要としない変更であれば、アプリストアに適した方法でアプリをリアルタイムに更新できることです。
 
-Additionally, since most Capacitor developers are targeting both iOS and Android (and web) at the same time, manually publishing app and binary updates to each store can be unnecessarily tedious.
+さらに、Capacitor のデベロッパーの多くは、iOS と Android（および Web）の両方を同時にターゲットとしているため、アプリとバイナリのアップデートをそれぞれのストアに手動で公開することは、不必要に面倒な作業となります。
 
-To make app store publishing and long term app updates easier, Ionic, the company behind Capacitor, offers a powerful Mobile DevOps platform called [Appflow](https://useappflow.com/).
+アプリストアへの公開や長期的なアプリの更新を容易にするために、Capacitor を開発している Ionic 社は、 [Appflow](https://useappflow.com/) という強力な Mobile DevOps プラットフォームを提供しています。
 
-## Automate App Store Publishing with Appflow
+## Appflow による App Store Publishing の自動化
 
-Appflow offers several major time saving features for Capacitor developers. One of the most interesting is the ability to publish directly to both the Apple App Store and the Google Play Store. All plans have support for a number of monthly deployments, with expanded limits to support more apps and the ability to fully automate deployments reserved for higher tier plans.
+Appflow は、Capacitor の開発者にいくつかの主要な時間短縮機能を提供します。その中でも特に興味深いのは、Apple App Store と Google Play Store の両方に直接パブリッシュできる機能です。全てのプランにおいて、毎月のデプロイメント数をサポートしており、より多くのアプリをサポートするための制限の拡張や、デプロイメントの完全自動化機能は上位プランにのみ搭載されています。
 
-## Deploy Realtime Updates with Appflow
+## Appflow でリアルタイムにアップデートを配信
 
-In concert with app store publishing features, developers can deploy realtime app updates throughout the lifetime of their app using Appflow's live deploy functionality.
+アプリストアの公開機能と連動して、デベロッパーは Appflow のライブデプロイ機能を使って、アプリのライフタイムを通してリアルタイムにアプリのアップデートを展開することができます。
 
-Live deployment works on the principle that Capacitor apps are built largely as web apps with hooks into native functionality. Apple and Google explicitly allow web content updates to apps, so this feature is app store compatible and provides unprecedented agility to mobile app teams.
+ライブデプロイ機能は、Capacitor のアプリが主にネイティブ機能へのフックを持つウェブアプリとして構築されているという原則に基づいて動作します。Apple と Google は、アプリに対する Web コンテンツの更新を明示的に許可しているため、この機能は app store と互換性があり、モバイルアプリチームにこれまでにない俊敏性を提供します。
 
-## Connect to GitHub, Bitbucket, and GitLab
+## GitHub、Bitbucket、GitLab への接続
 
-Appflow can connect directly to a GitHub, Bitbucket, or GitLab repo for git-triggered builds and deployments.
+Appflow は GitHub、Bitbucket、GitLab のレポに直接接続し、git トリガーによるビルドやデプロイを行うことができます。
 
-This makes it easy to connect to your existing development workflow to start adding automated app store and real time updates with zero disruption.
+これにより、既存の開発ワークフローに簡単に接続することができ、自動化されたアプリストアやリアルタイムのアップデートを中断することなく開始することができます。
 
 ## Try Appflow Today
 
-Appflow powers major consumer and enterprise apps with hundreds of millions of users and significant business impact. The Appflow team works closely with many Fortune 500 companies to thousands of small to medium-sized companies.
+Appflow は、数億人のユーザーを持ち、ビジネスに大きな影響を与える主要な消費者向けおよび企業向けアプリを提供しています。Appflow のチームは、多くのフォーチュン 500 企業や数千の中小企業と密接に連携しています。
 
-And, because the team behind Appflow works closely with the Capacitor team, Appflow is optimized to work best with Capacitor.
+また、Appflow のチームは Capacitor のチームと密接に連携しているため、Appflow は Capacitor との連携に最適化されています。
 
-Appflow is free to get started and uses the same Ionic account you may have used in the past. To get started, visit [useappflow.com](https://useappflow.com/) or browse the [documentation](https://ionicframework.com/docs/appflow) to learn more about how Appflow works.
+Appflow は無料で利用でき、過去に使用したことのある Ionic アカウントを使用します。まずは、 [useappflow.com](https://useappflow.com/) にアクセスするか、 [documentation](https://ionicframework.com/docs/appflow) を参照して、Appflow の仕組みをご確認ください。

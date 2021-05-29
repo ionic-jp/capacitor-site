@@ -1,11 +1,11 @@
 ---
-title: Community Guides
-description: Community Guides
+title: コミュニティガイド
+description: コミュニティガイド
 contributors:
   - dotNetkow
 ---
 
-# Community Guides
+# コミュニティガイド
 
 ## General
 

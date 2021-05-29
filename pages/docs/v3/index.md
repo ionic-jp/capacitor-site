@@ -28,4 +28,4 @@ Capacitor は、 [Apache Cordova](https://cordova.apache.org/) と [Adobe PhoneG
 
 Capacitor を使い始めるのは簡単です！Capacitor は、既存の最新の JavaScript プロジェクトに組み込むことも、新しい Capacitor プロジェクトをゼロから作成することもできます。
 
-Follow the [Installation guide](/docs/getting-started) to get started building your app.
+[インストールガイド](/docs/getting-started)に従って、アプリの構築を開始してください。

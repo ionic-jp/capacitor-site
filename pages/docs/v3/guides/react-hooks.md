@@ -36,6 +36,6 @@ const MyComponent = () => (
   }, [ readFile ]);
 ```
 
-## より多くの情報 More Reading
+## より多くの情報
 
 [@capacitor-community/react-hooks](https://github.com/capacitor-community/react-hooks) レポジトリのドキュメンテーションにすべての利用可能な Hooks が掲載されています。

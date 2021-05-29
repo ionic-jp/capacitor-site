@@ -1,21 +1,21 @@
 ---
-title: Creating Splash Screens and Icons
-description: Use cordova-res to generate resource images for native projects
+title: スプラッシュスクリーンとアイコンの作成
+description: cordova-resを使用してネイティブプロジェクトのリソースイメージを生成します。
 contributors:
   - dotNetkow
 ---
 
-# Creating Splash Screens and Icons
+# スプラッシュスクリーンとアイコンの作成
 
-Initial support for splash screen and icon generation is now available. For complete details, see the [cordova-res docs](https://github.com/ionic-team/cordova-res).
+スプラッシュスクリーンとアイコンの生成に対応しました。詳細は [cordova-res docs](https://github.com/ionic-team/cordova-res) をご覧ください。
 
-First, install `cordova-res`:
+まず、`cordova-res`をインストールします。
 
 ```bash
 npm install -g cordova-res
 ```
 
-`cordova-res` expects a Cordova-like structure: place one icon and one splash screen file in a top-level `resources` folder within your project, like so:
+`cordova-res` は、Cordova のような構造を想定しています。つまり、アイコンとスプラッシュスクリーンのファイルを、プロジェクト内のトップレベルの `resources` フォルダに、次のように配置します:
 
 ```
 resources/
@@ -23,7 +23,7 @@ resources/
 └── splash.png
 ```
 
-Next, run the following to generate all images then copy them into the native projects:
+次に、以下を実行してすべてのイメージを生成し、それをネイティブプロジェクトにコピーします:
 
 ```bash
 cordova-res ios --skip-config --copy

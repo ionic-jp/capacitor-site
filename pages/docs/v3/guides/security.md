@@ -1,77 +1,78 @@
 ---
-title: Security
-description: Security best practices for your Capacitor apps
+title: セキュリティ
+description: Capacitorアプリにおけるセキュリティのベストプラクティス
 contributors:
   - mlynch
 ---
 
-# Security Best Practices for Capacitor
+# Capacitor のセキュリティ・ベスト・プラクティス
 
-Every Capacitor developer is responsible for making sure their app is following security best practices. Without proper care, major security issues can crop up which can prove extremely damaging and expensive.
+Capacitor の開発者は、アプリがセキュリティのベストプラクティスに従っていることを確認する責任があります。適切なケアを行わないと、重大なセキュリティ問題が発生し、非常に大きな損害と費用が発生する可能性があります。
 
-Security is a wide topic, but there are a number of areas that Capacitor developers should audit for security compliance, including Data, Authentication/Deep Linking, Network, and Web View security.
+セキュリティのテーマは多岐にわたりますが、Capacitor の開発者がセキュリティ遵守のために監査すべき領域は、データ、認証/ディープリンク、ネットワーク、Web View のセキュリティなど、いくつかあります。
 
-## Data Security
+## データ・セキュリティ
 
-Data Security deals with the security of data stored locally and also in app code.
+データセキュリティは、ローカルに保存されているデータやアプリのコード内に保存されているデータのセキュリティを扱います。
 
-### Avoid Embedding Secrets in Code
+### コードに秘密を埋め込まない
 
-One of the most important security tips for Capacitor apps, and any frontend app for that matter, is to _never embed secrets_ in your app code. That means make sure your code never contains secret API keys, encryption keys, or any other sensitive data that could be easily stolen using basic app analysis techniques. Watch for environment variable plugins that could be injecting sensitive values into your app code at build time.
+Capacitor のアプリをはじめとするフロントエンドアプリのセキュリティ対策で最も重要なことは、アプリのコードに秘密を埋め込まないことです。つまり、コードに秘密の API キーや暗号化キーなど、アプリの基本的な解析技術を使って簡単に盗むことができるような機密データが含まれていないことを確認する必要があります。ビルド時にアプリのコードに機密値を注入する環境変数プラグインに注意してください。
 
-Instead, move most operations requiring secret keys or tokens to the server-side, where they can be protected and any requests can be forwarded from the server. This might be a serverless function or a traditional server-side app process.
+代わりに、秘密鍵やトークンを必要とするほとんどの操作をサーバーサイドに移し、そこで秘密鍵やトークンを保護し、すべてのリクエストをサーバーから転送できるようにします。これは、サーバーレス関数や従来のサーバーサイドアプリのプロセスであるかもしれません。
 
-For apps that must work with persisted sensitive keys or tokens on the client, such as an auth token or an encryption key, the recommended options are to only deal with the value in memory (i.e. never persist it to disk), or by using secure keychain/keystore techniques as detailed below.
+認証トークンや暗号化キーなど、クライアント側で永続化された機密キーやトークンを扱う必要があるアプリでは、メモリ上の値のみを扱う（ディスクに永続化しない）か、以下のようなセキュアなキーチェーン/キーストア技術を使用することが推奨されます。
 
-### Storing Encryption Keys, Session Tokens, etc.
+### 暗号化キー、セッショントークンなどの保存について
 
-Modern mobile devices and operating systems provide powerful security APIs and dedicated security hardware for storing sensitive values on device. This is how apps provide biometric or secure passcode authentication while managing highly sensitive values such as encryption keys or session tokens.
+最近のモバイル機器や OS は、強力なセキュリティ API や専用のセキュリティハードウェアを備えており、デバイス上にセンシティブな値を保存することができます。このようにして、アプリは生体認証や安全なパスコード認証を行いながら、暗号鍵やセッショントークンなどの機密性の高い値を管理しています。
 
-The APIs that provide this functionality are available in the [iOS Keychain Services](https://developer.apple.com/documentation/security/keychain_services) and [Android Keystore](https://developer.android.com/training/articles/keystore) APIs. These APIs are complex and low-level, so you will likely want to find a plugin that uses them for you (such as this [cordova-plugin-ios-keychain](https://github.com/ionic-team/cordova-plugin-ios-keychain) community plugin).
+この機能を提供する API は、 [iOS Keychain Services](https://developer.apple.com/documentation/security/keychain_services) および [Android Keystore](https://developer.android.com/training/articles/keystore) の API で提供されています。これらの API は複雑で低レベルであるため、これらの API を使用するプラグイン（例えば、この [cordova-plugin-ios-keychain](https://github.com/ionic-team/cordova-plugin-ios-keychain) コミュニティプラグイン）を探すことになるでしょう。
 
-For enterprise use cases, the Capacitor team provides [Identity Vault](https://ionicframework.com/enterprise/identity-vault) which provides an easy-to-use API and frequently updated experience on top of these native security APIs. Identity Vault can be used with other Capacitor enterprise products such as [Offline Storage](https://ionicframework.com/enterprise/offline-storage) and [Auth Connect](https://ionicframework.com/enterprise/auth-connect) to provide the encryption key or authentication token management component of each experience, respectively.
+企業での使用例としては、Capacitor チームが提供する [Identity Vault](https://ionicframework.com/enterprise/identity-vault) があり、これらのネイティブセキュリティ API の上に、使いやすい API と頻繁に更新されるエクスペリエンスを提供しています。Identity Vault は、Capacitor の他のエンタープライズ製品である [Offline Storage](https://ionicframework.com/enterprise/offline-storage) や [Auth Connect](https://ionicframework.com/enterprise/auth-connect) と併用することで、それぞれのエクスペリエンスの暗号化キーや認証トークンの管理コンポーネントを提供することができます。
 
-## Authentication and Deep Linking
+## 認証とディープリンキング
 
-Authentication flows in native apps require extra care, since authentication often happens through the use of Custom URL Schemes. Custom URL Schemes, such as `instagram://`, are not globally controlled like web domains are, so it's possible that a malicious app could intercept a request meant for one app by defining and overriding a custom URL scheme. Imagine a secure token being sent to the wrong app!
+ネイティブアプリの認証フローでは、カスタム URL スキームを使用して認証を行うことが多いため、特に注意が必要です。 "instagram://" のようなカスタム URL スキームは、Web ドメインのようにグローバルに管理されていないため、悪意のあるアプリがカスタム URL スキームを定義して上書きすることで、あるアプリ向けのリクエストを傍受できる可能性があります。セキュアなトークンが間違ったアプリに送られることを想像してみてください。
 
-Generally, an app should never send sensitive data through a Custom URL scheme deep link (newer techniques such as Universal Links are more secure as they rely on actual web domain ownership, see the [Deep Links](./deep-links) guide for details).
+一般的に、アプリはカスタム URL スキームのディープリンクを使って機密データを送信するべきではありません（ユニバーサルリンクなどの新しい技術は、実際のウェブドメインの所有権に依存するため、より安全です）
 
-This is especially important for oAuth2 flows, where the last step in the authentication experience relies on a deep link back to the app. To mitigate the possibility of a malicious app receiving a token, [PKCE](https://oauth.net/2/pkce/) must be used for oAuth2 in Capacitor apps.
+これは、認証体験の最後のステップがアプリへのディープリンクに依存している oAuth2 フローでは特に重要です。悪意のあるアプリがトークンを受け取る可能性を軽減するために、Capacitor アプリの OAuth2 には [PKCE](https://oauth.net/2/pkce/) を使用する必要があります。
 
-To ensure your oAuth2 flow is secure, make sure your plugin supports PKCE. For enterprise use cases, the official [Auth Connect](https://ionicframework.com/enterprise/auth-connect) Capacitor solution fully supports PKCE for oAuth2 authentication flows.
+OAuth2 フローを安全にするために、プラグインが PKCE をサポートしていることを確認してください。企業で使用する場合は、公式の [Auth Connect](https://ionicframework.com/enterprise/auth-connect) Capacitor ソリューションが、oAuth2 認証フローのための PKCE を完全にサポートしています。
 
-See this great [oAuth2 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/) guide for more info.
+詳しくは、 [oAuth2 Best Practices for Native Apps](https://auth0.com/blog/oauth-2-best-practices-for-native-apps/) をご覧ください。
 
-## Network Security
+##ネットワークセキュリティ
 
-Network security deals with making sure network requests are to trusted endpoints and encrypted to avoid sending sensitive data (such as passwords) in plain text.
+ネットワークセキュリティでは、ネットワークのリクエストが信頼できるエンドポイントに送られていることを確認し、パスワードなどの機密データを平文で送信しないように暗号化することを行います。
 
 ### SSL
 
-Apps should only make requests to SSL-enabled endpoints. This means never make request to endpoints with `http://`, but rather always use `https://`. This makes sure data is never sent in plain text.
+アプリは SSL 対応のエンドポイントにのみリクエストを行う必要があります。つまり、エンドポイントへのリクエストは `http://` ではなく、常に `https://` を使用してください。これにより、データが平文で送信されることはありません。
 
-However, this by itself isn't enough. To avoid possible [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks, SSL certificates should be pinned so only known certificates are accepted. This must be done natively and on both the client and server. Today, the [cordova-plugin-advanced-http](https://github.com/silkimen/cordova-plugin-advanced-http) plugin supports this and there may be other plugins that do as well.
+しかし、これだけでは十分ではありません。可能性のある [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) 攻撃を避けるために、SSL 証明書を固定化して、既知の証明書のみを受け入れるようにする必要があります。これは、クライアントとサーバの両方でネイティブに行われなければなりません。現在、 [cordova-plugin-advanced-http](https://github.com/silkimen/cordova-plugin-advanced-http) プラグインがこの機能をサポートしていますが、他のプラグインにも同様の機能があるかもしれません。
 
-## Web View Security
+## ウェブビューのセキュリティ
 
-### Content Security Policy
+### コンテンツ・セキュリティ・ポリシー
 
-[Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) is a set of security features available in the browser (and, thus, your Capacitor Web View). CSP can be used to limit the resources the user agent is allowed to load in the Web View (such as images, XHR, videos, Web Sockets, etc).
+[Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) は、ブラウザ(ひいては Capacitor Web View)で利用できるセキュリティ機能のセットです。CSP は、ユーザエージェントが Web ビューで読み込むことができるリソース（画像、XHR、動画、Web ソケットなど）を制限するために使用できます。
 
-CSP can be configured in your Capacitor app by adding a `meta` tag to the `<head>` with an acceptable CSP format (CSP can be configured both server and client side using the same format). For example, this configuration would allow all requests to the current origin and `foo.com`:
+CSP は、Capacitor アプリで、 `<head>` に許容できる CSP フォーマットの `meta` タグを追加することで構成できます（CSP は、サーバー側とクライアント側の両方で同じフォーマットを使って構成できます）。例えば、この構成では、現在のオリジンと `foo.com` へのすべてのリクエストを許可します。
 
-```html
+``html
+
 <meta
   http-equiv="Content-Security-Policy"
   content="default-src 'self' foo.com"
 />
 ```
 
-CSP supports a wide variety of configurations, and the [CSP reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) is a must-read. Another useful resource is [content-security-policy.com](https://content-security-policy.com/).
+CSP は様々な構成をサポートしており、[CSP reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)は必読です。また、[content-security-policy.com](https://content-security-policy.com/)も有用なリソースです。
 
-### JavaScript Security Techniques
+## JavaScript のセキュリティ技術
 
-Since the bulk of a Capacitor app is a web app using JavaScript, typical JS security techniques apply.
+Capacitor のアプリの大部分は JavaScript を使用した Web アプリなので、典型的な JS のセキュリティ技術が適用されます。
 
-JS security is beyond the scope of this document, and there are many existing resources out there for proper JS and web app security techniques. Here's [one good one](https://wpengine.com/resources/javascript-security/) to get you started.
+JS のセキュリティについてはこのドキュメントの範囲外であり、適切な JS や Web アプリのセキュリティ技術については、既存の資料が多数あります。ここでは、 [One good one](https://wpengine.com/resources/javascript-security/) をご紹介します。

@@ -54,6 +54,6 @@ Cordova とは異なり、Capacitor はグローバル CLI を使用せず、Cap
 
 [Learn more about the Capacitor CLI &#8250;](/docs/cli)
 
-## Start the Migration
+## マイグレーションをはじめる
 
-Learn more about the [migration process](/docs/cordova/migration-strategy) or [get started migrating](/docs/cordova/migrating-from-cordova-to-capacitor) right away.
+[移行プロセス](/docs/cordova/migration-strategy) や [移行を開始する](/docs/cordova/migrating-from-cordova-to-capacitor) をご覧ください。
