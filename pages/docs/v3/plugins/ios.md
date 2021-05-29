@@ -4,22 +4,19 @@ description: Capacitor iOS Plugin Guide
 contributors:
   - mlynch
   - jcesarmobile
-canonicalUrl: https://capacitorjs.com/docs/plugins/ios
 ---
 
 # Capacitor iOS Plugin Guide
 
 Building Capacitor plugins for iOS involves writing Swift (or Objective-C) to interface with Apple's iOS SDKs.
 
-Capacitor embraces standard iOS development tools for building iOS plugins. We believe that using Swift (or, Objective-C) directly will make it easier to use existing solutions on Stack Overflow, share work with existing native developers, and use platform features as soon as they are made available.
-
 ## Getting Started
 
-To get started, first generate a plugin as shown in the [Getting Started](/docs/plugins) section of the Plugin guide.
+To get started, first generate a plugin as shown in the [Getting Started](/docs/plugins/creating-plugins) section of the Plugin guide.
 
-Next, open `your-plugin/ios/Plugin.xcworkspace` in Xcode.
+Next, open `my-plugin/ios/Plugin.xcworkspace` in Xcode.
 
-## Building your Plugin in Swift
+## Plugin Basics
 
 A Capacitor plugin for iOS is a simple Swift class that extends `CAPPlugin` and
 has some exported methods that will be callable from JavaScript.
@@ -38,12 +35,8 @@ data back to the caller:
 ```swift
 import Capacitor
 
-@objc(MyPlugin)
-public class MyPlugin: CAPPlugin {
-  @objc override public func load() {
-    // Called when the plugin is first constructed in the bridge
-  }
-
+@objc(EchoPlugin)
+public class EchoPlugin: CAPPlugin {
   @objc func echo(_ call: CAPPluginCall) {
     let value = call.getString("value") ?? ""
     call.resolve([
@@ -53,12 +46,12 @@ public class MyPlugin: CAPPlugin {
 }
 ```
 
-### Accessing Called Data
+### Accessing Call Data
 
 Each plugin method receives an instance of `CAPPluginCall` containing all the information of the plugin method invocation from the client.
 
 A client can send any data that can be JSON serialized, such as numbers, text, booleans, objects, and arrays. This data
-is accessible on the `options` field of the call instance, or by using convenience methods such as `getString` or `getObject`.
+is accessible on the `options` field of the call instance, or by using convenience methods such as `getString` or `getObject`. Passing and accessing some of these values has some peculiarities to be aware of, as discussed [separately](/docs/core-apis/data-types#ios).
 
 For example, here is how you'd get data passed to your method:
 
@@ -84,9 +77,9 @@ options using `guard`.
 
 ### Returning Data Back
 
-A plugin call can succeed or fail. For calls using promises (most common), succeeding corresponds to calling `resolve` on the Promise, and failure calling `reject`. For those using callbacks, a succeeding will call the success callback or the error callback if failing.
+A plugin call can either succeed or fail. Plugin calls borrow method names from JavaScript promises: call `resolve()` to indicate success (optionally returning data) and use `reject()` to indicate failure with an error message.
 
-The `resolve` method of `CAPPluginCall` takes a dictionary and supports JSON-serializable data types. Here's an example of returning data back to the client:
+The `resolve()` method of `CAPPluginCall` takes a dictionary and supports JSON-serializable data types. Here's an example of returning data back to the client:
 
 ```swift
 call.resolve([
@@ -97,103 +90,222 @@ call.resolve([
 ])
 ```
 
-To fail, or reject a call, call `call.reject`, passing an error string and (optionally) an `Error` instance and extra data back:
+To fail, or reject a call, call `reject()`, passing an error string and optionally an error code and `Error` instance:
 
 ```swift
-call.reject(error.localizedDescription, error, [
-  "item1": true
-])
+call.reject(error.localizedDescription, nil, error)
 ```
 
-### Adding Initialization Logic
+### Export to Capacitor
 
-Plugins can override the `load` method to run some code when the plugin is first initialized:
+To make sure Capacitor can see your plugin, you must do two things: export your Swift class to Objective-C, and register it
+using the provided Capacitor Objective-C Macros.
 
-```java
-@objc(MyPlugin)
-public class MyPlugin: CAPPlugin {
-  @objc override public func load() {
-    // Called when the plugin is first constructed in the bridge
-  }
+To export your Swift class to Objective-C, make sure to add `@objc(EchoPlugin)` above your Swift class, and add `@objc` before any plugin method, as shown above.
+
+To register your plugin with Capacitor, you'll need to create a new Objective-C file (with a `.m` extension, _not_ `.h`!) corresponding to your plugin (such as `EchoPlugin.m`) and use the Capacitor macros to register the plugin, and each method that you will use. Important: you _must_ use the New File dialog in Xcode to do this. You'll then be prompted by Xcode to create a Bridging Header, which you _must_ do.
+
+Finally, register the plugin by adding the required Capacitor plugin macros into your new `.m` file:
+
+```objectivec
+#import <Capacitor/Capacitor.h>
+
+CAP_PLUGIN(EchoPlugin, "EchoPlugin",
+  CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
+)
+```
+
+This makes `EchoPlugin`, and the `echo` method available to the Capacitor web runtime, indicating to Capacitor that the echo method will return a Promise.
+
+## Permissions
+
+If your plugin has functionality on iOS that requires permissions from the end user, then you will need to implement the permissions pattern.
+
+Before following this section, make sure you've set up your permission aliases and status interfaces. If you haven't, see the [Permissions section in the Web guide](/docs/plugins/web#permissions).
+
+### Implementing Permissions
+
+Add the `checkPermissions()` and `requestPermissions()` methods to your Swift plugin class.
+
+```diff-swift
+ import Capacitor
+
+ @objc(MyPlugin)
+ public class MyPlugin: CAPPlugin {
+     ...
+
++    @objc override public func checkPermissions(_ call: CAPPluginCall) {
++        // TODO
++    }
+
++    @objc override public func requestPermissions(_ call: CAPPluginCall) {
++        // TODO
++    }
+ }
+```
+
+#### `checkPermissions()`
+
+This method should return the current status of permissions in your plugin, which should be a dictionary that matches the structure of the [permission status definition](/docs/plugins/web#permission-status-definitions) you defined. Typically, this information is available directly on the frameworks you're using.
+
+In the example below, we map the current authorization status from location services into a permission state and associate the `location` alias with that state.
+
+```swift
+@objc override func checkPermissions(_ call: CAPPluginCall) {
+    let locationState: String
+
+    switch CLLocationManager.authorizationStatus() {
+    case .notDetermined:
+        locationState = "prompt"
+    case .restricted, .denied:
+        locationState = "denied"
+    case .authorizedAlways, .authorizedWhenInUse:
+        locationState = "granted"
+    @unknown default:
+        locationState = "prompt"
+    }
+
+    call.resolve(["location": locationState])
 }
 ```
 
-### Presenting Native Screens
+#### `requestPermissions()`
 
-To present a Native Screen over the Capacitor screen we need to acces the Capacitor's View Controller.
-To access the Capacitor's View Controller, we have to use the `CAPBridge` object available on `CAPPlugin` class.
+**Block-based APIs**
 
-We can use the `UIViewController` to present Native View Controllers over it like this:
+If the framework supports a block-based API for requesting permission, it's possible to complete the operation within the single method.
+
+In the example below, we request video access from `AVCaptureDevice` and then use our own `checkPermissions` method to check the current status of permissions and then fulfill the call.
 
 ```swift
-DispatchQueue.main.async {
-  self.bridge.viewController.present(ourCustomViewController, animated: true, completion: nil)
+@objc override func requestPermissions(_ call: CAPPluginCall) {
+    AVCaptureDevice.requestAccess(for: .video) { [weak self] _ in
+        self?.checkPermissions(call)
+    }
 }
 ```
 
-Using `DispatchQueue.main.async` makes your view render from the main thread instead of a background thread. Removing this can cause unexpected results.
+**Delegate-based APIs**
 
-On iPad devices you can also present `UIPopovers`, to do so, we provide a helper function to show it centered.
-
-```swift
-self.setCenteredPopover(ourCustomViewController)
-self.bridge.viewController.present(ourCustomViewController, animated: true, completion: nil)
-```
-
-### Events
-
-Capacitor Plugins can emit App events and Plugin events
-
-#### App Events
-
-App Events are regular javascript events, like `window` or `document` events.
-
-Capacitor provides all this functions to fire events:
+If the framework uses a delegate (or callback) API, completing the operation means that the original call will need to be saved and then retrieved once the callback has been invoked.
 
 ```swift
+var permissionCallID: String?
+var locationManager: CLLocationManager?
 
-//If you want to provide the target
-self.bridge.triggerJSEvent(eventName: "myCustomEvent", target: "window")
+@objc override func requestPermissions(_ call: CAPPluginCall) {
+    if let manager = locationManager, CLLocationManager.locationServicesEnabled() {
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            bridge?.saveCall(call)
+            permissionCallID = call.callbackId
+            manager.requestWhenInUseAuthorization()
+        } else {
+            checkPermissions(call)
+        }
+    } else {
+        call.reject("Location services are disabled")
+    }
+}
 
-self.bridge.triggerJSEvent(eventName: "myCustomEvent", target: "document", data: "my custom data")
-
-// Window Events
-self.bridge.triggerWindowJSEvent(eventName: "myCustomEvent")
-
-self.bridge.triggerWindowJSEvent(eventName: "myCustomEvent", data: "my custom data")
-
-// Document events
-self.bridge.triggerDocumentJSEvent(eventName: "myCustomEvent")
-
-self.bridge.triggerDocumentJSEvent(eventName: "myCustomEvent", data: "my custom data")
+public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    if let callID = permissionCallID, let call = bridge?.getSavedCall(callID) {
+        checkPermissions(call)
+        bridge?.releaseCall(call)
+    }
+}
 ```
 
-And to listen for it, just use regular javascript:
+**Multiple Permissions**
 
-```typescript
-window.addEventListener('myCustomEvent', function () {
-  console.log('myCustomEvent was fired');
-});
+When several types of permissions are required, a [DispatchGroup](https://developer.apple.com/documentation/dispatch/dispatchgroup) is a convenient way to synchronize the multiple calls.
+
+```swift
+let store = CNContactStore()
+
+@objc override func requestPermissions(_ call: CAPPluginCall) {
+    // get the permissions to check or default to all of them
+    var permissions = call.getArray("types", String.self) ?? []
+    if permissions.isEmpty {
+        permissions = ["contacts", "camera"]
+    }
+
+    let group = DispatchGroup()
+    if permissions.contains("contacts") {
+        group.enter()
+        store.requestAccess(for: .contacts) { (_, _) in
+            group.leave()
+        }
+    }
+    if permissions.contains("camera") {
+        group.enter()
+        AVCaptureDevice.requestAccess(for: .video) { _ in
+            group.leave()
+        }
+    }
+    group.notify(queue: DispatchQueue.main) {
+        self.checkPermissions(call)
+    }
+}
 ```
 
-#### Plugin Events
+### Persisting a Plugin Call
 
-Plugins can emit their own events that you can listen by attaching a listener to the plugin Object like this:
+In most cases, a plugin method will get invoked to perform a task and can finish immediately. But there are situations where you will need to keep the plugin call available so it can be accessed later. You might want to do this to periodically return data such as streaming live geolocation data, or to perform an asynchronous task.
+
+See [this guide on saving plugin calls](/docs/v3/core-apis/saving-calls) for more details on how to persist plugin calls.
+
+## Error Handling
+
+### Unavailable
+
+This error can be thrown to indicate that the functionality can't be used right now, usually because it requires a newer iOS version.
+
+```swift
+@objc override func methodThatUsesNewIOSFramework(_ call: CAPPluginCall) {
+    if #available(iOS 14, *) {
+        // TODO implementation
+    } else {
+        call.unavailable("Not available in iOS 13 or earlier.")
+    }
+}
+```
+
+> It is recommended to gracefully degrade the experience with older APIs as much as possible. Use `unavailable` sparingly.
+
+### Unimplemented
+
+Use this error to indicate that a method can't be implemented for iOS.
+
+```swift
+@objc override func methodThatRequiresAndroid(_ call: CAPPluginCall) {
+    call.unimplemented("Not implemented on iOS.")
+}
+```
+
+## Plugin Events
+
+Plugins can emit their own events that you can listen by attaching a listener to the plugin object like this:
 
 ```typescript
-Plugins.MyPlugin.addListener('myPluginEvent', (info: any) => {
+import { MyPlugin } from 'my-plugin';
+
+MyPlugin.addListener('myPluginEvent', (info: any) => {
   console.log('myPluginEvent was fired');
 });
 ```
 
-To emit the event from the Swift plugin class you can do it like this:
+To emit the event from the Swift plugin class:
 
-`self.notifyListeners("myPluginEvent", data: [:])`
+```swift
+self.notifyListeners("myPluginEvent", data: [:])
+```
 
 To remove a listener from the plugin object:
 
 ```typescript
-const myPluginEventListener = Plugins.MyPlugin.addListener(
+import { MyPlugin } from 'my-plugin';
+
+const myPluginEventListener = await MyPlugin.addListener(
   'myPluginEvent',
   (info: any) => {
     console.log('myPluginEvent was fired');
@@ -203,30 +315,15 @@ const myPluginEventListener = Plugins.MyPlugin.addListener(
 myPluginEventListener.remove();
 ```
 
-### Override navigation
+> It is also possible to trigger global events on `window`. See the docs for [`triggerJSEvent`](/docs/core-apis/ios#triggerjsevent).
+
+## Presenting Native Screens
+
+You can present native screens over the app by using [Capacitor's `UIViewController`](/docs/core-apis/ios#viewcontroller).
+
+## Override navigation
 
 Capacitor plugins can override the webview navigation. For that the plugin can override `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` method.
 Returning `true` causes the WebView to abort loading the URL.
 Returning `false` causes the WebView to continue loading the URL.
 Returning `nil` will defer to the default Capacitor policy.
-
-### Export to Capacitor
-
-To make sure Capacitor can see your plugin, you must do two things: export your Swift class to Objective-C, and register it
-using the provided Capacitor Objective-C Macros.
-
-To export your Swift class to Objective-C, make sure to add `@objc(MyPlugin)` above your Swift class, and add `@objc` before any plugin method, as shown above.
-
-To register your plugin with Capacitor, you'll need to create a new Objective-C file (with a `.m` extension, _not_ `.h`!) corresponding to your plugin (such as `MyPlugin.m`) and use the Capacitor macros to register the plugin, and each method that you will use. Important: you _must_ use the New File dialog in Xcode to do this. You'll then be prompted by Xcode to create a Bridging Header, which you _must_ do.
-
-Finally, register the plugin by adding the required Capacitor plugin macros into your new `.m` file:
-
-```objectivec
-#import <Capacitor/Capacitor.h>
-
-CAP_PLUGIN(MyPlugin, "MyPlugin",
-  CAP_PLUGIN_METHOD(echo, CAPPluginReturnPromise);
-)
-```
-
-This makes `MyPlugin`, and the `echo` method available to the Capacitor web runtime, indicating to Capacitor that the echo method will return a Promise.

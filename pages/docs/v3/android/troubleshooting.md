@@ -4,7 +4,6 @@ description: Android の問題のトラブルシューティング
 contributors:
   - mlynch
   - jcesarmobile
-canonicalUrl: https://capacitorjs.com/docs/android/troubleshooting
 ---
 
 # Android の問題のトラブルシューティング
@@ -24,6 +23,12 @@ Any time you encounter an issue with Android, or Gradle, or Emulators, your firs
 Capacitor uses the standard Android toolkit, so chances are if you run into something, many Android developers have as well, and there's a solution out there.
 
 It could be as simple as updating a dependency, running Gradle sync, or invalidating caches.
+
+### Gradle Sync
+
+If you have installed a new Plugin from npm and are unable to use or see the plugins in your Android build, try using the "Sync Project with Gradle Files" button in the top right of Android Studio (the icon looks like an elephant). This will re-sync your native Android code to include the new plugin code and should allow use of your new plugin. For more info, see [this issue on Github](https://github.com/ionic-team/capacitor/issues/4012).
+
+It can also help with many other seemingly random issues, so running "Sync Project with Gradle Files" is always a good first step when running into most Android build issues.
 
 ### Clean/Rebuild
 
@@ -52,12 +57,6 @@ npx jetify
 npx cap sync android
 ```
 
-## Error: "Unable to load native-bridge.js. Capacitor will not function!"
-
-This error occurs when Capacitor's `native-bridge.js` file was not copied to the native project.
-
-The fix is simple: run `npx cap copy android` to copy this file.
-
 ## Error: "Please select Android SDK"
 
 This error is often due to Gradle needing to be synced, something you'll need to do
@@ -84,7 +83,7 @@ Capacitor lets you manage your own Android project. Like any IDE-backed project,
 To do this, follow these steps:
 
 1. Copy any source code you created (such as Java files in `app/android/src`, manifest files, or resource files) into a safe location outside of `app/android`.
-2. Next, make sure you are running an updated version of the Capacitor CLI: `npm install @capacitor/cli@2`
+2. Next, make sure you are running an updated version of the Capacitor CLI: `npm install @capacitor/cli@latest`
 3. Remove the android directory: `rm -rf android/`
 4. Re-create the Android app from Capacitor: `npx cap add android`
 5. Copy your saved source files back into the project

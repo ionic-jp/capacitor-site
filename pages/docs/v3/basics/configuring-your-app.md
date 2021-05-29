@@ -4,13 +4,11 @@ description: ネイティブプロジェクトの設定
 contributors:
   - jcesarmobile
   - dotNetkow
-canonicalUrl: https://capacitorjs.com/docs/basics/configuring-your-app
 ---
 
 # アプリの設定
 
-Capacitor は「一度だけコードを記述し、あらゆる場所で利用」という考え方を取り入れています。
-Cordova の `config.xml` のように抽象化されたシステムではなく、プラットフォームごとに管理されます。
+Much of Capacitor is configured per-platform instead of in an abstracted system like Cordova's `config.xml`. This means that you will make most configuration changes in the native project using native tooling.
 
 ## プラットフォームごとの管理
 

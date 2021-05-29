@@ -4,7 +4,6 @@ description: Implement deep linking functionality in an iOS and Android app
 contributors:
   - dotNetkow
   - jaydrogers
-canonicalUrl: https://capacitorjs.com/docs/guides/deep-links
 ---
 
 # Deep Linking with Universal and App Links
@@ -239,9 +238,7 @@ Android configuration involves creating a site association file and configuring 
 
 The Site Association file requires the SHA256 fingerprint of your Android certificate.
 
-If you have enabled automatic signing in the Google Play Store, you can get your SHA256 certificate by going to https://play.google.com/console, selecting your app, Setup, App Signing, and copying your SHA256 app signing certificate thumbprint.
-
-If you have not signed your app or enabled automatic signing and do not already have a certificate, you can create a new certificate:
+If you don’t have one, create a certificate:
 
 ```shell
 keytool -genkey -v -keystore KEY-NAME.keystore -alias ALIAS -keyalg RSA -keysize 2048 -validity 10000

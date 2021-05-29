@@ -3,7 +3,6 @@ title: App Storeにデプロイ
 description: あなたのCapacitorアプリをApp Storeにデプロイする方法
 contributors:
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/ios/deploying-to-app-store
 ---
 
 # あなたの Capacitor アプリを App Store にデプロイ

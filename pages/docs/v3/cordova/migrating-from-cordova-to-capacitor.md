@@ -3,44 +3,36 @@ title: CordovaからCapacitorへのマイグレーション
 description: CordovaからCapacitorへのマイグレーション
 contributors:
   - dotNetkow
-canonicalUrl: https://capacitorjs.com/docs/cordova/migrating-from-cordova-to-capacitor
 ---
 
 # Web アプリの Cordova から Capacitor へのマイグレーション
 
 Cordova を使用して Web アプリケーションを完全に Capacitor に移行するには、いくつかの手順が必要です。
 
-> Note これらの変更を適用する場合は、別のコードブランチで作業することをお勧めします。
+> It's recommended to work in a separate code branch when applying these changes.
 
 ## Capacitor を追加する
 
-まず、プロジェクトをターミナルで開き、[Web アプリ](/docs/getting-started) か [Ionic アプリ](/docs/getting-started/with-ionic) の方法で Capacitor を追加します。
+Begin by opening your project in the terminal, then either follow the guides for [adding Capacitor to a web app](/docs/getting-started#adding-capacitor-to-your-app) or [adding Capacitor to an Ionic app](/docs/getting-started/with-ionic#existing-ionic-project).
 
-次に、`config.xml`を開いて、widget エレメントにある`id`を見つけます。例えば、 `io.ionic.myapp` です。
+Initialize your app with Capacitor. Some of the information you will be prompted for is available in the Cordova `config.xml` file:
 
-```xml
-<widget id="io.ionic.myapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-```
-
-またあなたのアプリの `Name` を見つけます:
-
-```xml
-<name>MyApp</name>
-```
-
-Capacitor のインストールの時に、あなたのアプリの情報を入力します:
+- The app name can be found within the `<name>` element.
+- The Bundle ID can be found in the `id` attribute of the root `<widget>` element.
 
 ```bash
-npx cap init [appName] [appId]
+npx cap init
 ```
 
-例えば、これは `npx cap init MyApp io.ionic.myapp` のようになります。これらの値は新しく作成される `capacitor.config.json` に反映されます。
+### Build your Web App
 
-### アプリをビルドする
+You must build your web project at least once before adding any native platforms.
 
-Native プラットフォームを追加する前に、Web プロジェクトを少なくとも 1 回構築する必要があります。
+```bash
+npm run build
+```
 
-これにより、Capacitor が、`capacitor.config.json`の`webDir`において使用するように[自動的に設定された](/docs/basics/configuring-your-app/)www フォルダーが実際に存在するようになります。
+This ensures that the `www` folder that Capacitor has been [automatically configured](/docs/basics/configuring-your-app) to use as the `webDir` in the Capacitor configuration file.
 
 ### Platforms の追加
 
@@ -51,7 +43,7 @@ npx cap add ios
 npx cap add android
 ```
 
-プロジェクトのルートにある android フォルダと ios フォルダの両方が作成されます。これらは完全に独立した Native プロジェクトの成果物であり、アプリの一部と見なす必要があります（つまり、それらをソース管理にチェックインしたり、独自の IDE で編集したりするなど）。さらに、以前に `npm install`（` package.json`の `dependencies`の下にあります）でプロジェクトに追加された Cordova プラグインは、Capacitor によってそれぞれの新しい Native プロジェクトに自動的にインストールされます（[incompatible ones](/docs/cordova/known-incompatible-plugins)は除きます）：
+Both android and ios folders at the root of the project are created. These are entirely separate native project artifacts that should be considered part of your app (i.e., check them into source control, edit them in their own IDEs, etc.). Additionally, any Cordova plugins found under `dependencies` in `package.json` are automatically installed by Capacitor into each new native project (minus any [incompatible ones](/docs/plugins/cordova#known-incompatible-plugins)):
 
 ```json
 "dependencies": {
@@ -72,14 +64,14 @@ npx cap add android
 まず、 `cordova-res` をインストールください:
 
 ```bash
-$ npm install -g cordova-res
+npm install -g cordova-res
 ```
 
 次に次のコマンドで画像を生成して Native プロジェクトにコピーしてください:
 
 ```bash
-$ cordova-res ios --skip-config --copy
-$ cordova-res android --skip-config --copy
+cordova-res ios --skip-config --copy
+cordova-res android --skip-config --copy
 ```
 
 [詳細はこちらをご覧ください](https://github.com/ionic-team/cordova-res#capacitor).
@@ -100,7 +92,7 @@ Cordova プラグインを Capacitor プラグインに置き換えたあと(も
 
 ```bash
 npm uninstall cordova-plugin-name
-npx cap sync [android | ios]
+npx cap sync
 ```
 
 ## Permissions の設定
@@ -122,18 +114,7 @@ When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` 
 }
 ```
 
-```ts
-const config: CapacitorConfig = {
-  cordova: {
-    preferences: {
-      DisableDeploy: 'false',
-      CameraUsesGeolocation: 'true',
-    },
-  },
-};
-```
-
-## Additional Config.xml Fields
+## Additional Fields from `config.xml`
 
 あなたは `config.xml` の他の要素が Capacitor アプリではどのように動作するか気になるかもしれません。
 
@@ -182,4 +163,4 @@ Cordova で Ionic を使用すると、アプリはデフォルトで `cordova-p
 
 ## 次のステップ
 
-これは、Capacitor の旅の始まりにすぎません。より学ぶには、Capacitor プロジェクトでの [using Cordova plugins](/docs/cordova/using-cordova-plugins)か、より詳しくは [development workflow](/docs/basics/workflow) をご覧ください。
+This is just the beginning of your Capacitor journey. Learn more about [using Cordova plugins](/docs/plugins/cordova) in a Capacitor project or more details on the Capacitor [development workflow](/docs/basics/workflow).

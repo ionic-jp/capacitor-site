@@ -3,7 +3,6 @@ title: Capacitor用 React Hooks
 description: これらのReact Hooksを使用して、Capacitorを使用したネイティブモバイルAPIアクセスを簡単にします
 contributors:
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/guides/react-hooks
 ---
 
 # Capacitor 用 React Hooks

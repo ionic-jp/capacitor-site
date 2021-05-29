@@ -3,7 +3,6 @@ title: CI/CD for Capacitor Apps
 description: Adding Mobile CI/CD to your Capacitor App development process
 contributors:
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/guides/ci-cd
 ---
 
 # CI/CD for Capacitor Apps

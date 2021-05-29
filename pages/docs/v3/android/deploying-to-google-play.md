@@ -3,7 +3,6 @@ title: Google Play Storeへのデプロイ
 description: あなたのCapacitorアプリのGoogle Play Storeへのデプロイの方法
 contributors:
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/android/deploying-to-google-play
 ---
 
 # あなたの Capacitor アプリの Google Play Store へのデプロイ

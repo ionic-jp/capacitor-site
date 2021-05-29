@@ -4,7 +4,6 @@ description: iOSトラブルシューティングガイド
 contributors:
   - dotNetkow
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/ios/troubleshooting
 ---
 
 # iOS トラブルシューティングガイド
@@ -44,14 +43,6 @@ Next, select all items in that directory and delete:
 ![Deleting Derived Data](/assets/img/docs/ios/deleting-derived-data.png)
 
 Finally, do a rebuild in Xcode.
-
-## Error: Unable to export required Bridge JavaScript
-
-![Can't export](/assets/img/docs/ios/export-bridge.png)
-
-This error occurs when Capacitor's `native-bridge.js` file was not copied to the native project.
-
-The fix is simple: run `npx cap copy ios` to copy this file.
 
 ## Error: Sandbox not in sync with the Podfile.lock
 

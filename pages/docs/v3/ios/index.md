@@ -4,60 +4,77 @@ description: JavaScriptとNativeSwift（もしくはObjective-C）コードの�
 contributors:
   - dotNetkow
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/ios
 ---
 
 # Capacitor iOS ドキュメンテーション
 
 Capacitor は Native の iOS ブリッジを特徴としており、開発者は JavaScript と Native Swift または Objective-C コードとの間で通信できます。
 
-Capacitor iOS アプリは、Xcode を通じて設定、管理し、CocoaPods が依存関係を管理します。
+Capacitor iOS apps are configured and managed with Xcode and [CocoaPods](https://cocoapods.org/).
 
-## Getting Started
+## iOS Support
 
-iOS アプリを構築するには、Xcode11 や Xcode コマンドラインツールなど、いくつかの iOS 開発依存関係をインストールする必要があります。
+iOS 12+ is supported. Xcode 12+ is required (see [Environment Setup](/docs/getting-started/environment-setup#ios-development)). Capacitor uses [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), not the deprecated [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
 
-> Note: Ionic Appflow の [Package feature](https://ionicframework.com/docs/appflow/package/intro) サービスを利用するなど、Mac を使わずに iOS アプリを開発、ビルドすることも可能です。詳細については、選択したサービスを参照してください。
+## Adding the iOS Platform
 
-### iOS アプリの作成
+First, install the `@capacitor/ios` package.
 
-デフォルトでは、すべての Capacitor プロジェクトに対して iOS プロジェクトが作成されます。
-既存のプロジェクトに Capacitor を追加する場合は、次を使用して iOS プロジェクトを手動で追加できます。
+```bash
+npm install @capacitor/ios
+```
+
+Then, add the iOS platform.
 
 ```bash
 npx cap add ios
-npx cap sync
 ```
 
-`sync` コマンドは依存関係を更新し、Web アセットをプロジェクトにコピーします。このように実行することもできます:
+## Opening the iOS Project
 
-```bash
-npx cap copy
-```
-
-Web アセットのみをコピーするだけで、Native の依存関係を更新する必要がないことがわかっている場合にこのコマンドを使えば高速になります。
-
-### iOS プロジェクトを開く
-
-プロジェクトを Xcode で開く時、実行してください。
+To open the project in Xcode, run:
 
 ```bash
 npx cap open ios
 ```
 
-### アプリの実行
+Alternatively, you can open Xcode manually by running:
 
-Xcode を開いたら、 Play ボタンをクリックして、シミュレータ、またはデバイス上でアプリを実行します。
+```bash
+open ios/App/App.xcworkspace
+```
+
+## Running Your App
+
+You can either run your app on the command-line or with Xcode.
+
+### Running on the Command-Line
+
+To run the project on a device or simulator, run:
+
+```bash
+npx cap run ios
+```
+
+The command will prompt you to select a target. [Learn more about `run`](/docs/cli/run).
+
+### Running in Xcode
+
+In Xcode, first select the device or simulator and then click the play button to run your app.
 
 ![Running your app](/assets/img/docs/ios/running.png)
 
-## 次のステップ
+## Troubleshooting
 
-アプリケーションが動作したら、アプリケーションの開発と構築を続ける準備ができています。使用可能なさまざまな API、Capacitor プラグイン、Cordova プラグイン、またはカスタム Native コードを使用して、残りのアプリケーションを構築します。
+If you encountered any issues while getting started, you can consult the [iOS Troubleshooting Guide](/docs/ios/troubleshooting). Feel free to [open a discussion](https://github.com/ionic-team/capacitor/discussions/) if you need help.
+
+## Next steps
+
+You are now ready to continue developing and building your app. Use the various APIs available, Capacitor or Cordova plugins, or custom native code to build out the rest of your app.
 
 ## Further Reading
 
-各トピックの詳細は、次のガイドを参照してください:
+Follow these guides for more information on each topic:
 
 [Configuring and setting permissions for iOS &#8250;](/docs/ios/configuration)
 

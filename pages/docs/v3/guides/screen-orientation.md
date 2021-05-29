@@ -3,7 +3,6 @@ title: Screen Orientation Configuration
 description: Manage screen orientation settings in your Capacitor app
 contributors:
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/guides/screen-orientation
 ---
 
 ## Screen Orientation in your Capacitor App

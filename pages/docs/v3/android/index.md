@@ -4,71 +4,75 @@ description: Capacitor Android ドキュメンテーション
 contributors:
   - mlynch
   - jcesarmobile
-canonicalUrl: https://capacitorjs.com/docs/android
 ---
 
 # Capacitor Android ドキュメンテーション
 
 Capacitor は Native の Android ランタイムを特徴としており、開発者は JavaScript と Native Java for Android コード間で通信することができます。
 
-Capacitor の Android アプリは(一般的に)Android Studio を通じて設定、管理されます。各トピックの詳細は、次のガイドを参照してください:
+Capacitor Android apps are configured and managed through Android Studio.
 
-## はじめ方
+## Android Support
 
-Android アプリケーションを開発するには、Android SDK の依存関係をインストールする必要があります。Android SDK Tools(26.0 .1 以上が必要です)と、Android SDK Platforms for API21 以降が
-インストールされていることを確認してください。
+API 21+ (Android 5 or later) is supported, which represents [over 95% of the Android market](https://gs.statcounter.com/android-version-market-share/mobile-tablet/worldwide). Capacitor requires an Android WebView with Chrome version 60 or later. On Android 5 and 6, Capacitor uses the [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview). On Android 7+, [Google Chrome](https://play.google.com/store/apps/details?id=com.android.chrome) is used.
 
-これらを簡単にインストールするには、Android Studio を開き、トップメニューバーから Tools->Android->SDK Manager の順に選択します:
+## Adding the Android Platform
 
-![SDK Platforms](/assets/img/docs/android/sdk-platforms.png)
-![SDK Tools](/assets/img/docs/android/sdk-tools.png)
+First, install the `@capacitor/android` package.
 
-### Android プロジェクトの作成
+```bash
+npm install @capacitor/android
+```
 
-デフォルトでは、Capacitor プロジェクトごとに Android プロジェクトが作成されます。
-既存のプロジェクトに Capacitor を追加する場合は、次のコマンドを使用して Android プロジェクトを手動で追加できます。
+Then, add the Android platform.
 
 ```bash
 npx cap add android
-npx cap sync
 ```
 
-`sync` コマンドは依存関係を更新し、Web アセットをプロジェクトにコピーします。このように実行することもできます:
+## Opening the Android Project
 
-```bash
-npx cap copy
-```
-
-Web アセットのみをコピーするだけで、Native の依存関係を更新する必要がないことがわかっている場合にこのコマンドを使えば高速になります。
-
-### Android プロジェクトを開く
-
-プロジェクトを Android Studio で開く時、実行してください。
+To open the project in Android Studio, run:
 
 ```bash
 npx cap open android
 ```
 
-### アプリの実行
+Alternatively, you can open Android Studio and import the `android/` directory as an Android Studio project.
 
-> **Note:** 現在、Android エミュレータを使用するには、API24 上で少なくとも Android バージョン 7.0 のシステムイメージを使用する必要があります。これは、System WebView バージョンがエミュレータ上で更新できないためです。System WebView がアップデートされていれば、物理デバイスは Android 5.0(API21)程度で動作するはずです。
+## Running Your App
 
-Android Studio を開くと、デバイスまたはエミュレータ上でアプリを実行できるようになるはずです。「Run」 または 「Debug」 をクリックします:
+You can either run your app on the command-line or with Android Studio.
+
+> To use an Android Emulator you must use an API 24+ system image. The System WebView does not automatically update on emulators. Physical devices should work as low as API 21 as long as their System WebView is updated.
+
+### Running on the Command-Line
+
+To run the project on a device or emulator, run:
+
+```bash
+npx cap run android
+```
+
+The command will prompt you to select a target. [Learn more about `run`](/docs/cli/run).
+
+### Running with Android Studio
+
+In Android Studio, first select the device or emulator and then click the run or debug button to run your app. Unless you're debugging Java or Kotlin code, the run button is preferred.
 
 ![Running App](/assets/img/docs/android/running.png)
 
-### トラブルシューティング
+## Troubleshooting
 
-上記の問題が発生した場合は、レポジトリで問題を報告し、[Troubleshooting Android](/docs/android/troubleshooting) ページで、Android の一般的な問題の解決方法をご確認ください。
+If you encountered any issues while getting started, you can consult the [Android Troubleshooting Guide](/docs/android/troubleshooting). Feel free to [open a discussion](https://github.com/ionic-team/capacitor/discussions/) if you need help.
 
-### 次のステップ
+## Next Steps
 
-アプリケーションが動作したら、アプリケーションの開発と構築を続ける準備ができています。使用可能なさまざまな API、Capacitor プラグイン、Cordova プラグイン、またはカスタム Native コードを使用して、残りのアプリケーションを構築します。
+If your app ran you are now ready to continue developing and building your app. Use the various APIs available, Capacitor or Cordova plugins, or custom native code to build out the rest of your app.
 
-## 詳細情報
+## Further Reading
 
-アプリのパーミッション設定、依存関係の更新、ビルドの詳細、プラグインなどについては、
-以下の Android 専用ガイドを参照してください:
+Follow these Android-specific guides for more information on setting permissions for your app, updating dependencies, building plugins, and more:
 
 [Configuring and setting permissions for Android &#8250;](/docs/android/configuration)
 

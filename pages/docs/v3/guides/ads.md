@@ -3,7 +3,6 @@ title: Capacitorアプリでの広告
 description: あなたのCapacitorアプリに広告を表示しよう
 contributors:
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/guides/ads
 ---
 
 # Capacitor アプリに広告を表示

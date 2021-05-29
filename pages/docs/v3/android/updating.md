@@ -15,7 +15,7 @@ Occasionally, you'll need to make Capacitor updates to your Android app, includi
 To update the version of @capacitor/android used in your app, just npm install latest version:
 
 ```bash
-npm install @capacitor/android@2
+npm install @capacitor/android@latest
 ```
 
 Then from Android Studio click the "Sync Project with Gradle Files" button.
@@ -49,11 +49,11 @@ Mandatory change:
   If using Cordova or Capacitor plugins that don't use Android X yet, you can use [jetifier](https://www.npmjs.com/package/jetifier) tool to patch them.
 
 ```bash
-npm install -D jetifier
+npm install jetifier
 npx jetifier
 ```
 
-To run it automatically after every package install, add `"postinstall": "jetifier"` in the `package.json` under "scripts".
+To run it automatically after every package install, add `"postinstall": "jetifier"` in the `package.json`.
 
 Recommended changes:
 

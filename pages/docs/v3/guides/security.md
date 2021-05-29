@@ -3,7 +3,6 @@ title: Security
 description: Security best practices for your Capacitor apps
 contributors:
   - mlynch
-canonicalUrl: https://capacitorjs.com/docs/guides/security
 ---
 
 # Security Best Practices for Capacitor

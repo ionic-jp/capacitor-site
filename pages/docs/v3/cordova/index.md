@@ -3,7 +3,6 @@ title: CordovaとPhoneGap
 description: CordovaとPhoneGap
 contributors:
   - dotNetkow
-canonicalUrl: https://capacitorjs.com/docs/cordova
 ---
 
 # Cordova と PhoneGap
@@ -53,6 +52,8 @@ Cordova とは異なり、Capacitor はグローバル CLI を使用せず、Cap
 
 したがって、 `capacitor` ディレクトリから直接コマンドラインを実行するのではなくく、アプリケーションのディレクトリで`npx cap`を呼び出すことによって Capacitor が呼び出されます。
 
-## マイグレーションをはじめる
+[Learn more about the Capacitor CLI &#8250;](/docs/cli)
 
-[migration process](/docs/cordova/migration-strategy) と [get started migrating](/docs/cordova/migrating-from-cordova-to-capacitor) で正しい方法を学んでください。
+## Start the Migration
+
+Learn more about the [migration process](/docs/cordova/migration-strategy) or [get started migrating](/docs/cordova/migrating-from-cordova-to-capacitor) right away.

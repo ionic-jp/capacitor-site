@@ -3,7 +3,6 @@ title: Community Guides
 description: Community Guides
 contributors:
   - dotNetkow
-canonicalUrl: https://capacitorjs.com/docs/guides/community
 ---
 
 # Community Guides

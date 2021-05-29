@@ -3,7 +3,6 @@ title: ライブリロード
 description: デバイスやシュミレーター上でWebとNative機能を簡単にライブリロードで検証する方法
 contributors:
   - dotNetkow
-canonicalUrl: https://capacitorjs.com/docs/guides/live-reload
 ---
 
 # ライブリロード

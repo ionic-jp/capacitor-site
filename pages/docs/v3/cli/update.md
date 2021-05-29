@@ -3,7 +3,6 @@ title: CLI Command - cap update
 description: Capacitor - cap update
 contributors:
   - dotNetkow
-canonicalUrl: https://capacitorjs.com/docs/cli/update
 ---
 
 # Capacitor CLI - cap update
@@ -11,7 +10,7 @@ canonicalUrl: https://capacitorjs.com/docs/cli/update
 Native プラグインと依存関係を `package.json` を参照してアップデートします。
 
 ```bash
-npx cap update
+npx cap update [<platform>]
 ```
 
 <strong>Inputs:</strong>
