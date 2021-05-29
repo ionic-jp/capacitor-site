@@ -1,22 +1,22 @@
 ---
 title: Dialog Capacitor Plugin API
-description: The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts
+description: ダイアログAPIは、アラート、確認、および入力プロンプト用のネイティブダイアログウィンドウをトリガーするためのメソッドを提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/dialog/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/dialog/src/definitions.ts
 ---
 
 # @capacitor/dialog
 
-The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts
+ダイアログAPIは、アラート、確認、および入力プロンプト用のネイティブダイアログウィンドウをトリガーするためのメソッドを提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/dialog
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { Dialog } from '@capacitor/dialog';

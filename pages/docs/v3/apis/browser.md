@@ -1,17 +1,17 @@
 ---
 title: Browser Capacitor Plugin API
-description: The Browser API provides the ability to open an in-app browser and subscribe to browser events.
+description: ブラウザAPI は、アプリ内のブラウザを開き、ブラウザのイベントをsubscribeする機能を提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/browser/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/browser/src/definitions.ts
 ---
 
 # @capacitor/browser
 
-The Browser API provides the ability to open an in-app browser and subscribe to browser events.
+ブラウザAPI は、アプリ内のブラウザを開き、ブラウザのイベントをsubscribeする機能を提供します。
 
-On iOS, this uses `SFSafariViewController` and is compliant with leading OAuth service in-app-browser requirements.
+iOSでは、`SFSafariViewController`を使用しており、主要なOAuthサービスのアプリ内ブラウザの要件に準拠しています。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/browser
@@ -26,7 +26,7 @@ This plugin will use the following project variables (defined in your app's `var
 
 - `$androidxBrowserVersion`: version of `androidx.browser:browser` (default: `1.3.0`)
 
-## Example
+## 例
 
 ```typescript
 import { Browser } from '@capacitor/browser';

@@ -1,22 +1,22 @@
 ---
 title: Splash Screen Capacitor Plugin API
-description: The Splash Screen API provides methods for showing or hiding a Splash image.
+description: スプラッシュスクリーンAPIでは、Splash画像の表示/非表示を切り替えることができます
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/splash-screen/src/definitions.ts
 ---
 
 # @capacitor/splash-screen
 
-The Splash Screen API provides methods for showing or hiding a Splash image.
+スプラッシュスクリーンAPIでは、Splash画像の表示/非表示を切り替えることができます。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/splash-screen
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { SplashScreen } from '@capacitor/splash-screen';
@@ -92,7 +92,7 @@ These config values are available:
 | **`splashFullScreen`**          | <code>boolean</code>                                                                                                          | Hide the status bar on the Splash Screen. Only available on Android.                                                                                                    |                     | 1.0.0 |
 | **`splashImmersive`**           | <code>boolean</code>                                                                                                          | Hide the status bar and the software navigation buttons on the Splash Screen. Only available on Android.                                                                |                     | 1.0.0 |
 
-### Examples
+### 例s
 
 In `capacitor.config.json`:
 
@@ -156,7 +156,7 @@ To use splash screen images named something other than `splash.png`, set `androi
 </style>
 ```
 
-## Example Guides
+## 例 Guides
 
 [Adding Your Own Icons and Splash Screen Images &#8250;](https://www.joshmorony.com/adding-icons-splash-screens-launch-images-to-capacitor-projects/)
 

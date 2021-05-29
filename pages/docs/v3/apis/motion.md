@@ -1,15 +1,15 @@
 ---
 title: Motion Capacitor Plugin API
-description: The Motion API tracks accelerometer and device orientation (compass heading, etc.)
+description: モーションAPIは、加速度計とデバイスの向き（コンパスの方位など）をトラッキングします
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/motion/src/definitions.ts
 ---
 
 # @capacitor/motion
 
-The Motion API tracks accelerometer and device orientation (compass heading, etc.)
+モーションAPIは、加速度計とデバイスの向き（コンパスの方位など）をトラッキングします。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/motion

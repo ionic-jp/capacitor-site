@@ -1,22 +1,22 @@
 ---
 title: App Launcher Capacitor Plugin API
-description: The AppLauncher API allows to open other apps
+description: アプリランチャーAPIは、他のアプリを開くことができます
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/app-launcher/src/definitions.ts
 ---
 
 # @capacitor/app-launcher
 
-The AppLauncher API allows to open other apps
+アプリランチャーAPIは、他のアプリを開くことができます。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/app-launcher
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { AppLauncher } from '@capacitor/app-launcher';

@@ -1,15 +1,15 @@
 ---
 title: Action Sheet Capacitor Plugin API
-description: The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
+description: アクションシートAPIは、ネイティブなアクションシートへのアクセスを提供します。アクションシートは、画面の下部に表示され、ユーザーが取ることのできるアクションを表示します。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/action-sheet/src/definitions.ts
 ---
 
 # @capacitor/action-sheet
 
-The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
+アクションシートAPIは、ネイティブなアクションシートへのアクセスを提供します。アクションシートは、画面の下部に表示され、ユーザーが取ることのできるアクションを表示します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/action-sheet
@@ -22,7 +22,7 @@ This plugin will use the following project variables (defined in your app's `var
 
 - `$androidxMaterialVersion`: version of `com.google.android.material:material` (default: `1.3.0`)
 
-## Example
+## 例
 
 ```typescript
 import { ActionSheet, ActionSheetOptionStyle } from '@capacitor/action-sheet';

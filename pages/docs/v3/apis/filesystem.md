@@ -1,15 +1,15 @@
 ---
 title: Filesystem Capacitor Plugin API
-description: The Filesystem API provides a NodeJS-like API for working with files on the device.
+description: ファイルシステムAPIは、デバイス上のファイルを操作するためのNodeJSライクなAPIを提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/filesystem/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/filesystem/src/definitions.ts
 ---
 
 # @capacitor/filesystem
 
-The Filesystem API provides a NodeJS-like API for working with files on the device.
+ファイルシステムAPIは、デバイス上のファイルを操作するためのNodeJSライクなAPIを提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/filesystem
@@ -22,7 +22,7 @@ iOS and Android have additional layers of separation between files, such as spec
 
 Additionally, the Filesystem API supports using full `file://` paths, or reading `content://` files on Android. Simply leave out the `directory` param to use a full file path.
 
-## Example
+## 例
 
 ```typescript
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';

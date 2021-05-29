@@ -7,38 +7,38 @@ contributors:
   - ehorodyski-ionic
 ---
 
-# Official Plugins
+# 公式プラグイン
 
-The Official Plugins are a set of Capacitor plugins maintained by the Capacitor team that provide access to commonly used native APIs.
+公式プラグインは、Capacitor チームによって維持されている Capacitor プラグインのセットであり、一般的に使用されるネイティブ API へのアクセスを提供します。
 
-The API documentation for these plugins can be found below.
+これらのプラグインの API ドキュメントは、以下の通りです。
 
-## List of Official Plugins
+## 公式プラグインリスト
 
-- [Action Sheet](/docs/apis/action-sheet)
-- [App](/docs/apis/app)
-- [App Launcher](/docs/apis/app-launcher)
-- [Browser](/docs/apis/browser)
-- [Camera](/docs/apis/camera)
-- [Clipboard](/docs/apis/clipboard)
-- [Device](/docs/apis/device)
-- [Dialog](/docs/apis/dialog)
-- [Filesystem](/docs/apis/filesystem)
-- [Geolocation](/docs/apis/geolocation)
+- [アクションシート](/docs/apis/action-sheet)
+- [アプリ](/docs/apis/app)
+- [アプリランチャー](/docs/apis/app-launcher)
+- [ブラウザ](/docs/apis/browser)
+- [カメラ](/docs/apis/camera)
+- [クリップボード](/docs/apis/clipboard)
+- [デバイス](/docs/apis/device)
+- [ダイアログ](/docs/apis/dialog)
+- [ファイルシステム](/docs/apis/filesystem)
+- [ジオロケーション](/docs/apis/geolocation)
 - [Haptics](/docs/apis/haptics)
-- [Keyboard](/docs/apis/keyboard)
-- [Local Notifications](/docs/apis/local-notifications)
-- [Motion](/docs/apis/motion)
-- [Network](/docs/apis/network)
-- [Push Notifications](/docs/apis/push-notifications)
-- [Screen Reader](/docs/apis/screen-reader)
-- [Share](/docs/apis/share)
-- [Splash Screen](/docs/apis/splash-screen)
-- [Status Bar](/docs/apis/status-bar)
-- [Storage](/docs/apis/storage)
-- [Text Zoom](/docs/apis/text-zoom)
-- [Toast](/docs/apis/toast)
+- [キーボード](/docs/apis/keyboard)
+- [ローカル通知](/docs/apis/local-notifications)
+- [モーション](/docs/apis/motion)
+- [ネットワーク](/docs/apis/network)
+- [プッシュ通知](/docs/apis/push-notifications)
+- [スクリーンリーダー](/docs/apis/screen-reader)
+- [シェア](/docs/apis/share)
+- [スプラッシュスクリーン](/docs/apis/splash-screen)
+- [ステータスバー](/docs/apis/status-bar)
+- [ストレージ](/docs/apis/storage)
+- [テキストズーム](/docs/apis/text-zoom)
+- [トースト](/docs/apis/toast)
 
 ## GitHub
 
-You can find the source for these plugins [on GitHub](https://github.com/ionic-team/capacitor-plugins).
+これらのプラグインのソースコードを [GitHub](https://github.com/ionic-team/capacitor-plugins) でみることができます。

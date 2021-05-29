@@ -1,22 +1,22 @@
 ---
 title: Haptics Capacitor Plugin API
-description: The Haptics API provides physical feedback to the user through touch or vibration.
+description: Haptics APIは、タッチや振動による物理的なフィードバックをユーザーに提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/haptics/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/haptics/src/definitions.ts
 ---
 
 # @capacitor/haptics
 
-The Haptics API provides physical feedback to the user through touch or vibration.
+Haptics APIは、タッチや振動による物理的なフィードバックをユーザーに提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/haptics
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { Haptics, ImpactStyle } from '@capacitor/haptics';

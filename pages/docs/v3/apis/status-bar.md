@@ -1,15 +1,15 @@
 ---
 title: Status Bar Capacitor Plugin API
-description: The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
+description: ステータスバーAPI ステータスバーのスタイルや表示・非表示を設定するメソッドを提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/status-bar/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/status-bar/src/definitions.ts
 ---
 
 # @capacitor/status-bar
 
-The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
+ステータスバーAPI ステータスバーのスタイルや表示・非表示を設定するメソッドを提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/status-bar
@@ -30,7 +30,7 @@ The status bar visibility defaults to visible and the style defaults to
 `setBackgroundColor` and `setOverlaysWebView` are currently not supported on
 iOS devices.
 
-## Example
+## 例
 
 ```typescript
 import { StatusBar, Style } from '@capacitor/status-bar';

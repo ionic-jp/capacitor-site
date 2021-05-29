@@ -1,13 +1,13 @@
 ---
 title: Storage Capacitor Plugin API
-description: The Storage API provides a simple key/value persistent store for lightweight data.
+description: ストレージAPIは、軽量なデータのためのシンプルなキー/値の永続的なストアを提供します。
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/storage/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/storage/src/definitions.ts
 ---
 
 # @capacitor/storage
 
-The Storage API provides a simple key/value persistent store for lightweight data.
+ストレージAPIは、軽量なデータのためのシンプルなキー/値の永続的なストアを提供します。
 
 Mobile OS's may periodically clear data set in `window.localStorage`, so this
 API should be used instead. This API will fall back to using `localStorage`
@@ -24,14 +24,14 @@ stores a lot of data, has high read/write load, or requires complex querying,
 take a look at
 [`@capacitor-community/sqlite`](https://github.com/capacitor-community/sqlite).
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/storage
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { Storage } from '@capacitor/storage';

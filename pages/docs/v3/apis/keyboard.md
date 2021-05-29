@@ -1,22 +1,22 @@
 ---
 title: Keyboard Capacitor Plugin API
-description: The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+description: キーボードAPIは、キーボードの表示・非表示の制御、およびキーボードの表示・非表示時のイベントトラッキングを行います
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/keyboard/src/definitions.ts
 ---
 
 # @capacitor/keyboard
 
-The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
+キーボードAPIは、キーボードの表示・非表示の制御、およびキーボードの表示・非表示時のイベントトラッキングを行います。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/keyboard
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { Keyboard } from '@capacitor/keyboard';
@@ -50,7 +50,7 @@ On iOS, the keyboard can be configured with the following options:
 | **`resize`** | <code><a href="#keyboardresize">KeyboardResize</a></code> | Configure the way the app is resized when the Keyboard appears. Only available on iOS.                                                                                        | <code>native</code> | 1.0.0 |
 | **`style`**  | <code>'dark' \| 'light'</code>                            | Override the keyboard style if your app doesn't support dark/light theme changes. If not set, the keyboard style will depend on the device appearance. Only available on iOS. |                     | 1.0.0 |
 
-### Examples
+### 例s
 
 In `capacitor.config.json`:
 

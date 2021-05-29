@@ -1,22 +1,22 @@
 ---
 title: Network Capacitor Plugin API
-description: The Network API provides network and connectivity information.
+description: ネットワークAPIは、ネットワークと接続性に関する情報を提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/network/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/network/src/definitions.ts
 ---
 
 # @capacitor/network
 
-The Network API provides network and connectivity information.
+ネットワークAPIは、ネットワークと接続性に関する情報を提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/network
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { Network } from '@capacitor/network';

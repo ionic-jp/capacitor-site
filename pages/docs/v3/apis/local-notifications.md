@@ -1,15 +1,15 @@
 ---
 title: Local Notifications Capacitor Plugin API
-description: The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
+description: ローカル通知APIは、デバイスの通知をローカルにスケジューリングする方法を提供します（サーバーがプッシュ通知を送信しない場合）
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/local-notifications/src/definitions.ts
 ---
 
 # @capacitor/local-notifications
 
-The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
+ローカル通知APIは、デバイスの通知をローカルにスケジューリングする方法を提供します（サーバーがプッシュ通知を送信しない場合）。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/local-notifications
@@ -29,7 +29,7 @@ On Android, the Local Notifications can be configured with the following options
 | **`iconColor`** | <code>string</code> | Set the default color of status bar icons for notifications. Only available for Android.                                                                                                                                                             | 1.0.0 |
 | **`sound`**     | <code>string</code> | Set the default notification sound for notifications. On Android 26+ it sets the default channel sound and can't be changed unless the app is uninstalled. Only available for Android.                                                               | 1.0.0 |
 
-### Examples
+### 例s
 
 In `capacitor.config.json`:
 

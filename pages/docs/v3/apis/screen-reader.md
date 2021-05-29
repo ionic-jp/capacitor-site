@@ -1,22 +1,22 @@
 ---
 title: Screen Reader Capacitor Plugin API
-description: The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides simple text-to-speech capabilities for visual accessibility.
+description: スクリーンリーダーAPIは、TalkBack/VoiceOver/などへのアクセスを提供し、視覚的なアクセシビリティのための簡単なテキスト読み上げ機能を提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/screen-reader/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/screen-reader/src/definitions.ts
 ---
 
 # @capacitor/screen-reader
 
-The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides simple text-to-speech capabilities for visual accessibility.
+スクリーンリーダーAPIは、TalkBack/VoiceOver/などへのアクセスを提供し、視覚的なアクセシビリティのための簡単なテキスト読み上げ機能を提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/screen-reader
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { ScreenReader } from '@capacitor/screen-reader';

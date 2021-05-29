@@ -7,19 +7,19 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/share/src/
 
 # @capacitor/share
 
-The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
+Share APIは、ユーザーがインストールしている共有可能なアプリでコンテンツを共有するためのメソッドを提供します。
 
-The Share API works on iOS, Android, and the Web (using the new [Web Share
-API](https://web.dev/web-share/)), though web support is currently spotty.
+Share APIは、iOS、Android、およびWeb（新しい[Web Share API]()を使用）で動作します。API](https://web.dev/web-share/)で動作しますが、ウェブでのサポートは現時点では不十分です。
+Share APIは、ユーザーがインストールしている共有可能なアプリでコンテンツを共有するためのメソッドを提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/share
 npx cap sync
 ```
 
-## Example
+## 例
 
 ```typescript
 import { Share } from '@capacitor/share';

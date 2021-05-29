@@ -1,15 +1,15 @@
 ---
 title: Geolocation Capacitor Plugin API
-description: The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
+description: ジオロケーションAPIは、GPSを使用してデバイスの現在の位置を取得し、追跡するためのシンプルなメソッドを提供します。また、高度、方位、速度の情報も利用可能な場合は提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/geolocation/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/geolocation/src/definitions.ts
 ---
 
 # @capacitor/geolocation
 
-The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
+ジオロケーションAPIは、GPSを使用してデバイスの現在の位置を取得し、追跡するためのシンプルなメソッドを提供します。また、高度、方位、速度の情報も利用可能な場合は提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/geolocation
@@ -46,7 +46,7 @@ This plugin will use the following project variables (defined in your app's `var
 
 - `$playServicesLocationVersion` version of `com.google.android.gms:play-services-location` (default: `17.1.0`)
 
-## Example
+## 例
 
 ```typescript
 import { Geolocation } from '@capacitor/geolocation';

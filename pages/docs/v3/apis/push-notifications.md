@@ -1,15 +1,15 @@
 ---
 title: Push Notifications Capacitor Plugin API
-description: The Push Notifications API provides access to native push notifications.
+description: プッシュ通知APIは、ネイティブなプッシュ通知へのアクセスを提供します
 editUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/push-notifications/README.md
 editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/push-notifications/src/definitions.ts
 ---
 
 # @capacitor/push-notifications
 
-The Push Notifications API provides access to native push notifications.
+プッシュ通知APIは、ネイティブなプッシュ通知へのアクセスを提供します。
 
-## Install
+## インストール
 
 ```bash
 npm install @capacitor/push-notifications
@@ -67,7 +67,7 @@ On iOS you can configure the way the push notifications are displayed when the a
 | ------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | **`presentationOptions`** | <code>PresentationOption[]</code> | This is an array of strings you can combine. Possible values in the array are: - `badge`: badge count on the app icon is updated (default value) - `sound`: the device will ring/vibrate when the push notification is received - `alert`: the push notification is displayed in a native dialog An empty array can be provided if none of the options are desired. Only available for iOS. | 1.0.0 |
 
-### Examples
+### 例s
 
 In `capacitor.config.json`:
 
