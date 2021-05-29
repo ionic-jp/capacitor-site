@@ -14,42 +14,42 @@ contributors:
 
 ## Android Toolbox
 
-Every Android developer learns a few common techniques for debugging Android issues, and you should incorporate these into your workflow:
+Android 開発者は、Android の問題をデバッグするためのいくつかの一般的なテクニックを学びます。
 
 ### Google, Google, Google
 
-Any time you encounter an issue with Android, or Gradle, or Emulators, your first step should be to copy and paste the error into a Google search.
+Android、Gradle、エミュレータなどで問題が発生した場合、最初にすべきことは、そのエラーをコピーして Google 検索にペーストすることです。
 
-Capacitor uses the standard Android toolkit, so chances are if you run into something, many Android developers have as well, and there's a solution out there.
+Capacitor は標準的な Android ツールキットを使用していますので、何か問題が発生した場合、多くの Android 開発者も同様に問題を抱えており、解決策が存在する可能性があります。
 
-It could be as simple as updating a dependency, running Gradle sync, or invalidating caches.
+依存関係の更新、Gradle sync の実行、キャッシュの無効化などの簡単な方法があります。
 
-### Gradle Sync
+## Gradle Sync
 
-If you have installed a new Plugin from npm and are unable to use or see the plugins in your Android build, try using the "Sync Project with Gradle Files" button in the top right of Android Studio (the icon looks like an elephant). This will re-sync your native Android code to include the new plugin code and should allow use of your new plugin. For more info, see [this issue on Github](https://github.com/ionic-team/capacitor/issues/4012).
+npm から新しいプラグインをインストールしたのに、Android のビルドでプラグインが使えない、または表示されない場合は、Android Studio の右上にある「Sync Project with Gradle Files」ボタン（アイコンは象の形をしています）を使ってみてください。これにより、Android のネイティブコードが新しいプラグインのコードを含むように再同期され、新しいプラグインを使用できるようになります。詳細については、 [this issue on Github](https://github.com/ionic-team/capacitor/issues/4012) をご覧ください。
 
-It can also help with many other seemingly random issues, so running "Sync Project with Gradle Files" is always a good first step when running into most Android build issues.
+他にも様々な問題に対応できるので、Android のビルドで問題が発生した際には、"Sync Project with Gradle Files "を実行することをお勧めします。
 
-### Clean/Rebuild
+### クリーン/リビルド
 
-Cleaning and rebuilding can fix a number of build issues:
+クリーンとリビルドを行うことで、多くのビルド問題を解決することができます。
 
 ![Android Clean and Build](/assets/img/docs/android/clean-rebuild.png)
 
-### Invalidate Caches/Restart
+### キャッシュの無効化/再起動
 
-If you're confident you fixed an issue, but Android Studio or Gradle doesn't agree, often the solution is to have Android Studio invalidate its caches and restart the program.
+問題を解決した自信があっても、Android Studio や Gradle が納得しない場合、多くの場合、Android Studio のキャッシュを無効にしてプログラムを再起動することで解決します。
 
-That can be done easily from the File menu:
+これは File メニューから簡単に行うことができます:
 
 ![Android Invalidate Caches](/assets/img/docs/android/invalidate-caches.png)
 
 ## Error: "package android.support.\* does not exist"
 
-This error occurs when some Cordova or Capacitor plugin has old android support dependencies instead of using the new AndroidX equivalent.
-You should report the issue in the plugin repository so the maintainers can update the plugin to use AndroidX dependencies.
+このエラーは、Cordova や Capacitor のプラグインが、新しい AndroidX に相当するものではなく、古い android support の依存関係を使用している場合に発生します。
+この問題をプラグインのリポジトリに報告することで、メンテナが AndroidX の依存性を使用するようプラグインを更新することができます。
 
-As a workaround, you can also patch the plugin using jetifier:
+回避策として、jetifier を使ってプラグインにパッチを当てることもできます。
 
 ```bash
 npm install jetifier
@@ -59,31 +59,31 @@ npx cap sync android
 
 ## Error: "Please select Android SDK"
 
-This error is often due to Gradle needing to be synced, something you'll need to do
-periodically after updating dependencies and changing project settings.
+このエラーは、多くの場合、Gradle の同期が必要なことが原因です。
+これは、依存関係を更新したり、プロジェクトの設定を変更した後に定期的に行う必要があります。
 
-To manually sync Gradle, open File -> Sync Project with Gradle Files from the main menu bar:
+Gradle を手動で同期するには、メインメニューバーから「File」→「Sync Project with Gradle Files」を開きます:
 
 ![Sync Gradle](/assets/img/docs/android/sync-gradle.png)
 
 ## Error: "APK Can't be installed"
 
-An APK not installing to an Emulator or Device is often due to having an existing app with the same package name. You may see an error like this when trying to run your app:
+APK がエミュレータやデバイスにインストールできないのは、同じパッケージ名の既存のアプリがあることが原因の場合が多いです。アプリを実行しようとすると、次のようなエラーが表示されることがあります:
 
 ![Android APK Failed](/assets/img/docs/android/apk-failed.png)
 
-The solution is to remove any old apps and make sure your package name is up to date in `AndroidManifest.xml` and not conflicting with other apps you are developing.
+解決策としては、古いアプリを削除し、パッケージ名が `AndroidManifest.xml` で最新のものになっていて、開発中の他のアプリと競合していないことを確認します。
 
-Finally, do a clean and rebuild just in case.
+最後に、念のため、クリーンアップとリビルドを行います。
 
-## Recreating your project
+## プロジェクトの再構築
 
-Capacitor lets you manage your own Android project. Like any IDE-backed project, sometimes things get so out of sync that the only solution is to rebuild the project.
+Capacitor では、自分の Android プロジェクトを管理することができます。IDE で管理されているプロジェクトと同様に、時には同期が取れなくなることもあり、その場合はプロジェクトを再構築するしかありません。
 
-To do this, follow these steps:
+これを行うには、以下の手順に従います。
 
-1. Copy any source code you created (such as Java files in `app/android/src`, manifest files, or resource files) into a safe location outside of `app/android`.
-2. Next, make sure you are running an updated version of the Capacitor CLI: `npm install @capacitor/cli@latest`
-3. Remove the android directory: `rm -rf android/`
-4. Re-create the Android app from Capacitor: `npx cap add android`
-5. Copy your saved source files back into the project
+1. 作成したソースコード（`app/android/src`にある Java ファイル、マニフェストファイル、リソースファイルなど）を`app/android`以外の安全な場所にコピーします。
+2. 次に、Capacitor CLI の最新版が動作していることを確認します。
+3. android ディレクトリを削除します：`rm -rf android/`。
+4. キャパシターからアンドロイドアプリを再作成します：`npx cap add android`。
+5. 保存したソースファイルをプロジェクトにコピーして戻す

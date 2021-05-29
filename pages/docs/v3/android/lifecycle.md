@@ -1,21 +1,21 @@
 ---
-title: Android Lifecycle
-description: Android Lifecycle
+title: Androidライフサイクル
+description: Androidライフサイクル
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Android Lifecycle
+# Android ライフサイクル
 
-Understanding the Android Activity Lifecycle is crucial for building apps that act the way Android users expect.
+Android ユーザーが期待する動作をするアプリを作るためには、Android アクティビティ・ライフサイクルを理解することが重要です。
 
-This document attempts to explain the lifecycle as it pertains to Capacitor. For more information, the [Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle.html) reference on the official Android docs is the best resource out there.
+このドキュメントでは、Capacitor に関連するライフサイクルを説明します。詳細については、Android 公式ドキュメントの [Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle.html) を参照してください。
 
-## Handling App Restarts
+## アプリ再起動の処理
 
-Android apps often utilize other apps (or Activities) for features that are too complicated to include in their own app, such as camera or browser features.
+Android アプリでは、カメラやブラウザの機能など、自分のアプリに含めるには複雑すぎる機能を、他のアプリ（またはアクティビティ）を利用して実現することがよくあります。
 
-In some cases, when a device is low on memory, launching a new Activity may cause your app to be killed in order to free up memory.
+端末のメモリが不足しているときに、新しいアクティビティを起動すると、メモリを確保するためにアプリが強制終了されることがあります。
 
-In this case, when the new Activity returns data back to your app, your app will want to show the user a state of the app that resumes what the user was just doing.
+このような場合、新しいアクティビティがアプリにデータを返したとき、アプリはユーザーに、ユーザーが直前に行っていたことを再開するアプリの状態を見せたいと思うでしょう。

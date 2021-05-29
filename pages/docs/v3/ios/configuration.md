@@ -12,41 +12,41 @@ contributors:
 
 iOS 開発者は、自分のアプリの主な設定ファイルである `Info.plist` ファイルを使いこなすことに慣れておくべきです。このファイルは、Capacitor プラグインが必要とする可能性のある新しい設定、アプリの追加設定、およびアプリが要求する権限のために頻繁に更新されます。
 
-To modify it, [open your project in Xcode](/docs/ios#opening-the-ios-project), select the **App** project and the **App** target, and click the **Info** tab.
+これを修正するには、 [Xcode でプロジェクトを開き](/docs/ios#opening-the-ios-project) 、**App**プロジェクトと**App**ターゲットを選択し、**Info**タブをクリックします。
 
 ![Xcode info editor](/assets/img/docs/ios/xcode-info-editor.png)
 
-> You can show the true key names by right-clicking in the table and checking **Raw Keys & Values** in the context menu.
+> テーブル上で右クリックして、コンテキストメニューの**Raw Keys & Values**をチェックすると、真のキー名を表示することができます。
 >
-> You can also open and edit the `ios/App/App/Info.plist` file manually to inspect the raw keys. Use [this reference documentation](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html) for a list of possible keys.
+> また、手動で `ios/App/App/Info.plist` ファイルを開いて編集し、生のキーを調べることもできます。可能なキーのリストについては、 [this reference documentation](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html) をご利用ください。
 
-## Managing Permissions
+## パーミッションの管理
 
-iOS permissions do not need to be specified explicitly like they are in Android. However, iOS requires "Usage Descriptions" to be defined in `Info.plist`. These settings are human-readable descriptions that will be presented to the end user when permission is requested for a particular device API.
+iOS のパーミッションは、Android のように明示的に指定する必要はありません。しかし、iOS では `Info.plist` に "Usage Descriptions" を定義する必要があります。これらの設定は、特定のデバイス API に対するパーミッションが要求されたときに、エンドユーザに提示される人間が読める説明です。
 
-Consult the [Cocoa Keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) list for keys containing `UsageDescription` to see the various usage description settings that may be required for your app.
+アプリに必要となる様々な使用説明の設定を確認するには、[Cocoa Keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) の `UsageDescription` を含むキーのリストを参照してください。
 
-For more information, Apple has provided a guide to [Resolving the Privacy-Sensitive Data App Rejection](https://developer.apple.com/library/content/qa/qa1937/_index.html) which contains more information on APIs that require usage descriptions.
+詳細については、Apple が提供している[Resolving the Privacy-Sensitive Data App Rejection](https://developer.apple.com/library/content/qa/qa1937/_index.html) のガイドに、使用説明を必要とする API に関する詳細情報が記載されています。
 
-## Setting Capabilities
+## Capabilities の設定
 
-Capabilities are used to enable key features that your app may need. You may need to configure them whenever a Capacitor plugin requires it.
+Capabilities は、アプリが必要とする主要な機能を有効にするために使用します。Capacitor のプラグインが必要とするときは、いつでも設定する必要があります。
 
-Unlike other configuration options and usage descriptions, capabilities are _not_ configured in `Info.plist`.
+他の設定オプションや使い方の説明とは異なり、ケイパビリティは `Info.plist` で設定することはできません。
 
-To add a new capability, [open your app in Xcode](/docs/ios#opening-the-ios-project), select the **App** project and the **App** target, click **Signing & Capabilities** in the tab bar, and then click the **+ Capability** button. See [this article](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app) for more information about iOS capabilities.
+新しいケイパビリティを追加するには、 [Xcode でアプリを開き](/docs/ios#opening-the-ios-project) 、**App**プロジェクトと**App**ターゲットを選択し、タブバーの**Signing & Capabilities**をクリックして、**+ Capability**ボタンをクリックします。iOS の機能については、 [本記事](https://developer.apple.com/documentation/xcode/adding_capabilities_to_your_app) をご参照ください。
 
 ![Xcode Capabilities](/assets/img/docs/ios/xcode-capabilities.png)
 
-## Renaming your App
+## アプリの名前の変更
 
-You can't rename the `App` directory, but you can set the name of your app by renaming the **App** target.
+App`ディレクトリの名前を変更することはできませんが、**App**ターゲットの名前を変更することで、アプリの名前を設定することができます。
 
-To rename the **App** target, [open your project in Xcode](/docs/ios#opening-the-ios-project), select the **App** project, and double-click the **App** target.
+App**ターゲットの名前を変更するには、[Xcode でプロジェクトを開き](/docs/ios#opening-the-ios-project)、**App**プロジェクトを選択して、**App\*\*ターゲットをダブルクリックします。
 
 ![Xcode Target](/assets/img/docs/ios/xcode-target.png)
 
-Then, open `ios/App/Podfile` and rename the current target at the bottom of the file:
+次に、`ios/App/Podfile`を開き、ファイルの一番下にある現在のターゲットの名前を変更します:
 
 ```diff-ruby
 -target 'App' do
@@ -56,6 +56,6 @@ Then, open `ios/App/Podfile` and rename the current target at the bottom of the 
  end
 ```
 
-## Deeplinks (aka Universal Links)
+## ディープリンク (別名「ユニバーサルリンク」)
 
-For a Deep Links guide, [see here](/docs/guides/deep-links).
+ディープリンクのガイドは、[こちら](/docs/guides/deep-links)をご覧ください。

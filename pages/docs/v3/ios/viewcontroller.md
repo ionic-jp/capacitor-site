@@ -1,19 +1,19 @@
 ---
-title: Subclassing CAPBridgeViewController
-description: How to subclass CAPBridgeViewController
+title: CAPBridgeViewControllerのサブクラス化
+description: どうやってCAPBridgeViewControllerをサブクラスにするか
 contributors:
   - ikeith
 ---
 
-# Custom ViewController
+# カスタム ViewController
 
-With Capacitor 3.0, you can now subclass `CAPBridgeViewController` within your application. Most applications do not need this feature but it provides a supported mechanism for addressing some unusual use-cases.
+Capacitor 3.0 では、アプリケーション内で `CAPBridgeViewController` をサブクラス化できるようになりました。ほとんどのアプリケーションはこの機能を必要としませんが、いくつかの特殊なユースケースに対応するためのメカニズムがサポートされています。
 
-## When to create a subclass
+## サブクラスを作成する場合
 
-Some examples of when subclassing would be necessary are overriding Capacitor's configuration values at run-time, changing the properties of the [`WKWebViewConfiguration`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration), subsituting a custom subclass of [`WKWebView`](https://developer.apple.com/documentation/webkit/wkwebview) for Capacitor to use, integrating a 3rd party SDK that suggests adding code to [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload), or manipulating native views before they appear onscreen.
+サブクラス化が必要になる例としては、実行時に Capacitor の設定値をオーバーライドしたり、 [`WKWebViewConfiguration`](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration) のプロパティを変更したり、Capacitor が使用するために [`WKWebView`](https://developer.apple.com/documentation/webkit/wkwebview) のカスタムサブクラスをサブクラス化したり、 [`viewDidLoad()`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) にコードを追加することを提案するサードパーティの SDK を統合したり、画面に表示される前のネイティブビューを操作したりする場合があります。
 
-If you do need to create a custom subclass, there are a couple of steps to get started.
+カスタムサブクラスを作成する必要がある場合は、いくつかの手順があります。
 
 ### Create `MyViewController.swift`
 

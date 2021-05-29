@@ -10,72 +10,72 @@ contributors:
 
 Capacitor は Native の iOS ブリッジを特徴としており、開発者は JavaScript と Native Swift または Objective-C コードとの間で通信できます。
 
-Capacitor iOS apps are configured and managed with Xcode and [CocoaPods](https://cocoapods.org/).
+Capacitor の iOS アプリは、Xcode と　[CocoaPods](https://cocoapods.org/)　で設定・管理されています。
 
-## iOS Support
+## iOS サポート
 
-iOS 12+ is supported. Xcode 12+ is required (see [Environment Setup](/docs/getting-started/environment-setup#ios-development)). Capacitor uses [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), not the deprecated [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview).
+iOS 12+に対応しています。Xcode 12+が必要です（ [環境設定](/docs/getting-started/environment-setup#ios-development) を参照）。Capacitor では、 [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) を使用しており、非推奨の [UIWebView](https://developer.apple.com/documentation/uikit/uiwebview) は使用していません。
 
-## Adding the iOS Platform
+## iOS プラットフォームの追加
 
-First, install the `@capacitor/ios` package.
+まず、 `@capacitor/ios` パッケージをインストールします。
 
 ```bash
 npm install @capacitor/ios
 ```
 
-Then, add the iOS platform.
+そして iOS プラットフォームを追加します。
 
 ```bash
 npx cap add ios
 ```
 
-## Opening the iOS Project
+## iOS プロジェクトを開く
 
-To open the project in Xcode, run:
+Xcode でプロジェクトを開くには、次のように実行します:
 
 ```bash
 npx cap open ios
 ```
 
-Alternatively, you can open Xcode manually by running:
+または、Xcode を手動で起動することもできます:
 
 ```bash
 open ios/App/App.xcworkspace
 ```
 
-## Running Your App
+## アプリの実行
 
-You can either run your app on the command-line or with Xcode.
+アプリを実行するには、コマンドラインで実行する方法と、Xcode で実行する方法があります。
 
-### Running on the Command-Line
+### コマンドラインでの実行
 
-To run the project on a device or simulator, run:
+デバイスやシミュレータでプロジェクトを実行するには、次のように実行します:
 
 ```bash
 npx cap run ios
 ```
 
-The command will prompt you to select a target. [Learn more about `run`](/docs/cli/run).
+コマンドを実行すると、ターゲットを選択するように促されます。詳しくは [ `run` をご覧ください](/docs/cli/run).
 
-### Running in Xcode
+### Xcode での実行
 
-In Xcode, first select the device or simulator and then click the play button to run your app.
+Xcode では、まずデバイスやシミュレータを選択し、再生ボタンをクリックしてアプリを実行します。
 
 ![Running your app](/assets/img/docs/ios/running.png)
 
-## Troubleshooting
+## トラブルシューティング
 
-If you encountered any issues while getting started, you can consult the [iOS Troubleshooting Guide](/docs/ios/troubleshooting). Feel free to [open a discussion](https://github.com/ionic-team/capacitor/discussions/) if you need help.
+使い始めてから何か問題が発生した場合は、 [iOS トラブルシューティングガイド](/docs/ios/troubleshooting) を参考にしてください。ヘルプが必要な場合は、お気軽に [ディスカッションを開いてください](https://github.com/ionic-team/capacitor/discussions/) をご利用ください。
 
-## Next steps
+## 次のステップ
 
-You are now ready to continue developing and building your app. Use the various APIs available, Capacitor or Cordova plugins, or custom native code to build out the rest of your app.
+これで、アプリの開発と構築を続ける準備が整いました。利用可能な様々な API、Capacitor や Cordova のプラグイン、またはカスタムネイティブコードを使用して、アプリの残りの部分を構築してください。
 
 ## Further Reading
 
-Follow these guides for more information on each topic:
+各トピックの詳細については、以下のガイドを参照してください。
 
-[Configuring and setting permissions for iOS &#8250;](/docs/ios/configuration)
+[iOS の設定とパーミッションの設定 &#8250;](/docs/ios/configuration)
 
-[Building Native Plugins for iOS &#8250;](/docs/plugins)
+[iOS 用のネイティブプラグインの構築 &#8250;](/docs/plugins)

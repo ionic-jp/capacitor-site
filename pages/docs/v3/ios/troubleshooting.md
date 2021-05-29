@@ -14,62 +14,62 @@ contributors:
 
 ## iOS Toolbox
 
-Every iOS developer learns a few common techniques for debugging iOS issues, and you should incorporate these into your workflow:
+iOS 開発者は誰でも、iOS の問題をデバッグするためのいくつかの一般的なテクニックを学んでおり、これらを自分のワークフローに組み込む必要があります。
 
 ### Google, Google, Google
 
-Any time you encounter an issue with iOS, or Xcode, your first step should be to copy and paste the error into a Google search.
+iOS や Xcode で何か問題が発生した場合、最初のステップは Google 検索にエラーをコピペすることです。
 
-Capacitor uses the standard iOS toolchain, so chances are if you run into something, many iOS developers have as well, and there's a solution out there.
+Capacitor は標準的な iOS ツールチェーンを使用していますので、あなたが何かに遭遇した場合、多くの iOS 開発者も同様に遭遇している可能性があり、そこには解決策があるはずです。
 
-It could be as simple as updating a dependency, running clean, or removing Derived Data.
+依存関係の更新、クリーン実行、派生データの削除などの簡単な方法があります。
 
 ### Clean/Rebuild
 
-Cleaning and rebuilding can fix a number of build issues. Navigate to Product -> Clean Build Folder in the Xcode menu to clean your current build.
+Clean と Rebuild を行うことで、多くのビルドの問題を解決することができます。Xcode メニューの Product -> Clean Build Folder を選択して、現在のビルドをクリーンアップします。
 
-### Removing Derived Data
+### 派生データの削除
 
-Sometimes, Xcode clings to old, outdated build artifacts. To start fresh, you'll need to delete any Derived Data on disk.
+Xcode は古い、時代遅れのビルドアーティファクトに固執することがあります。新たに始めるには、ディスク上の派生データを削除する必要があります。
 
-To do this, open Xcode Preferences, choose the Locations tab, and click the small arrow next to your Derived Data path:
+これを行うには、Xcode の環境設定を開き、Locations タブを選択して、Derived Data パスの横にある小さな矢印をクリックします:
 
 ![Locations](/assets/img/docs/ios/location-prefs.png)
 
-This opens a Finder window to the location of Xcode's temporary Derived Data.
+これにより、Xcode の一時的な Derived Data の場所に Finder ウィンドウが開きます。
 
-Next, select all items in that directory and delete:
+次に、そのディレクトリ内のすべてのアイテムを選択し、削除します:
 
 ![Deleting Derived Data](/assets/img/docs/ios/deleting-derived-data.png)
 
-Finally, do a rebuild in Xcode.
+最後に、Xcode でリビルドを行います。
 
 ## Error: Sandbox not in sync with the Podfile.lock
 
-This error can happen if CocoaPods hasn't been able to run to install your dependencies.
+このエラーは、CocoaPods が依存関係をインストールするために実行できなかった場合に起こります。
 
-Run this to update your pods:
+これを実行して Pod を更新してください。
 
 ```bash
 npx cap update ios
 ```
 
-Perform a new build after running this command.
+このコマンドを実行した後、新規にビルドを行います。
 
 ## Indexing FOREVER
 
-Xcode sometimes gets stuck indexing forever. This unfortunate situation looks like this:
+Xcode は時々、永遠にインデックス作成に行き詰まることがあります。この不幸な状況は次のようなものです:
 
 ![Xcode indexing](/assets/img/docs/ios/indexing.png)
 
-The only solution is to Force Close Xcode (using Activity Monitor) and start it up again.
+唯一の解決策は、アクティビティモニタを使って Xcode を強制終了し、再度起動させることです。
 
 ## CocoaPods: Failed to connect to GitHub
 
-This error can happen on Macs with an old version of openssl and ruby installed, since GitHub
-restricted the allowed cryptographic protocols when accessing repos.
+このエラーは、古いバージョンの openssl と ruby がインストールされた Mac で発生する可能性があります。
+これは、GitHub がリポジトリへのアクセス時に使用できる暗号プロトコルを制限しているためです。
 
-The solution is to update openssl and update Ruby:
+解決策は、openssl をアップデートし、Ruby をアップデートすることです:
 
 ```bash
 brew install openssl
@@ -78,6 +78,6 @@ brew install ruby
 brew link --overwrite ruby
 ```
 
-Finally, make sure your `PATH` environment variable does not put `/usr/local/bin` after `$PATH`, but rather _before_ it.
+最後に、環境変数 `PATH` が `$PATH` の後に `/usr/local/bin` を置くのではなく、その前に置くようにしてください。
 
-See [this StackOverflow issue](https://stackoverflow.com/questions/38993527/cocoapods-failed-to-connect-to-github-to-update-the-cocoapods-specs-specs-repo/48996424#48996424) for other possible solutions to this problem.
+この問題に対する他の可能な解決策については、 [この StackOverflow の問題](https://stackoverflow.com/questions/38993527/cocoapods-failed-to-connect-to-github-to-update-the-cocoapods-specs-specs-repo/48996424#48996424) を参照してください。
