@@ -57,51 +57,51 @@ Both android and ios folders at the root of the project are created. These are e
 }
 ```
 
-## スプラッシュ画像とアイコン
+## Splash Screens and Icons
 
-アイコンとスプラッシュ画像を以前に作成したことがある場合は、プロジェクトの最上位レベルの`resources`フォルダにあります。`cordova-res` ルールを使って、生成したアイコンとスプラッシュ画像を各 Native プロジェクトに移動します。
+If you've previously created icon and splash screen images, they can be found in the top-level `resources` folder of your project. With those images in place, you can use the `cordova-res` tool to generate icons and splash screens for Capacitor-based iOS and Android projects.
 
-まず、 `cordova-res` をインストールください:
+First, install `cordova-res`:
 
 ```bash
 npm install -g cordova-res
 ```
 
-次に次のコマンドで画像を生成して Native プロジェクトにコピーしてください:
+Next, run the following to regenerate the images and copy them into the native projects:
 
 ```bash
 cordova-res ios --skip-config --copy
 cordova-res android --skip-config --copy
 ```
 
-[詳細はこちらをご覧ください](https://github.com/ionic-team/cordova-res#capacitor).
+[Complete details here](https://github.com/ionic-team/cordova-res#capacitor).
 
-## プラグインのマイグレート
+## Migrate Plugins
 
-まず、既存の Cordova プラグインを監査します - 不要になったプラグインを削除できる場合があります。
+Begin by auditing your existing Cordova plugins - it's possible that you may be able to remove ones that are no longer needed.
 
-次に、Capacitor の [core plugins](/docs/apis) と [community plugins](/docs/plugins/community) をすべて確認します。Cordova と同等の Capacitor プラグインに切り替えることができます。
+Next, review all of Capacitor's [official plugins](/docs/apis) as well as [community plugins](/docs/plugins/community). You may be able to switch to the Capacitor-equivalent Cordova plugin.
 
-一部のプラグインは機能は完全には一致しませんが、必要な機能は実装されている場合があります。
+Some plugins may not match functionality entirely, but based on the features you need that may not matter.
 
-Note: [既知の非互換プラグイン](/docs/cordova/known-incompatible-plugins) は自動的にスキップされます
+Note that any plugins that are [incompatible or cause build issues](/docs/plugins/cordova#known-incompatible-plugins) are automatically skipped.
 
-### Cordova Plugin の削除
+### Remove Cordova Plugin
 
-Cordova プラグインを Capacitor プラグインに置き換えたあと(もしくは完全に削除することもできます)、プラグインをアンインストールし、 `sync` コマンドを実行して Native プロジェクトからプラグインコードを削除します。
+After replacing a Cordova plugin with a Capacitor one (or simply removing it entirely), uninstall the plugin then run the `sync` command to remove the plugin code from a native project:
 
 ```bash
 npm uninstall cordova-plugin-name
 npx cap sync
 ```
 
-## Permissions の設定
+## Set Permissions
 
-If the plugin declared the permissions or usage descriptions in the `plugin.xml`, Capacitor will automatically add them to your `AndroidManifest.xml` and `Info.plist`. However, you may need to apply additional permissions or usage descriptions manually by mapping between `plugin.xml` and required settings on iOS and Android. Consult the [iOS](/docs/ios/configuration) and [Android](/docs/android/configuration) configuration guides for info on how to configure each platform.
+By default, the entire initial permissions requested for the latest version of Capacitor are set for you in the default native projects for both iOS and Android. However, you may need to apply additional permissions manually by mapping between `plugin.xml` and required settings on iOS and Android. Consult the [iOS](/docs/ios/configuration) and [Android](/docs/android/configuration) configuration guides for info on how to configure each platform.
 
 ## Cordova Plugin preferences
 
-When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` and port them to `capacitor.config.json` or `capacitor.config.ts` file. You can manually add more preferences to the `cordova.preferences` object too.
+When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` and ports them to the [Capacitor configuration file](/docs/config). You can manually add more preferences to the `cordova.preferences` object.
 
 ```json
 {
