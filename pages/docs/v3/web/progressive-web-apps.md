@@ -1,49 +1,49 @@
 ---
-title: Building Progressive Web Apps
-description: How to build Progressive Web Apps with Capacitor
+title: Progressive Web Appsを構築する
+description: Capacitorを使ったProgressive Web Appsの構築方法
 contributors:
   - jcesarmobile
   - dotNetkow
 ---
 
-# Building Progressive Web Apps
+# Progressive Web App の構築
 
-Capacitor has first-class support for Progressive Web Apps, making it easy to build an app that runs natively on iOS and Android, but also on the web as a mobile web app or "Progressive Web App."
+Capacitor は Progressive Web Apps をサポートしており、iOS や Android 上でネイティブに動作するアプリだけでなく、モバイル Web アプリや "Progressive Web App" として Web 上でも動作するアプリを簡単に構築することができます。
 
-## What is a Progressive Web App?
+## Progressive Web App とは？
 
-Put simply, a Progressive Web App (PWA) is a web app that uses modern web capabilities to deliver an app-like experience to users. These apps are deployed to traditional web servers, are accessible through URLs, and can be indexed by search engines.
+簡単に言うと、Progressive Web App（PWA）とは、最新の Web 機能を使ってユーザーにアプリのような体験を提供する Web アプリのことです。これらのアプリは、従来のウェブサーバに配置され、URL でアクセスでき、検索エンジンにインデックスされることができます。
 
-A Progressive Web App is, for all practical purposes, just another term for a website that has been optimized for mobile performance and that utilizes newly available Web APIs to deliver features that are similar to a traditional native app, such as push notifications and offline storage.
+Progressive Web App とは、実際には、モバイルパフォーマンスに最適化された Web サイトの別名であり、新しく利用可能になった Web API を利用して、プッシュ通知やオフラインストレージなど、従来のネイティブアプリと同様の機能を提供するものです。
 
-## Capacitor and Progressive Web Apps
+## Capacitor と Progressive Web App
 
-Capacitor has first-class support for Progressive Web Apps _and_ native apps. That means that Capacitor's bridge supports running in either a native context or in the web, with many plugins available _in both contexts_ with the exact same API and calling conventions.
+Capacitor は、Progressive Web Apps とネイティブアプリを最優先でサポートしている。つまり、Capacitor のブリッジは、ネイティブ・コンテキストでもウェブ・コンテキストでも動作することをサポートしており、多くのプラグインは、全く同じ API と呼び出し規則で、 _両方のコンテキストで_ 利用可能です。
 
-This means you use `@capacitor/core` and Capacitor plugins as dependencies for both your native app _and_ your Progressive Web App, and Capacitor seamlessly calls web code when required and native code when available.
+つまり、ネイティブアプリと Progressive Web App の両方に、`@capacitor/core`と Capacitor のプラグインを依存関係として使用すると、Capacitor は必要に応じて Web コードを、利用可能な場合はネイティブコードをシームレスに呼び出します。
 
-Additionally, Capacitor offers a number of utilities for querying the current platform to provide customized experiences when running natively or on the web.
+さらに、Capacitor には現在のプラットフォームを照会するための多くのユーティリティが用意されており、ネイティブまたは Web 上で実行する際にカスタマイズされた体験を提供します。
 
-## Adding Progressive Web App Support to your app
+## Progressive Web App サポートをアプリに追加する
 
-Progressive Web Apps should have an App Manifest and a Service Worker.
+プログレッシブ Web アプリは、App Manifest と Service Worker を持つ必要があります。
 
 ### App Manifest
 
-First, you'll need an [App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) file ([manifest.json](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json)) that sits alongside your `index.html` file and provides metadata about your app, such as its name, theme colors, and icons. This information will be used when your app is installed on the home screen, for example.
+まず、[App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) ファイル ( [manifest.json](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json) )が必要です。このファイルは、 `index.html` ファイルと一緒に置かれ、アプリの名前、テーマカラー、アイコンなど、アプリに関するメタデータを提供します。この情報は、アプリがホーム画面にインストールされる際などに使用されます。
 
 ### Service Worker
 
-Next, in order to send push notifications and store data offline, a [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) will enable your web app to proxy network requests and perform background tasks needed to process and sync data.
+次に、プッシュ通知を送信したり、データをオフラインで保存したりするために、 [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) を使用して、Web アプリがネットワークリクエストをプロキシしたり、データの処理や同期に必要なバックグラウンドタスクを実行したりできるようにします。
 
-Service Workers are powerful, but complicated. Generally, writing them from scratch is not recommended. Instead, take a look at tools like [Workbox](https://developers.google.com/web/tools/workbox/) that provide common Service Worker recipes that you can easily incorporate into your app.
+Service Worker は強力ですが、複雑です。一般的に、ゼロから書くことはお勧めできません。代わりに、 [Workbox](https://developers.google.com/web/tools/workbox/) のようなツールを利用すると、アプリに簡単に組み込むことができる一般的なサービスワーカーのレシピが提供されています。
 
-Read more about using Service Workers, including how to register them, on the [Using Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) page on MDN.
+MDN の [Using Service Workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers) ページでは、Service Worker の登録方法など、Service Worker の使用について詳しく説明しています。
 
-## Progressive Web App Performance
+## Progressive Web App のパフォーマンス
 
-Progressive Web Apps are judged by several performance standards, including [Time to Interactive](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive) and [First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint).
+Progressive Web App は、　[Time to Interactive](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive)　や　[First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)　など、いくつかのパフォーマンス基準によって判断されます。
 
-Follow the [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist) before going live, and use [Lighthouse](https://developers.google.com/web/tools/lighthouse/) to audit and test your app.
+本番稼働前には　[Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)　に従ってください。また、　[Lighthouse](https://developers.google.com/web/tools/lighthouse/)　を使用してアプリの監査とテストを行ってください。
 
-If you're struggling to meet Progressive Web App performance standards with your existing frontend stack, take a look at [Ionic Framework](http://ionicframework.com/) as an option for getting fast PWA support with nearly zero configuration.
+既存のフロントエンドスタックで Progressive Web App のパフォーマンス基準を満たすのに苦労している場合は、設定をほとんどせずに高速な PWA をサポートするオプションとして、　[Ionic Framework](http://ionicframework.com/)　を見てみましょう。

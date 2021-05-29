@@ -1,47 +1,47 @@
 ---
-title: Capacitor Web Documentation
-description: Web Getting Started
+title: Capacitor Webドキュメンテーション
+description: Webでのはじめ方
 contributors:
   - mlynch
 ---
 
-# Using Capacitor in a Web Project
+# Web プロジェクトでの Capacitor の使用
 
-Capacitor fully supports traditional web and Progressive Web Apps. In fact, using Capacitor makes it easy to ship a PWA version of your iOS and Android app store apps with minimal work.
+Capacitor は、従来の Web と Progressive Web Apps を完全にサポートしています。実際、Capacitor を使用すると、最小限の作業で iOS や Android のアプリストアアプリの PWA バージョンを簡単に出荷することができます。
 
-## Browser Support
+## ブラウザサポート
 
-Capacitor core and plugins build for ES2017. This newer JavaScript syntax is supported in all modern browsers (including those that power PWAs on iOS and Android), but will not work in IE11 without additional JavaScript transformations, e.g. with [Babel](https://babeljs.io).
+Capacitor のコアとプラグインは ES2017 に対応しています。この新しい JavaScript 構文は、すべてのモダンブラウザ（iOS や Android の PWA を動かすものを含む）でサポートされていますが、IE11 では [Babel](https://babeljs.io) などで追加の JavaScript 変換をしないと動作しません。
 
-Plugins with web support will perform feature detection and throw exceptions if a browser does not support a particular Web API.
+Web サポート付きのプラグインは、機能検出を行い、ブラウザが特定の Web API をサポートしていない場合は例外を throw します。
 
-## Installation
+## インストール
 
-If you're already building with Capacitor for iOS or Android, there are no additional installation steps!
+すでに Capacitor for iOS または Android で構築している場合は、追加のインストール手順はありません。
 
-Otherwise, see the [Installation](/docs/getting-started/) guide before continuing.
+そうでない場合は、 [Installation](/docs/getting-started/) ガイドを参照してください。
 
-### Using Capacitor as a Module
+### Capacitor のモジュール化
 
-Most commonly, apps will be using a framework with a build system that supports importing JavaScript modules. By importing from `@capacitor/core`, or by importing a plugin, the Capacitor JavaScript runtime will be loaded with your app.
+多くのアプリは、JavaScript モジュールのインポートに対応したビルドシステムを持つフレームワークを使用しています。このような場合、`@capacitor/core` からインポートするか、プラグインをインポートすることで、Capacitor の JavaScript ランタイムがアプリに読み込まれます。
 
-### Using Capacitor as a Script Include
+### スクリプトを include して Capacitor を利用する
 
-To use the Capacitor runtime in a web app that is not using a build system or bundler/module loader, do the following:
+ビルドシステムやバンドルラ/モジュールローダーを使用していない Web アプリで Capacitor ランタイムを使用するには、以下のようにします。
 
-1. Set `bundledWebRuntime` to `true` in the [Capacitor configuration file](/docs/v3/config)
+1. Capacitor の設定ファイル(/docs/v3/config)で、`bundledWebRuntime`を`true`に設定する。
 
 ```json
 "bundledWebRuntime": true
 ```
 
-2. Copy the Capacitor runtime bundle (`capacitor.js`) into your web assets directory
+2. Capacitor のランタイムバンドル（`capacitor.js`）を Web assets ディレクトリにコピーする。
 
 ```bash
 npx cap sync web
 ```
 
-3. Import `capacitor.js` in `index.html` before other JavaScript
+3. index.html "に "capacitor.js "を他の JavaScript よりも先にインポートする。
 
 ```html
 <script src="capacitor.js"></script>
@@ -50,6 +50,6 @@ npx cap sync web
 
 ## Going Live
 
-When you're ready to publish your Progressive Web App and share it with the world, just upload the contents of your web assets directory.
+Progressive Web App を公開する準備ができたら、Web アセットディレクトリの内容をアップロードします。
 
-That will contain everything you need to run your app!
+これでアプリの実行に必要なものがすべて揃いました！
