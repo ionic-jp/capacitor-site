@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/cordova/migration-strategy
 
 # マイグレーション戦略
 
-Cordova からキャパシターへの移行は、occur over time、もしくは多くの場合完全に置き換えることができます。この作業はアプリの複雑さに大きく依存します。
+Cordova から Capacitor への移行は、occur over time、もしくは多くの場合完全に置き換えることができます。この作業はアプリの複雑さに大きく依存します。
 
 ## なぜマイグレーションしますか？
 

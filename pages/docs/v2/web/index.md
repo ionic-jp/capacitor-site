@@ -8,7 +8,7 @@ canonicalUrl: https://capacitorjs.com/docs/web
 
 # Capacitor を Web プロジェクトで利用する
 
-​ キャパシターは、従来の Web および Progressive Web Apps を完全にサポートします。​Capacitor を使えば、iOS と Android のアプリストアアプリの PWA バージョンを最小限の作業で簡単にリリースすることができます。
+​ Capacitor は、従来の Web および Progressive Web Apps を完全にサポートします。​Capacitor を使えば、iOS と Android のアプリストアアプリの PWA バージョンを最小限の作業で簡単にリリースすることができます。
 
 ### インストール
 

@@ -9,7 +9,7 @@ contributors:
 
 # カスタム Native Android コード
 
-多くのアプリは、適切に Capacitor プラグインを構築して公開するというオーバーヘッドなしに、Native 機能を実装するためのカスタムの Java コードもしくは Kotlin のコードを追加したいと思うでしょう。
+With Capacitor, you are encouraged to write Java or Kotlin code to implement the native features your app needs.
 
 There may not be [a Capacitor plugin](/docs/plugins) for everything--and that's okay! It is possible to write WebView-accessible native code right in your app.
 

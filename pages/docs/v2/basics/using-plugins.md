@@ -9,7 +9,7 @@ canonicalUrl: https://capacitorjs.com/docs/basics/using-plugins
 
 # プラグインの使い方
 
-キャパシターには、 [Camera](/docs/apis/camera) や [Filesystem](/docs/apis/filesystem) などの組み込みプラグインが付属しています。
+Capacitor には、 [Camera](/docs/apis/camera) や [Filesystem](/docs/apis/filesystem) などの組み込みプラグインが付属しています。
 
 しかし、おそらくあなたのアプリは、Capacitor の本体機能よりも多くのネイティブ機能にアクセスする必要があるでしょう。
 

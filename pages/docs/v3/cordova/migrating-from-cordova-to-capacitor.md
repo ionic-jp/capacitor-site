@@ -121,7 +121,7 @@ When `npx cap init` is run, Capacitor reads all the preferences in `config.xml` 
 Author 要素は`package.json` で設定できます。ただし、Capacitor やアプリケーション内では使用されません:
 
 ```xml
-<author email="email@test.com" href="https://ionicframework.com/">Ionic Framework Team</author>
+<author email="email@test.com" href="http://ionicframework.com/">Ionic Framework Team</author>
 ```
 
 `allow-intent`値のほとんどは使用されませんが、Capacitor に[構成可能な代替手段](/docs/basics/configuring-your-app/)の設定があります。

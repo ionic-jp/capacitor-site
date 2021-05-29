@@ -34,7 +34,7 @@ defaultConfig {
 <string name="app_name">MyApp</string>
 ```
 
-また、アクティビティを 1 つだけにすることを予定しているアプリケーション（アプリケーションを実行している主な Web アクティビティ）の場合は、アクティビティ名をアプリケーションと一致するように設定することをお勧めします:
+It may make sense to change the activity name to match, especially if your app has a single activity:
 
 ```xml
 <string name="title_activity_main">MyApp</string>
@@ -48,7 +48,7 @@ Android App Links で Deeplinks を有効にするには、公式 Android ガイ
 
 設定が完了すると、[App API の getLaunchUrl](/docs/apis/app#method-getLaunchUrl-0) はアプリが起動された URL を提供し、[appUrlOpen イベント](/docs/apis/app#method-addListener-1) はアプリが新しい App Link ディープリンクを受信すると起動します。
 
-## カスタム URL を変更する
+## URL Schemes
 
 アプリは起動時にカスタム URL に応答することができるため、ディープリンクやアプリの操作を処理することができます。
 
