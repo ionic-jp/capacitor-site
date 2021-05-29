@@ -1,61 +1,61 @@
 ---
-title: Using Capacitor with Ionic Framework
-description: Using Capacitor with Ionic Framework
+title: Ionic FrameworkでのCapacitorの使用
+description: Ionic FrameworkでのCapacitorの使用
 contributors:
   - dotNetkow
 ---
 
-# Using Capacitor with Ionic Framework
+# Ionic Framework での Capacitor の使用
 
-## Installing
+## インストール
 
-Capacitor can be installed directly into any new or existing Ionic app.
+Capacitor は、新規または既存の Ionic アプリに直接インストールすることができます。
 
-### New Ionic Project
+### 新規 Ionic プロジェクト
 
-Capacitor is installed in new Ionic apps by default! All you have to do is start a new project:
+新規の Ionic アプリには、デフォルトで Capacitor がインストールされています。新規にプロジェクトを立ち上げるだけです。
 
 ```bash
 ionic start
 ```
 
-> If you'd like a tutorial for building your first Ionic/Capacitor app, see [this tutorial](https://ionicframework.com/docs/intro/next).
+> 初めての Ionic/Capacitor アプリを作るためのチュートリアルをご希望の方は、 [このチュートリアル](https://ionicframework.com/docs/intro/next) をご覧ください。
 
-### Existing Ionic Project
+### 既存の Ionic プロジェクト
 
-Install and initialize Capacitor with your app name and bundle ID:
+アプリ名とバンドル ID で Capacitor をインストールして初期化します:
 
 ```bash
 ionic integrations enable capacitor
 ```
 
-If your Ionic app uses Cordova, you will want to read the [Migrating from Cordova to Capacitor guide](/docs/cordova/migrating-from-cordova-to-capacitor) as well.
+Ionic のアプリで Cordova を使用している場合は、 [Cordova から Capacitor へのマイグレーションガイド](/docs/cordova/migrating-from-cordova-to-capacitor) も合わせてお読みください。
 
-### Add Platforms
+### プラットフォームの追加
 
-After Capacitor installed, you can add native platforms to your app:
+Capacitor のインストールが完了したら、アプリにネイティブプラットフォームを追加します。
 
 ```bash
 ionic capacitor add
 ```
 
-This will create a new directory in the root of your project for the native platform. This directory is a native project that should be considered a source artifact. Learn more about [native project management](/docs/cordova#native-project-management).
+これにより、プロジェクトのルートにネイティブプラットフォーム用の新しいディレクトリが作成されます。このディレクトリは、ソースアーティファクトとみなされるべきネイティブプロジェクトです。[ネイティブプロジェクト管理](/docs/cordova#native-project-management)についてはこちらをご覧ください。
 
-## Workflow
+## ワークフロー
 
-### Build your Ionic App
+### Ionic アプリの構築
 
-Capacitor JavaScript libraries are bundled into your app, so the web asset build is no different after Capacitor is installed.
+Capacitor の JavaScript ライブラリはアプリにバンドルされていますので、Web アセットのビルドは Capacitor をインストールした後と変わりません。
 
 ```bash
 ionic build
 ```
 
-This creates the web asset directory that Capacitor copies into native projects, configured via `webDir` in the [Capacitor configuration](/docs/config).
+これにより、Capacitor がネイティブプロジェクトにコピーする Web アセットディレクトリが作成されます。これは、[Capacitor の設定](/docs/config)の`webDir`で設定します。
 
-### Ionic CLI Capacitor Commands
+### Ionic CLI の Capacitor コマンド
 
-The Ionic CLI has a variety of high-level commands that wrap the Capacitor CLI for convenience. See the documentation for each below. Help output is also available by using the `--help` flag after each command.
+Ionic CLI には、便利なように Capacitor CLI をラップした様々なハイレベルコマンドが用意されています。以下、それぞれのドキュメントを参照してください。また、各コマンドの後に `--help` フラグを使用することで、ヘルプ出力を利用できます。
 
 - [`ionic capacitor add`](https://ionicframework.com/docs/cli/commands/capacitor-add)
 - [`ionic capacitor build`](https://ionicframework.com/docs/cli/commands/capacitor-build)
@@ -63,4 +63,4 @@ The Ionic CLI has a variety of high-level commands that wrap the Capacitor CLI f
 - [`ionic capacitor sync`](https://ionicframework.com/docs/cli/commands/capacitor-sync)
 - [`ionic capacitor open`](https://ionicframework.com/docs/cli/commands/capacitor-open)
 
-[Learn more about development workflow in Capacitor &#8250;](/docs/basics/workflow)
+[詳しく Capacitor の開発ワークフローを学ぶ &#8250;](/docs/basics/workflow)

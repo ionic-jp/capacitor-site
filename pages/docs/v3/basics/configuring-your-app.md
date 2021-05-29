@@ -8,7 +8,7 @@ contributors:
 
 # アプリの設定
 
-Much of Capacitor is configured per-platform instead of in an abstracted system like Cordova's `config.xml`. This means that you will make most configuration changes in the native project using native tooling.
+Capacitor の多くは、Cordova の`config.xml`のような抽象化されたシステムではなく、プラットフォームごとに設定されています。つまり、ほとんどの設定変更はネイティブプロジェクトの中でネイティブツールを使って行うことになります。
 
 ## プラットフォームごとの管理
 
@@ -24,6 +24,6 @@ Capacitor には [Capacitor の設定ファイル](/docs/config) で設定され
 
 iOS と Android にはそれぞれ共通の変更を行うための設定ガイドが用意されています:
 
-[Configuring iOS &#8250;](/docs/ios/configuration)
+[iOS の設定 &#8250;](/docs/ios/configuration)
 
-[Configuring Android &#8250;](/docs/android/configuration)
+[Android の設定 &#8250;](/docs/android/configuration)

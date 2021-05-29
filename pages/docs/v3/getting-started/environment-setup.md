@@ -1,52 +1,52 @@
 ---
-title: Environment Setup
-description: Setting up a development environment for Capacitor
+title: 環境設定
+description: Capacitorで開発するための設定方法
 contributors:
   - mlynch
   - dotNetkow
 ---
 
-# Environment Setup
+# 環境設定
 
-Capacitor has a number of dependencies depending on which platforms you're targeting and which operating systems you are developing on.
+Capacitor には、対象とするプラットフォームや開発する OS に応じて、いくつかの依存関係があります。
 
-## Requirements
+## 要件
 
-You will need at least [NodeJS 12 LTS](https://nodejs.org) or later to get started. For specific platforms, follow each guide below to ensure you have the correct dependencies installed.
+始めるためには、少なくとも [NodeJS 12 LTS](https://nodejs.org) 以降が必要となります。特定のプラットフォームについては、以下の各ガイドに従って、正しい依存関係がインストールされていることを確認してください。
 
-## iOS Development
+## iOS 開発
 
-To build iOS apps, you will need **macOS**. You will also need to download and set up [Xcode](https://developer.apple.com/xcode/).
+iOS アプリを作るには、**macOS**が必要です。また、 [Xcode](https://developer.apple.com/xcode/) をダウンロードしてセットアップする必要があります。
 
-> [Ionic Appflow](http://ionicframework.com/appflow) can be used to perform iOS cloud builds if you don't have a Mac.
+> [Ionic Appflow](http://ionicframework.com/appflow) を使うと、Mac を持っていない場合でも iOS のクラウドビルドを行うことができます。
 
 ### CocoaPods
 
-Install [CocoaPods](https://cocoapods.org/), which is used to manage Capacitor packages for iOS.
+iOS 用の Capacitor パッケージを管理するための[CocoaPods](https://cocoapods.org/)をインストールします。
 
 ```bash
 sudo gem install cocoapods
 ```
 
-### Xcode Command Line Tools
+### Xcode コマンドラインツール
 
-Install the **Xcode Command Line Tools** by opening **Xcode -> Preferences -> Locations** and selecting the latest version in the dropdown.
+**Xcode Command Line Tools** をインストールするには、 **Xcode -> Preferences -> Locations** を開き、ドロップダウンで最新バージョンを選択します。
 
 ![Xcode locations preferences](/assets/img/docs/ios/xcode-preferences-location.png)
 
-## Android Development
+## Android 開発
 
-To build Android apps, you will need to download and set up [Android Studio](https://developer.android.com/studio/index.html).
+Android アプリを作るためには、[Android Studio](https://developer.android.com/studio/index.html) をダウンロードして、セットアップする必要があります。
 
 ### Android SDK
 
-Developing Android apps requires some Android SDK packages to be installed. Make sure to install the Android SDK Tools, and a version of the Android SDK Platforms for API 21 or greater.
+Android アプリを開発するには、いくつかの Android SDK パッケージをインストールする必要があります。Android SDK Tools と、API 21 以上のバージョンの Android SDK Platforms がインストールされていることを確認してください。
 
-In Android Studio open **Tools -> SDK Manager** from the menu and install the platform versions you'd like to test with in the **SDK Platforms** tab:
+Android Studio のメニューから **Tools -> SDK Manager** を開き、 **SDK Platforms** タブで、テストしたいプラットフォームのバージョンをインストールします。
 
 ![SDK Platforms](/assets/img/docs/android/sdk-platforms.png)
 
-In the **SDK Tools** tab, make sure to install at least the following:
+**SDK Tools** タブでは、少なくとも以下のものをインストールしてください。
 
 - Android SDK Build-Tools
 - Android Emulator

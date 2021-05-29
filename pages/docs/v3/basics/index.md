@@ -1,3 +1,3 @@
-# Capacitor Basics
+# Capacitor の基礎知識
 
-Follow the links on the left to learn the basics of using and developing with Capacitor.
+Capacitor を使って開発を行う上での基礎知識を左記のリンクから学ぶことができます。

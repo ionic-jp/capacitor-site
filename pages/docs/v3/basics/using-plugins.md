@@ -8,18 +8,18 @@ contributors:
 
 # プラグインの使い方
 
-The Web View and the native app communicate through the use of Capacitor or Cordova plugins. Plugins provide native APIs such as camera, geolocation, and filesystem access to your web app.
+Web View とネイティブアプリは、Capacitor や Cordova のプラグインを使って通信します。プラグインは、カメラ、位置情報、ファイルシステムへのアクセスなどのネイティブ API を Web アプリに提供します。
 
-## Capacitor Plugins
+## Capacitor プラグイン
 
-The Capacitor team maintains [a set of Capacitor plugins](/docs/apis) for commonly used APIs. There is also a large set of Capacitor plugins available from [the Capacitor Community](https://github.com/capacitor-community/).
+Capacitor チームは、一般的に使用される API のための[a set of Capacitor plugins](/docs/apis)を管理しています。また、[Capacitor Community](https://github.com/capacitor-community/)では、Capacitor プラグインの大規模なセットが利用可能です。
 
-[Learn more about Capacitor plugins &#8250;](/docs/plugins)
+[Capacitor プラグインについて学ぶ &#8250;](/docs/plugins)
 
-## Cordova Plugins
+## Cordova プラグイン
 
-Though Capacitor plugins are preferred, Cordova plugins are an option. Capacitor has compatibility with most Cordova plugins, but there may be additional steps when installing them.
+Capacitor のプラグインが推奨されていますが、Cordova のプラグインも選択可能です。Capacitor はほとんどの Cordova プラグインと互換性がありますが、それらをインストールする際には追加の手順が必要になる場合があります。
 
-> If you use a Cordova plugin because you weren't able to find a suitable Capacitor plugin, would you mind [creating a proposal for the Capacitor Community](https://github.com/capacitor-community/proposals/)?
+> もし、Cordova プラグインを使用していて、Capacitor のプラグインが見つからなかった場合は、 [Capacitor Community に提案していただけますか](https://github.com/capacitor-community/proposals/)？
 
-[Learn more about using Cordova plugins in Capacitor apps &#8250;](/docs/plugins/cordova)
+[Capacitor アプリでの Cordova プラグインの使用に関する詳細はこちら &#8250;](/docs/plugins/cordova)
