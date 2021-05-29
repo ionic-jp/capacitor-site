@@ -1,8 +1,8 @@
 # CLI Table of Contents (v3)
 
-- Overview
+- 概要
   - [Introduction](index.md)
-- Command List
+- コマンドリスト
   - [`add`](add.md)
   - [`copy`](copy.md)
   - [`list`](list.md)

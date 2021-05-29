@@ -1,23 +1,23 @@
 ---
 title: Capacitor iOS API
-description: The API for Capacitor on iOS
+description: iOSにおけるCapacitorのAPIについて
 ---
 
 # Capacitor iOS API
 
-Capacitor iOS is the native runtime that powers Capacitor apps on iOS.
+Capacitor iOS は、Capacitor アプリを iOS 上で動作させるためのネイティブランタイムです。
 
 ## Bridge
 
-The iOS bridge is the heart of the Capacitor iOS library. There are several properties and methods available on the bridge which provide information or change behavior.
+iOS ブリッジは、Capacitor iOS ライブラリの心臓部である。ブリッジには、情報を提供したり動作を変更したりするプロパティやメソッドがあります。
 
-When registered with Capacitor, plugins have a weak reference to the bridge:
+Capacitor に登録されると、プラグインはブリッジへの弱い参照を持ちます:
 
 ```swift
 self.bridge?
 ```
 
-> If your method requires the bridge, you can use a guard to unwrap it and perform an early exit:
+> あなたのメソッドがブリッジが必要な場合、Guard を使ってブリッジを確認して、ない場合は return することができます:
 >
 > ```swift
 > guard let bridge = self.bridge else { return }
@@ -31,9 +31,9 @@ self.bridge?
 var viewController: UIViewController? { get }
 ```
 
-This property contains the main view controller for Capacitor, which can be used to present native views over the app.
+このプロパティには、Capacitor のメインビューコントローラが含まれており、アプリ上のネイティブビューを表示するために使用できます。
 
-Examples:
+例を示します。
 
 ```swift
 DispatchQueue.main.async {
@@ -41,7 +41,7 @@ DispatchQueue.main.async {
 }
 ```
 
-On iPad devices it is possible to present popovers:
+iPad 端末では、Popover を表示することができます。
 
 ```swift
 self.setCenteredPopover(ourCustomViewController)
@@ -56,7 +56,7 @@ self.bridge.viewController.present(ourCustomViewController, animated: true, comp
 var config: InstanceConfiguration { get }
 ```
 
-This property contains the configuration object known to the Capacitor runtime.
+このプロパティでは、Capacitor ランタイムに通知している構成オブジェクトを取得することができます。
 
 ---
 
@@ -67,9 +67,9 @@ func triggerJSEvent(eventName: String, target: String)
 func triggerJSEvent(eventName: String, target: String, data: String)
 ```
 
-Fire an event on a JavaScript [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) such as `window` or `document`. If possible, it is preferred to use [Plugin Events](/docs/plugins/ios#plugin-events) instead.
+`window` や `document` などの JavaScript の [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) でイベントを発生させます。可能であれば、代わりに [Plugin Events](/docs/plugins/ios#plugin-events) を使用することをお勧めします。
 
-Examples:
+例:
 
 ```swift
 bridge.triggerJSEvent(eventName: "myCustomEvent", target: "window")
@@ -84,12 +84,12 @@ bridge.triggerJSEvent(eventName: "myCustomEvent", target: "document", data: "my 
 func localURL(fromWebURL webURL: URL?) -> URL?
 ```
 
-Translate a URL from the web view into a file URL for native iOS.
+WebView からの URL をネイティブ iOS 用のファイル URL に変換します。
 
-The web view may be handling several different types of URLs:
+WebView では、複数の異なるタイプの URL を扱うことがあります。
 
-- `res://` (shortcut scheme to web assets)
-- `file://` (fully qualified URL to file on the local device)
+- `res://` (ウェブアセットへのショートカットスキーム)
+- `file://` (ローカルデバイス上のファイルへの完全修飾 URL)
 
 ---
 
@@ -99,16 +99,16 @@ The web view may be handling several different types of URLs:
 func portablePath(fromLocalURL localURL: URL?) -> URL?
 ```
 
-Translate a file URL for native iOS into a URL to load in the web view.
+ネイティブ iOS 用のファイル URL を、Web ビューで読み込むための URL に変換します。
 
 ---
 
-## Passing data
+## データの受け渡し
 
-Notes on how to work with data that is passed between environments can be [found here](/docs/core-apis/data-types#ios).
+環境間で渡されるデータの扱い方については、[こちら](/docs/core-apis/data-types#ios)を参照してください。
 
 ---
 
-## Saving CAPPluginCall
+## CAPPluginCall の保存
 
-Notes on persisting plugin calls for asynchronous or repeated operations can be [found here](/docs/core-apis/saving-calls).
+非同期の操作や繰り返し行われる操作のためのプラグインの呼び出しを持続させるための注意点は[こちら](/docs/core-apis/saving-calls)にあります。

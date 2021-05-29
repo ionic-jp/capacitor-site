@@ -5,19 +5,19 @@ description: Data types in Capacitor
 
 # Capacitor Data Types
 
-Data moving between the web runtime and native environments in Capacitor have to be serialized and deserialized so that they can be stored natively in each language. The supported data types are those that can be represented in JSON such as numbers, strings, booleans, arrays, and objects (or dictionaries or key-value stores).
+Capacitor の Web ランタイムとネイティブ環境の間を行き来するデータは、それぞれの言語でネイティブに保存できるようにシリアル化・デシリアル化する必要があります。サポートされているデータタイプは、数値、文字列、ブーリアン、配列、オブジェクト（または Dictionaries やキーバリューストア）など、JSON で表現可能なものです。
 
 ## iOS
 
-While Swift is the preferred language on iOS, it interoperates with Objective-C (upon which the system frameworks are built) and so the platform supports the intersection of three languages. Most data types will be translated as expected but there are some cases that may require special attention.
+iOS では Swift が推奨言語ですが、システムフレームワークが構築されている Objective-C と相互運用しているため、プラットフォームは 3 つの言語の交差をサポートしています。ほとんどのデータ型は期待通りに翻訳されますが、特別な注意が必要なケースもあります。
 
 ---
 
 ### Null Values
 
-Objective-C does not support storing null values in collections such as arrays, dictionaries, or sets. Instead it uses a special placeholder object, [`NSNull`](https://developer.apple.com/documentation/foundation/nsnull?language=objc), to represent a null value. In contrast, Swift uses [Optionals](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html) to describe a value that might be null. Swift can manipulate `NSNull` values but Objective-C cannot handle Optionals (although, in some contexts, the runtime will automatically map optionals into the underlying value or `NSNull`). These `NSNull` objects can appear regardless of which language you are using.
+Objective-C は、配列、Dictionaries、またはセットなどのコレクションに null 値を格納することをサポートしていません。代わりに、特別なプレースホルダーオブジェクトである [`NSNull`](https://developer.apple.com/documentation/foundation/nsnull?language=objc) を使用して、NULL 値を表現します。対照的に、Swift は [Optionals](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html) を使用して、NULL かもしれない値を記述します。Swift は `NSNull` の値を操作できますが、Objective-C は Optionals を扱うことができません (ただし、一部のコンテキストでは、ランタイムが Optionals を基礎となる値または `NSNull` に自動的にマッピングします)。これらの `NSNull` オブジェクトは、使用している言語に関係なく出現します。
 
-As an example, consider the following object being passed to a Capacitor plugin call:
+例えば、次のようなオブジェクトが Capacitor のプラグイン呼び出しに渡されるとします:
 
 ```typescript
 { 'foo': null, 'bar': [1, 2, null, 4]}
@@ -25,7 +25,7 @@ As an example, consider the following object being passed to a Capacitor plugin 
 
 #### Dictionaries
 
-`CAPPluginCall` stores this data as its `options` property but has a variety of convenience accessors that operate on it. The accessors will cast the value to the expected type(s) so `NSNull` values will get filtered out.
+`CAPPluginCall` はこのデータを `options` プロパティとして格納していますが、これを操作する便利なアクセサがいくつかあります。これらのアクセサは、値を期待される型にキャストするので、`NSNull` の値はフィルタリングされます。
 
 ```swift
 if let value = call.getString("foo") {
@@ -33,7 +33,7 @@ if let value = call.getString("foo") {
 }
 ```
 
-However, accessing the storage property directly can return an `NSNull` object.
+しかし、storage プロパティに直接アクセスすると、`NSNull`オブジェクトが返されることがあります。
 
 ```swift
 if call.options["foo"] != nil {
@@ -41,11 +41,11 @@ if call.options["foo"] != nil {
 }
 ```
 
-> It is not recommended to rely on the presence of a key to convey meaning. Always type-check the corresponding value to evaluate it.
+> キーの存在に頼って意味を伝えることはお勧めできません。常に対応する値をタイプチェックして評価してください。
 
-#### Arrays
+#### 配列
 
-Since accessing an array typically requires typing the whole collection, it is important to consider if it contains a single type or might be heterogeneous.
+配列にアクセスするには、通常、コレクション全体をタイプする必要があるため、配列が単一の型を含んでいるのか、異種の型を含んでいるのかを考慮することが重要です。
 
 ```swift
 if let values = call.getArray("bar") {
@@ -56,7 +56,7 @@ if let values = call.getArray("bar", Int?) {
 }
 ```
 
-To help with this behavior, Capacitor includes a convenience extension that can map an array with `NSNull` values into an array of optionals. It works on the `JSValue` protocol, which represents all of the valid types that can be bridged between environments, but can be cast to a specific subtype.
+この動作を助けるために、Capacitor には`NSNull`値を持つ配列をオプションの配列にマッピングすることができる便利な拡張機能があります。これは、環境間の橋渡しが可能なすべての有効な型を表す `JSValue` プロトコルで動作しますが、特定のサブタイプにキャストすることができます。
 
 ```swift
 if let values = call.getArray("bar").capacitor.replacingNullValues() as? [Int?] {
@@ -68,9 +68,9 @@ if let values = call.getArray("bar").capacitor.replacingNullValues() as? [Int?] 
 
 ### Dates
 
-In most situations, dates should work as expected. Any `Date` object sent from JavaScript or `Date` or `NSDate` object returned from a plugin will be serialized into an [ISO 8601 string](https://www.iso.org/iso-8601-date-and-time-format.html).
+ほとんどの場面で、日付は期待通りに動作するはずです。JavaScript から送信される`Date`オブジェクトや、プラグインから返される`Date`や`NSDate`オブジェクトは、 [ISO 8601 string](https://www.iso.org/iso-8601-date-and-time-format.html) にシリアライズされます。
 
-However, part of this behavior can be changed if needed. Data moving from the web runtime to native iOS code uses a different mechanism than data going in the other direction. `WKWebView` automatically transforms JavaScript `Date` objects into native `Date` objects. For consistency with other platforms and to match developer expectations, Capacitor will serialize these objects before passing them to the plugin starting in 3.0. If you want to opt-out of this behavior, set the `shouldStringifyDatesInCalls` property on your plugin.
+ただし、必要に応じてこの動作の一部を変更することができます。Web ランタイムから iOS のネイティブコードに移動するデータは、逆方向のデータとは異なるメカニズムを使用します。 `WKWebView` は JavaScript の `Date` オブジェクトをネイティブの `Date` オブジェクトに自動的に変換します。他のプラットフォームとの整合性や開発者の期待に応えるために、Capacitor は 3.0 からこれらのオブジェクトをシリアライズしてからプラグインに渡します。この動作を無効にしたい場合は、プラグインに `shouldStringifyDatesInCalls` プロパティを設定してください。
 
 ```swift
 override func load() {
@@ -78,6 +78,6 @@ override func load() {
 }
 ```
 
-The `CAPPluginCall` convenience accessor `getDate` will handle both data types and return a `Date` object.
+`CAPPluginCall` の便利なアクセサ `getDate` は、両方のデータ型を扱い、`Date` オブジェクトを返します。
 
-Data moving from native code to the web view will be serialized as JSON. Since JSON does not officially define dates, including a `Date` object in a plugin's results would throw an exception prior to 3.0. But Capacitor will now automatically serialize any `Date` objects into strings as per convention. If your plugin needs to handle dates differently, serialize them into some other supported JSON type first.
+ネイティブコードからウェブビューに移行するデータは、JSON としてシリアライズされます。JSON は公式には日付を定義していないので、`Date` オブジェクトをプラグインの結果に含めると、3.0 以前では例外が発生していました。しかし、Capacitor は自動的に日付オブジェクトを文字列にシリアライズするようになりました。プラグインで日付を別の方法で処理する必要がある場合は、まずサポートされている他の JSON タイプにシリアライズしてください。

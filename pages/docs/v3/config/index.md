@@ -6,13 +6,13 @@ contributors:
   - jcesarmobile
 ---
 
-# Capacitor Configuration
+# Capacitor 設定
 
-The Capacitor configuration file is used to set high-level options for Capacitor tooling.
+Capacitor の Config ファイルは、Capacitor ツールの高レベルオプションを設定するために使用します。
 
 ## Example
 
-This is an example `capacitor.config.ts` file:
+以下は、`capacitor.config.ts` ファイルの例です:
 
 ```typescript
 import { CapacitorConfig } from '@capacitor/cli';
@@ -26,11 +26,11 @@ const config: CapacitorConfig = {
 export default config;
 ```
 
-If you are not using TypeScript in your project, you can use a `capacitor.config.json` file in the same way.
+プロジェクトで TypeScript を使用していない場合は、同じように `capacitor.config.json` ファイルを使用できます。
 
-## Schema
+## スキーマ
 
-Here is the TypeScript interface for Capacitor configuration, complete with descriptions and defaults.
+ここでは、Capacitor の設定を行うための TypeScript インターフェースを、説明とデフォルト値を含めて紹介します。
 
 ```typescript
 export interface CapacitorConfig {
@@ -442,9 +442,9 @@ export interface PluginsConfig {
 }
 ```
 
-## Environment Variables
+## 環境変数
 
-The Capacitor CLI will find dependencies on your system automatically. In the event you need to configure these paths, the following environment variables are available:
+Capacitor CLI は、お使いのシステムの依存関係を自動的に見つけます。これらの Path を設定する必要がある場合には、以下の環境変数が利用できます。
 
-- `CAPACITOR_ANDROID_STUDIO_PATH`: The path to Android Studio executable on your system.
-- `CAPACITOR_COCOAPODS_PATH`: The path to the `pod` binary on your system.
+- `CAPACITOR_ANDROID_STUDIO_PATH`: システム上の Android Studio の実行ファイルのパスを指定します。
+- `CAPACITOR_COCOAPODS_PATH`: システム上の `pod` バイナリへのパスです。

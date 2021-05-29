@@ -1,17 +1,17 @@
 ---
 title: Capacitor Web API
-description: The API for Capacitor on web
+description: WebにおけるCapacitorのAPIについて
 contributors:
   - dotNetkow
 ---
 
 # Capacitor Web API
 
-Capacitor has several JavaScript utilities useful for ensuring apps run successfully across multiple platforms with the same codebase. To use them, import Capacitor then call the desired utility function:
+Capacitor には、同じコードベースで複数のプラットフォームにまたがってアプリケーションを正常に動作させるために役立つ、いくつかの JavaScript ユーティリティがあります。これらを使用するには、Capacitor をインポートし、必要なユーティリティー関数を呼び出します:
 
 ## Capacitor Object
 
-The `Capacitor` object is a container for several utility functions. It is available at `window.Capacitor`, but the preferred usage for modern JavaScript apps is to import it:
+`Capacitor` オブジェクトは、いくつかのユーティリティー関数のコンテナです。このオブジェクトは `window.Capacitor` で利用できますが、最近の JavaScript アプリでは、Capacitor をインポートするのが望ましい使い方です:
 
 ```typescript
 import { Capacitor } from '@capacitor/core';
@@ -23,9 +23,9 @@ import { Capacitor } from '@capacitor/core';
 convertFileSrc: (filePath: string) => string;
 ```
 
-Convert a device filepath into a Web View-friendly path.
+デバイスのファイルパスを Web View に適したパスに変換します。
 
-Capacitor apps are served on a different protocol than device files. To avoid difficulties between these protocols, paths to device files must be rewritten. For example, on Android, `file:///path/to/device/file` must be rewritten as `http://localhost/_capacitor_file_/path/to/device/file` before being used in the Web View.
+コンデンサアプリは、デバイスファイルとは異なるプロトコルで提供されます。これらのプロトコル間の問題を避けるために、デバイスファイルのパスを書き換える必要があります。例えば、Android の場合、 `file:///path/to/device/file` は、Web View で使用する前に、 `http://localhost/_capacitor_file_/path/to/device/file` に書き換える必要があります。
 
 ```typescript
 // file:///path/to/device/photo.jpg
@@ -50,7 +50,7 @@ document.getElementById("savedPhoto").src = savedPhoto;
 getPlatform: () => string;
 ```
 
-Get the name of the platform the app is currently running on: `web`, `ios`, `android`.
+アプリが現在動作しているプラットフォームの名前を取得します。 `web`, `ios`, `android`.
 
 ```typescript
 if (Capacitor.getPlatform() === 'ios') {
@@ -64,7 +64,7 @@ if (Capacitor.getPlatform() === 'ios') {
 isNativePlatform: () => boolean;
 ```
 
-Check whether the currently running platform is native (`ios`, `android`).
+現在動作しているプラットフォームがネイティブ（`ios`, `android`）であるかどうかをチェックします。
 
 ```typescript
 if (Capacitor.isNativePlatform()) {
@@ -78,7 +78,7 @@ if (Capacitor.isNativePlatform()) {
 isPluginAvailable: (name: string) => boolean;
 ```
 
-Check if a plugin is available on the currently running platform. The plugin name is used in the plugin registry, which means it also works with custom plugins.
+現在稼働中のプラットフォームでプラグインが利用可能かどうかを確認します。プラグイン名はプラグインレジストリで使用されるため、カスタムプラグインでも動作します。
 
 ```typescript
 const isAvailable = Capacitor.isPluginAvailable('Camera');

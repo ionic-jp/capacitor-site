@@ -7,7 +7,7 @@ contributors:
 
 # Capacitor CLI - cap sync
 
-This command runs [`copy`](/docs/cli/copy) and then [`update`](/docs/cli/update).
+このコマンドは、[`copy`](/docs/cli/copy)を実行した後、[`update`](/docs/cli/update)を実行します。
 
 ```bash
 npx cap sync [options] [<platform>]

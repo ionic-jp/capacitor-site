@@ -1,26 +1,26 @@
 ---
-title: Persisting Plugin Calls
-description: How to save plugin calls in Capacitor
+title: プラグイン呼び出しの永続化
+description: プラグインの呼び出しをCapacitorに保存する方法
 ---
 
-# Saving Plugin Calls
+# プラグイン呼び出しの保存
 
-In most cases, a plugin method will get invoked to perform a task and can finish immediately. But there are situations where you will need to keep the plugin call available so it can be accessed later.
+ほとんどの場合、プラグインメソッドはタスクを実行するために呼び出され、すぐに終了することができます。しかし、プラグインの呼び出しを保存しておき、後でアクセスできるようにしておく必要がある場合もあるでしょう。
 
-## Overview
+## 概要
 
-Two reasons you might need a plugin call (`CAPPluginCall` on iOS or `PluginCall` on Android) to persist outside of the method in your plugin are:
+プラグインコール（iOS では`CAPPluginCall`、Android では`PluginCall`）を、プラグイン内のメソッドの外に保存しておく必要があるのは、以下の 2 つの理由からです。
 
-1. To perform an asynchronous action, such as a network request.
-2. To provide repeated updates back to the JavaScript environment, such as streaming live geolocation data.
+1. ネットワークリクエストのような非同期アクションを実行する場合。
+2. ライブジオロケーションデータのストリーミングなど、JavaScript 環境に繰り返し更新を提供するため。
 
-These two reasons can overlap but there is an important distinction. Specifically, whether or not a call will need to return data more than once. The Capacitor bridge records each call that is made from JavaScript to native so that it can match the result to the correct code when the plugin returns it, and the default behavior is to erase this bookkeeping after `resolve()` or `reject()` is called once. But if your method is a callback that will `resolve()` multiple times, then there is an extra step involved. More information about how to declare callbacks [can be found here.](/docs/plugins/method-types)
+この 2 つの理由は重なることもありますが、重要な違いがあります。具体的には、コールが複数回データを返す必要があるかどうかです。Capacitor ブリッジは、JavaScript からネイティブへの各呼び出しを記録し、プラグインが結果を返す際に正しいコードと照合できるようにしています。デフォルトの動作では、`resolve()`または`reject()`が 1 回呼び出された後、この記録を消去します。しかし、あなたのメソッドが複数回 `resolve()` を呼び出すコールバックであれば、余分なステップが必要になります。コールバックをどのように宣言するかについての詳しい情報は [ここにあります](/docs/plugins/method-types)。
 
 ---
 
-### Saving a call for a single completion
+### 一度だけ完了する call の保存
 
-If you need to save a call to be completed once in the future, you have two options. One option is to simply save it locally in an instance variable. The second is to use the bridge's set of methods to save it and then retrieve it later via the `callbackId`. After calling `resolve()` or `reject()`, you can dispose of the call object as it will no longer be relevant (don't forget to call `releaseCall()` if you used `saveCall()`).
+呼び出しを将来一度だけ完了させるために保存する必要がある場合、2 つの選択肢があります。1 つは、単純にインスタンス変数にローカルに保存する方法です。もう 1 つは、ブリッジのメソッド群を使って保存し、後で `callbackId` を使って取得する方法です。`resolve()`または`reject()`を呼び出した後、コールオブジェクトはもはや関連性がないので処分することができます（`saveCall()`を使用した場合は`releaseCall()`を呼び出すことを忘れないでください）。
 
 **iOS**
 
@@ -42,11 +42,11 @@ void releaseCall(String callbackId)
 
 ---
 
-### Saving a call for multiple completions
+### 呼び出しを保存して複数回完了させる
 
-Saving a call to be completed multiple times in the future means two things: saving the native call object itself (as above) and telling the bridge to preserve its bookkeeping so `resolve()` or `reject()` can be invoked repeatedly.
+1 つは、ネイティブのコールオブジェクト自体を保存すること（上記）、もう 1 つは、ブリッジにブックキーピングを保存するように指示し、`resolve()`や`reject()`を繰り返し起動できるようにすることです。
 
-To mark a call this way, set its `keepAlive` property (this was called `isSaved` prior to version 3 but has been renamed to make the behavior clearer).
+コールをこのようにマークするには、その `keepAlive` プロパティを設定します (これはバージョン 3 以前では `isSaved` と呼ばれていましたが、動作を明確にするために名前が変更されました)。
 
 **iOS**
 
@@ -60,4 +60,4 @@ call.keepAlive = true
 call.setKeepAlive(true);
 ```
 
-If `keepAlive` is true, then `resolve()` can be called as many times as necessary and the result will be returned as expected. Setting this flag to true also means that the bridge will automatically call `saveCall()` for you after your method returns.
+`keepAlive`が true であれば、`resolve()`を必要なだけ呼び出すことができ、期待通りの結果が返ってきます。また、このフラグを true に設定すると、メソッドが戻ってきた後にブリッジが自動的に`saveCall()`を呼び出すことになります。

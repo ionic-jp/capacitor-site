@@ -63,8 +63,8 @@ Capacitor のプラグインによって、JavaScript はネイティブ API と
   </a>
 </plugin-cards>
 
-Web apps can access the full power of Native APIs with plugins. Plugins wrap common native operations that might use very different APIs across platforms while exposing a consistent, cross-platform API to JavaScript.
+ウェブアプリケーションは、プラグインを使ってネイティブ API のパワーをフルに活用することができます。プラグインは、プラットフォーム間で非常に異なる API を使用する可能性のある共通のネイティブ操作をラップし、一貫したクロスプラットフォーム API を JavaScript に公開します。
 
-Additionally, the plugin capability in Capacitor makes it possible for teams with a mix of traditional native developers and web developers to work together on different parts of the app.
+さらに、Capacitor のプラグイン機能は、従来のネイティブ開発者と Web 開発者が混在するチームが、アプリの異なる部分で共同作業を行うことを可能にします。
 
-Capacitor automatically generates JavaScript hooks on the client, so most plugins only need to use Swift/Obj-C for iOS and/or Java/Kotlin for Android. Of course, adding custom JavaScript for a plugin is also possible.
+Capacitor は、クライアント上で自動的に JavaScript のフックを生成するので、ほとんどのプラグインは、iOS では Swift/Obj-C、Android では Java/Kotlin を使用するだけで済みます。もちろん、プラグイン用のカスタム JavaScript を追加することも可能です。
