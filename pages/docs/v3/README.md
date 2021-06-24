@@ -9,6 +9,7 @@
   - [開発ワークフロー](basics/workflow.md)
   - [プラグインを使う](basics/using-plugins.md)
   - [ネイティブプロジェクトの設定](basics/configuring-your-app.md)
+  - [ユーティリティ](basics/utilities.md)
 - アップグレードガイド
   - [3.0 へのアップグレード](updating/3-0.md)
   - [2.0 へのアップグレード](updating/2-0.md)
