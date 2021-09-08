@@ -56,6 +56,8 @@ App**ターゲットの名前を変更するには、[Xcode でプロジェク�
  end
 ```
 
-## ディープリンク (別名「ユニバーサルリンク」)
+Finally, add the `scheme` attribute inside the `ios` object in the [Capacitor configuration file](/docs/config#schema).
+
+## ディープリンク (別名 ユニバーサルリンク)
 
 ディープリンクのガイドは、[こちら](/docs/guides/deep-links)をご覧ください。

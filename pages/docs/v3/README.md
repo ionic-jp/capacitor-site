@@ -27,6 +27,7 @@
   - [デプロイとアップデート](guides/deploying-updates.md)
   - [アプリ内課金](guides/in-app-purchases.md)
   - [ライブリロード](guides/live-reload.md)
+  - [Mocking Plugins](guides/mocking-plugins.md)
   - [プッシュ通知 - Firebase](guides/push-notifications-firebase.md)
   - [React Hooks](guides/react-hooks.md)
   - [画面の向き](guides/screen-orientation.md)

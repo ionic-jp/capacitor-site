@@ -9,7 +9,7 @@ editApiUrl: https://github.com/ionic-team/capacitor-plugins/blob/main/storage/sr
 
 ストレージAPIは、軽量なデータのためのシンプルなキー/値の永続的なストアを提供します。
 
-Mobile OS's may periodically clear data set in `window.localStorage`, so this
+Mobile OSs may periodically clear data set in `window.localStorage`, so this
 API should be used instead. This API will fall back to using `localStorage`
 when running as a Progressive Web App.
 

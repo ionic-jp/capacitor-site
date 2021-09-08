@@ -15,5 +15,5 @@ canonicalUrl: https://capacitorjs.com/docs/cli/plugin-generate
 npx cap plugin:generate
 
 # Capacitor CLI not installed
-npx @capacitor/cli plugin:generate
+npx @capacitor/cli@2.4.7 plugin:generate
 ```

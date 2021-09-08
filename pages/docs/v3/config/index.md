@@ -208,6 +208,16 @@ export interface CapacitorConfig {
      * @since 3.0.0
      */
     includePlugins?: string[];
+
+    /**
+     * Android flavor to use.
+     *
+     * If the app has flavors declared in the `build.gradle`
+     * configure the flavor you want to run with `npx cap run` command.
+     *
+     * @since 3.1.0
+     */
+    flavor?: string;
   };
 
   ios?: {
@@ -323,6 +333,21 @@ export interface CapacitorConfig {
      * @since 3.0.0
      */
     includePlugins?: string[];
+
+    /**
+     * Sets WKWebView configuration for limitsNavigationsToAppBoundDomains.
+     *
+     * If the Info.plist file includes `WKAppBoundDomains` key, it's recommended to
+     * set this option to true, otherwise some features won't work.
+     * But as side effect, it blocks navigation outside the domains in the
+     * `WKAppBoundDomains` list.
+     * `localhost` (or the value configured as `server.hostname`) also needs to be
+     * added to the `WKAppBoundDomains` list.
+     *
+     * @since 3.1.0
+     * @default false
+     */
+    limitsNavigationsToAppBoundDomains?: boolean;
   };
 
   server?: {
@@ -345,6 +370,7 @@ export interface CapacitorConfig {
     /**
      * Configure the local scheme on iOS.
      *
+     * [Can't be set to schemes that the WKWebView already handles, such as http or https](https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/2875766-seturlschemehandler)
      * This can be useful when migrating from
      * [`cordova-plugin-ionic-webview`](https://github.com/ionic-team/cordova-plugin-ionic-webview),
      * where the default scheme on iOS is `ionic`.

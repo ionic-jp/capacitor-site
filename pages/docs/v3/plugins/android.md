@@ -14,9 +14,9 @@ Building Capacitor plugins for Android involves writing Java or [Kotlin](https:/
 
 To get started, first generate a plugin as shown in the [Getting Started](/docs/plugins) section of the Plugin guide.
 
-Next, open `my-plugin/android/` in Android Studio. You then want to navigate to the `.java` file for your plugin, which changes depending on the Plugin ID and Plugin Class Name you used when creating the plugin.
+Next, open `echo/android/` in Android Studio. You then want to navigate to the `.java` file for your plugin, which changes depending on the Plugin ID and Plugin Class Name you used when creating the plugin.
 
-For example, for a plugin with the ID `com.domain.myplugin` and the Plugin Class Name `MyPlugin`, you would find the `.java` file at `android/src/main/java/com/domain/myplugin/MyPlugin.java`.
+For example, for a plugin with the ID `com.domain.echo` and the Plugin Class Name `Echo`, you would find the `.java` file at `android/src/main/java/com/domain/echo/EchoPlugin.java`.
 
 ## Using Kotlin
 
@@ -116,6 +116,18 @@ call.reject(exception.getLocalizedMessage(), null, exception);
 In most cases, a plugin method will get invoked to perform a task and can finish immediately. But there are situations where you will need to keep the plugin call available so it can be accessed later. You might want to do this to periodically return data such as streaming live geolocation data, or to perform an asynchronous task.
 
 See [this guide on saving plugin calls](/docs/v3/core-apis/saving-calls) for more details on how to persist plugin calls.
+
+### Running Code on Plugin Load
+
+Occasionally, plugins may need to run some code when the plugin is first loaded.
+
+To do this, provide an implementation for the `load()` method:
+
+```java
+@Override
+public void load() {
+}
+```
 
 ## Permissions
 

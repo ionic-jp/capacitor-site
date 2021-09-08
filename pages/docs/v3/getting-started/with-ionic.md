@@ -29,7 +29,20 @@ ionic start
 ionic integrations enable capacitor
 ```
 
-Ionic のアプリで Cordova を使用している場合は、 [Cordova から Capacitor へのマイグレーションガイド](/docs/cordova/migrating-from-cordova-to-capacitor) も合わせてお読みください。
+Ionic Framework makes use of the APIs in the following plugins:
+
+- [**App**](/docs/apis/app)
+- [**Haptics**](/docs/apis/haptics)
+- [**Keyboard**](/docs/apis/keyboard)
+- [**StatusBar**](/docs/apis/status-bar)
+
+For the best user experience, you should make sure these plugins are installed even if you don't import them in your app:
+
+```bash
+npm install @capacitor/app @capacitor/haptics @capacitor/keyboard @capacitor/status-bar
+```
+
+If your Ionic app uses Cordova, you will want to read the [Migrating from Cordova to Capacitor guide](/docs/cordova/migrating-from-cordova-to-capacitor) as well.
 
 ### プラットフォームの追加
 

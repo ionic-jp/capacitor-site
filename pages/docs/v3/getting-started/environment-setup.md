@@ -49,8 +49,8 @@ Android Studio のメニューから **Tools -> SDK Manager** を開き、 **SDK
 **SDK Tools** タブでは、少なくとも以下のものをインストールしてください。
 
 - Android SDK Build-Tools
+- Android SDK Command-line Tools
 - Android Emulator
 - Android SDK Platform-Tools
-- Android SDK Tools
 
 ![SDK Tools](/assets/img/docs/android/sdk-tools.png)
