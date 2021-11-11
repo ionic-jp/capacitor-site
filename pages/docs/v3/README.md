@@ -22,6 +22,7 @@
 - コンセプト
   - [広告](guides/ads.md)
   - [Angular](guides/angular.md)
+  - [Automated Configuration](guides/automated-configuration.md)
   - [CI/CD](guides/ci-cd.md)
   - [ディープリンク](guides/deep-links.md)
   - [デプロイとアップデート](guides/deploying-updates.md)

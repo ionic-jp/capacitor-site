@@ -31,9 +31,9 @@ Capacitor アプリの CI/CD の最初のステップは、_frontend_ JS アプ�
 
 ## Appflow: Capacitor アプリのためのモバイル CI/CD
 
-end-to-end のモバイル CI/CD を提供するサービスとして、Capacitor アプリの公式モバイル CI/CD および Mobile DevOps プラットフォームである [Appflow](https://useappflow.com/) があります。
+One such service that provides end-to-end Mobile CI/CD is [Appflow](https://ionic.io/appflow), the official Mobile CI/CD and Mobile DevOps platform for Capacitor apps.
 
-Appflow は、頻繁に更新され、管理された iOS および Android のビルド環境を提供します。Appflow は、GitLab、GitHub、Bitbucket などの一般的な git サービスと統合し、コミットごとに JS とネイティブモバイルのビルドをトリガーすることをサポートしています。また、Appflow はビルドをステークホルダー、ベータテスター、本番ユーザーのそれぞれのチャンネルに分けることも可能です。
+Appflow provides frequently updated, managed iOS and Android build environments. Appflow integrates with popular git services like Azure DevOps, GitLab, GitHub, and Bitbucket, to support triggering JS and native mobile builds on each commit. Appflow also supports separating builds into different channels for stakeholders, beta testers, and production users. Additionally, Appflow can automatically submit your app to app stores as part of an automated workflow, and removes the need for your team to manage complicated native iOS and Android build stacks.
 
 また、Appflow は、Capacitor の開発者向けに、アプリの JS/HTML/CSS レイヤーの更新であれば、アプリストアに申請することなく、アプリの更新をリアルタイムにプッシュする機能も提供しています。
 
@@ -47,4 +47,4 @@ Appflow は、Web/JS のビルドとモバイルのネイティブビルドを�
 
 ## その他のモバイル CI/CD オプション
 
-モバイル CI/CD のサービスは他にもありますが、Capacitor に特化したものはありません。これらのサービスには、 [Visual Studio App Center](https://appcenter.ms) 、 [Bitrise](https://www.bitrise.io/) 、 [Buddybuild](https://www.buddybuild.com/) (iOS のみ) などがあります。なお、これらのサービスは現在、Capacitor アプリのリモート・リアルタイム・アプリ・アップデートを提供していないことに留意してください。
+There are other services for Mobile CI/CD, though none focused on Capacitor. Whichever CI/CD service you prefer, Capacitor can integrate with it as Capacitor apps are just native apps. However, for remote live updates of Capacitor apps, [Appflow](https://ionic.io/appflow) is the only service with this feature.
