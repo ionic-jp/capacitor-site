@@ -22,9 +22,8 @@ Capacitor には、ネイティブの [Storage API](/docs/apis/storage) が付�
 Storage API は、高度なクエリをサポートしないシンプルなキー/バリュー API を提供します:
 
 ```typescript
-import { Plugins } from '@capacitor/core';
+import { Storage } from '@capacitor/storage';
 
-const { Storage } = Plugins;
 // JSON "set" example
 async setObject() {
   await Storage.set({

@@ -222,9 +222,7 @@ const photo = await this.camera.getPicture({
 });
 `, //----------------------------------
                 `
-import { Plugins } from '@capacitor/core';
-
-const { Camera } = Plugins;
+import { Camera } from '@capacitor/camera';
 
 const photo = await Camera.getPhoto({
   quality: 100,
@@ -284,7 +282,7 @@ npm install cordova-plugin-name
 npx cap sync
 
 # Create a custom plugin
-npx @capacitor/cli plugin:generate
+npm init @capacitor/plugin
 `}
           />
         </div>

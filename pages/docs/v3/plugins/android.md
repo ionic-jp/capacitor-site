@@ -244,7 +244,7 @@ public void methodThatUsesNewAndroidAPI(PluginCall call) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         // TODO implementation
     } else {
-        call.unavailable('Not available on Android API 25 or earlier.');
+        call.unavailable("Not available on Android API 25 or earlier.");
     }
 }
 ```
@@ -258,7 +258,7 @@ Use this error to indicate that a method can't be implemented for Android.
 ```java
 @PluginMethod
 public void methodThatRequiresIOS(PluginCall call) {
-    call.unimplemented('Not implemented on Android.');
+    call.unimplemented("Not implemented on Android.");
 }
 ```
 
