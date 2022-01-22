@@ -17,7 +17,7 @@ export async function getGithubData(repoRootDir: string, filePath: string) {
 
     const githubUrl = new URL(
       results.repoFilePath,
-      `https://github.com/ionic-team/capacitor-site/blob/main/`,
+      `https://github.com/ionic-jp/capacitor-site/blob/main/`,
     );
     results.repoFileUrl = githubUrl.href;
 
@@ -43,7 +43,7 @@ async function fetchGithubCommits(
   const fetchUrl = url.format({
     protocol: 'https',
     hostname: 'api.github.com',
-    pathname: 'repos/ionic-team/capacitor-site/commits',
+    pathname: 'repos/ionic-jp/capacitor-site/commits',
     query: {
       access_token: process.env.GITHUB_TOKEN,
       since: since,
