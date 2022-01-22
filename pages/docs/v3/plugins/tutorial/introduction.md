@@ -1,39 +1,39 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin
+title: Capacitor Pluginの構築
+description: Capacitor Pluginの構築
 contributors:
   - eric-horodyski
 ---
 
-# Building a Capacitor Plugin
+# Capacitor プラグインの構築
 
-Capacitor provides a comprehensive Plugin API to use when adding native functionality to a Capacitor app.
+Capacitor は、Capacitor アプリにネイティブ機能を追加する際に使用する包括的な Plugin API を提供します。
 
-There are two types of Capacitor plugins: a _local plugin_ is custom native code isolated to a particular Capacitor application, residing within the native projects committed as part of source control. A _global plugin_ is a published npm package that developers can add to any Capacitor application.
+Capacitor プラグインには 2 つのタイプがあります: _local plugin_ は特定の Capacitor アプリケーションに分離されたカスタムネイティブコードで、ソース管理の一部としてコミットされたネイティブプロジェクトの中に存在します。 _global plugin_ は、開発者が任意の Capacitor アプリケーションに追加できる公開された npm パッケージです。
 
-In this tutorial, we will start with a blank Capacitor application and add native code to it to build a local plugin. Then we will package it up into a global plugin, ready to be published.
+このチュートリアルでは、空の Capacitor アプリケーションから始めて、それにネイティブコードを追加してローカルプラグインを構築します。そして、それをグローバルプラグインとしてパッケージ化し、公開できるようにします。
 
-## So, what are we going to build?
+## さて、何をつくろう。
 
-Pretend that you work for a delivery carrier, and the application you wrote lets drivers obtain signatures from customers, confirming they have received their deliveries. The legal team noticed customer signatures were of poor quality because drivers had customers sign in portrait mode. They’ve tasked you to force the app into landscape mode when capturing signatures.
+あなたが配送業者に勤めているとします。あなたが書いたアプリケーションでは、ドライバーが顧客から署名を得て、配達物を受け取ったことを確認することができます。法務チームは、ドライバーが顧客に縦書きでサインさせるため、顧客のサインの品質が低いことに気づきました。そのため、署名を取得する際にアプリを強制的にランドスケープモードにするよう、あなたにタスクが与えられました。
 
-The plugin we build will implement **screen orientation** features to accommodate this request:
+私たちが作るプラグインは、この要求に対応するために **画面の向き** の機能を実装する予定です。
 
-- The device’s current **orientation** will be detected, with differing UIs for portrait and landscape mode.
-- Users will be given the option to rotate and **lock** their screen orientation to landscape mode.
-- After a signature has been confirmed, the app will **unlock** screen orientation rotation.
+- デバイスの現在の **方向** を検出し、縦向きと横向きで異なる UI を提供します。
+- ユーザーは、画面の向きを回転させ、ランドスケープモードに **ロック** するオプションが与えられます。
+- 署名が確認された後、アプリは画面の向きの回転を **ロック解除** します。
 
-For this tutorial, we will mock up a signature pad but only build out screen orientation functionality.
+このチュートリアルでは、署名パッドのモックアップを作成し、画面の向きの機能のみを構築します。
 
-This `ScreenOrientation` plugin will work across the web, iOS, and Android platforms.
+この `ScreenOrientation` プラグインは、ウェブ、iOS、Android プラットフォームで動作します。
 
-## Getting started
+## はじめかた
 
-Clone <a href="https://github.com/ionic-enterprise/capacitor-plugin-tutorial" target="_blank">this repository</a> and check out the `start` branch. Run `npm install` at the root of the project.
+<a href="https://github.com/ionic-enterprise/capacitor-plugin-tutorial" target="_blank">このレポジトリ</a> をクローンして、 `start` ブランチにチェックアウトしましょう。 `npm install` をプロジェクトのルートで実行します。
 
-> This tutorial uses `@ionic/react` to build the user interface. If you are not familiar with React or the Ionic Framework, that’s OK! The concepts covered apply to Capacitor apps using any TypeScript-enabled web framework.
+> このチュートリアルでは、ユーザーインターフェースの構築に `@ionic/react` を使用します。React や Ionic Framework に馴染みがなくても大丈夫です! このチュートリアルで扱うコンセプトは、TypeScript 対応のあらゆる Web フレームワークを使用した Capacitor アプリに適用されます。
 
-Add both the iOS and Android platforms to the Capacitor app:
+まず、iOS と Android の両プラットフォームを Capacitor アプリに追加します。
 
 ```bash
 npm run build
@@ -43,4 +43,4 @@ npx cap add android
 npx cap sync
 ```
 
-Now that we have a Capacitor app in place with native platforms added, we’re ready to move on to the first step of building a plugin: designing the API.
+さて、ネイティブ・プラットフォームを追加した Capacitor アプリができたので、プラグイン構築の最初のステップである API の設計に移ります。

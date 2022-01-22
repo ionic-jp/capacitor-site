@@ -1,25 +1,25 @@
 ---
-title: Capacitor Web/PWA Plugin Guide
-description: Capacitor Web/PWA Plugin Guide
+title: Capacitor Web/PWA プラグインガイド
+description: Capacitor Web/PWA プラグインガイド
 contributors:
   - mlynch
   - jcesarmobile
   - dotNetkow
 ---
 
-# Capacitor Web/PWA Plugin Guide
+# Capacitor Web/PWA プラグインガイド
 
-Capacitor utilizes a web/native compatibility layer, making it easy to build plugins that have functionality when running natively as well as when running in a PWA on the Web.
+Capacitor は、Web/Native 互換レイヤーを利用しており、Web 上の PWA で動作した場合と同様にネイティブで動作した場合の機能を持つプラグインを簡単に構築することができます。
 
-## Getting Started
+## はじめかた
 
-To get started, first generate a plugin as shown in the [Getting Started](/docs/plugins/creating-plugins#plugin-generator) section of the Plugin guide.
+まず、プラグインガイドの [はじめかた](/docs/plugins/creating-plugins#plugin-generator) の項目にあるように、プラグインを生成してください。
 
-Next, open `echo/src/web.ts` in your editor of choice.
+つづいて、`echo/src/web.ts` を好きなエディタで開きます。
 
-## Example
+## サンプル
 
-The basic structure of a web plugin for Capacitor looks like this:
+Capacitor の Web プラグインの基本的な構造は次のようになります：
 
 ```typescript
 import { WebPlugin } from '@capacitor/core';
@@ -34,32 +34,32 @@ export class EchoWeb extends WebPlugin implements EchoPlugin {
 }
 ```
 
-The `EchoPlugin` interface defines the method signatures of your plugin. In TypeScript, we can ensure the web implementation (the `EchoWeb` class) correctly implements the interface.
+`EchoPlugin` インターフェースは、プラグインのメソッドシグネチャを定義します。TypeScript では、Web の実装 (`EchoWeb` クラス) が正しくインタフェースを実装していることを確認することができます。
 
 ## Permissions
 
-If your plugin has functionality on web that requires permissions from the end user, then you will need to implement the permissions pattern.
+プラグインがウェブ上でエンドユーザーの許可を必要とする機能を持つ場合、permissions パターンを実装する必要があります。
 
-### Aliases
+### エイリアス
 
-You will need to develop one or more aliases for abstracting and grouping permissions that your plugin requires. These aliases are used to convey permission state. By default, an alias can be in one of the following states:
+プラグインが必要とするパーミッションを抽象化し、グループ化するために、1 つ以上のエイリアスを開発する必要があります。これらのエイリアスは、パーミッションの状態を伝えるために使用されます。デフォルトでは、エイリアスは以下の状態のいずれかになります。
 
-- `granted`: Every permission in this alias has been granted by the end user (or prompting is not necessary).
-- `denied`: One or more permissions in this alias have been denied by the end user.
-- `prompt`: The end user should be prompted for permission, because it has neither been granted nor denied.
-- `prompt-with-rationale`: The end user has denied permission before, but has not blocked the prompt yet.
+- `granted`: このエイリアスに含まれるすべてのパーミッションは、エンドユーザーによって許可されています (あるいはプロンプトが表示される必要はありません)。
+- `denied`: このエイリアスの 1 つ以上のパーミッションがエンドユーザーによって拒否されています。
+- `prompt`: 許可も拒否もされていないので、エンドユーザーに許可を求めるプロンプトを表示する必要があります。
+- `prompt-with-rationale`: エンドユーザーが以前に許可を拒否したことがあるが、まだプロンプトをブロックしていない。
 
-These are represented by the `PermissionState` type exported from `@capacitor/core`.
+これらは `@capacitor/core` からエクスポートされた `PermissionState` 型で表現されます。
 
-It is also possible to define custom states for aliases, if need be. For example, the official [Camera plugin](/docs/apis/camera) also defines a `limited` state for the `camera` and `photos` aliases.
+必要であれば、エイリアスのためにカスタムの状態を定義することも可能です。例えば、公式の [Camera plugin](/docs/apis/camera) では、 `camera` と `photos` のエイリアスに対して `limited` ステート を定義しています。
 
-Aliases are cross-platform, so make sure to take iOS, Android, and web permissions into account when deciding on the aliases for your plugin.
+エイリアスはクロスプラットフォームなので、プラグインのエイリアスを決定する際には、iOS、Android、Web のパーミッションを考慮するようにしてください。
 
-### Permission Status Definitions
+### パーミッションの状態に関する定義
 
-In `src/definitions.ts`, import `PermissionState` from Capacitor and define a `PermissionStatus` interface which represents the status of permissions in your plugin, keyed by the alias(es) you came up with.
+`src/definitions.ts` で、Capacitor の `PermissionState` をインポートして、プラグインのパーミッションの状態を表す `PermissionStatus` インターフェイスを定義します。このインターフェースは、あなたが考えたエイリアスがキーとなります。
 
-In the example below, the permission status can be entirely represented by a `location` alias which can be `granted`, `denied`, etc.
+以下の例では、パーミッションのステータスは `location` というエイリアスで表現され、 `granted`, `denied` などの値を持つことができます。
 
 ```typescript
 import type { PermissionState } from '@capacitor/core';
@@ -70,7 +70,7 @@ export interface PermissionStatus {
 }
 ```
 
-Then, add the definitions for `checkPermissions()` and `requestPermissions()` in your plugin interface. Both of these methods will return the current status of permissions in your plugin as defined by `PermissionStatus`.
+次に、プラグインインターフェースに `checkPermissions()` と `requestPermissions()` の定義を追加します。これらのメソッドは、 `PermissionStatus` で定義された、あなたのプラグインのパーミッションの現在の状態を返します。
 
 ```diff-typescript
  export interface EchoPlugin {
@@ -80,11 +80,11 @@ Then, add the definitions for `checkPermissions()` and `requestPermissions()` in
  }
 ```
 
-Because these methods are added to your plugin interface, they must be implemented on all platforms that your plugin supports.
+これらのメソッドはプラグインインターフェースに追加されるため、プラグインがサポートするすべてのプラットフォームで実装する必要があります。
 
-### Implementing Permissions
+### パーミッションの実装
 
-In `src/web.ts`, add the `checkPermissions()` and `requestPermissions()` methods to your web implementation.
+`src/web.ts` に `checkPermissions()` と `requestPermissions()` メソッドを追加し、Web の実装にします。
 
 ```diff-typescript
 +import { PermissionStatus } from './definitions';
@@ -106,9 +106,9 @@ In `src/web.ts`, add the `checkPermissions()` and `requestPermissions()` methods
 
 #### `checkPermissions()`
 
-This method should return the current status of permissions in your plugin. This information may be available on the specific web API directly, or from the [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API).
+このメソッドは、あなたのプラグインにおけるパーミッションの現在のステータスを返す必要があります。この情報は、特定の Web API で直接利用できるかもしれませんし、 [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API) からも利用できるかもしれません。
 
-Remember, when working with web APIs with spotty browser adoption (such as the Permissions API), you should implement feature detection and throw an appropriate error when the end user's browser is not supported.
+ブラウザの普及率が不安定なウェブ API (たとえば Permissions API) を扱うときは、機能検出機能を実装し、エンドユーザのブラウザが対応していないときは適切なエラーを投げるべきであることを覚えておいてください。
 
 ```diff-typescript
  async checkPermissions(): Promise<PermissionStatus> {
@@ -124,9 +124,9 @@ Remember, when working with web APIs with spotty browser adoption (such as the P
 
 #### `requestPermissions()`
 
-This method should prompt the end user for permission to use the platform APIs that your plugin requires. Then, it should return the new state of permissions in your plugin after prompting (just like with the `checkPermissions()` method).
+このメソッドは、あなたのプラグインが必要とするプラットフォーム API を使用する許可をエンドユーザーに求める必要があります。そして、プロンプトの後にプラグインのパーミッションの新しい状態を返すべきです (`checkPermissions()` メソッドと同じように)。
 
-On web, is it sometimes not possible to separate the requesting of permission from the actual call. For example, the Geolocation API only requests permission at the time a location is requested. For situations like this, we recommended throwing the unimplemented exception.
+ウェブ上では、パーミッションの要求と実際の呼び出しを分離することができないことがあります。例えば、Geolocation API は位置情報が要求されたときだけパーミッションを要求します。このような状況では、未実装の例外を投げることをお勧めします。
 
 ```typescript
 async requestPermissions(): Promise<PermissionStatus> {
@@ -135,20 +135,20 @@ async requestPermissions(): Promise<PermissionStatus> {
 }
 ```
 
-## Error Handling
+## エラーハンドリング
 
-Capacitor plugins for web often work with APIs that haven't been adopted in some browsers or even remotely standardized. Despite this, it is common to take a best-effort approach for the web implementation of your plugin and gracefully fail when APIs are unavailable. This is why error handling is especially important on web!
+Web 用の Capacitor プラグインは、一部のブラウザで採用されていない、あるいはリモートで標準化されていない API で動作することがよくあります。にもかかわらず、プラグインの Web 実装ではベストエフォート型のアプローチをとり、API が利用できないときには優雅に失敗するのが一般的です。これが、ウェブでエラー処理が特に重要な理由です!
 
 ### Unavailable
 
-This error should be thrown to indicate that the functionality can't be used right now.
+このエラーは、その機能が今すぐには使用できないことを示すために投げられるべきである。
 
-Reasons for this include:
+その理由は以下の通りです。
 
-- It is currently missing a prerequisite, such as network connectivity.
-- It requires a browser that has implemented the underlying API.
+- 現在、ネットワーク接続などの前提条件が欠けている。
+- 基本的な API を実装しているブラウザが必要である。
 
-In the example below, we first check that `geolocation` is defined on `navigator`. If it does not, it means the browser does not support Geolocation and we should throw the "unavailable" error. Otherwise, we can proceed with the implementation.
+以下の例では、まず `geolocation` が `navigator` で定義されているかどうかを確認します。もし定義されていなければ、ブラウザが Geolocation をサポートしていないことを意味するので、"unavailable "エラーを投げる必要があります。そうでなければ、実装を進めることができます。
 
 ```typescript
 async getLocation(): Promise<Location> {
@@ -163,7 +163,7 @@ async getLocation(): Promise<Location> {
 
 ### Unimplemented
 
-This error can be thrown to indicate that the functionality is not implemented. You can use this to stub out your methods on web for a later implementation or use it to indicate the functionality can't be implemented on a certain platform.
+このエラーは、機能が実装されていないことを示すためにスローされることがあります。これを使用して、Web 上でメソッドを stub 化し、後で実装することもできますし、 特定のプラットフォームで機能を実装できないことを示すために使用することもできます。
 
 ```typescript
 async getLocation(): Promise<Location> {

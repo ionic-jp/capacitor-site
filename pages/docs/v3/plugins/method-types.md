@@ -1,15 +1,15 @@
 ---
-title: Method Types
-description: Capacitor Plugin Method Types
+title: Method　Types
+description: Capacitor Plugin の Method Types
 contributors:
   - ikeith
 ---
 
 # Method Types
 
-When developing plugins, there are three different types of method signatures that can be used. All are asynchronous and promise-based.
+プラグインを開発する場合、使用できるメソッドシグネチャは 3 種類に分かれます。いずれも非同期で、Promise 型です。
 
-Let's consider a plugin definition that includes all three types:
+3 つのタイプすべてを含むプラグイン定義を考えてみましょう:
 
 ```typescript
 export type CallbackID = string;
@@ -27,11 +27,11 @@ export interface MyPlugin {
 }
 ```
 
-## Void Return
+## Void の返り値
 
-`method1()` is the simplest case that is expected to return no data. You can check the promise for an error but when it resolves the result is ignored.
+`method1()` はデータを返さないことが期待される最も単純なケースです。Promise にエラーがないか確認することはできますが、解決された場合はその結果は無視されます。
 
-For android, you would annotate the method like this:
+Android の場合、このようなメソッドにアノテーションを付けます:
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_NONE)
@@ -39,7 +39,7 @@ public void method1(PluginCall call) {
 }
 ```
 
-For iOS, you would declare the method this way in your plugin's `.m` file:
+iOS の場合、プラグインの `.m` ファイルでこのようにメソッドを宣言します。
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -47,11 +47,11 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-## Value Return
+## Value の返り値
 
-`method2()` is the most common case: A promise that resolves with some value.
+`method2()` は最も一般的なケースです。何らかの値で解決されるプロミスです。
 
-For Android, this method type is the default and specifying the return type is optional:
+Android では、この Method 　 Type がデフォルトで、戻り値の型の指定は任意です:
 
 ```java
 @PluginMethod()
@@ -59,7 +59,7 @@ public void method2(PluginCall call) {
 }
 ```
 
-For iOS, you would declare the method this way in your plugin's `.m` file:
+iOS の場合、プラグインの `.m` ファイルでこのようにメソッドを宣言します:
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -69,9 +69,9 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 
 ## Callback
 
-`method3()` is the most complex type but also the least common in practice. It is used when your plugin needs to return data repeatedly, such as when monitoring the device's location via the geolocation API.
+`method3()` は最も複雑な型ですが、実際には最も一般的でない型でもあります。例えば、ジオロケーション API を使ってデバイスの位置をモニターするときなど、プラグインが繰り返しデータを返す必要があるときに使われます。
 
-For android, you would annotate the method like this:
+アンドロイドの場合、このようなアノテーションをつけることになります:
 
 ```java
 @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
@@ -79,7 +79,7 @@ public void method3(PluginCall call) {
 }
 ```
 
-For iOS, you would declare the method this way in your plugin's `.m` file:
+iOS の場合、プラグインの `.m` ファイルでこのようにメソッドを宣言します:
 
 ```objc
 CAP_PLUGIN(MyPlugin, "MyPlugin",
@@ -87,6 +87,6 @@ CAP_PLUGIN(MyPlugin, "MyPlugin",
 )
 ```
 
-Callback methods take a function that will be invoked (potentially many times) from the native code and return a promise that will resolve with an identifier.
+コールバックメソッドは、ネイティブコードから（潜在的に何度も）呼び出される関数を受け取り、識別子で解決される Promise を返します。
 
-On the native side, implementing a callback means you need to save the call so it can be invoked at a later time. The specifics of how to handle that [are discussed here.](/docs/core-apis/saving-calls)
+ネイティブ側では、コールバックを実装することは、後で呼び出せるように呼び出しを保存する必要があることを意味します。その具体的な処理方法については、 [こちらで解説しています](/docs/core-apis/saving-calls) 。

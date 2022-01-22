@@ -1,27 +1,27 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Designing the Plugin API
+title: Capacitor Pluginの構築
+description: Capacitor Pluginの構築 - Plugin APIの設計
 contributors:
   - eric-horodyski
 ---
 
-# Designing the Plugin API
+# プラグイン API の設計
 
-The first - and arguably most important - step when building a Capacitor plugin is to design the API. The API is the contract we will adhere to when writing each platform’s specific implementation.
+Capacitor プラグインを構築する際の最初の（そして間違いなく最も重要な）ステップは、API を設計することです。API は、各プラットフォーム固有の実装を書くときに遵守する契約です。
 
-We can define the plugin API using TypeScript; it will serve as our contract when implementing and provides the niceties that come with TypeScript, such as code completion and type checking.
+プラグイン API は TypeScript で定義することができ、実装の際に契約書として機能し、コード補完や型チェックといった TypeScript に付随する機能を提供する。
 
-## Wait, do you even need a plugin for that?
+## 待って。どうしてプラグインが必要なの？
 
-Believe it or not, modern web browsers can do many things that we think of as “native functionality,” such as checking battery status, speech recognition, and, yes, screen orientation. It’s not uncommon when building Web Native applications to see functionality that once required plugins to access are now available as Web APIs.
+信じられないかもしれませんが、最近のウェブブラウザは、バッテリーの状態のチェック、音声認識、画面の向きなど、私たちが「ネイティブ機能」と考える多くのことを行うことができます。Web Native アプリケーションを構築していると、かつてはプラグインが必要だった機能が、Web API として提供されているのを目にすることがあります。
 
-> Before building a plugin for a particular feature, we recommend checking out sites such as <a href="https://whatwebcando.today/" target="_blank">What Web Can Do Today</a> to see if the functionality you are looking for is already available as a Web API.
+> 特定の機能のプラグインをビルドする前に、 <a href="https://whatwebcando.today/" target="_blank">What Web Can Do Today</a> などのサイトをチェックして、探している機能が Web API としてすでに利用可能かどうかを確認することをお勧めします。
 
-If screen orientation already has a Web API, why would we go out of our way to build one? Taking a look at the <a href="https://whatwebcando.today/screen-orientation.html" target="_blank">Screen Orientation Web API</a> we can see that iOS does not implement the API (as of this writing), which means we will need to provide the implementation ourselves. As it relates to Android, we could just use the Screen Orientation Web API when our app runs on the Android platform - but we will implement screen orientation functionality natively for educational purposes.
+画面指向がすでに Web API を持っているのなら、なぜわざわざ Web API を構築する必要があるのでしょうか。 <a href="https://whatwebcando.today/screen-orientation.html" target="_blank">Screen Orientation Web API</a> を見ると、iOS はこの API を実装していない (この記事を書いている時点では) ことがわかります。Android に関しては、アプリが Android プラットフォーム上で動作している場合には、Screen Orientation Web API を使用することもできますが、学ぶことを目的にして画面向きの機能をネイティブに実装します。
 
-## Defining the ScreenOrientation API
+## ScreenOrientation API の定義
 
-We might not be able to use the Screen Orientation Web API outright, but we can model our plugin’s API against it:
+Screen Orientation Web API をそのまま使用することはできないかもしれませんが、プラグインの API をモデル化することはできます:
 
 | Method Name        | Input Parameters                            | Return Value                                           |
 | ------------------ | ------------------------------------------- | ------------------------------------------------------ |
@@ -31,14 +31,14 @@ We might not be able to use the Screen Orientation Web API outright, but we can 
 | addListener        | `(orientation: { type: OrientationType }) ` | `Promise<PluginListenerHandle> & PluginListenerHandle` |
 | removeAllListeners |                                             | `Promise<void>`                                        |
 
-There is an added advantage here; we can use the `OrientationType` and `OrientationLockType` types available through TypeScript’s existing DOM typings.
+ここにはさらに利点があります: TypeScript の既存の DOM 型付けによって利用可能な`OrientationType`型と`OrientationLockType`型を使用することができます。
 
-Let's set up a directory to hold our plugin API. Create a new subfolder `src/plugins/screen-orientation` and add the following files within:
+プラグイン API を格納するディレクトリを設定します。新しいサブフォルダ`src/plugins/screen-orientation`を作成し、その中に次のファイルを追加します。
 
 - `definitions.ts`
 - `index.ts`
 
-Populate `definitions.ts` with the following code:
+`definitions.ts`に次のコードを入力します:
 
 ```typescript
 import type { PluginListenerHandle } from '@capacitor/core';
@@ -74,11 +74,11 @@ export interface ScreenOrientationPlugin {
 }
 ```
 
-## Registering the ScreenOrientation plugin
+## ScreenOrientation プラグインを登録する
 
-In order to use the plugin in the Capacitor application, we need to register it using the `registerPlugin()` module exported from `@capacitor/core`.
+Capacitor アプリケーションでプラグインを使用するには、`@capacitor/core` からエクスポートされた `registerPlugin()` モジュールを使用してプラグインを登録する必要があります。
 
-Populate `index.ts` with the following code:
+以下のコードを `index.ts` に記述します:
 
 ```typescript
 import { registerPlugin } from '@capacitor/core';
@@ -93,6 +93,6 @@ export * from './definitions';
 export { ScreenOrientation };
 ```
 
-The code above creates an object linked to our plugin's implementation code.
+上記のコードは、私たちのプラグインの実装コードにリンクされたオブジェクトを作成します。
 
-Designing the API is complete; let’s build a user interface that will call it. In doing so, we will make testing easier as we implement each platform integration. Our next step: using the plugin API.
+API の設計は完了したので、次はそれを呼び出すユーザインタフェースを構築しましょう。そうすることで、各プラットフォームの統合を実装する際のテストを容易にすることができます。次のステップは、プラグイン API を使うことです。

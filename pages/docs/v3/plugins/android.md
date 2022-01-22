@@ -1,41 +1,41 @@
 ---
-title: Capacitor Android Plugin Guide
-description: Capacitor Android Plugin Guide
+title: Capacitor Androidプラグインガイド
+description: Capacitor Androidプラグインガイド
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Capacitor Android Plugin Guide
+# Capacitor Android プラグインガイド
 
-Building Capacitor plugins for Android involves writing Java or [Kotlin](https://developer.android.com/kotlin/overview) to interface with Android SDKs.
+Android 用の Capacitor プラグインを構築するには、Android SDK とのインターフェイスとして Java または [Kotlin](https://developer.android.com/kotlin/overview) を記述する必要があります。
 
-## Getting Started
+## はじめかた
 
-To get started, first generate a plugin as shown in the [Getting Started](/docs/plugins) section of the Plugin guide.
+まず、プラグインガイドの [はじめかた](/docs/plugins) にあるように、プラグインを生成してください。
 
-Next, open `echo/android/` in Android Studio. You then want to navigate to the `.java` file for your plugin, which changes depending on the Plugin ID and Plugin Class Name you used when creating the plugin.
+次に、Android Studio で `echo/android/` を開きます。このファイルは、プラグインを作成するときに使用したプラグイン ID とプラグインクラス名によって変化します。
 
-For example, for a plugin with the ID `com.domain.echo` and the Plugin Class Name `Echo`, you would find the `.java` file at `android/src/main/java/com/domain/echo/EchoPlugin.java`.
+例えば、ID が `com.domain.echo` で Plugin Class Name が `Echo` のプラグインの場合、`.java` ファイルは `android/src/main/java/com/domain/echo/EchoPlugin.java` に存在することが確認できます。
 
-## Using Kotlin
+## Kotlin を使う
 
-Capacitor uses Java by default but you can use Kotlin instead, if you prefer.
+Capacitor はデフォルトで Java を使用しますが、お好みで Kotlin を代わりに使用することもできます。
 
-After generating a plugin, right click the Java plugin class in Android Studio and select the "Convert Java file to Kotlin file" option from the menu. Android Studio will walk you through configuring the project for Kotlin support. Once this is completed, right click the Java class again and re-select the conversion option to convert it to a Kotlin class.
+プラグインを生成したら、Android Studio で Java プラグインクラスを右クリックし、メニューから「Convert Java file to Kotlin file」オプションを選択します。Android Studio は、Kotlin をサポートするためにプロジェクトを設定する手順を説明します。これが完了したら、Java クラスを再度右クリックし、変換オプションを再選択して Kotlin クラスに変換します。
 
-## Plugin Basics
+## Plugin の基本
 
-A Capacitor plugin for Android is a simple Java class that extends `com.getcapacitor.Plugin` and has a `@CapacitorPlugin()` annotation.
-It has some methods with `@PluginMethod()` annotation that will be callable from JavaScript.
+Android 用 Capacitor プラグインは `com.getcapacitor.Plugin` を継承したシンプルな Java クラスで、 `@CapacitorPlugin()` アノテーションを持っています。
+また、JavaScript から呼び出し可能ないくつかのメソッドを `@PluginMethod()` アノテーションで持っています。
 
-Once your plugin is generated, you can start editing it by opening the file with the Plugin class name you choose on the generator.
+プラグインが生成されたら、生成ツールで選択したプラグインクラス名のファイルを開いて、プラグインの編集を開始することができます。
 
-### Simple Example
+### 簡単なサンプル
 
-In the generated example, there is a simple echo plugin with an `echo` function that simply returns a value that it was given.
+生成された例では、単純な echo プラグインが `echo` 関数を持ち、単に与えられた値を返します。
 
-This example demonstrates a couple core components of Capacitor plugins: receiving data from a Plugin Call, and returning data back to the caller.
+この例では、Plugin Call,からデータを受け取り、呼び出し元にデータを返すという、Capacitor プラグインの中核となるコンポーネントを示しています。
 
 `EchoPlugin.java`
 
@@ -62,14 +62,13 @@ public class EchoPlugin extends Plugin {
 }
 ```
 
-### Accessing Called Data
+### Call Data へのアクセス
 
-Each plugin method receives an instance of `com.getcapacitor.PluginCall` containing all the information of the plugin method invocation from the client.
+各プラグインメソッドは、クライアントからプラグインメソッド呼び出しの全ての情報を含む `com.getcapacitor.PluginCall` のインスタンスを受け取ります。
 
-A client can send any data that can be JSON serialized, such as numbers, text, booleans, objects, and arrays. This data
-is accessible on the `getData` field of the call instance, or by using convenience methods such as `getString` or `getObject`.
+クライアントは、number、text、booleans、オブジェクト、配列など、JSON でシリアライズ可能な任意のデータを送信することができます。このデータ には、コールインスタンスの `options` フィールド、または `getString` や `getObject` などの便利なメソッドでアクセスすることができます。
 
-For example, here is how you'd get data passed to your method:
+例えば、メソッドに渡されるデータを取得する方法は以下の通りだとします:
 
 ```java
 @PluginMethod()
@@ -88,13 +87,13 @@ public void storeContact(PluginCall call) {
 }
 ```
 
-Notice the various ways data can be accessed on the `PluginCall` instance, including how to check for a key using `getData`'s `has` method.
+`getData` の `has` メソッドを使用してキーをチェックする方法など、 `PluginCall` インスタンスでデータにアクセスするさまざまな方法に注目してください。
 
-### Returning Data Back
+### データを返す
 
-A plugin call can either succeed or fail. Plugin calls borrow method names from JavaScript promises: call `resolve()` to indicate success (optionally returning data) and use `reject()` to indicate failure with an error message.
+プラグインの呼び出しは、成功するか失敗するかのどちらかです。プラグイン呼び出しは JavaScript のプロミスからメソッド名を借用しています。成功を示すには `resolve()` を呼び出し（オプションでデータを返す）、失敗をエラーメッセージで示すには `reject()` を使用します。
 
-The `resolve()` method of `PluginCall` takes a `JSObject` and supports JSON-serializable data types. Here's an example of returning data back to the client:
+プラグインコールの `resolve()` メソッドは `JSObject` を受け取り、JSON でシリアライズ可能なデータ型をサポートします。以下は、データをクライアントに返す例です：
 
 ```java
 JSObject ret = new JSObject();
@@ -105,23 +104,23 @@ ret.put("info", info);
 call.resolve(ret);
 ```
 
-To fail, or reject a call, use `call.reject`, passing an error string and optionally an error code and `Exception` instance
+呼び出しを失敗、または拒否するには、 `call.reject` を使用します。エラー文字列と、オプションでエラーコードと `Exception` インスタンスを渡します。
 
 ```java
 call.reject(exception.getLocalizedMessage(), null, exception);
 ```
 
-#### Persisting a Plugin Call
+### プラグイン呼び出しの永続化
 
-In most cases, a plugin method will get invoked to perform a task and can finish immediately. But there are situations where you will need to keep the plugin call available so it can be accessed later. You might want to do this to periodically return data such as streaming live geolocation data, or to perform an asynchronous task.
+ほとんどの場合、プラグインメソッドはタスクを実行するために呼び出され、すぐに終了することができます。しかし、後でアクセスできるようにプラグインの呼び出しを有効にしておく必要がある場合もあります。例えば、位置情報データのライブストリーミングのようなデータを定期的に返したり、非同期タスクを実行したりする場合です。
 
-See [this guide on saving plugin calls](/docs/v3/core-apis/saving-calls) for more details on how to persist plugin calls.
+プラグイン呼び出しを持続させる方法の詳細については、[プラグイン呼び出しの保存に関するこのガイド](/docs/v3/core-apis/saving-calls)を参照してください。
 
-### Running Code on Plugin Load
+### プラグイン読み込み時にコードを実行する
 
-Occasionally, plugins may need to run some code when the plugin is first loaded.
+時には、プラグインが最初にロードされるときに、いくつかのコードを実行する必要があるかもしれません。
 
-To do this, provide an implementation for the `load()` method:
+これを行うには、`load()` メソッドの実装を用意します：
 
 ```java
 @Override
@@ -131,13 +130,13 @@ public void load() {
 
 ## Permissions
 
-If your plugin has functionality on Android that requires permissions from the end user, then you will need to implement the permissions pattern.
+もしあなたのプラグインが Android 上でエンドユーザーからのパーミッションを必要とする機能を持つ場合、パーミッション・パターンを実装する必要があります。
 
-Before following this section, make sure you've set up your permission aliases and status interfaces. If you haven't, see the [Permissions section in the Web guide](/docs/plugins/web#permissions).
+このセクションに進む前に、パーミッションのエイリアスとステータスのインターフェイスを設定したことを確認してください。まだの場合は、 [Web ガイドのパーミッションのセクション](/docs/plugins/web#permissions) を参照してください。
 
-### Annotation Changes
+### アノテーションの変更
 
-> Still using `@NativePlugin`? See the [upgrade guide](/docs/updating/plugins/3-0#use-the-new-capacitorplugin-annotation) to switch to `@CapacitorPlugin`.
+> まだ `@NativePlugin` をお使いですか？ [アップグレードガイド](/docs/updating/plugins/3-0#use-the-new-capacitorplugin-annotation) を参照して、`@CapacitorPlugin` に切り替えてください。
 
 ```diff-java
  @CapacitorPlugin(
@@ -160,9 +159,9 @@ Before following this section, make sure you've set up your permission aliases a
      ...
 ```
 
-Add the `permissions` attribute in the `@CapacitorPlugin` annotation, which is an array of one or more `@Permission` annotations. Each `@Permission` annotation contains zero or more Android permission `strings` and a short `alias` describing the purpose.
+`CapacitorPlugin` アノテーションに `permissions` 属性を追加します。このアノテーションは、1 つまたは複数の `@Permission` アノテーションの配列です。各 `@Permission` アノテーションには、0 個以上の Android パーミッション `strings` と、目的を説明する短い `alias` が含まれます。
 
-Group permission strings in each `@Permission` by the distinct pieces of functionality of your plugin.If your plugin requires permissions in other platforms but not Android, then define the permission with the same alias but an empty array for `strings`. This causes the result of the permission request to automatically return as 'granted' for that permission alias.
+もし、プラグインが Android 以外のプラットフォームのパーミッションを必要とする場合は、同じエイリアスを持つパーミッションを定義しますが、`strings`は空の配列にします。この場合、パーミッションのリクエストの結果は、自動的にそのパーミッションのエイリアスに対して 'granted' として返されます。
 
 ```java
 @Permission(
@@ -171,13 +170,13 @@ Group permission strings in each `@Permission` by the distinct pieces of functio
 )
 ```
 
-### Implementing Permission Requests
+### パーミッションリクエストの実装
 
-By defining permissions in your `@CapacitorPlugin` annotation, the `checkPermissions()` and `requestPermissions()` methods should be fully functional. App developers will be able to manually request permissions as needed. However, it is considered best practice to wrap plugin functionality with automatic permission requests as well.
+`CapacitorPlugin` アノテーションでパーミッションを定義することで、 `checkPermissions()` と `requestPermissions()` メソッドが完全に機能するようになるはずです。アプリ開発者は、必要に応じて手動でパーミッションを要求できるようになります。しかし、プラグインの機能を自動的なパーミッション要求でラップすることが、ベストプラクティスと考えています。
 
-#### Permission Callback
+#### パーミッションコールバック
 
-Create a void method with a single `PluginCall` parameter and annotate it with `@PermissionCallback`, then pass the name of the method as a string in the permission request call. The callback will run after the completion of the permission request.
+単一の `PluginCall` パラメータを持つ void メソッドを作成し、それを `@PermissionCallback` でアノテートして、許可要求の呼び出しでメソッドの名前を文字列として渡します。コールバックはパーミッションリクエストが完了した後に実行されます。
 
 ```java
 @PluginMethod()
@@ -199,11 +198,11 @@ private void cameraPermsCallback(PluginCall call) {
 }
 ```
 
-#### Initiating a Permission Request
+#### パーミッションリクエストの開始
 
-Permission requests are initiated by calling one of the request helper methods.
+パーミッションのリクエストは、リクエスト、ヘルパー、メソッドのいずれかをコールすることで開始されます。
 
-For a single alias `requestPermissionForAlias` may be used. Multiple aliases can be provided to `requestPermissionForAliases`. Use `requestAllPermissions` to request all permissions defined in the plugin annotation.
+一つのエイリアスのために `requestPermissionForAlias` を使用することができます。複数のエイリアスを `requestPermissionForAliases` に指定することができる。プラグインアノテーションで定義されているすべてのパーミッションを要求する場合は、 `requestAllPermissions` を使用する。
 
 ```diff-java
  @PluginMethod()
@@ -221,9 +220,9 @@ For a single alias `requestPermissionForAlias` may be used. Multiple aliases can
  }
 ```
 
-### Manifest
+### マニフェスト
 
-Place any required [install-time](https://developer.android.com/guide/topics/permissions/overview#install-time) permissions in the `AndroidManifest.xml` of the plugin. Do not add runtime permissions (permissions that prompts users to accept). These should be added to the manifest of a Capacitor app by the app developer. Make sure your plugin documents any required runtime permissions that should be added in the app.
+プラグインの `AndroidManifest.xml` に、必要な [install-time](https://developer.android.com/guide/topics/permissions/overview#install-time) パーミッションを記述します。ランタイムパーミッション(ユーザーに承諾を求めるパーミッション)は追加しないでください。これらはアプリ開発者が Capacitor アプリのマニフェストに追加する必要があります。プラグインが、アプリに追加されるべき必要な実行時アクセス許可を文書化していることを確認してください。
 
 ```diff-xml
   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -232,11 +231,11 @@ Place any required [install-time](https://developer.android.com/guide/topics/per
   </manifest>
 ```
 
-## Error Handling
+## ハンドリング
 
 ### Unavailable
 
-This error can be thrown to indicate that the functionality can't be used right now, usually because it requires a newer Android API version.
+このエラーは、その機能が今すぐには使用できないことを示すために投げられることがあります。通常、より新しい Android API のバージョンを必要とするためです。
 
 ```java
 @PluginMethod
@@ -249,11 +248,11 @@ public void methodThatUsesNewAndroidAPI(PluginCall call) {
 }
 ```
 
-> It is recommended to gracefully degrade the experience with older APIs as much as possible. Use `unavailable` sparingly.
+> 古い API のエクスペリエンスを可能な限り適切に低下させることをお勧めします。 `unavailable` は控えめに使いましょう。
 
 ### Unimplemented
 
-Use this error to indicate that a method can't be implemented for Android.
+このエラーは、あるメソッドが iOS 用に実装できないことを示すために使用します。
 
 ```java
 @PluginMethod
@@ -262,25 +261,25 @@ public void methodThatRequiresIOS(PluginCall call) {
 }
 ```
 
-## Presenting Native Screens
+## ネイティブ画面を表示する
 
-To present a Native Screen over the Capacitor screen we will use [Android's Intents](https://developer.android.com/guide/components/intents-filters). Intents allow you to start an activity from your app, or from another app. [See Common Intents](https://developer.android.com/guide/components/intents-common)
+Capacitor 画面の上に Native Screen を表示するために、 [Android の Intents](https://developer.android.com/guide/components/intents-filters) を使用します。インテントを使用すると、自分のアプリや他のアプリからアクティビティを開始することができます。 [Common Intents](https://developer.android.com/guide/components/intents-common) をご覧ください。
 
-### Intents without Result(s)
+### 結果なしのインテント
 
-Most times you just want to present the native Activity,
-in this case you can just trigger the [relevant action](https://developer.android.com/guide/components/intents-common).
+ほとんどの場合、ネイティブのアクティビティを表示したいだけです。
+この場合、 [関連するアクション](https://developer.android.com/guide/components/intents-common) をトリガーすればよいのです。
 
 ```java
 Intent intent = new Intent(Intent.ACTION_VIEW);
 getActivity().startActivity(intent);
 ```
 
-### Intents with Result(s)
+### 結果付きのインテント
 
-Sometimes when you launch an Intent, you expect some result back. In that case you want to use `startActivityForResult`.
+時には、Intent を起動したときに、何らかの結果が返ってくることを期待することがあります。そのような場合は、`startActivityForResult`を使いたいところです。
 
-Create a callback method to handle the result of the launched activity with a `PluginCall` and `ActivityResult` parameter, and annotate it with `@ActivityCallback`. Pass the name of this method to `startActivityForResult` and it will run when the started activity is finished.
+起動されたアクティビティの結果を処理するコールバックメソッドを `PluginCall` と `ActivityResult` パラメータで作成し、`@ActivityCallback` でアノテーションしてください。このメソッドの名前を `startActivityForResult` に渡すと、起動されたアクティビティが終了したときに実行されます。
 
 ```java
 @CapacitorPlugin()
@@ -306,9 +305,9 @@ class ImagePicker extends Plugin {
 }
 ```
 
-## Plugin Events
+## プラグインイベント
 
-Plugins can emit their own events that you can listen by attaching a listener to the plugin object like this:
+プラグインは独自のイベントを発生させることができ、以下のようにプラグインオブジェクトにリスナーを付けることでそれを聞くことができます。
 
 ```typescript
 import { MyPlugin } from 'my-plugin';
@@ -318,7 +317,7 @@ MyPlugin.addListener('myPluginEvent', (info: any) => {
 });
 ```
 
-To emit the event from the Java plugin class:
+Java プラグインクラスからイベントを発信する:
 
 ```java
 JSObject ret = new JSObject();
@@ -326,7 +325,7 @@ ret.put("value", "some value");
 notifyListeners("myPluginEvent", ret);
 ```
 
-To remove a listener from the plugin object:
+プラグインオブジェクトからリスナーを削除する場合:
 
 ```typescript
 import { MyPlugin } from 'my-plugin';
@@ -341,11 +340,11 @@ const myPluginEventListener = await MyPlugin.addListener(
 myPluginEventListener.remove();
 ```
 
-> It is also possible to trigger global events on `window`. See the docs for [`triggerJSEvent`](/docs/core-apis/android#triggerjsevent).
+> `window` のグローバルイベントをトリガーすることも可能です。詳しくは [`triggerJSEvent`](/docs/core-apis/android#triggerjsevent) のドキュメントを参照してください。
 
-## Override navigation
+## ナビゲーションのオーバーライド
 
-Capacitor plugins can override the webview navigation. For that the plugin can override `public Boolean shouldOverrideLoad(Uri url)` method.
-Returning `true` causes the WebView to abort loading the URL.
-Returning `false` causes the WebView to continue loading the URL.
-Returning `null` will defer to the default Capacitor policy.
+Capacitor プラグインはウェブビューのナビゲーションを上書きすることができます。そのために、プラグインは `public Boolean shouldOverrideLoad(Uri url)` メソッドをオーバーライドすることができます。
+`true` を返すと、WebView は URL の読み込みを中断します。
+`false` を返すと、WebView は URL の読み込みを継続します。
+`null` を返すと、デフォルトの Capacitor ポリシーに従います。
