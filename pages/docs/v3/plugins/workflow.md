@@ -1,19 +1,19 @@
 ---
-title: Plugin Development Workflow
-description: Capacitor Plugin Development Workflow
+title: Plugin開発のワークフロー
+description: Capacitor Plugin開発のワークフロー
 contributors:
   - dotNetkow
 ---
 
-# Plugin Development Workflow
+# プラグイン開発のワークフロー
 
-With the new plugin created, you can begin implementing functionality across a variety of platforms.
+新しいプラグインを作成したら、様々なプラットフォームへの機能実装を開始します。
 
-## Implementing a New Method
+## 新しいメソッドを実装する
 
-To implement new functionality in your plugin, begin by defining the method's signature in the exported TypeScript interface for your plugin in `src/definitions.ts`.
+プラグインに新しい機能を実装するには、まず `src/definitions.ts` にあるプラグイン用にエクスポートされた TypeScript インターフェースで、メソッドのシグネチャを定義します。
 
-In the example below, the `openMap()` method is added which takes a `latitude` and `longitude`. It is good practice to define interfaces for method parameters that can be imported and used in apps.
+以下の例では、 `latitude` と `longitude` を受け取る `openMap()` メソッドを追加しています。アプリにインポートして使用できるメソッドのパラメータのインターフェースを定義するのは重要な習慣です。
 
 ```diff-typescript
  export interface EchoPlugin {
@@ -27,7 +27,7 @@ In the example below, the `openMap()` method is added which takes a `latitude` a
 +}
 ```
 
-Implement the web implementation in `src/web.ts`:
+web の実装を `src/web.ts` で行います:
 
 ```diff-typescript
  import type {
@@ -44,13 +44,13 @@ Implement the web implementation in `src/web.ts`:
  }
 ```
 
-To compile the plugin, navigate into the plugin directory then run:
+プラグインをコンパイルするには、plugin ディレクトリに移動して、実行します:
 
 ```bash
 npm run build
 ```
 
-Implement [Android functionality](./android) in `android/src/main/[nested folders]/EchoPlugin.java`:
+[Android の機能](./android) は `android/src/main/[nested folders]/EchoPlugin.java` で実装します:
 
 ```java
 @PluginMethod()
@@ -64,7 +64,7 @@ public void openMap(PluginCall call) {
 }
 ```
 
-Implement [iOS functionality](./ios) in `ios/Plugin/EchoPlugin.swift`:
+[iOS の機能](./ios) は `ios/Plugin/EchoPlugin.swift` に実装します:
 
 ```swift
 @objc func openMap(_ call: CAPPluginCall) {
@@ -77,34 +77,34 @@ Implement [iOS functionality](./ios) in `ios/Plugin/EchoPlugin.swift`:
 }
 ```
 
-> Remember to [register plugin methods](/docs/plugins/ios#export-to-capacitor) in your `.m` file.
+> `.m` ファイルに [プラグインメソッドの登録](/docs/plugins/ios#export-to-capacitor) を忘れずに行ってください。
 
-This example contains the most common type of method in plugins but details about all the supported types [can be found here.](/docs/plugins/method-types)
+この例はプラグインで最も一般的なタイプのメソッドを含んでいますが、サポートされているすべてのタイプの詳細は [ここで見つけることができます](/docs/plugins/method-types) 。
 
-## Local Testing
+## ローカルでのテスト
 
-To test the plugin locally while developing it, link the plugin folder to your app using `npm install` with the path to your plugin.
+プラグインを開発しながらローカルでテストするには、プラグインのパスを指定して `npm install` でプラグインフォルダをアプリにリンクしてください。
 
 ```bash
 npm install ../path/to/echo
 ```
 
-The project's `package.json` file now shows the plugin package link in the dependencies list:
+プロジェクトの `package.json` ファイルに、依存関係のリストにプラグインパッケージのリンクが表示されるようになりました:
 
 ```json
 "echo": "file:../path/to/echo",
 ```
 
-Finally, run `npx cap sync` to make the native projects aware of your plugin. If it was detected correctly, it will print something like this:
+最後に、`npx cap sync` を実行して、ネイティブプロジェクトがあなたのプラグインを認識するようにします。正しく検出された場合は、次のようなメッセージが表示されます:
 
 ```bash
 [info] Found 1 Capacitor plugin for android:
     - echo (0.0.1)
 ```
 
-### Unlinking the Plugin
+### プラグインのリンク解除
 
-To unlink the local plugin from your app, use `npm uninstall` with the package name of your plugin.
+アプリからローカルプラグインをアンインストールするには、プラグインのパッケージ名と一緒に `npm uninstall` を実行します。
 
 ```bash
 npm uninstall echo
@@ -112,21 +112,21 @@ npm uninstall echo
 
 ## Package Scripts
 
-The plugin template ships with a variety of scripts in `package.json`.
+プラグインテンプレートは、 `package.json` に様々なスクリプトを同梱しています。
 
-- `verify`: builds and tests web and native code
-- `lint`: lints web and native code
-- `fmt`: autoformats web and native code
-- `docgen`: generates documentation from plugin interface (see [Documentation](#documentation))
-- `build`: builds web code into ESM and bundle distributions
+- `verify`: ウェブとネイティブのコードをビルドしてテストします。
+- `lint`: ウェブとネイティブのコードを lint します。
+- `fmt`: ウェブとネイティブのコードを自動整形する
+- `docgen`: プラグインインターフェースからドキュメントを生成します (参照 [Documentation](#documentation))
+- `build`: ウェブコードを ESM とバンドル配布物にビルドします。
 
-## Documentation
+## ドキュメンテーション
 
-To document plugin functionality, add [JSDoc](https://jsdoc.app) comment blocks to methods and properties.
+プラグインの機能を文書化するために、メソッドとプロパティに [JSDoc](https://jsdoc.app) のコメントブロックを追加します。
 
-> It is usually not necessary to include type information with the `@param` and `@returns` JSDoc tags in TypeScript files.
+> TypeScript ファイルの `@param` と `@returns` の JSDoc タグに型情報を含めることは、通常必要ではありません。
 
-Using our `openMap()` method as an example, open `src/definitions.ts` and start documenting!
+`openMap()` メソッドを例に、 `src/definitions.ts` を開いて、ドキュメントを書き始めてください。
 
 ```diff-typescript
  export interface EchoPlugin {
@@ -153,20 +153,20 @@ Using our `openMap()` method as an example, open `src/definitions.ts` and start 
  }
 ```
 
-The plugin template ships with [`@capacitor/docgen`](https://github.com/ionic-team/capacitor-docgen), which writes generated documentation to `README.md`. Documentation is generated during `npm run build`. You can also run it manually:
+プラグインテンプレートには [`@capacitor/docgen`](https://github.com/ionic-team/capacitor-docgen) が同梱されており、生成されたドキュメントを `README.md` に書き込むことができます。ドキュメントは `npm run build` の実行中に生成される。また、手動で実行することもできます。
 
 ```bash
 npm run docgen
 ```
 
-## Publishing
+## 公開
 
-Whenever you are ready to publish your plugin, just use:
+プラグインを公開する準備ができたら、いつでも実行ください:
 
 ```bash
 npm publish
 ```
 
-This will build the JS portion of your plugin and publish the rest of your plugin files to npm.
+これにより、プラグインの JS 部分がビルドされ、残りのプラグインファイルが npm に公開されます。
 
-Your package can now be installed using `npm install echo` in any Capacitor app.
+これで、Capacitor アプリで `npm install echo` を使ってパッケージをインストールできるようになります。

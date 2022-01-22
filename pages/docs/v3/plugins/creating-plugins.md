@@ -1,64 +1,64 @@
 ---
-title: Creating Capacitor Plugins
-description: Creating Capacitor Plugins
+title: Capacitor Pluginの作成
+description: Capacitor Pluginの作成
 contributors:
   - mlynch
   - jcesarmobile
   - dotNetkow
 ---
 
-# Creating Capacitor Plugins
+# Capacitor Plugin の作成
 
-Plugins in Capacitor enable JavaScript to interface directly with Native APIs.
+Capacitor のプラグインは、JavaScript が Native API と直接通信することを可能にします。
 
-This guide will help you get started creating a shareable Capacitor plugin which will be published on npm. You can also create Capacitor plugins local to your app. See the custom native code guides for [iOS](/docs/ios/custom-code) and [Android](/docs/android/custom-code).
+このガイドでは、npm で公開される共有可能な Capacitor プラグインの作成を開始するのに役立つ情報を提供します。また、あなたのアプリにローカルな Capacitor プラグインを作成することもできます。 [iOS](/docs/ios/custom-code) と [Android](/docs/android/custom-code) のカスタムネイティブコードのガイドを参照してください。
 
-## Philosophies
+## 理念
 
-If your plugin is intended for the public, we have a few philosophies about Capacitor plugins to share before you get started.
+もしあなたのプラグインが一般向けであれば、始める前に Capacitor プラグインに関するいくつかの理念を共有しておく必要があります。
 
-### Working Together
+### 協業する
 
-We believe cooperation is going to yield higher quality plugins than competition. This is one of the reasons we created the [Capacitor Community GitHub organization](https://github.com/capacitor-community), which facilitates easier cooperation among the community than if plugins were hosted in personal repositories.
+私たちは、競争よりも協力の方が、より質の高いプラグインを生み出すことができると考えています。これが、私たちが [Capacitor Community GitHub organization](https://github.com/capacitor-community) を作った理由の一つです。この組織は、プラグインを個人のリポジトリでホストするよりもコミュニティ間の協力が容易になります。
 
-If a plugin exists for a particular topic within the [Capacitor Community](https://github.com/capacitor-community), please consider contributing to it! If a plugin is missing a primary maintainer, the Capacitor team would be happy to consider adding you to the GitHub organization.
+[Capacitor Community](https://github.com/capacitor-community) の中に特定のトピックのためのプラグインが存在する場合、それに貢献することを検討してください! もしプラグインに主要なメンテナがいない場合、Capacitor チームは喜んであなたを GitHub 組織に追加することを検討します。
 
-### Small in Scope
+### 最小のスコープ
 
-We believe Capacitor plugins should be reasonably small in scope. Capacitor plugins add native code to apps that may or may not be used. By keeping the scope of plugins small, we can ensure apps have a minimal amount of native code that they need. This avoids unnecessary app bloat and warnings/rejections from the App Store due to APIs without usage descriptions, etc.
+私たちは、Capacitor のプラグインは適度に小さい範囲を担うべきだと考えています。Capacitor プラグインは、使用されるかどうかわからないネイティブコードをアプリに追加します。プラグインの範囲を小さくすることで、アプリが必要とする最小限のネイティブコードを確保することができます。これにより、不要なアプリの肥大化や、使用方法の説明がない API などによる App Store からの警告や拒否を避けることができます。
 
-Of course, having a small scope yields other benefits such as quicker deployment, easier cooperation, maintainability, etc.
+もちろん、スコープを小さくすることで、デプロイの迅速化、連携の容易化、保守性の向上など、他のメリットも生まれます。
 
-### Unified and Idiomatic
+### 統一された概念
 
-Capacitor plugins should strive to provide a unified experience across platforms that is familiar to JavaScript developers. This means values from native platforms may need to be coerced.
+Capacitor プラグインは、JavaScript 開発者が慣れ親しんでいるプラットフォーム間で統一されたエクスペリエンスを提供するよう努力する必要があります。これは、ネイティブなプラットフォームからの値は強制される必要があるかもしれないことを意味します。
 
-Here are a few guidelines with examples to demonstrate how to create a unified and idiomatic experience:
+以下は、統一された慣用的なエクスペリエンスを実現する方法を示す、いくつかのガイドラインとその例です:
 
-- **Prefer `undefined` over `null` and other nonvalues.** Example: If an Android API returns `0.0` to denote "no value", then the value should be coerced to `undefined` for the JavaScript layer.
-- **Prefer identical units.** Example: If an iOS API uses Celsius and an Android API uses Fahrenheit, then the value should be coerced to one or the other before it reaches the JavaScript consumer.
-- **Prefer ISO 8601 datetimes with timezones over other formats.** Example: It is easy to get an accurate JavaScript `Date` from a string like `"2020-12-13T20:21:58.415Z"`, but confusing if given a Unix timestamp (JavaScript timestamps are in milliseconds). Always include the timezone, otherwise datetimes may be interpreted inaccurately from different locales.
+- **`null` やその他の値よりも `undefined` を優先する** Example: 例: Android API が `0.0` を返して「値がない」ことを示す場合、その値は JavaScript レイヤーのために `undefined` に強制されるべきです。
+- **同一単位を優先する** 例: iOS API が摂氏を使い、Android API が華氏を使う場合、その値は JavaScript レイヤーに届く前にどちらかに強制されるべきです。
+- **他のフォーマットよりも ISO8601 のタイムゾーンでのデータタイムを優先してください。** 例: `"2020-12-13T20:21:58.415Z"` のような文字列から正確な JavaScript の `Date` を得るのは簡単ですが、Unix タイムスタンプを与えられた場合は混乱します (JavaScript のタイムスタンプはミリ秒単位です)。タイムゾーンは常に含めるようにしましょう。そうしないと、異なるロケールから来た日付は不正確に解釈される可能性があります。
 
-## Plugin Generator
+## Plugin ジェネレーター
 
-Ready to begin? Capacitor has [a plugin generator](https://github.com/ionic-team/create-capacitor-plugin) that you can use to begin working on your plugin.
+始める準備はできましたか？Capacitor には [プラグインジェネレータ](https://github.com/ionic-team/create-capacitor-plugin) があり、これを使用してプラグインの作業を開始することができます。
 
-> Before continuing, you may want to make sure you're using the latest Node LTS version and npm 6+.
+> 続行する前に、最新の Node LTS バージョンと npm 6+を使用していることを確認したいかもしれません。
 
-In a new terminal, run the following:
+新しいターミナルで、以下を実行します:
 
 ```bash
 npm init @capacitor/plugin
 ```
 
-The generator will prompt you for input. You can also supply command-line options (see the [GitHub repo](https://github.com/ionic-team/create-capacitor-plugin/)).
+ジェネレーターが入力を促します。コマンドラインオプションを指定することもできます（ [GitHub レポ](https://github.com/ionic-team/create-capacitor-plugin/) を参照してください）。
 
-## Next Steps
+## 次のステップ
 
-[Learn about the Capacitor plugin development workflow &#8250;](/docs/plugins/workflow)
+[Capacitor プラグイン開発のワークフローについて &#8250;](/docs/plugins/workflow)
 
-[Learn about building Android plugins for Capacitor &#8250;](/docs/plugins/android)
+[Capacitor 用 Android プラグインの構築について &#8250;](/docs/plugins/android)
 
-[Learn about building iOS plugins for Capacitor &#8250;](/docs/plugins/ios)
+[Capacitor 用 iOS プラグインの構築について &#8250;](/docs/plugins/ios)
 
-[Learn about building Web/PWA plugins for Capacitor &#8250;](/docs/plugins/web)
+[Capacitor の Web/PWA プラグイン構築について &#8250;](/docs/plugins/web)

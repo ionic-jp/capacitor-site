@@ -1,34 +1,34 @@
 ---
-title: Capacitor iOS Plugin Guide
-description: Capacitor iOS Plugin Guide
+title: Capacitor iOS プラグインガイド
+description: Capacitor iOS プラグインガイド
 contributors:
   - mlynch
   - jcesarmobile
 ---
 
-# Capacitor iOS Plugin Guide
+# Capacitor iOS プラグインガイド
 
-Building Capacitor plugins for iOS involves writing Swift (or Objective-C) to interface with Apple's iOS SDKs.
+iOS 用の Capacitor プラグインを構築するには、Apple の iOS SDK とインターフェイスするために Swift（または Objective-C）を記述する必要があります。
 
-## Getting Started
+## はじめに
 
-To get started, first generate a plugin as shown in the [Getting Started](/docs/plugins/creating-plugins) section of the Plugin guide.
+まず、プラグインガイドの [はじめかた](/docs/plugins/creating-plugins) にあるように、プラグインを生成します。
 
-Next, open `echo/ios/Plugin.xcworkspace` in Xcode. You then want to navigate to the .swift file for your plugin.
+次に、Xcode で `echo/ios/Plugin.xcworkspace` を開いてください。次に、プラグイン用の.swift ファイルに移動します。
 
-For example, for a plugin with the Plugin Class Name `Echo`, you should open `EchoPlugin.swift`.
+例えば、Plugin Class Name が `Echo` のプラグインの場合、 `EchoPlugin.swift` を開く必要があります。
 
-## Plugin Basics
+## プラグインの基本
 
-A Capacitor plugin for iOS is a simple Swift class that extends `CAPPlugin` and
-has some exported methods that will be callable from JavaScript.
+iOS 用の Capacitor プラグインは、`CAPPlugin`を継承したシンプルな Swift クラスで、
+JavaScript から呼び出し可能ないくつかのエクスポートされたメソッドを持っています。
 
-### Simple Example
+### 簡単な例
 
-In the generated example, there is a simple echo plugin with an `echo` function that simply returns a value that it was given.
+生成されたばかりのサンプルには、単純な echo プラグインが `echo` 関数を持ち、与えられた値を単純に返します。
 
-This example demonstrates a few core components of Capacitor plugins: receiving data from a Plugin Call, and returning
-data back to the caller:
+この例では、Capacitor プラグインのいくつかのコアコンポーネントを紹介します:
+プラグインコールからデータを受け取り、呼び出し元にデータを返します:
 
 `EchoPlugin.swift`
 
@@ -46,14 +46,14 @@ public class EchoPlugin: CAPPlugin {
 }
 ```
 
-### Accessing Call Data
+### Call Data へのアクセス
 
-Each plugin method receives an instance of `CAPPluginCall` containing all the information of the plugin method invocation from the client.
+各プラグインメソッドは、クライアントからプラグインメソッドの呼び出しに関するすべての情報を含む `CAPPluginCall` のインスタンスを受け取ります。
 
-A client can send any data that can be JSON serialized, such as numbers, text, booleans, objects, and arrays. This data
-is accessible on the `options` field of the call instance, or by using convenience methods such as `getString` or `getObject`. Passing and accessing some of these values has some peculiarities to be aware of, as discussed [separately](/docs/core-apis/data-types#ios).
+クライアントは、number、text、booleans、オブジェクト、配列など、JSON でシリアライズ可能な任意のデータを送信することができます。このデータ には、コールインスタンスの `options` フィールド、または `getString` や `getObject` などの便利なメソッドでアクセスすることができます。
+これらの値を渡したり、アクセスしたりする際には、 [別途説明するように](/docs/core-apis/data-types#ios) 注意しなければならない点があります。
 
-For example, here is how you'd get data passed to your method:
+例えば、メソッドに渡されるデータを取得する方法は以下の通りだとします:
 
 ```swift
 @objc func storeContact(_ call: CAPPluginCall) {
@@ -72,14 +72,13 @@ For example, here is how you'd get data passed to your method:
 }
 ```
 
-Notice the various ways data can be accessed on the `CAPPluginCall` instance, including how to require
-options using `guard`.
+`CAPPluginCall` インスタンスでデータにアクセスするさまざまな方法に注目してください。 オプションは `guard` を使用しています。
 
-### Returning Data Back
+### データを返す
 
-A plugin call can either succeed or fail. Plugin calls borrow method names from JavaScript promises: call `resolve()` to indicate success (optionally returning data) and use `reject()` to indicate failure with an error message.
+プラグインの呼び出しは、成功するか失敗するかのどちらかです。プラグインの呼び出しは JavaScript の Promise からメソッド名を拝借しています。成功を示すには `resolve()` を呼び出し（オプションでデータを返す）、失敗をエラーメッセージとともに示すには `reject()` を使用します。
 
-The `resolve()` method of `CAPPluginCall` takes a dictionary and supports JSON-serializable data types. Here's an example of returning data back to the client:
+`CAPPluginCall` の `resolve()` メソッドは辞書を受け取り、JSON シリアライズ可能なデータ型をサポートします。以下は、データをクライアントに返す例です:
 
 ```swift
 call.resolve([
@@ -90,30 +89,30 @@ call.resolve([
 ])
 ```
 
-To fail, or reject a call, call `reject()`, passing an error string and optionally an error code and `Error` instance:
+失敗する、あるいは呼び出しを拒否するには、 `reject()` を呼び出し、エラー文字列と、オプションでエラーコードと `Error` のインスタンスを渡します:
 
 ```swift
 call.reject(error.localizedDescription, nil, error)
 ```
 
-### Running Code on Plugin Load
+### プラグイン読み込み時にコードを実行する
 
-Occasionally, plugins may need to run some code when the plugin is first loaded. For example, this would be a good place to set up any Notification Center event handlers.
+プラグインが最初にロードされるときに、いくつかのコードを実行する必要がある場合があります。例えば、これは通知センターのイベントハンドラを設定するのに良い場所でしょう。
 
-To do this, provide an implementation for the `load()` method:
+これを行うために、`load()` メソッドの実装を提供しています:
 
 ```swift
 override public func load() {
 }
 ```
 
-### Export to Capacitor
+### Capacitor へのエクスポート
 
-To make sure Capacitor can see your plugin, the plugin generator do two things: export your Swift class to Objective-C, and register it using the provided Capacitor Objective-C Macros.
+Capacitor があなたのプラグインを見ることができるようにするために、プラグイン・ジェネレータは 2 つのことをします: Swift クラスを Objective-C にエクスポートし、提供された Capacitor Objective-C マクロを使用してそれを登録することです。
 
-To export your Swift class to Objective-C, the plugin generator adds `@objc(EchoPlugin)` above your Swift class, and add `@objc` before the `echo` method.
+Swift のクラスを Objective-C にエクスポートするために、プラグインジェネレータは Swift のクラスの上に `@objc(EchoPlugin)` を追加し、`echo` メソッドの前に `@objc` を追加します。
 
-To register the plugin, the plugin generator creates a file with a `.m` extension corresponding to your plugin (such as `EchoPlugin.m`) and use the `CAP_PLUGIN` to register the plugin and the `CAP_PLUGIN_METHOD` macro to register the `echo` method.
+プラグインを登録するには、プラグインジェネレータはプラグインに対応する `.m` 拡張子のファイル (例えば `EchoPlugin.m`) を作成し、`CAP_PLUGIN` マクロを使用してプラグインを登録し、`CAP_PLUGIN_METHOD` マクロを使用して `echo` メソッドを登録します。
 
 ```objectivec
 #import <Capacitor/Capacitor.h>
@@ -123,19 +122,19 @@ CAP_PLUGIN(EchoPlugin, "Echo",
 )
 ```
 
-This makes `Echo` plugin, and the `echo` method available to the Capacitor web runtime, indicating to Capacitor that the echo method will return a Promise.
+これにより、`Echo` プラグインと `echo` メソッドが Capacitor Web ランタイムで利用可能になり、echo メソッドが Promise を返すことが Capacitor に示されます。
 
-To add more methods to your plugin, create them in the `.swift` plugin class with the `@objc` before the `func` keyword and add a new `CAP_PLUGIN_METHOD` entry in the `.m` file.
+プラグインに他のメソッドを追加するには、 `.swift` プラグインクラスで `func` キーワードの前に `@objc` を付けてメソッドを作成し、 `.m` ファイルに新しい `CAP_PLUGIN_METHOD` エントリを追加してください。
 
-## Permissions
+## パーミッション
 
-If your plugin has functionality on iOS that requires permissions from the end user, then you will need to implement the permissions pattern.
+もしあなたのプラグインが iOS 上でエンドユーザーの許可を必要とする機能を持つなら、permissions パターンを実装する必要があります。
 
-Before following this section, make sure you've set up your permission aliases and status interfaces. If you haven't, see the [Permissions section in the Web guide](/docs/plugins/web#permissions).
+このセクションに進む前に、パーミッションのエイリアスとステータスのインターフェイスが設定されていることを確認してください。もしまだなら、Web ガイドの [permissions のセクション](/docs/plugins/web#permissions) を参照してください。
 
-### Implementing Permissions
+### Permissions の設定
 
-Add the `checkPermissions()` and `requestPermissions()` methods to your Swift plugin class.
+`checkPermissions()` と `requestPermissions()` メソッドをあなたの Swift のプラグインのクラスに追加します。
 
 ```diff-swift
  import Capacitor
@@ -156,9 +155,9 @@ Add the `checkPermissions()` and `requestPermissions()` methods to your Swift pl
 
 #### `checkPermissions()`
 
-This method should return the current status of permissions in your plugin, which should be a dictionary that matches the structure of the [permission status definition](/docs/plugins/web#permission-status-definitions) you defined. Typically, this information is available directly on the frameworks you're using.
+このメソッドは、あなたのプラグインにおけるパーミッションの現在の状態を返すべきです。それは、あなたが定義した [permission status definition](/docs/plugins/web#permission-status-definitions) の構造に一致する辞書であるべきです。一般的に、この情報はあなたが使っているフレームワーク上で直接利用できます。
 
-In the example below, we map the current authorization status from location services into a permission state and associate the `location` alias with that state.
+以下の例では、ロケーションサービスから ` authorizationStatus`` を  `locationState``にマップし、その状態に`location` というエイリアスを関連付けています。
 
 ```swift
 @objc override func checkPermissions(_ call: CAPPluginCall) {
@@ -181,11 +180,11 @@ In the example below, we map the current authorization status from location serv
 
 #### `requestPermissions()`
 
-**Block-based APIs**
+**ブロック型の API の場合**
 
-If the framework supports a block-based API for requesting permission, it's possible to complete the operation within the single method.
+フレームワークがパーミッションを要求するためのブロックベースの API をサポートしている場合、単一のメソッド内で操作を完了させることが可能です。
 
-In the example below, we request video access from `AVCaptureDevice` and then use our own `checkPermissions` method to check the current status of permissions and then fulfill the call.
+以下の例では、`AVCaptureDevice` にビデオアクセスを要求してから、独自の `checkPermissions` メソッドを使用してパーミッションの現在の状態を確認し、呼び出しを実行しています。
 
 ```swift
 @objc override func requestPermissions(_ call: CAPPluginCall) {
@@ -195,9 +194,9 @@ In the example below, we request video access from `AVCaptureDevice` and then us
 }
 ```
 
-**Delegate-based APIs**
+**Delegate 型の API の場合**
 
-If the framework uses a delegate (or callback) API, completing the operation means that the original call will need to be saved and then retrieved once the callback has been invoked.
+フレームワークが delegate（またはコールバック）API を使用している場合、操作を完了すると、元の呼び出しを保存し、コールバックが呼び出された後に取得する必要があることを意味します。
 
 ```swift
 var permissionCallID: String?
@@ -225,9 +224,9 @@ public func locationManager(_ manager: CLLocationManager, didChangeAuthorization
 }
 ```
 
-**Multiple Permissions**
+**マルチ Permission の場合**
 
-When several types of permissions are required, a [DispatchGroup](https://developer.apple.com/documentation/dispatch/dispatchgroup) is a convenient way to synchronize the multiple calls.
+複数の種類のパーミッションが必要な場合、[DispatchGroup](https://developer.apple.com/documentation/dispatch/dispatchgroup) を使用すると、複数の呼び出しを同期させることができて便利です。
 
 ```swift
 let store = CNContactStore()
@@ -258,17 +257,17 @@ let store = CNContactStore()
 }
 ```
 
-### Persisting a Plugin Call
+### プラグイン呼び出しの永続化
 
-In most cases, a plugin method will get invoked to perform a task and can finish immediately. But there are situations where you will need to keep the plugin call available so it can be accessed later. You might want to do this to periodically return data such as streaming live geolocation data, or to perform an asynchronous task.
+ほとんどの場合、プラグインメソッドはタスクを実行するために呼び出され、すぐに終了することができます。しかし、後でアクセスできるようにプラグインの呼び出しを有効にしておく必要がある場合もあります。例えば、位置情報データのライブストリーミングのようなデータを定期的に返したり、非同期タスクを実行したりする場合です。
 
-See [this guide on saving plugin calls](/docs/v3/core-apis/saving-calls) for more details on how to persist plugin calls.
+プラグイン呼び出しを持続させる方法の詳細については、[プラグイン呼び出しの保存に関するこのガイド](/docs/v3/core-apis/saving-calls)を参照してください。
 
-## Error Handling
+## エラーハンドリング
 
 ### Unavailable
 
-This error can be thrown to indicate that the functionality can't be used right now, usually because it requires a newer iOS version.
+このエラーは、その機能が今すぐには使用できないことを示すために投げられることがあります。
 
 ```swift
 @objc override func methodThatUsesNewIOSFramework(_ call: CAPPluginCall) {
@@ -280,11 +279,11 @@ This error can be thrown to indicate that the functionality can't be used right 
 }
 ```
 
-> It is recommended to gracefully degrade the experience with older APIs as much as possible. Use `unavailable` sparingly.
+> 古い API のエクスペリエンスを可能な限り適切に低下させることをお勧めします。 `unavailable` は控えめに使いましょう。
 
 ### Unimplemented
 
-Use this error to indicate that a method can't be implemented for iOS.
+このエラーは、あるメソッドが iOS 用に実装できないことを示すために使用します。
 
 ```swift
 @objc override func methodThatRequiresAndroid(_ call: CAPPluginCall) {
@@ -294,7 +293,7 @@ Use this error to indicate that a method can't be implemented for iOS.
 
 ## Plugin Events
 
-Plugins can emit their own events that you can listen by attaching a listener to the plugin object like this:
+プラグインは独自のイベントを発生させることができ、このようなリスナーをプラグインオブジェクトにアタッチすることでリスニングすることができます。
 
 ```typescript
 import { MyPlugin } from 'my-plugin';
@@ -304,13 +303,13 @@ MyPlugin.addListener('myPluginEvent', (info: any) => {
 });
 ```
 
-To emit the event from the Swift plugin class:
+Swift のプラグインクラスからイベントを発信する方法:
 
 ```swift
 self.notifyListeners("myPluginEvent", data: [:])
 ```
 
-To remove a listener from the plugin object:
+プラグインオブジェクトからリスナーを削除する場合:
 
 ```typescript
 import { MyPlugin } from 'my-plugin';
@@ -325,19 +324,19 @@ const myPluginEventListener = await MyPlugin.addListener(
 myPluginEventListener.remove();
 ```
 
-> It is also possible to trigger global events on `window`. See the docs for [`triggerJSEvent`](/docs/core-apis/ios#triggerjsevent).
+> `window` でのグローバルオブジェクトをトリガーにすることもできます。　詳細は [`triggerJSEvent`](/docs/core-apis/ios#triggerjsevent) をご確認ください。
 
-## Presenting Native Screens
+## ネイティブ画面を表示する
 
-You can present native screens over the app by using [Capacitor's `UIViewController`](/docs/core-apis/ios#viewcontroller).
+Capacitor の [`UIViewController`](/docs/core-apis/ios#viewcontroller) を使用すると、アプリ上でネイティブ画面を表示することができます。
 
-## Override navigation
+## ナビゲーションをオーバーライドする
 
-Capacitor plugins can override the webview navigation. For that the plugin can override `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` method.
-Returning `true` causes the WebView to abort loading the URL.
-Returning `false` causes the WebView to continue loading the URL.
-Returning `nil` will defer to the default Capacitor policy.
+Capacitor プラグインはウェブビューのナビゲーションをオーバーライドすることができます。そのために、プラグインは `- (NSNumber *)shouldOverrideLoad:(WKNavigationAction *)navigationAction` メソッドをオーバーライドすることができます。
+`true` を返すと、WebView は URL の読み込みを中断します。
+`false` を返すと、WebView は URL の読み込みを継続します。
+`nil`を返すと、デフォルトのコンデンサーのポリシーに従います。
 
-## Advanced configuration
+## 高度な設定
 
-Capacitor iOS plugins are CocoaPods libraries, so to add dependencies, required frameworks or any other advanced configurations you have to edit the `.podspec` file created by the plugin generator, check the [podspec reference](https://guides.cocoapods.org/syntax/podspec.html) to see all possible options.
+Capacitor iOS プラグインは CocoaPods ライブラリなので、依存関係や必要なフレームワーク、その他の高度な設定を追加するには、プラグインジェネレータによって作成された `.podspec` ファイルを編集する必要があります。可能なすべてのオプションを確認するには、[podspec reference](https://guides.cocoapods.org/syntax/podspec.html) をチェックしてください。
