@@ -5,61 +5,64 @@ contributors:
   - dotNetkow
 ---
 
-# Cordova Plugins and Ionic Native
+# Cordova プラグインと Ionic Native
 
-When developing an app that uses Capacitor, it's possible to use both Cordova and Ionic Native plugins.
+Capacitor を使用したアプリを開発する場合、Cordova と Ionic Native の両方のプラグインを使用することが可能です。
 
-## Installing Cordova Plugins
+## Cordova プラグインのインストール
 
-Capacitor plugins are installed using your regular package manager and then synced to the native project(s). The installation process is the same for Cordova plugins in Capacitor.
+Capacitor プラグインは、通常のパッケージマネージャを使用してインストールし、ネイティブプロジェクトに同期されます。インストール方法は Capacitor の Cordova プラグインと同じです。
 
-Install the plugin, sync, and then finish any required native project configuration (see [Variables and Hooks](/docs/plugins/cordova#variables-and-hooks)):
+プラグインをインストールし、同期し、必要なネイティブプロジェクトの設定を完了します（[Variables and Hooks](/docs/plugins/cordova#variables-and-hooks) を参照してください）。
 
 ```bash
 npm install cordova-plugin-name
 npx cap sync
 ```
 
-> If the Cordova plugin has an [Ionic Native](https://ionicframework.com/docs/native) wrapper, you can also install it for TypeScript support:
+> Cordova プラグインに [Ionic Native](https://ionicframework.com/docs/native) ラッパーがある場合、それをインストールすることで TypeScript にも対応できます。
 >
-> ```bash
-> npm install @ionic-native/plugin-name
+> ``bash
+> npm インストール @ionic-native/plugin-name
+>
+> ```
+>
 > ```
 
-## Updating Cordova Plugins
+## Cordova プラグインの更新
 
-Use your regular package manager to update plugins. Then, sync the updated plugin to the native project(s):
+普段お使いのパッケージマネージャでプラグインを更新します。そして、更新されたプラグインをネイティブプロジェクトに同期させます。
 
 ```bash
 npm install cordova-plugin-name@version
 npx cap sync
 ```
 
-## Determining Installed Plugin Version
+## インストールされているプラグインのバージョンを確認する
 
-See the list of Capacitor and Cordova plugins (and their exact version numbers) installed in your project with:
+次のコマンドで、プロジェクトにインストールされている Capacitor および Cordova プラグインのリスト (および正確なバージョン番号) を確認します:
 
 ```bash
 npx cap ls
 ```
 
-## Compatibility Issues
+## 互換性の問題
 
-There may be compatibility issues with Capacitor and some Cordova plugins. Many of the official Cordova plugins should not be used, as Capacitor offers [official alternatives](/docs/apis). Cordova plugins that use variables and hooks may be partially compatible. Some Cordova plugins are completely incompatible (see [this list](/docs/plugins/cordova#known-incompatible-plugins)).
+Capacitor と一部の Cordova プラグインには互換性の問題がある可能性があります。多くの公式 Cordova プラグインは使用しないでください。Capacitor は [代替となる公式プラグイン](/docs/apis) を提供しています。変数やフックを使用する Cordova プラグインは、部分的に互換性がある場合があります。一部の Cordova プラグインは完全に互換性がありません [このリスト](/docs/plugins/cordova#known-incompatible-plugins) を参照してください)。
 
-If you find an issue with an existing Cordova plugin, please [let us know](https://github.com/ionic-team/capacitor/issues/new) by providing the issue's details and plugin information.
+もし既存の Cordova プラグインに問題を発見した場合は、問題の詳細とプラグイン情報を提供して [let us know](https://github.com/ionic-team/capacitor/issues/new) してください。
 
-### Variables and Hooks
+### 変数とフック
 
-Capacitor does not support Cordova install variables, auto configuration, or hooks, due to our philosophy of letting you control your native project source code (meaning things like hooks are unnecessary). If your plugin requires variables or settings to be set, you'll need to apply those configuration settings manually by mapping between the plugin's `plugin.xml` and required settings on iOS and Android.
+Capacitor は Cordova のインストール変数、自動設定、フックをサポートしていません。これは、ネイティブプロジェクトのソースコードをコントロールさせるという我々の哲学によるものです（つまり、フックのようなものは不要です）。プラグインに変数や設定が必要な場合は、プラグインの `plugin.xml` と iOS や Android で必要な設定を対応させ、手動でそれらの設定を適用する必要があります。
 
-Consult the [iOS](/docs/ios/configuration) and [Android](/docs/android/configuration) configuration guides for info on how to configure each platform.
+[iOS](/docs/ios/configuration) と [Android](/docs/android/configuration) の設定ガイドで、それぞれのプラットフォームの設定方法について参照してください。
 
-### Known Incompatible Plugins
+### 既知の非互換プラグイン
 
-If a plugin is known to conflict or cause build issues, it will be skipped when running `npx cap sync`.
+プラグインが競合したり、ビルドの問題を引き起こすことが知られている場合、`npx cap sync`を実行するときにスキップされます。
 
-Here is a list of known incompatible plugins:
+以下は、既知の非互換プラグインのリストです。
 
 - [`cordova-plugin-add-swift-support`](https://github.com/akofman/cordova-plugin-add-swift-support) (not needed, Capacitor has built in Swift support)
 - [`cordova-plugin-admobpro`](https://github.com/floatinghotpot/cordova-admob-pro) ([see details](https://github.com/ionic-team/capacitor/issues/1101))

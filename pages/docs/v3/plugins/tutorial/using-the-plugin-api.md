@@ -1,38 +1,38 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Using the Plugin API
+title: Capacitor Pluginの構築
+description: Capacitor Pluginの構築 - Plugin APIを使う
 contributors:
   - eric-horodyski
 ---
 
-# Using the Plugin API
+# プラグイン API の使用
 
-It makes sense to build out a user interface that exercises the plugin’s API before implementing screen orientation functionality. Essentially, we want to rig up a testing harness that allows us to test feature parity across platforms quickly.
+画面の向きを変える機能を実装する前に、プラグインの API を実行するユーザーインターフェイスを構築することは理にかなっています。基本的には、プラットフォーム間の機能パリティを迅速にテストするためのテストハーネスを構築したいと考えます。
 
-The focus of this walkthrough is how to build a Capacitor plugin, not how to build an Ionic Framework application, so you can just take the finished versions of the files needed and copy and paste their contents into your project:
+このチュートリアルの焦点は、Capacitor プラグインの構築方法であり、Ionic Framework アプリケーションの構築方法ではないので、必要なファイルの完成版を取得し、その内容をプロジェクトにコピー＆ペーストするだけです。
 
 - <a href="https://github.com/ionic-enterprise/capacitor-plugin-tutorial/blob/main/src/pages/Home.tsx" target="_blank">src/pages/Home.tsx</a>
 - <a href="https://github.com/ionic-enterprise/capacitor-plugin-tutorial/blob/main/src/pages/Home.css" target="_blank">src/pages/Home.css</a>
 
-Once copied over, serve the Capacitor app using the `ionic serve` command. Open up the browser’s Developer Tools, and you should see the following error:
+コピーした後、`ionic serve`コマンドを使用して Capacitor アプリを提供します。ブラウザのデベロッパーツールを開くと、次のようなエラーが表示されるはずです。
 
 ```bash
 Uncaught (in promise) ScreenOrientation does not have web implementation.
 ```
 
-That error checks out; we haven’t implemented code for any of the platforms yet. Keep the browser open. We will implement the web platform first. Before we do, let’s review relevant code from `Home.tsx`.
+そのエラーはチェックアウトされます。私たちはまだどのプラットフォームにもコードを実装していないのです。ブラウザを開いたままにしておいてください。まずはウェブプラットフォームを実装します。その前に、`Home.tsx`から関連するコードを確認しましょう。
 
-## How is the plugin being used?
+## プラグインはどのように使われているのですか？
 
-**Tracking the screen orientation:**
+**画面の向きを追跡する:**
 
 ```typescript
 const [orientation, setOrientation] = useState<string>('');
 ```
 
-The `orientation` state variable is used to hold the value of the screen’s orientation. It can be updated by calling `setOrientation`. Since we don’t know the current screen orientation when the code starts executing, it’s defaulted to an empty string. A string type is used to make it easier to tell the UI which design to display.
+状態変数 `orientation` は、画面の向きの値を保持するために使用されます。これは `setOrientation` を呼び出すことで更新することができます。コードの実行を開始した時点では現在のスクリーンの向きがわからないので、デフォルトでは空の文字列が格納されます。文字列型を使用することで、UI に表示するデザインを簡単に伝えることができます。
 
-An event listener is established that updates `orientation` when `screenOrientationChange` is fired.
+イベントリスナーは `screenOrientationChange` が発生したときに `orientation` を更新するように設定されています。
 
 ```typescript
 ScreenOrientation.addListener('screenOrientationChange', res =>
@@ -40,7 +40,7 @@ ScreenOrientation.addListener('screenOrientationChange', res =>
 );
 ```
 
-The current screen orientation is obtained when the UI loads, and any listeners created (like the one above) are removed when the UI is removed from the DOM.
+現在の画面の向きは UI のロード時に取得され、作成されたリスナー（上記のようなもの）は UI が DOM から削除されたときに削除されます。
 
 ```typescript
 useEffect(() => {
@@ -52,11 +52,11 @@ useEffect(() => {
 }, []);
 ```
 
-Please don’t read too much into `useEffect` and the return function; those are React-specific syntax rules.
+`useEffect`と return 関数は React 特有の構文ルールなので深読みはしないでください。
 
-**Showing the correct design:**
+**正しいデザインを表示する:**
 
-The `OrientationType` has two values for portrait orientation: `portrait-primary` and `portrait-secondary`. The same goes for landscape orientation. Our UI doesn’t care about the difference between them, only if it is landscape or portrait.
+`OrientationType` には、縦向きの場合、 `portrait-primary` と `portrait-secondary` の 2 つの値があります。横向きの場合も同様です。私たちの UI は、それらの違いを気にせず、横向きか縦向きかだけを気にしています。
 
 ```jsx
 {
@@ -73,20 +73,20 @@ The `OrientationType` has two values for portrait orientation: `portrait-primary
 }
 ```
 
-**Locking and unlocking screen orientation:**
+**画面の向きのロックとロック解除:**
 
-The portrait design contains a button that will change the screen orientation and lock it when pressed.
+ポートレートデザインには、画面の向きを変更し、押すとロックされるボタンが含まれています。
 
 ```typescript
 onClick={() => ScreenOrientation.lock({ orientation: "landscape-primary" })}
 ```
 
-Conversely, the landscape design contains a button that will unlock the screen orientation when pressed.
+逆に、横向きのデザインには、押すと画面の向きが解除されるボタンがあります。
 
 ```typescript
 onClick={() => ScreenOrientation.unlock()}
 ```
 
-The rest of the code in `Home.tsx` and `Home.css` is purely cosmetic; we do not need to dig into that. Run `npm run build` so the new UI is used when we run the app on iOS or Android.
+`Home.tsx` と `Home.css` にある残りのコードは、純粋に外観上のもので、掘り下げる必要はありません。npm run build` を実行し、iOS や Android でアプリを実行したときに新しい UI が使用されるようにします。
 
-We now have a user interface that exercises our plugin’s API, so let’s start implementing functionality! We will target the web first in our next step: the web implementation.
+これで、プラグインの API を実行するユーザーインターフェースができました。次のステップでは、まず Web をターゲットにします。Web の実装です。

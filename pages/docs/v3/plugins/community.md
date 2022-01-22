@@ -1,22 +1,22 @@
 ---
-title: Capacitor Community Plugins
-description: Capacitor Community Plugins
+title: Capacitor コミュニティプラグイン
+description: Capacitor コミュニティプラグイン
 ---
 
-# Capacitor Community Plugins
+# Capacitor コミュニティプラグイン
 
-The community has built a number of Capacitor plugins to add functionality to your app.
+コミュニティは、あなたのアプリに機能を追加するために、多くの Capacitor プラグインを構築しています。
 
-There are a number of ways to find community plugins: Search the web or npm to find any published plugins, or explore the official [Capacitor Community](https://github.com/capacitor-community) GitHub org and [npm scope](https://npmjs.com/~capacitor-community) for a curated list of quality, community-supported Capacitor plugins.
+コミュニティのプラグインを見つけるには、いくつかの方法があります。また、公式の [Capacitor Community](https://github.com/capacitor-community) GitHub org や [npm scope](https://npmjs.com/~capacitor-community) では、コミュニティがサポートする高品質の Capacitor プラグインを厳選して掲載しています。
 
-## Capacitor Community
+## Capacitor コミュニティ
 
-The official [Capacitor Community](https://github.com/capacitor-community) GitHub org and [npm scope](https://npmjs.com/~capacitor-community) is a new effort to curate the best Capacitor community-supported plugins and provide consistent project and code conventions. The Capacitor core team facilitates work but does not officially maintain any plugins in this org.
+公式の [Capacitor Community](https://github.com/capacitor-community) GitHub org と [npm scope](https://npmjs.com/~capacitor-community) は、Capacitor コミュニティがサポートする最高のプラグインをキュレートし、一貫したプロジェクトとコード規約を提供する新しい試みです。Capacitor のコアチームは作業を促進しますが、この組織で公式にプラグインをメンテナンスすることはありません。
 
-[Explore the Capacitor Community &#8250;](https://github.com/capacitor-community)
+[Capacitor Community をみる &#8250;](https://github.com/capacitor-community)
 
-## Cordova Ecosystem
+## Cordova エコシステム
 
-Capacitor has support for most Cordova plugins, so developers can use the [hundreds of existing Cordova plugins](https://cordova.apache.org/plugins/) in their Capacitor apps. While certain Cordova plugins are [not compatible](/docs/plugins/cordova#known-incompatible-plugins) with Capacitor, most are, so it's worth trying one if there's no existing Capacitor-specific plugin available.
+Capacitor はほとんどの Cordova プラグインをサポートしているので、開発者は Capacitor アプリで[数百の既存の Cordova プラグイン](https://cordova.apache.org/plugins/)を使用することができます。特定の Cordova プラグインは Capacitor と [互換性がない](/docs/plugins/cordova#known-incompatible-plugins) のですが、ほとんどは互換性があるので、既存の Capacitor 固有のプラグインがない場合は試してみる価値があります。
 
-Also see the [Ionic Native Community](https://ionicframework.com/docs/native/community) plugins for a list of primarily Cordova plugins with convenient wrappers to make them easier to use in your apps. Feel free to use the Ionic Native Community wrappers or simply use the list as a reference for quality Cordova plugins.
+また、[Ionic Native Community](https://ionicframework.com/docs/native/community) plugins には、主に Cordova プラグインをアプリで使いやすくするための便利なラッパーが掲載されています。Ionic Native Community のラッパーを自由に使うか、単に Cordova プラグインの品質の参考としてこのリストを利用してください。

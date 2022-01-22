@@ -1,23 +1,23 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Implementing for Web/PWA
+title: Capacitor Pluginの構築
+description: Capacitor Pluginの構築 - Web/PWAへの実装
 contributors:
   - eric-horodyski
 ---
 
-# Implementing for Web/PWAs
+# Web/PWAs のために実装する
 
-While designing the plugin’s API, we found out that the web already supports screen orientation functionality (except on mobile devices, of course). You might be asking why what would be the purpose for our plugin to have a web implementation...couldn’t you programmatically detect if the user is on the web and use the <a href="https://whatwebcando.today/screen-orientation.html" target="_blank">Screen Orientation Web API</a>, otherwise, use the plugin?
+プラグインの API を設計しているときに、ウェブではすでに画面の向きに関する機能がサポートされていることがわかりました（もちろん、モバイルデバイスは除きます）。ユーザーがウェブ上にいるかどうかをプログラム的に検出し、まず <a href="https://whatwebcando.today/screen-orientation.html" target="_blank">Screen Orientation Web API</a> を使用して、使用できなければプラグインを使用することはできなかったのでしょうか？
 
-The mantra behind Web Native applications is "write once, run anywhere." This applies to plugins as well; developers using Capacitor plugins ought to be able to use the same plugin class and methods and have them implemented for all platforms.
+Web Native アプリケーションの背後にある重要な理念は、"write once, run anywhere "です。Capacitor プラグインを使用する開発者は、同じプラグインクラスとメソッドを使用して、すべてのプラットフォームでそれらを実装することができるはずです。
 
-Therefore, we will be good developer-citizens and wrap the Screen Orientation Web API inside the web implementation of the `ScreenOrientation` plugin.
+したがって、私たちは良き開発者市民として、Screen Orientation Web API を `ScreenOrientation` プラグインのウェブ実装の中にラップすることにします。
 
-## Extending Capacitor’s WebPlugin class
+## Capacitor の WebPlugin クラスを拡張する
 
-Open a new file `src/plugins/screen-orientation/web.ts`. This file is where we will write the web implementation of the `ScreenOrientation` plugin.
+新しいファイル `src/plugins/screen-orientation/web.ts` を開いてください。このファイルに `ScreenOrientation` プラグインのウェブ実装を記述します。
 
-Start by declaring the `ScreenOrientationWeb` class, and have it extend `WebPlugin`:
+まず、`ScreenOrientationWeb` クラスを宣言し、 `WebPlugin` を継承させます。
 
 ```typescript
 import { WebPlugin } from '@capacitor/core';
@@ -30,7 +30,7 @@ export class ScreenOrientationWeb extends WebPlugin {
 }
 ```
 
-Capacitor’s `WebPlugin` class contains logic to notify any plugin listeners, which we’ll use to tell them when the screen orientation has changed. Let’s notify any listeners when the Screen Orientation Web API’s change event fires. Update the constructor like so:
+Capacitor の `WebPlugin` クラスには、プラグインのリスナーに画面の向きが変わったことを通知するためのロジックが含まれています。Screen Orientation Web API の change イベントが発生したら、リスナーに通知しましょう。コンストラクタを次のように更新します。
 
 ```typescript
 constructor() {
@@ -42,11 +42,11 @@ constructor() {
  }
 ```
 
-The `WebPlugin` class contains an implementation for the `addListener()` and `removeAllListeners()` methods defined in the `ScreenOrientationPlugin` interface. No additional work is needed to use those methods.
+`WebPlugin` クラスは `ScreenOrientationPlugin` インターフェースで定義されている `addListener()` と `removeAllListeners()` メソッドの実装を含んでいます。これらのメソッドを利用するために、追加の作業は必要ありません。
 
-## Implement the remaining methods
+## 残りのメソッドを実装する
 
-Let’s finish implementing the `ScreenOrientationPlugin` interface. Start by adjusting the class definition so that it _actually_ implements the interface:
+それでは、`ScreenOrientationPlugin` インターフェースの実装を終了しましょう。まずは、クラスが実際にインターフェイスを実装するように、クラス定義を調整することから始めましょう:
 
 ```typescript
 export class ScreenOrientationWeb
@@ -55,7 +55,7 @@ export class ScreenOrientationWeb
 {
 ```
 
-Then implement the remaining methods as part of the `ScreenOrientationWeb` class:
+そして、残りのメソッドを `ScreenOrientationWeb` クラスの一部として実装します:
 
 ```typescript
  async orientation(): Promise<{ type: OrientationType }> {
@@ -71,9 +71,9 @@ Then implement the remaining methods as part of the `ScreenOrientationWeb` class
  }
 ```
 
-## Registering the web implementation
+## ウェブ実装を登録する
 
-To register `ScreenOrientationWeb` as our plugin’s web implementation, we need to use the second input parameter of `registerPlugin()`. Open `src/plugins/screen-orientation/index.ts` and update the declaration of the `ScreenOrientation` variable like so:
+`ScreenOrientationWeb` をプラグインのウェブ実装として登録するには、 `registerPlugin()` の 第 2 引数を使用する必要があります。 `src/plugins/screen-orientation/index.ts` を開いて、変数 `ScreenOrientation` の宣言を以下のように更新してください。
 
 ```typescript
 const ScreenOrientation = registerPlugin<ScreenOrientationPlugin>(
@@ -84,8 +84,8 @@ const ScreenOrientation = registerPlugin<ScreenOrientationPlugin>(
 );
 ```
 
-## Give it a test drive!
+## テストドライブをしよう
 
-Test out the web implementation. Serve your application using `ionic serve`, and you can use your browser’s Development Tools to emulate a mobile device in both portrait and landscape screen orientations. The “Rotate my Device” button doesn’t function as there is poor web support for `window.screen.orientation.lock()`, but you should be able to see the different designs if you manually rotate the orientation using the developer tooling.
+Web の実装をテストしてみましょう。アプリケーションを `ionic serve` で配信すると、ブラウザの開発ツールでモバイルデバイスを縦長と横長の両方の画面向きでエミュレートすることができます。 「デバイスを回転させる」ボタンが機能しないのは、 `window.screen.orientation.lock()` のウェブサポートが貧弱だからです。 しかし、デベロッパーツールを使って手動で回転させれば、異なるデザインを見ることができるはずです。
 
-One platform implemented, two to go! Before diving into iOS and Android code, we should consider how to pattern and abstract it. Let’s review some patterns in the next step: code abstraction patterns.
+1 つのプラットフォームを実装したので、あと 2 つ! iOS と Android のコードに飛び込む前に、それをどのようにパターン化し、抽象化するかを検討する必要があります。次のステップでいくつかのパターンを確認しましょう：コードの抽象化パターン。
