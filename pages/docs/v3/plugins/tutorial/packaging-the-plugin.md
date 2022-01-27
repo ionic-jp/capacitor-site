@@ -1,23 +1,23 @@
 ---
 title: Building a Capacitorプラグイン
-description: Building a Capacitorプラグイン - Packaging the Plugin
+description: Capacitorプラグインの構築 - プラグインのパッケージ化
 contributors:
   - eric-horodyski
 ---
 
-# Packaging the Plugin
+# プラグインのパッケージ化
 
-The `ScreenOrientation` plugin is functionally complete and integrated into the Capacitor application as a local plugin. However, the `ScreenOrientation` plugin can’t be used by other Capacitor applications in its current state.
+`ScreenOrientation` プラグインは機能的に完全であり、ローカルプラグインとして Capacitor アプリケーションに統合されています。しかし、`ScreenOrientation`プラグインは現在の状態では他の Capacitor アプリケーションから使用することができません。
 
-Let’s go ahead and package the plugin for publishing to make the `ScreenOrientation` plugin globally available.
+それでは、`ScreenOrientation` プラグインをグローバルに利用できるようにするために、プラグインを公開用にパッケージングしてみましょう。
 
-> **Note:** This section references steps and procedures from the <a href="https://capacitorjs.com/docs/plugins/creating-plugins" target="_blank">Creating Capacitor プラグイン</a> portion of the Capacitor documentation. Please refer to the documentation for details beyond the scope of this tutorial.
+> **注意:** このセクションでは、Capacitor ドキュメントの Creating Capacitor プラグイン部分の手順と手続きを参照しています。このチュートリアルの範囲外の詳細については、ドキュメントを参照してください。
 
-## Generating a new plugin project
+## 新しいプラグインプロジェクトをつくる
 
-Capacitor has a <a href="https://github.com/ionic-team/create-capacitor-plugin" target="_blank">a plugin generator</a> we can use to scaffold a project in a format suitable for publishing a global plugin.
+Capacitor には、グローバルプラグインを公開するのに適した形式でプロジェクトの土台を作るために使用できる <a href="https://github.com/ionic-team/create-capacitor-plugin" target="_blank">プラグインジェネレータ</a> があります。
 
-In a new terminal, run the following command:
+新しくターミナルを開いて、以下のコマンドを実行ください:
 
 ```bash
 npx @capacitor/create-plugin \
@@ -29,43 +29,43 @@ npx @capacitor/create-plugin \
   --description "Work with the screen orientation in a common way for iOS, Android, and web"
 ```
 
-When prompted to provide a directory, use the default by pressing Enter. When asked for the author’s name, use your own!
+ディレクトリを指定するプロンプトが表示されたら、Enter キーを押してデフォルトを使用します。作者名を聞かれたら、自分の名前を使うこと！
 
-## Port the plugin code
+## プラグインのコードを移植する
 
-Take a look at the generated project’s structure; it looks very similar to the structure built for the Capacitor application, doesn't it? 🤔
+生成されたプロジェクトの構成を見てください。Capacitor アプリケーションのために構築された構成と非常によく似ていますね。🤔
 
-Obviously, this was intentional to easily port plugin code from the Capacitor application’s codebase into the generated plugin project.
+明らかに、これは Capacitor アプリケーションのコードベースから生成されたプラグインプロジェクトにプラグインコードを簡単に移植するための意図的なものです。
 
-Copy the contents of the files in `src/plugins/screen-orientation` into their equivalent `web.ts`, `index.ts`, and `definitions.ts` files in the plugin project.
+`src/plugins/screen-orientation` にあるファイルの内容を、プラグインプロジェクトの `web.ts`, `index.ts`, `definitions.ts` ファイルにコピーしてください。
 
-Next, copy the contents of `ScreenOrientation.swift`, `ScreenOrientationPlugin.m`, and `ScreenOrientationPlugin.swift` from one codebase to the other.
+次に、`ScreenOrientation.swift`, `ScreenOrientationPlugin.m`, `ScreenOrientationPlugin.swift` の内容を、一方のコードベースからもう一方のコードベースにコピーしてください。
 
-Then, do the same for `ScreenOrientation.java` and `ScreenOrientationPlugin.java`. Afterward, update the package of these files in the plugin project:
+次に、`ScreenOrientation.java` と `ScreenOrientationPlugin.java` について同じことをします。その後、プラグインプロジェクト内のこれらのファイルのパッケージを更新します:
 
 ```java
 package io.ionic.plugins.screenorientation
 ```
 
-The package name above was supplied when generating the plugin project, and any Android files in the project should use this package name.
+上記のパッケージ名は、プラグインプロジェクトを生成する際に提供されたもので、プロジェクト内の Android ファイルはこのパッケージ名を使用する必要があります。
 
-Finally, let’s verify that no issues occurred when porting over the code by running the following command:
+最後に、以下のコマンドを実行して、コードを移植する際に問題が発生しないことを確認しましょう:
 
 ```bash
 npm run verify
 ```
 
-> **Note:** You can test the plugin before publishing it by linking the plugin folder to a Capacitor project. See <a href="https://capacitorjs.com/docs/plugins/workflow#local-testing" target="_blank">Plugin Development Workflow</a> for details.
+> **Note:** Capacitor プロジェクトにプラグインフォルダをリンクすることで、公開前にプラグインをテストすることができます。詳しくは、 <a href="https://capacitorjs.com/docs/plugins/workflow#local-testing" target="_blank">プラグイン開発ワークフロー</a> をご覧ください。
 
-## Update the plugin documentation
+## プラグインのドキュメンテーションをアップデート
 
-Take a look at the plugin project’s `README.md` file; it was updated to document the plugin’s API. This update happened when we ran `npm run verify`. Any changes made to source file JSDoc comments can be reflected within the readme file’s API section by running `npm run docgen`.
+プラグインプロジェクトの `README.md` ファイルを見てください。プラグインの API に関するドキュメントが更新されています。この更新は `npm run verify` を実行したときに行われました。ソースファイルの JSDoc コメントを変更した場合は、 `npm run docgen` を実行することで、Readme ファイルの API セクションに反映させることができます。
 
-The plugin requires developers to modify their Capacitor application’s `AppDelegate.swift` file, so instructions on how to do so should be included in the plugin’s documentation.
+このプラグインは、開発者が Capacitor アプリケーションの `AppDelegate.swift` ファイルを修正する必要があるので、その方法はプラグインのドキュメントに含まれているはずです。
 
-> **Note:** Always document any modifications developers will need to make when installing or configuring plugins you build.
+> **注意:** 開発者がビルドしたプラグインをインストールしたり設定したりする際に必要な修正は、必ず文書化してください。
 
-Replace the “Install” section of `README.md` with the following markdown:
+`README.md` の "Install" セクションを以下のようなマークダウンに置き換えてください:
 
 <pre>
 ## Install
@@ -95,16 +95,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 </pre>
 
-## Publishing the plugin
+## プラグインの公開
 
-The plugin is in a state where it can be published to an npm registry. We won’t do that in this tutorial, but note that the command to publish a Capacitor プラグイン project is the same as publishing any other npm package: `npm publish`.
+プラグインは、npm レジストリに公開できる状態にあります。このチュートリアルではこれを行いませんが、Capacitor プラグインプロジェクトを公開するコマンドは、他の npm パッケージの公開と同じであることに注意してください： `npm publish`
 
-You can publish a global Capacitor プラグイン to the public npm registry, a private registry, or just link it to a bunch of projects locally on your machine. Whatever fits your use-case.
+グローバルな Capacitor プラグインを npm のパブリックレジストリ、プライベートレジストリに公開するか、マシン上のローカルの一連のプロジェクトにリンクすることができます。ユースケースに合うものは何でも。
 
-What’s more, there is a <a href="https://github.com/capacitor-community/welcome" target="_blank">Capacitor Community GitHub organization</a> where you can get your plugin hosted and work closely with the community and Capacitor team as you continue development and maintenance on your plugin.
+さらに、<a href="https://github.com/capacitor-community/welcome" target="_blank">Capacitor Community GitHub organization</a>では、プラグインをホストしてもらい、コミュニティや Capacitor チームと密接に協力しながら、プラグインの開発やメンテナンスを継続することができます。
 
-## Conclusion
+## まとめ
 
-Capacitor’s Plugin API is a flexible and robust solution to supplement Capacitor applications with native functionality unavailable to the web, whether the need is to add custom native code to a specific application or reuse native code between a fleet of apps.
+Capacitor のプラグイン API は、特定のアプリケーションにカスタムネイティブコードを追加したり、複数のアプリ間でネイティブコードを再利用する必要がある場合でも、Web では利用できないネイティブ機能で Capacitor アプリケーションを補完する柔軟で堅牢なソリューションです。
 
-Looking forward to the plugin you develop next! 🎉
+皆さんが開発するプラグインを楽しみにしています。🎉
