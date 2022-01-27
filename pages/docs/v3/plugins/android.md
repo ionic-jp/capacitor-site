@@ -24,7 +24,7 @@ Capacitor はデフォルトで Java を使用しますが、お好みで Kotlin
 
 プラグインを生成したら、Android Studio で Java プラグインクラスを右クリックし、メニューから「Convert Java file to Kotlin file」オプションを選択します。Android Studio は、Kotlin をサポートするためにプロジェクトを設定する手順を説明します。これが完了したら、Java クラスを再度右クリックし、変換オプションを再選択して Kotlin クラスに変換します。
 
-## Plugin の基本
+## プラグインの基本
 
 Android 用 Capacitor プラグインは `com.getcapacitor.Plugin` を継承したシンプルな Java クラスで、 `@CapacitorPlugin()` アノテーションを持っています。
 また、JavaScript から呼び出し可能ないくつかのメソッドを `@PluginMethod()` アノテーションで持っています。

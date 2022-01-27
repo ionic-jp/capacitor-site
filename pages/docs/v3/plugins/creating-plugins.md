@@ -7,7 +7,7 @@ contributors:
   - dotNetkow
 ---
 
-# Capacitor Plugin の作成
+# Capacitor プラグインの作成
 
 Capacitor のプラグインは、JavaScript が Native API と直接通信することを可能にします。
 
@@ -39,7 +39,7 @@ Capacitor プラグインは、JavaScript 開発者が慣れ親しんでいる�
 - **同一単位を優先する** 例: iOS API が摂氏を使い、Android API が華氏を使う場合、その値は JavaScript レイヤーに届く前にどちらかに強制されるべきです。
 - **他のフォーマットよりも ISO8601 のタイムゾーンでのデータタイムを優先してください。** 例: `"2020-12-13T20:21:58.415Z"` のような文字列から正確な JavaScript の `Date` を得るのは簡単ですが、Unix タイムスタンプを与えられた場合は混乱します (JavaScript のタイムスタンプはミリ秒単位です)。タイムゾーンは常に含めるようにしましょう。そうしないと、異なるロケールから来た日付は不正確に解釈される可能性があります。
 
-## Plugin ジェネレーター
+## プラグインジェネレーター
 
 始める準備はできましたか？Capacitor には [プラグインジェネレータ](https://github.com/ionic-team/create-capacitor-plugin) があり、これを使用してプラグインの作業を開始することができます。
 

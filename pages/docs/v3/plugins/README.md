@@ -37,12 +37,12 @@
   - [Android ガイド](android.md)
   - [Web/PWA ガイド](web.md)
   - [Method Types](method-types.md)
-- Plugin チュートリアル
+- プラグインチュートリアル
   - [はじめかた](tutorial/introduction.md)
-  - [Plugin API の設計](tutorial/designing-the-plugin-api.md)
-  - [Plugin API の使い方](tutorial/using-the-plugin-api.md)
+  - [プラグイン API の設計](tutorial/designing-the-plugin-api.md)
+  - [プラグイン API の使い方](tutorial/using-the-plugin-api.md)
   - [Web/PWA への実装](tutorial/web-implementation.md)
   - [コードの抽象化パターン](tutorial/code-abstraction-patterns.md)
   - [iOS への実装](tutorial/ios-implementation.md)
   - [Android への実装](tutorial/android-implementation.md)
-  - [Plugin のパッケージ化](tutorial/packaging-the-plugin.md)
+  - [プラグインのパッケージ化](tutorial/packaging-the-plugin.md)

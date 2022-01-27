@@ -1,6 +1,6 @@
 ---
-title: Plugin開発のワークフロー
-description: Capacitor Plugin開発のワークフロー
+title: プラグイン開発のワークフロー
+description: Capacitor プラグイン開発のワークフロー
 contributors:
   - dotNetkow
 ---
