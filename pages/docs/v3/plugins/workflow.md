@@ -98,7 +98,7 @@ npm install ../path/to/echo
 最後に、`npx cap sync` を実行して、ネイティブプロジェクトがあなたのプラグインを認識するようにします。正しく検出された場合は、次のようなメッセージが表示されます:
 
 ```bash
-[info] Found 1 Capacitor plugin for android:
+[info] Found 1 Capacitorプラグイン for android:
     - echo (0.0.1)
 ```
 

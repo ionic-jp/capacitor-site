@@ -1,6 +1,6 @@
 ---
 title: Method　Types
-description: Capacitor Plugin の Method Types
+description: Capacitorプラグイン の Method Types
 contributors:
   - ikeith
 ---

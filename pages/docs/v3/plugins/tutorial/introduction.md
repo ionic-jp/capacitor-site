@@ -1,6 +1,6 @@
 ---
-title: Capacitor Pluginの構築
-description: Capacitor Pluginの構築
+title: Capacitorプラグインの構築
+description: Capacitorプラグインの構築
 contributors:
   - eric-horodyski
 ---

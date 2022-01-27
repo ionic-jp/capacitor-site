@@ -1,6 +1,6 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Implementing for Android
+title: Building a Capacitorプラグイン
+description: Building a Capacitorプラグイン - Implementing for Android
 contributors:
   - eric-horodyski
 ---
@@ -137,7 +137,7 @@ The `load()` method is the proper place to initialize the `ScreenOrientation` cl
 Run the app from within Android Studio, either on an actual device or an Android emulator. Open **Logcat** and you should see the call logged:
 
 ```bash
-V/Capacitor/Plugin: To native (Capacitor plugin): callbackId: 89582874, pluginId: ScreenOrientation, methodName: orientation
+V/Capacitor/Plugin: To native (Capacitorプラグイン): callbackId: 89582874, pluginId: ScreenOrientation, methodName: orientation
 ```
 
 > **Note:** The exact value of the logs will be different for you. In this example, `89582874` is an arbitrary ID assigned to the method call made from the plugin.
@@ -281,6 +281,6 @@ In Android Studio, run the app on either a device or an emulator. Pressing the �
 
 > **Note:** Ensure that you have the **Auto-rotate** device setting set to **on** before testing the plugin out; otherwise, it won’t function.
 
-Congratulations, you’ve built a Capacitor plugin that works for web, iOS, and Android! 👏 👏 👏
+Congratulations, you’ve built a Capacitor プラグイン that works for web, iOS, and Android! 👏 👏 👏
 
 As it stands, the `ScreenOrientation` plugin is a local plugin; only this application can use it. And that’s OK! Many times you’ll only want a plugin used only within a particular app. However, if you would like to reuse a plugin in multiple apps, we’ll see how to do that in the final step: packaging the plugin.

@@ -1,6 +1,6 @@
 ---
-title: Capacitor Plugins
-description: Capacitor Plugins
+title: Capacitorプラグイン
+description: Capacitorプラグイン
 contributors:
   - mlynch
   - jcesarmobile

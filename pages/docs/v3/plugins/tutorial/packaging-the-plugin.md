@@ -1,6 +1,6 @@
 ---
-title: Building a Capacitor Plugin
-description: Building a Capacitor Plugin - Packaging the Plugin
+title: Building a Capacitorプラグイン
+description: Building a Capacitorプラグイン - Packaging the Plugin
 contributors:
   - eric-horodyski
 ---
@@ -11,7 +11,7 @@ The `ScreenOrientation` plugin is functionally complete and integrated into the 
 
 Let’s go ahead and package the plugin for publishing to make the `ScreenOrientation` plugin globally available.
 
-> **Note:** This section references steps and procedures from the <a href="https://capacitorjs.com/docs/plugins/creating-plugins" target="_blank">Creating Capacitor Plugins</a> portion of the Capacitor documentation. Please refer to the documentation for details beyond the scope of this tutorial.
+> **Note:** This section references steps and procedures from the <a href="https://capacitorjs.com/docs/plugins/creating-plugins" target="_blank">Creating Capacitor プラグイン</a> portion of the Capacitor documentation. Please refer to the documentation for details beyond the scope of this tutorial.
 
 ## Generating a new plugin project
 
@@ -97,9 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## Publishing the plugin
 
-The plugin is in a state where it can be published to an npm registry. We won’t do that in this tutorial, but note that the command to publish a Capacitor plugin project is the same as publishing any other npm package: `npm publish`.
+The plugin is in a state where it can be published to an npm registry. We won’t do that in this tutorial, but note that the command to publish a Capacitor プラグイン project is the same as publishing any other npm package: `npm publish`.
 
-You can publish a global Capacitor plugin to the public npm registry, a private registry, or just link it to a bunch of projects locally on your machine. Whatever fits your use-case.
+You can publish a global Capacitor プラグイン to the public npm registry, a private registry, or just link it to a bunch of projects locally on your machine. Whatever fits your use-case.
 
 What’s more, there is a <a href="https://github.com/capacitor-community/welcome" target="_blank">Capacitor Community GitHub organization</a> where you can get your plugin hosted and work closely with the community and Capacitor team as you continue development and maintenance on your plugin.
 

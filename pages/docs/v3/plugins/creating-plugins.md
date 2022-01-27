@@ -1,6 +1,6 @@
 ---
-title: Capacitor Pluginの作成
-description: Capacitor Pluginの作成
+title: Capacitorプラグインの作成
+description: Capacitorプラグインの作成
 contributors:
   - mlynch
   - jcesarmobile
