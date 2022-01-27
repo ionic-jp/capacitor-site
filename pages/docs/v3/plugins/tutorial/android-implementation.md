@@ -5,19 +5,19 @@ contributors:
   - eric-horodyski
 ---
 
-# Implementing for Android
+# Android のための実装
 
-Development for the plugin is nearly complete. All that’s left is the Android implementation!
+プラグインの開発はほぼ完了しています。残っているのは Android の実装だけです。
 
-## Register the plugin with Capacitor
+## プラグインを Capacitor に登録する
 
-> **Prerequisite:** Familiarize yourself with the <a href="https://capacitorjs.com/docs/android/custom-code" target="_blank">Capacitor Custom Native Android Code documentation</a> before continuing.
+> **前提条件:** 続ける前に <a href="https://capacitorjs.com/docs/android/custom-code" target="_blank">Capacitor Custom Native Android Code documentation</a> のドキュメントをよく理解してください。
 
-Open up the Capacitor application’s Android project in Android Studio by running `npx cap open android`. Expand the **app** module and the **java** folder and right-click on your app’s Java package. Select **New -> Package** from the context menu and create a subpackage named **plugins**. Right-click the **plugins** package and repeat the preceding process to create a subpackage named **ScreenOrientation**.
+Android Studio で `npx cap open android` を実行し、Capacitor アプリケーションの Android プロジェクトを開いてください。 **app** モジュールと **java** フォルダーを展開し、アプリの Java パッケージを右クリックします。コンテキストメニューから **New -> Package** を選択し、**plugins** という名前のサブパッケージを作成します。 **plugins** パッケージを右クリックし、前述のプロセスを繰り返して、**ScreenOrientation**という名前のサブパッケージを作成します。
 
-Next, right-click the **ScreenOrientation** package and add a new Java file by selecting **New -> Java File** from the context menu. Name this file `ScreenOrientationPlugin.java`. Repeat the process to create a new file named `ScreenOrientation.java`.
+次に、 **ScreenOrientation** パッケージを右クリックし、コンテキストメニューから **New -> Java File** を選択して、新しい Java ファイルを追加します。このファイルの名前を `ScreenOrientationPlugin.java` とします。また、同様にこの作業を行い、`ScreenOrientation.java`という名前の新しいファイルを作成します。
 
-Copy the following code into `ScreenOrientationPlugin.java`:
+次のコードを `ScreenOrientationPlugin.java` に貼り付けます:
 
 ```java
 package io.ionic.cap.plugin.plugins.ScreenOrientation;
@@ -47,7 +47,7 @@ public class ScreenOrientationPlugin extends Plugin {
 }
 ```
 
-Register the plugin class within the project’s MainActivity to bridge between Java and JavaScript. Open `MainActivity.java` and add an `onCreate()` method where we can register the plugin:
+Java と JavaScript の橋渡しをするために、プロジェクトの MainActivity の中にプラグインクラスを登録します。 `MainActivity.java` を開き、プラグインを登録するための `onCreate()` メソッドを追加してください。
 
 ```java
 package io.ionic.cap.plugin;
@@ -65,9 +65,9 @@ public class MainActivity extends BridgeActivity {
 }
 ```
 
-## Getting the current screen orientation
+## 現在の画面の向きを取得する
 
-Like iOS, we will tackle getting the current screen orientation first. Open `ScreenOrientation.java` to set up the class and write a method to get the current orientation:
+iOS と同様に、まず現在の画面の向きを取得することに取り組みます。 `ScreenOrientation.java` を開いてクラスを設定し、現在の向きを取得するメソッドを書きます。
 
 ```java
 package io.ionic.cap.plugin.plugins.ScreenOrientation;
@@ -102,7 +102,7 @@ public class ScreenOrientation {
 }
 ```
 
-Next, wire up the `orientation` method in `ScreenOrientationPlugin.java` to call the implementation class’s method:
+次に、`ScreenOrientationPlugin.java` に `orientation` メソッドを配置して、実装クラスのメソッドを呼び出すようにします:
 
 ```java
 package io.ionic.cap.plugins.ScreenOrientation;
@@ -132,29 +132,29 @@ public class ScreenOrientationPlugin extends Plugin {
 }
 ```
 
-The `load()` method is the proper place to initialize the `ScreenOrientation` class instance with the Capacitor bridge object.
+`load()` メソッドは、Capacitor ブリッジオブジェクトで `ScreenOrientation` クラスのインスタンスを初期化するのに適切な場所です。
 
-Run the app from within Android Studio, either on an actual device or an Android emulator. Open **Logcat** and you should see the call logged:
+Android Studio 内で、実際のデバイスまたは Android エミュレーターでアプリを実行します。Logcat\*\* を開くと、呼び出しがログに記録されているのが確認できるはずです:
 
 ```bash
 V/Capacitor/Plugin: To native (Capacitorプラグイン): callbackId: 89582874, pluginId: ScreenOrientation, methodName: orientation
 ```
 
-> **Note:** The exact value of the logs will be different for you. In this example, `89582874` is an arbitrary ID assigned to the method call made from the plugin.
+> **注意:** ログの正確な値は、あなたにとって異なるものになります。この例では、`115962915`はプラグインから呼び出されたメソッドに割り当てられた任意の ID です。
 
-## Listening for screen orientation changes
+## 画面の向きの変更を検知する
 
-Android considers the rotation of a device a runtime configuration change, so we need a way for our plugin to <a href="https://developer.android.com/guide/topics/resources/runtime-changes" target="_blank">handle configuration changes</a>.
+Android はデバイスの回転を実行時の設定変更と見なします。したがって、プラグインが <a href="https://developer.android.com/guide/topics/resources/runtime-changes" target="_blank">設定変更を処理する</a> 方法が必要です。
 
-Capacitor provides an overridable method, `handleOnConfigurationChanged()`, that can be used to respond to runtime configuration changes.
+Capacitor はオーバーライド可能なメソッド `handleOnConfigurationChanged()` を提供しており、これを使用して実行時の設定変更に対応することができます。
 
-First add the following import to the `ScreenOrientationPlugin` class:
+まず、`ScreenOrientationPlugin` クラスに以下のインポートを追加してください:
 
 ```java
 import android.content.res.Configuration;
 ```
 
-Then add the following methods to the `ScreenOrientationPlugin` class:
+次に、`ScreenOrientationPlugin` クラスに以下のメソッドを追加します:
 
 ```java
 @Override
@@ -171,14 +171,14 @@ private void onOrientationChanged() {
 }
 ```
 
-When Android notifies an application of a configuration change, it returns the entire new configuration object, presenting two challenges:
+Android がアプリケーションに設定変更を通知する際、新しい設定オブジェクト全体を返すため、2 つの課題があります:
 
-1. How do we make sure we only notify listeners when the orientation changes?
-2. How do we know that the configuration change was due to an orientation change?
+1. 方向が変更されたときだけリスナーに通知するようにするには、どうすればよいでしょうか。
+2. 設定変更が向きの変更に起因するものであることを、どのようにして確認するか？
 
-We will need the plugin to keep track of the previous `newConfig.orientation` value to compare against additional configuration changes to address those challenges.
+これらの課題を解決するために、プラグインが以前の `newConfig.orientation` 値を追跡し、その後の設定変更と比較する必要があります。
 
-Make the following additions to the `ScreenOrientation` class:
+`ScreenOrientation` クラスに以下の追加を行います:
 
 ```java
 @Nullable private int configOrientation;
@@ -193,9 +193,9 @@ public boolean hasOrientationChanged(int orientation) {
 }
 ```
 
-Don't forget to import `androidx.annotation.Nullable` to `ScreenOrientation.java`.
+`ScreenOrientation.java` に `androidx.annotation.Nullable` をインポートすることを忘れないでください。
 
-Then update the `handleOnConfigurationChanged()` method in `ScreenOrientationPlugin.java`:
+そして、`ScreenOrientationPlugin.java` の `handleOnConfigurationChanged()` メソッドを更新してください:
 
 ```java
 @Override
@@ -207,11 +207,11 @@ public void handleOnConfigurationChanged(Configuration newConfig) {
 }
 ```
 
-Now, the plugin will only notify listeners if-and-only-if runtime configuration changes pertain to the orientation changing.
+このプラグインは、実行時の設定変更がオリエンテーションの変更に関係する場合にのみ、リスナーに通知するようになりました。
 
-## Locking and unlocking the screen orientation
+## 画面の向きをロック・解除する
 
-As we saw with the iOS implementation, we’ll need a helper method to map the JavaScript OrientationType into a corresponding native enumeration value. For Android, we’ll map an OrientationType to an ActivityInfo enumeration value. Add the following method to the `ScreenOrientation` class:
+iOS の実装で見たように、JavaScript の OrientationType を対応するネイティブの列挙型値にマッピングするヘルパーメソッドが必要になります。Android では、OrientationType を ActivityInfo 列挙型の値に対応付けます。以下のメソッドを `ScreenOrientation` クラスに追加してください:
 
 ```java
 private int fromOrientationTypeToEnum(String orientationType) {
@@ -229,9 +229,9 @@ private int fromOrientationTypeToEnum(String orientationType) {
 }
 ```
 
-Make sure to import `android.content.pm.ActivityInfo` to `ScreenOrientation.java`.
+`ScreenOrientation.java` に `android.content.pm.ActivityInfo` がインポートされていることを確認してください。
 
-Next, add a `lock()` method to the `ScreenOrientation` class:
+次に、`ScreenOrientation` クラスに `lock()` メソッドを追加してください:
 
 ```java
 public void lock(String orientationType) {
@@ -240,7 +240,7 @@ public void lock(String orientationType) {
 }
 ```
 
-This method needs to get called from the `ScreenOrientationPlugin` class:
+このメソッドは `ScreenOrientationPlugin` クラスから呼び出される必要があります:
 
 ```java
 @PluginMethod()
@@ -255,9 +255,9 @@ public void lock(PluginCall call) {
 }
 ```
 
-Note, we guard against calls to the `lock()` method that do not supply the `orientation` input parameter.
+`lock()` メソッドに `orientation` という入力パラメータを与えない呼び出しに対して、ガードしていることに注意してください。
 
-To unlock the screen orientation, we set the activity’s orientation type to the unspecified enumeration value. Add the following method to the `ScreenOrientation` class:
+画面の向きをロック解除するには、アクティビティのオリエンテーション・タイプを未指定の列挙型値に設定します。以下のメソッドを `ScreenOrientation` クラスに追加してください。
 
 ```java
 public void unlock() {
@@ -265,7 +265,7 @@ public void unlock() {
 }
 ```
 
-Then call the implementation method from the `ScreenOrientationPlugin` class:
+そして、 `ScreenOrientationPlugin` クラスから実装メソッドを呼び出します。
 
 ```java
 @PluginMethod()
@@ -275,12 +275,12 @@ public void unlock(PluginCall call) {
 }
 ```
 
-## Give it a test drive!
+## テストドライブをしよう！
 
-In Android Studio, run the app on either a device or an emulator. Pressing the “Rotate My Device” button will rotate the screen orientation into landscape mode, and if you rotate further, you will see that the screen orientation is locked. Pressing “Confirm Signature“ will unlock the screen orientation.
+Android Studio で、端末またはエミュレーターでアプリを実行します。「Rotate My Device」ボタンを押すと、画面の向きが横向きに回転し、さらに回転させると、画面の向きがロックされていることが確認できます。「Confirm Signature」を押すと、画面の向きがロック解除されます。
 
-> **Note:** Ensure that you have the **Auto-rotate** device setting set to **on** before testing the plugin out; otherwise, it won’t function.
+> **注意:** プラグインをテストする前に、 **自動回転** デバイスの設定が **オン** になっていることを確認してください; そうでない場合は、機能しません。
 
-Congratulations, you’ve built a Capacitor プラグイン that works for web, iOS, and Android! 👏 👏 👏
+おめでとうございます！ウェブ、iOS、Android で動作する Capacitor プラグインが完成しました。👏 👏 👏
 
-As it stands, the `ScreenOrientation` plugin is a local plugin; only this application can use it. And that’s OK! Many times you’ll only want a plugin used only within a particular app. However, if you would like to reuse a plugin in multiple apps, we’ll see how to do that in the final step: packaging the plugin.
+現状では、`ScreenOrientation`プラグインはローカルプラグインであり、このアプリケーションだけが使用することができます。そして、それは OK です! 多くの場合、プラグインは特定のアプリケーションの中だけで使いたいものです。しかし、複数のアプリでプラグインを再利用したい場合は、最後のステップであるプラグインのパッケージングでその方法を確認します。
