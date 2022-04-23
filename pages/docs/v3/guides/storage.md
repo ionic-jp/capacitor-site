@@ -9,7 +9,9 @@ contributors:
 
 ほとんどのアプリケーションは、ローカルデータを保存したり読み出したりする必要があります。具体的なユースケースに応じて、いくつかのアプローチが考えられます。
 
-## なぜ LocalStorage や IndexedDB ではいけないのですか？
+> Need your local data encrypted? Ionic provides an out of the box security suite for Capacitor apps that includes Authentication, Biometrics, and Secure Storage. [Learn more](https://ionic.io/secure).
+
+## Why can't I just use LocalStorage or IndexedDB?
 
 Capacitor のアプリケーションは主に Web ビューやブラウザで動作するため、ストレージ用の Web API は Capacitor の開発者が利用できます。ただし、これらの API には、いくつかの大きな注意点があります。
 

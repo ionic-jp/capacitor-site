@@ -11,6 +11,8 @@ Capacitor の開発者は、アプリがセキュリティのベストプラク�
 
 セキュリティのテーマは多岐にわたりますが、Capacitor の開発者がセキュリティ遵守のために監査すべき領域は、データ、認証/ディープリンク、ネットワーク、Web View のセキュリティなど、いくつかあります。
 
+> Ionic provides an out of the box security suite for Capacitor apps that includes Authentication, Biometrics, and Encryption. [Learn more](https://ionic.io/secure).
+
 ## データ・セキュリティ
 
 データセキュリティは、ローカルに保存されているデータやアプリのコード内に保存されているデータのセキュリティを扱います。

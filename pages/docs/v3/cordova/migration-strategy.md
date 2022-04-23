@@ -25,6 +25,10 @@ Capacitor のリリースにより、Ionic はそのスタックのほぼすべ�
 
 ## マイグレーションプロセスの概要
 
+### Utilize the Ionic VS Code Extension
+
+The [Ionic VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ionic.ionic) provides tools to help assist your migration from Cordova to Capacitor by installing Capacitor's dependencies, replacing equivalent plugins, and more. It is a helpful tool that will automate much of the process of moving to Capacitor.
+
 ### 既存の Cordova プラグインの監査と移行
 
 まず、既存の Cordova プラグインの監査を行います。不要になったプラグインは削除できる可能性があります。

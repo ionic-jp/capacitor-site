@@ -16,7 +16,7 @@ Capacitor には、対象とするプラットフォームや開発する OS に
 
 ## iOS 開発
 
-iOS アプリを作るには、**macOS**が必要です。また、 [Xcode](https://developer.apple.com/xcode/) をダウンロードしてセットアップする必要があります。
+iOS アプリを作るには、**macOS**が必要です。また、 [Xcode](https://developer.apple.com/xcode/) をダウンロードしてセットアップする必要があります。もしあなたが Linux か Windows で開発している場合、このセクションは読み飛ばしてください。
 
 > [Ionic Appflow](http://ionicframework.com/appflow) を使うと、Mac を持っていない場合でも iOS のクラウドビルドを行うことができます。
 

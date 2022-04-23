@@ -57,3 +57,12 @@ window.screen.orientation.unlock();
 ```
 
 使用可能な向きの値や設定オプションについては、 [Orientation Plugin Docs](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-screen-orientation/) を参照してください。
+
+### iPad Orientation Lock
+
+By default, an iPad allows Multitasking and its orientation cannot be locked. If you need to lock orientation on an iPad set the option `Requires Full Screen` to `YES` by adding the following to `Info.plist`:
+
+```
+	<key>UIRequiresFullScreen</key>
+	<true/>
+```

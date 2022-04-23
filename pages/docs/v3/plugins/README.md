@@ -37,7 +37,8 @@
   - [Android ガイド](android.md)
   - [Web/PWA ガイド](web.md)
   - [Method Types](method-types.md)
-- プラグインチュートリアル
+  - [Configuration Values](configuration-values.md)
+- Plugin Tutorial
   - [はじめかた](tutorial/introduction.md)
   - [プラグイン API の設計](tutorial/designing-the-plugin-api.md)
   - [プラグイン API の使い方](tutorial/using-the-plugin-api.md)
