@@ -6,6 +6,7 @@
   - [インストール](getting-started/index.md)
   - [Ionic フレームワークとの連携](getting-started/with-ionic.md)
   - [Ionic の VS Code エクステンション](getting-started/vs-code-extension.md)
+  - [Capacitor テンプレート](getting-started/templates.md)
 - 基本
   - [開発ワークフロー](basics/workflow.md)
   - [プラグインを使う](basics/using-plugins.md)

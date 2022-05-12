@@ -17,6 +17,7 @@
   - [ダイアログ](../apis/dialog.md)
   - [ファイルシステム](../apis/filesystem.md)
   - [ジオロケーション](../apis/geolocation.md)
+  - [Google Maps](../apis/google-maps.md)
   - [Haptics](../apis/haptics.md)
   - [キーボード](../apis/keyboard.md)
   - [ローカル通知](../apis/local-notifications.md)

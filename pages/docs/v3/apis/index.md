@@ -25,6 +25,7 @@ contributors:
 - [ダイアログ](/docs/apis/dialog)
 - [ファイルシステム](/docs/apis/filesystem)
 - [ジオロケーション](/docs/apis/geolocation)
+- [Google Maps](/docs/apis/google-maps)
 - [Haptics](/docs/apis/haptics)
 - [キーボード](/docs/apis/keyboard)
 - [ローカル通知](/docs/apis/local-notifications)

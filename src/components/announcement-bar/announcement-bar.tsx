@@ -31,6 +31,7 @@ export class AnnouncementBar {
       button_arrow,
       text,
       theme,
+      left_image,
     } = this.prismicData;
 
     const themeSlug = slugify(theme);
@@ -55,6 +56,14 @@ export class AnnouncementBar {
           class="link-wrapper"
         >
           <ResponsiveContainer>
+            {left_image.url && (
+              <img
+                src={left_image.url}
+                width={left_image.dimensions.width / 2}
+                height={left_image.dimensions.height / 2}
+                alt={left_image.alt}
+              />
+            )}
             <PrismicRichText richText={text} />
             <button>
               {button_text}
