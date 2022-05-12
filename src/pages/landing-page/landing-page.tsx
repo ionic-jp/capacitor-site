@@ -72,11 +72,11 @@ export class LandingPage {
           <header>
             <div class="overline">Capacitor × Google Maps</div>
             <Heading poster={true} level={1}>
-              Get a map in your app.
+              アプリに地図を入れよう
             </Heading>
             <Paragraph level={2}>
-              Integrate Google Maps into all of your applications with our
-              latest officially-supported Capacitor plugin
+              Googleマップをすべてのアプリケーションに統合します。
+              最新の公式Capacitorプラグイン。
             </Paragraph>
             <div class="cta-row">
               <Button
@@ -85,7 +85,7 @@ export class LandingPage {
                 class="primary"
                 kind="round"
               >
-                Start building today
+                今からはじめる
                 <span style={{ letterSpacing: '0px' }}> -&gt;</span>
               </Button>
               <Button
@@ -97,7 +97,7 @@ export class LandingPage {
                 kind="round"
                 color="indigo"
               >
-                Read the Blog post
+                ブログの投稿を読む
                 <span style={{ letterSpacing: '0px' }}> -&gt;</span>
               </Button>
             </div>
