@@ -32,7 +32,24 @@ export class AnnouncementBar {
       text,
       theme,
       left_image,
-    } = this.prismicData;
+    } = Object.assign({
+      link: {
+        url: 'https://ionic-jp.connpass.com/event/245649/',
+      },
+      button_text: '参加登録',
+      button_arrow: true,
+      text: [
+        {
+          spans: [],
+          text: '最新の情報を手に入れよう。2022/05/29(日)、東京開催。',
+          type: 'paragraph',
+        },
+      ],
+      left_image: {
+        url: undefined,
+      },
+      theme: 'Ioniconf 2022',
+    });
 
     const themeSlug = slugify(theme);
 
@@ -63,6 +80,13 @@ export class AnnouncementBar {
                 height={left_image.dimensions.height / 2}
                 alt={left_image.alt}
               />
+            )}
+            {!left_image.url && (
+              <h1>
+                Ionic Meetup
+                <br />
+                #19 Tokyo
+              </h1>
             )}
             <PrismicRichText richText={text} />
             <button>

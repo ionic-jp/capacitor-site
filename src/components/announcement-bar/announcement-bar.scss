@@ -112,3 +112,30 @@ button {
     letter-spacing: 0.08rem;
   }
 }
+
+:host(.ui-announcement-bar--ioniconf-2022) {
+  background: #c04848; /* fallback for old browsers */
+  background: linear-gradient(
+    to right,
+    #480048,
+    #b71c1c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  h1 {
+    color: #ffffff !important;
+    padding: 0;
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.5rem;
+    text-align: right;
+  }
+  button {
+    background-color: #ffeb3b;
+    border-radius: 0;
+    :hover {
+      background-color: #fdd835;
+    }
+    :active {
+      background-color: #fdd835;
+    }
+  }
+}
