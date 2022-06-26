@@ -34,14 +34,14 @@ export class AnnouncementBar {
       left_image,
     } = Object.assign({
       link: {
-        url: 'https://ionic-jp.connpass.com/event/249548/',
+        url: 'https://ionic-jp.connpass.com/event/251256/',
       },
       button_text: '参加登録',
       button_arrow: true,
       text: [
         {
           spans: [],
-          text: '6名限定のハンズオンイベント。2022/06/19(日)、札幌開催。',
+          text: '新宿駅徒歩圏内の好立地での開催。2022/07/09(土)、東京開催。',
           type: 'paragraph',
         },
       ],
@@ -85,7 +85,7 @@ export class AnnouncementBar {
               <h1>
                 Ionic Meetup
                 <br />
-                #20 札幌
+                #22 Tokyo
               </h1>
             )}
             <PrismicRichText richText={text} />
