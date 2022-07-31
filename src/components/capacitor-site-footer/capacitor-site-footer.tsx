@@ -101,7 +101,7 @@ export class CapacitorSiteFooter {
                       </li>
                       <li>
                         <a class="ui-paragraph-4" href="/docs/apis">
-                          プラグイン
+                          Plugins
                         </a>
                       </li>
                     </ul>
@@ -111,7 +111,7 @@ export class CapacitorSiteFooter {
                     <ul class="routes">
                       <li>
                         <a class="ui-paragraph-4" href="/community">
-                          コミュニティ
+                          Community
                         </a>
                       </li>
                       <li>

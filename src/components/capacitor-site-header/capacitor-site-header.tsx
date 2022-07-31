@@ -173,7 +173,7 @@ export class SiteHeader implements ComponentInterface {
               'active': template === 'plugins',
             }}
           >
-            プラグイン
+            Plugins
           </a>
           <a
             {...href(docsVersionHref('/docs/cli'))}
@@ -224,7 +224,7 @@ export class SiteHeader implements ComponentInterface {
               class="ui-paragraph-4"
               ref={el => (this.links.community = el)}
             >
-              コミュニティ
+              Community
             </a>
             <a
               {...href('/blog')}
