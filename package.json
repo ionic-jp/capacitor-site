@@ -16,7 +16,7 @@
     "prettier": "prettier \"{src,pages}/**/*.{css,scss,html,ts,tsx,md}\"",
     "test": "stencil test --spec",
     "test.watch": "stencil test --spec --watch",
-    "netlify": "echo '/* /index.html 200\n/docs/ /docs 200\n/community/ /community 200' >> www/_redirects"
+    "netlify": "echo '/* /index.html 200\n/docs/ /docs 200' >> www/_redirects"
   },
   "husky": {
     "hooks": {
