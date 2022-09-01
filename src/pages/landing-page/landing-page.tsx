@@ -10,9 +10,7 @@ import {
   PrismicResponsiveImage,
   Paragraph,
 } from '@ionic-internal/ionic-ds';
-import { href } from '@stencil/router';
-
-import { Background } from './assets/bg-maps-promo';
+import { href } from '@utils/common';
 
 @Component({
   tag: 'landing-page',
@@ -58,50 +56,52 @@ export class LandingPage {
   }
 
   Top = () => {
+    const { Announcement } = this;
+    const { top, top__ctas, top__link, top__hero, top__icons } = this.data;
+    const { primary, secondary } = top__ctas[0];
+
     return (
       <section id="top">
-        <img
-          class="bg-map"
-          src="/assets/img/landing/bg-maps-promo.png"
-          width="828"
-          height="894"
-          alt="map on phone"
-        />
-        <Background />
+        <div class="background"></div>
         <ResponsiveContainer>
-          <header>
-            <div class="overline">Capacitor × Google Maps</div>
-            <Heading poster={true} level={1}>
-              アプリに地図を入れよう
-            </Heading>
-            <Paragraph level={2}>
-              Googleマップをすべてのアプリケーションに統合します。
-              最新の公式Capacitorプラグイン。
-            </Paragraph>
-            <div class="cta-row">
+          <div class="heading-group">
+            <Announcement />
+            <PrismicRichText richText={top} paragraphLevel={2} />
+            <div class="buttons">
               <Button
-                anchor={true}
-                href="https://capacitorjs.com/docs/apis/google-maps"
-                class="primary"
                 kind="round"
+                anchor
+                {...href('/docs/getting-started')}
+                class="primary"
               >
-                今からはじめる
-                <span style={{ letterSpacing: '0px' }}> -&gt;</span>
+                {primary} <span class="arrow"> -&gt;</span>
               </Button>
               <Button
-                anchor={true}
-                href="https://ionicframework.com/blog/announcing-the-capacitor-google-maps-plugin/"
-                target="_blank"
-                rel="noopener"
-                class="secondary"
                 kind="round"
-                color="indigo"
+                variation="light"
+                anchor
+                {...href('docs/plugins')}
+                class="secondary"
               >
-                ブログの投稿を読む
-                <span style={{ letterSpacing: '0px' }}> -&gt;</span>
+                {secondary}
               </Button>
             </div>
-          </header>
+            <a class="link | ui-paragraph-4" {...href('/cordova')}>
+              {top__link}
+              <span class="arrow"> -&gt;</span>
+            </a>
+            <PrismicResponsiveImage
+              loading="eager"
+              image={top__icons}
+              params={{
+                w: '91',
+                h: '16',
+              }}
+            />
+          </div>
+          <div class="image-wrapper">
+            <PrismicResponsiveImage loading="eager" image={top__hero} />
+          </div>
         </ResponsiveContainer>
       </section>
     );
