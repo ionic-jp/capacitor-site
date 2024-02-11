@@ -15,9 +15,6 @@ export namespace Components {
     interface AnchorLink {
         "to": string;
     }
-    interface AnnouncementBar {
-        "prismicData": any;
-    }
     interface AppMenuToggle {
         "icon": string;
     }
@@ -60,8 +57,6 @@ export namespace Components {
     interface CapacitorSite {
     }
     interface CapacitorSiteFooter {
-    }
-    interface CapacitorSitePlatformBar {
     }
     interface CodeSnippet {
         "code": string;
@@ -166,12 +161,6 @@ declare global {
         prototype: HTMLAnchorLinkElement;
         new (): HTMLAnchorLinkElement;
     };
-    interface HTMLAnnouncementBarElement extends Components.AnnouncementBar, HTMLStencilElement {
-    }
-    var HTMLAnnouncementBarElement: {
-        prototype: HTMLAnnouncementBarElement;
-        new (): HTMLAnnouncementBarElement;
-    };
     interface HTMLAppMenuToggleElement extends Components.AppMenuToggle, HTMLStencilElement {
     }
     var HTMLAppMenuToggleElement: {
@@ -249,12 +238,6 @@ declare global {
     var HTMLCapacitorSiteFooterElement: {
         prototype: HTMLCapacitorSiteFooterElement;
         new (): HTMLCapacitorSiteFooterElement;
-    };
-    interface HTMLCapacitorSitePlatformBarElement extends Components.CapacitorSitePlatformBar, HTMLStencilElement {
-    }
-    var HTMLCapacitorSitePlatformBarElement: {
-        prototype: HTMLCapacitorSitePlatformBarElement;
-        new (): HTMLCapacitorSitePlatformBarElement;
     };
     interface HTMLCodeSnippetElement extends Components.CodeSnippet, HTMLStencilElement {
     }
@@ -408,7 +391,6 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "anchor-link": HTMLAnchorLinkElement;
-        "announcement-bar": HTMLAnnouncementBarElement;
         "app-menu-toggle": HTMLAppMenuToggleElement;
         "avc-code-type": HTMLAvcCodeTypeElement;
         "blog-forum-link": HTMLBlogForumLinkElement;
@@ -422,7 +404,6 @@ declare global {
         "capacitor-hubspot-form": HTMLCapacitorHubspotFormElement;
         "capacitor-site": HTMLCapacitorSiteElement;
         "capacitor-site-footer": HTMLCapacitorSiteFooterElement;
-        "capacitor-site-platform-bar": HTMLCapacitorSitePlatformBarElement;
         "code-snippet": HTMLCodeSnippetElement;
         "code-tabs": HTMLCodeTabsElement;
         "community-page": HTMLCommunityPageElement;
@@ -453,9 +434,6 @@ declare global {
 declare namespace LocalJSX {
     interface AnchorLink {
         "to"?: string;
-    }
-    interface AnnouncementBar {
-        "prismicData"?: any;
     }
     interface AppMenuToggle {
         "icon"?: string;
@@ -501,8 +479,6 @@ declare namespace LocalJSX {
     interface CapacitorSite {
     }
     interface CapacitorSiteFooter {
-    }
-    interface CapacitorSitePlatformBar {
     }
     interface CodeSnippet {
         "code": string;
@@ -598,7 +574,6 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "anchor-link": AnchorLink;
-        "announcement-bar": AnnouncementBar;
         "app-menu-toggle": AppMenuToggle;
         "avc-code-type": AvcCodeType;
         "blog-forum-link": BlogForumLink;
@@ -612,7 +587,6 @@ declare namespace LocalJSX {
         "capacitor-hubspot-form": CapacitorHubspotForm;
         "capacitor-site": CapacitorSite;
         "capacitor-site-footer": CapacitorSiteFooter;
-        "capacitor-site-platform-bar": CapacitorSitePlatformBar;
         "code-snippet": CodeSnippet;
         "code-tabs": CodeTabs;
         "community-page": CommunityPage;
@@ -645,7 +619,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "anchor-link": LocalJSX.AnchorLink & JSXBase.HTMLAttributes<HTMLAnchorLinkElement>;
-            "announcement-bar": LocalJSX.AnnouncementBar & JSXBase.HTMLAttributes<HTMLAnnouncementBarElement>;
             "app-menu-toggle": LocalJSX.AppMenuToggle & JSXBase.HTMLAttributes<HTMLAppMenuToggleElement>;
             "avc-code-type": LocalJSX.AvcCodeType & JSXBase.HTMLAttributes<HTMLAvcCodeTypeElement>;
             "blog-forum-link": LocalJSX.BlogForumLink & JSXBase.HTMLAttributes<HTMLBlogForumLinkElement>;
@@ -659,7 +632,6 @@ declare module "@stencil/core" {
             "capacitor-hubspot-form": LocalJSX.CapacitorHubspotForm & JSXBase.HTMLAttributes<HTMLCapacitorHubspotFormElement>;
             "capacitor-site": LocalJSX.CapacitorSite & JSXBase.HTMLAttributes<HTMLCapacitorSiteElement>;
             "capacitor-site-footer": LocalJSX.CapacitorSiteFooter & JSXBase.HTMLAttributes<HTMLCapacitorSiteFooterElement>;
-            "capacitor-site-platform-bar": LocalJSX.CapacitorSitePlatformBar & JSXBase.HTMLAttributes<HTMLCapacitorSitePlatformBarElement>;
             "code-snippet": LocalJSX.CodeSnippet & JSXBase.HTMLAttributes<HTMLCodeSnippetElement>;
             "code-tabs": LocalJSX.CodeTabs & JSXBase.HTMLAttributes<HTMLCodeTabsElement>;
             "community-page": LocalJSX.CommunityPage & JSXBase.HTMLAttributes<HTMLCommunityPageElement>;
