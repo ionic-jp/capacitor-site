@@ -1,0 +1,1 @@
+import{r,h as s}from"./p-db2aa20e.js";import"./p-12b41941.js";import{T as t}from"./p-cbbea456.js";const e=class{constructor(s){r(this,s),this.type="base"}render(){return s(t,Object.assign({},this),s("slot",null))}};export{e as ui_theme_provider}

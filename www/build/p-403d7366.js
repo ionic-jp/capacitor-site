@@ -1,0 +1,1 @@
+import{h as s}from"./p-db2aa20e.js";import{a as t}from"./p-12b41941.js";const a=(a,o)=>s("p",Object.assign({},t(a,{class:"ui-text"})),o);export{a as T}

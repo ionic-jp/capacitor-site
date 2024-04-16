@@ -1,0 +1,1 @@
+import{h as o}from"./p-db2aa20e.js";const p=({open:p=!1},n)=>p?o("ul",{class:"ui-dropdown"+(p?" ui-dropdown--open":"")},n):null;export{p as D}

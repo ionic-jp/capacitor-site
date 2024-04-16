@@ -1,0 +1,1 @@
+import{r,h as s}from"./p-db2aa20e.js";import{D as t}from"./p-2f2cb464.js";const o=class{constructor(s){r(this,s),this.open=!1}render(){return s(t,Object.assign({},this),s("slot",null))}};export{o as ui_dropdown}

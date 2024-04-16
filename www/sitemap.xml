@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://capacitorjs.jp/</loc></url>
+<url><loc>https://capacitorjs.jp/blog</loc></url>
+<url><loc>https://capacitorjs.jp/community</loc></url>
+<url><loc>https://capacitorjs.jp/cordova</loc></url>
+<url><loc>https://capacitorjs.jp/enterprise</loc></url>
+<url><loc>https://capacitorjs.jp/blog/announcing-capacitor-1-0</loc></url>
+<url><loc>https://capacitorjs.jp/blog/announcing-capacitor-2-0</loc></url>
+<url><loc>https://capacitorjs.jp/blog/announcing-capacitor-3-0-beta</loc></url>
+<url><loc>https://capacitorjs.jp/blog/announcing-capacitor-3-0-rc</loc></url>
+<url><loc>https://capacitorjs.jp/blog/bypassing-cors-with-the-http-plugin</loc></url>
+<url><loc>https://capacitorjs.jp/blog/community-adoption-of-capacitor</loc></url>
+<url><loc>https://capacitorjs.jp/blog/how-capacitor-works</loc></url>
+<url><loc>https://capacitorjs.jp/blog/integrating-capacitorjs-plugins-with-nuxtjs</loc></url>
+<url><loc>https://capacitorjs.jp/blog/ioniconf-announcements</loc></url>
+<url><loc>https://capacitorjs.jp/blog/mobile-apps-with-tailwind-css-nextjs-ionic-and-capacitor</loc></url>
+<url><loc>https://capacitorjs.jp/blog/native-react-apps-without-react-native</loc></url>
+<url><loc>https://capacitorjs.jp/blog/security-advisory-cve-2020-6506</loc></url>
+<url><loc>https://capacitorjs.jp/blog/turn-your-angular-app-native</loc></url>
+<url><loc>https://capacitorjs.jp/solution/angular</loc></url>
+<url><loc>https://capacitorjs.jp/solution/react</loc></url>
+<url><loc>https://capacitorjs.jp/solution/stencil</loc></url>
+<url><loc>https://capacitorjs.jp/solution/svelte</loc></url>
+<url><loc>https://capacitorjs.jp/solution/vue</loc></url>
+</urlset>

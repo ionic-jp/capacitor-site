@@ -1,0 +1,1 @@
+import{r as s,h as r}from"./p-db2aa20e.js";import"./p-12b41941.js";import{R as t}from"./p-71ed7e1f.js";const o=class{constructor(r){s(this,r),this.as="div"}render(){return r(t,{as:this.as},r("slot",null))}};export{o as ui_responsive_container}

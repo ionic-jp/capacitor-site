@@ -1,0 +1,1 @@
+import{r as s,h as r}from"./p-db2aa20e.js";import"./p-12b41941.js";import{B as t}from"./p-a78e2f5e.js";import{g as o}from"./p-362fb144.js";const p=class{constructor(r){s(this,r),this.display="block"}render(){return r(t,Object.assign({},o(["xs","sm","md","lg","xl","display"],this)),r("slot",null))}};p.style="breakpoint.scss";export{p as ui_breakpoint}

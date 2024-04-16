@@ -1,0 +1,1 @@
+function g(g){return g?g.toString().toLowerCase().replace(/\s+/g,"-").replace(/\.+/g,"-").replace(/[^\w\-]+/g,"").replace(/\-\-+/g,"-").replace(/^-+/,"").replace(/-+$/,""):""}export{g as s}

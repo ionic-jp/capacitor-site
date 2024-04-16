@@ -1,0 +1,1 @@
+const o=(o,t)=>{t||(t=void 0);const n={};return o.forEach((o=>{void 0!==t[o]&&(n[o]=t[o])})),n};export{o as g}

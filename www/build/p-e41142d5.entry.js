@@ -1,0 +1,1 @@
+import{r as s,h as r}from"./p-db2aa20e.js";const t=class{constructor(r){s(this,r)}render(){return r("div",{class:"snippet"})}};export{t as doc_snippet}

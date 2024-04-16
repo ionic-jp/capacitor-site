@@ -1,0 +1,1 @@
+import{r as o,h as n}from"./p-db2aa20e.js";const t=class{constructor(n){o(this,n)}render(){return this.typeId?n("anchor-link",{to:"type-"+this.typeId},n("slot",null)):n("slot",null)}};t.style=":host {\n    color: #5EB6FC;\n    display: inline-block;\n    color: $link-color;\n    font-weight: 500;\n  }";export{t as avc_code_type}

@@ -1,0 +1,1 @@
+import{r,h as s}from"./p-db2aa20e.js";import"./p-12b41941.js";import{B as o}from"./p-96d0993f.js";const t=class{constructor(s){r(this,s)}render(){return s(o,null,s("slot",null))}};export{t as ui_breadcrumbs}

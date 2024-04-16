@@ -1,0 +1,1 @@
+const e=[],s=[],r=new IntersectionObserver(((r,o)=>{r.forEach((e=>{e.intersectionRatio>0?s.indexOf(e.target)<0&&s.push(e.target):s.splice(s.indexOf(e.target),1)})),e.forEach((e=>e({entries:r,observer:o,visible:s})))}),{threshold:[0,1]}),o=s=>e.push(s),t=e=>e&&r.observe(e);export{o as a,t as o}

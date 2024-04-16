@@ -1,0 +1,1 @@
+import{r,h as s}from"./p-db2aa20e.js";import"./p-12b41941.js";import{S as o}from"./p-19497af7.js";const t=class{constructor(s){r(this,s)}render(){return s(o,null,s("slot",null))}};export{t as ui_skeleton}

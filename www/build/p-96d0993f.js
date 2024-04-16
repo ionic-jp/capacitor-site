@@ -1,0 +1,1 @@
+import{h as s}from"./p-db2aa20e.js";import{a}from"./p-12b41941.js";const r=(r,o)=>s("ul",Object.assign({},a(r,{class:"ui-breadcrumbs"})),o);export{r as B}
